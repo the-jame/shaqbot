@@ -81,7 +81,7 @@ client.on("message", async message => {
     return;
   }
 
-  /* if (command === "rps"){
+   if (command === "rps"){
 
     sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
       if (!row) return message.reply("sadly you do not have any points yet, use pp!daily");
@@ -161,7 +161,7 @@ client.on("message", async message => {
     winAmount = 0;
     return;
 
-  } */
+  }
 
   if (command === "daily" || command === "d") {
     sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
