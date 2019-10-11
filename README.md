@@ -9,8 +9,9 @@
 ## Instructions
 	to run: open working directory
 		node app.js
+		(dependencies included)
 	
-	to use: pp![command]
+	to use: =[command]
 
 
 ## Complete
@@ -25,6 +26,7 @@ howdy
 
 ## Notes
 
+Current NPM settings are set up for Linux runtime.
 
 Ideas for functions:
 
