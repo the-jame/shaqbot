@@ -92,7 +92,7 @@ client.on("message", async message => {
 	       var args = Array.prototype.slice.call(arguments);}
 
       var availPoints = row.points;
-      var betAmount = Math.floor(args[0]);
+      var betAmount = Math.floor(args[1]);
 
       if (betAmount > 500)
         betAmount = 500;
@@ -104,7 +104,7 @@ client.on("message", async message => {
 
       if (betAmount > availPoints){message.reply('you can not bet more than you have.');return;}
 
-      var userChoice = args[1];
+      var userChoice = args[0];
       var winAmount = 0;
 
       if (userChoice.toUpperCase() === 'ROCK') {
@@ -420,7 +420,7 @@ client.on("message", async message => {
           message.reply(`Result: ${random}. You earned ${changeAmount} points! New total = ${row.points + changeAmount}`);
       }
 
-      else if ((isNan(betCall)) || betCall > 36 || betCall <1){message.reply(`invalid input.`);return;}
+      else if ((isNaN(betCall)) || betCall > 36 || betCall <1){message.reply(`invalid input.`);return;}
 
         // L O S E R
       else {
