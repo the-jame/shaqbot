@@ -58,8 +58,6 @@ client.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  
-  const serverQueue = queue.get(message.guild.id);
 
   sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
     if (!row) {
@@ -93,7 +91,7 @@ client.music.start(client, {
   ownerOverMember: true,
   ownerID: "95702308515487744",
   
-  botPrefix: "=";
+  botPrefix: "=",
 
   // The cooldown Object.
   cooldown: {
@@ -102,23 +100,23 @@ client.music.start(client, {
   }
 });
 
-	<Music>.playFunction();   // PLAY command.
-	<Music>.helpFunction();   // HELP command.
-	<Music>.queueFunction();  // QUEUE command.
-	<Music>.npFunction();     // NOWPLAYING command.
-	<Music>.loopFunction();   // LOOP command.
-	<Music>.skipFunction();   // SKIP command.
-	<Music>.pauseFunction();  // PAUSE command.
-	<Music>.resumeFunction(); // RESUME command.
-	<Music>.clearFunction();  // CLEARQUEUE command.
-	<Music>.leaveFunction();  // LEAVE command.
-	<Music>.searchFunction(); // SEARCH command.
-	<Music>.volumeFunction(); // VOLUME command.
-	<Music>.removeFunction(); // REMOVE command.
+//	<Music>.playFunction();   // PLAY command.
+//	<Music>.helpFunction();   // HELP command.
+//	<Music>.queueFunction();  // QUEUE command.
+//	<Music>.npFunction();     // NOWPLAYING command.
+//	<Music>.loopFunction();   // LOOP command.
+//	<Music>.skipFunction();   // SKIP command.
+//	<Music>.pauseFunction();  // PAUSE command.
+//	<Music>.resumeFunction(); // RESUME command.
+//	<Music>.clearFunction();  // CLEARQUEUE command.
+//	<Music>.leaveFunction();  // LEAVE command.
+//	<Music>.searchFunction(); // SEARCH command.
+//	<Music>.volumeFunction(); // VOLUME command.
+//	<Music>.removeFunction(); // REMOVE command.
 	
-  if(command === "play"){
-	  client.music.bot.playFunction(msg, args);
-  }
+//  if(command === "play"){
+//	  client.music.bot.playFunction(message, args);
+// }
 	
 	
 
