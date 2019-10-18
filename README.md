@@ -31,3 +31,6 @@ Current NPM settings are set up for Linux runtime.
 Ideas for functions:
 
 	Possibility of more daily credits per level based on activity?
+	
+## Youtube API
+AIzaSyCWvA-tibA-PxEyktKludNxm8QuNWzKlL4
