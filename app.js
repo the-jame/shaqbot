@@ -24,7 +24,7 @@ function isOdd(num) { return num % 2;};
 
 client.on('ready', () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
-
+  client.channels.get('95702402253983744').send('**SHAQTIVATION COMPLETE**');
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
 	client.music.start(client, {
   // Set the api key used for YouTube!
