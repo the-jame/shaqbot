@@ -102,6 +102,25 @@ client.music.start(client, {
   }
 });
 
+	<Music>.playFunction();   // PLAY command.
+	<Music>.helpFunction();   // HELP command.
+	<Music>.queueFunction();  // QUEUE command.
+	<Music>.npFunction();     // NOWPLAYING command.
+	<Music>.loopFunction();   // LOOP command.
+	<Music>.skipFunction();   // SKIP command.
+	<Music>.pauseFunction();  // PAUSE command.
+	<Music>.resumeFunction(); // RESUME command.
+	<Music>.clearFunction();  // CLEARQUEUE command.
+	<Music>.leaveFunction();  // LEAVE command.
+	<Music>.searchFunction(); // SEARCH command.
+	<Music>.volumeFunction(); // VOLUME command.
+	<Music>.removeFunction(); // REMOVE command.
+	
+  if(command === "play"){
+	  client.music.bot.playFunction(msg, args);
+  }
+	
+	
 
   if(command === "say") {
     const sayMessage = args.join(" ");
