@@ -4,9 +4,9 @@ const client = new Discord.Client();
 
 const config = require("./config.json");
 const sql = require("sqlite");
-const ytdl = require('ytdl-core');
-const queue = new Map();
 sql.open("./scores.sqlite");
+client.music = require("discord.js-musicbot-addon");
+
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
 
@@ -72,99 +72,36 @@ client.on("message", async message => {
       sql.run("INSERT INTO scores (userId, points, day, hour, lifetime, multi) VALUES (?, ?, ?, ?, ?, ?)", [message.author.id, 0, 0, 0, 0, 1]);
     });
   });
-
-async function execute(message, serverQueue){
-	const args = message.content.split(' ');
-	const voiceChannel = message.member.voiceChannel;
-
-	if(!voiceChannel) return message.channel.send('You need to be in a voice channel.');
-	const permissions = voiceChannel.permissionsFor(message.client.user);
-	if(!permissions.has('CONNECT') || !permissions.has('SPEAK')){
-	   return message.channel.send('I need permissions to speak and join your channel.');
-	   }
-
-	const songInfo = await ytdl.getInfo(args[1]);
-	const song = {
-		title: songInfo.title,
-		url: songInfo.video_url,
-		};
 	
-	if (!serverQueue){
-		const queueConstruct = {
-			textChannel: message.channel,
-			voiceChannel: voiceChannel,
-			connection: null,
-			songs: [],
-			volume: 5,
-			playing: true,
-		};
+client.music.start(client, {
+  // Set the api key used for YouTube.
+  youtubeKey: "AIzaSyCWvA-tibA-PxEyktKludNxm8QuNWzKlL4",
 
-		queue.set(message.guild.id, queueConstruct);
-		queueConstruct.songs.push(song);
+  // The PLAY command Object.
+  play: {
+    // Usage text for the help command.
+    usage: "{{prefix}}play some tunes",
+    // Whether or not to exclude the command from the help command.
+    exclude: false  
+  },
 
-		try {
-			var connection = await voiceChannel.join();
-			queueConstruct.connection = connection;
-			play(message.guild, queueConstruct.songs[0]);
-		} catch (err) {
-			console.log(err);
-			queue.delete(message.guild.id);
-			return message.channel.send(err);
-			}
-		} else {
-			serverQueue.songs.push(song);
-			console.log(serverQueue.songs);
-			return message.channel.send('${song.title} has been added to the queue!');
-		}
+  // Make it so anyone in the voice channel can skip the
+  // currently playing song.
+  anyoneCanSkip: true,
 
-	}
+  // Make it so the owner (you) bypass permissions for music.
+  ownerOverMember: true,
+  ownerID: "95702308515487744",
+  
+  botPrefix: "=";
 
-  function skip(message, serverQueue) {
-	if (!message.member.voiceChannel) return message.channel.send ('You have to be in a voice channel.');
-	if (!serverQueue) return message.channel.send('There is no song to skip!');
-	serverQueue.connection.dispatcher.end();
-
+  // The cooldown Object.
+  cooldown: {
+    // This disables the cooldown. Not recommended.
+    enabled: false
   }
+});
 
-  function stop(message, serverQueue) {
-	if (!message.member.voiceChannel) return message.channel.send('You have to be in a voice channel to stop.');
-	serverQueue.songs = [];
-	serverQueue.connection.dispatcher.end();
-  }
-
-  function play(guild, song) {
-	const serverQueue = queue.get(guild.id);
-
-	if (!song) {
-		serverQueue.voiceChannel.leave();
-		queue.delete(guild.id);
-		return;
-	}
-
-	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
-		.on('end', () => {
-			console.log('Music ended.');
-			serverQueue.songs.shift();
-			play(guild, serverQueue.songs[0]);
-		})
-		.on('error', error => {
-			console.error(error);
-		});
-	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
-  }
-
-  if(command === "play"){
-	execute(message, serverQueue);
-	return;
-	}
-  if(command === "skip"){
-	skip(message, serverQueue);
-	return;
-	}
-  if(command === "stop"){
-	stop(message, serverQueue);
-	return;	
-	}
 
   if(command === "say") {
     const sayMessage = args.join(" ");
