@@ -27,7 +27,7 @@ client.on('ready', () => {
 
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
 	client.music.start(client, {
-  // Set the api key used for YouTube.
+  // Set the api key used for YouTube!
   youtubeKey: "AIzaSyCWvA-tibA-PxEyktKludNxm8QuNWzKlL4",
 
   // The PLAY command Object.
