@@ -26,6 +26,34 @@ client.on('ready', () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
 
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
+	client.music.start(client, {
+  // Set the api key used for YouTube.
+  youtubeKey: "AIzaSyCWvA-tibA-PxEyktKludNxm8QuNWzKlL4",
+
+  // The PLAY command Object.
+  play: {
+    // Usage text for the help command.
+    usage: "{{prefix}}play some tunes",
+    // Whether or not to exclude the command from the help command.
+    exclude: false  
+  },
+
+  // Make it so anyone in the voice channel can skip the
+  // currently playing song.
+  anyoneCanSkip: true,
+
+  // Make it so the owner (you) bypass permissions for music.
+  ownerOverMember: true,
+  ownerID: "95702308515487744",
+  
+  botPrefix: "=",
+
+  // The cooldown Object.
+  cooldown: {
+    // This disables the cooldown. Not recommended.
+    enabled: false
+  }
+});
 })
 
 client.on("guildCreate", guild => {
@@ -70,35 +98,6 @@ client.on("message", async message => {
       sql.run("INSERT INTO scores (userId, points, day, hour, lifetime, multi) VALUES (?, ?, ?, ?, ?, ?)", [message.author.id, 0, 0, 0, 0, 1]);
     });
   });
-	
-client.music.start(client, {
-  // Set the api key used for YouTube.
-  youtubeKey: "AIzaSyCWvA-tibA-PxEyktKludNxm8QuNWzKlL4",
-
-  // The PLAY command Object.
-  play: {
-    // Usage text for the help command.
-    usage: "{{prefix}}play some tunes",
-    // Whether or not to exclude the command from the help command.
-    exclude: false  
-  },
-
-  // Make it so anyone in the voice channel can skip the
-  // currently playing song.
-  anyoneCanSkip: true,
-
-  // Make it so the owner (you) bypass permissions for music.
-  ownerOverMember: true,
-  ownerID: "95702308515487744",
-  
-  botPrefix: "=",
-
-  // The cooldown Object.
-  cooldown: {
-    // This disables the cooldown. Not recommended.
-    enabled: false
-  }
-});
 
 //	<Music>.playFunction();   // PLAY command.
 //	<Music>.helpFunction();   // HELP command.
