@@ -127,6 +127,9 @@ client.on("message", async message => {
     return;
   }
 
+  if(command === "breasts") {
+	message.channel.send({files: ["img/br.jpg"]});
+  }
 
 
    if (command === "rps"){
@@ -509,8 +512,8 @@ client.on("message", async message => {
     "husky", "big and tall", "fine", "sizeable", "beach ball", ":chart_with_upwards_trend:", ":chart_with_downwards_trend:", ":bar_chart:", "meager", "lacking quality"];
 	    
     var num = Math.floor((Math.random() * (ballsizes.length - 1)));
-     // message.channel.send("Your ball size is " + ballsizes[num] + ".", {tts: false});
-	message.channel.send("Your ball size is " + ballsizes[num] + ".");
+     	message.channel.send("Your ball size is " + ballsizes[num] + ".", {tts: true});
+	//message.channel.send("Your ball size is " + ballsizes[num] + ".");
      sql.run(`UPDATE scores SET lifetime = ${row.lifetime + 5} WHERE userId = ${message.author.id}`);
     })
     return;
