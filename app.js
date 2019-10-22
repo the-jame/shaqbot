@@ -127,6 +127,12 @@ client.on("message", async message => {
     return;
   }
 
+// INVITE LINK??
+  if(command === "invite" || command === "inv") {
+	message.channel.send("Clicc: <http://inv.whoinventedbeans.wtf>"); }
+
+// MEME RESPONSES
+
   if(command === "breasts") {
 	message.channel.send({files: ["img/kingofbreasts.jpg"]});
   }
@@ -143,6 +149,13 @@ client.on("message", async message => {
 	message.channel.send({files: ["img/blacked.png"]});
   }
 
+  if(command === "burritomug" || command === "burrito") {
+	message.channel.send({files: ["img/burritomug.png"]});
+  }
+
+  if(command === "yallmindifi" || command === "praisethelord") {
+	message.channel.send({files: ["img/praisethelord.gif"]});
+  }
 
    if (command === "rps"){
 
