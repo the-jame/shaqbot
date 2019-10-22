@@ -128,7 +128,19 @@ client.on("message", async message => {
   }
 
   if(command === "breasts") {
-	message.channel.send({files: ["img/br.jpg"]});
+	message.channel.send({files: ["img/kingofbreasts.jpg"]});
+  }
+  
+  if(command === "shaq") {
+	message.channel.send({files: ["img/isthatshaq.png"]});
+  }
+
+  if(command === "beans") {
+	message.channel.send({files: ["img/inventedbeans.png"]});
+  }
+
+  if(command === "blacked") {
+	message.channel.send({files: ["img/blacked.png"]});
   }
 
 
