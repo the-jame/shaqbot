@@ -135,7 +135,7 @@ client.on("message", async message => {
 // MEME HELP
 
   if(command === "memes") {
-	message.channel.send("> Meme responses:\nCorn!\nBreasts - King of Breasts\nShaq - Is that Shaq?\nBeans - Who invented beans??\nBlacked - Blacked RAW on Xmas day\nBurrito[mug] - Put Your Burrito In A Mug\nYallmindifi - praise the lord?\n Quean - BEAN QUEAN\nThinkin - About Thos Beans\nConsequences - There. Will. Be. CONSEQUENCES!\nKilled - This action will kill you immediately.");
+	message.channel.send("> Meme responses:\nCorn!\nBreasts - King of Breasts\nShaq - Is that Shaq?\nBeans - Who invented beans??\nBlacked - Blacked RAW on Xmas day\nBurrito[mug] - Put Your Burrito In A Mug\nYallmindifi - praise the lord?\nQuean - BEAN QUEAN\nThinkin - About Thos Beans\nConsequences - There. Will. Be. CONSEQUENCES!\nKilled - This action will kill you immediately.");
   }
 
 
