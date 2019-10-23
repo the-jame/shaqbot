@@ -135,7 +135,7 @@ client.on("message", async message => {
 // MEME HELP
 
   if(command === "memes") {
-	message.channel.send("> Meme responses:\nCorn!\nBreasts - King of Breasts\nShaq - Is that Shaq?\nBeans - Who invented beans??\nBlacked - Blacked RAW on Xmas day\nBurrito[mug] - Put Your Burrito In A Mug\nYallmindifi - praise the lord?\nQuean - BEAN QUEAN\nThinkin - About Thos Beans\nConsequences - There. Will. Be. CONSEQUENCES!\nKilled - This action will kill you immediately.");
+	message.channel.send("> Meme responses:\nCorn!\nBreasts - King of Breasts\nShaq - Is that Shaq?\nBeans - Who invented beans??\nBlacked - Blacked RAW on Xmas day\nBurrito[mug] - Put Your Burrito In A Mug\nYallmindifi - praise the lord?\nQuean - BEAN QUEAN\nThinkin - About Thos Beans\nConsequences - There. Will. Be. CONSEQUENCES!\nKilled - This action will kill you immediately.\nBoomer - STFU boomer.\nJoker - Dance\nSmoljoker - Smol joker.");
   }
 
 
@@ -150,7 +150,7 @@ client.on("message", async message => {
   if(command === "breasts") {
 	message.channel.send({files: ["img/kingofbreasts.jpg"]});
   }
-  
+
   if(command === "shaq") {
 	message.channel.send({files: ["img/isthatshaq.png"]});
   }
@@ -161,6 +161,14 @@ client.on("message", async message => {
 
   if(command === "blacked") {
 	message.channel.send({files: ["img/blacked.png"]});
+  }
+
+  if(command === "joker") {
+	message.channel.send({files: ["img/joker.jpg"]});
+  }
+
+  if(command === "smoljoker") {
+	message.channel.send({files: ["img/smoljoker.png"]});
   }
 
   if(command === "burritomug" || command === "burrito") {
@@ -185,6 +193,10 @@ client.on("message", async message => {
 
   if(command === "killed" || command === "immediately") {
 	message.channel.send({files: ["img/immediatelykillyou.png"]});
+  }
+
+  if(command === "boomer") {
+	message.channel.send({files: ["img/stfuboomer.jpg"]});
   }
 
 
