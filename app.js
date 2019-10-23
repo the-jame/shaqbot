@@ -19,7 +19,7 @@ function isInt(value) {
   return (x | 0) === x;
 }
 
-// win on red
+// check Odd function
 function isOdd(num) { return num % 2;};
 
 
