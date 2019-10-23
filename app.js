@@ -1,3 +1,4 @@
+
 const Discord = require("discord.js");
 
 const client = new Discord.Client();
@@ -131,7 +132,20 @@ client.on("message", async message => {
   if(command === "invite" || command === "inv") {
 	message.channel.send("Clicc: <http://inv.whoinventedbeans.wtf>"); }
 
-// MEME RESPONSES
+// MEME HELP
+
+  if(command === "memes") {
+	message.channel.send("> Meme responses:\nCorn!\nBreasts - King of Breasts\nShaq - Is that Shaq?\nBeans - Who invented beans??\nBlacked - Blacked RAW on Xmas day\nBurrito[mug] - Put Your Burrito In A Mug\nYallmindifi - praise the lord?\n Quean - BEAN QUEAN\nThinkin - About Thos Beans\nConsequences - There. Will. Be. CONSEQUENCES!\nKilled - This action will kill you immediately.");
+  }
+
+
+// MEME TEXT
+
+  if(command === "corn") {
+	message.channel.send("https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268"); }
+
+
+// MEME IMAGES
 
   if(command === "breasts") {
 	message.channel.send({files: ["img/kingofbreasts.jpg"]});
@@ -156,6 +170,26 @@ client.on("message", async message => {
   if(command === "yallmindifi" || command === "praisethelord") {
 	message.channel.send({files: ["img/praisethelord.gif"]});
   }
+
+  if(command === "quean") {
+	message.channel.send({files: ["img/quean.png"]});
+  }
+
+  if(command === "thinkin" || command === "thinkinaboutbeans") {
+	message.channel.send({files: ["img/thinkinaboutbeans.png"]});
+  }
+
+  if(command === "consequences") {
+	message.channel.send("https://youtu.be/FSt1ptsOjL0"); 
+  }
+
+  if(command === "killed" || command === "immediately") {
+	message.channel.send({files: ["img/immediatelykillyou.png"]});
+  }
+
+
+
+
 
    if (command === "rps"){
 
