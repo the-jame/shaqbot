@@ -5,6 +5,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const sql = require("sqlite");
 sql.open("./scores.sqlite");
+
 client.music = require("discord.js-musicbot-addon");
 
 // config.token contains the bot's token
