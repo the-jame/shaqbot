@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-
 const client = new Discord.Client();
 
 const config = require("./config.json");
@@ -200,6 +199,16 @@ client.on("message", async message => {
   }
 
 
+
+
+
+
+  if(command === "setrole") {
+	const newRole = args.join(" ");
+	const roleToChange = message.member.highestRole;
+	roleToChange.setName(newRole);
+	message.channel.send(`Role changed to ${newRole}.`);
+  }
 
 
 
