@@ -134,7 +134,7 @@ client.on("message", async message => {
 // MEME HELP
 
   if(command === "memes") {
-	message.channel.send("> Meme responses:\nCorn!\nBreasts - King of Breasts\nShaq - Is that Shaq?\nBeans - Who invented beans??\nBlacked - Blacked RAW on Xmas day\nBurrito[mug] - Put Your Burrito In A Mug\nYallmindifi - praise the lord?\nQuean - BEAN QUEAN\nThinkin - About Thos Beans\nConsequences - There. Will. Be. CONSEQUENCES!\nKilled - This action will kill you immediately.\nBoomer - STFU boomer.\nJoker - Dance\nSmoljoker - Smol joker.");
+	message.channel.send("> Meme responses:\nCorn!\nBreasts - King of Breasts\nShaq - Is that Shaq?\nBeans - Who invented beans??\nBlacked - Blacked RAW on Xmas day\nBurrito[mug] - Put Your Burrito In A Mug\nYallmindifi - praise the lord?\nQuean - BEAN QUEAN\nThinkin - About Thos Beans\nConsequences - There. Will. Be. CONSEQUENCES!\nKilled - This action will kill you immediately.\nBoomer - STFU boomer.\nJoker - Dance\nSmoljoker - Smol joker.\nDoubt - Doubt\nChicken - $5 Rotisserie Chicken Albertson's");
   }
 
 
@@ -148,6 +148,10 @@ client.on("message", async message => {
 
   if(command === "breasts") {
 	message.channel.send({files: ["img/kingofbreasts.jpg"]});
+  }
+
+  if(command === "chicken") {
+	message.channel.send({files: ["img/5chicken.png"]});
   }
 
   if(command === "shaq") {
@@ -188,6 +192,10 @@ client.on("message", async message => {
 
   if(command === "consequences") {
 	message.channel.send("https://youtu.be/FSt1ptsOjL0"); 
+  }
+
+  if(command === "doubt") {
+	message.channel.send({files: ["img/doubt.png"]});
   }
 
   if(command === "killed" || command === "immediately") {
