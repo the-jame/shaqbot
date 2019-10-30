@@ -578,8 +578,7 @@ client.on("message", async message => {
     return;
   }
 	
-	
-async run(reaction, user) {
+
     const message = reaction.message;
     if (reaction.emoji.name !== '⭐') return;
     if (message.author.id === user.id) return message.channel.send(`${user}, you cannot star your own messages.`);
@@ -624,10 +623,8 @@ async run(reaction, user) {
     const image = /(jpg|jpeg|png|gif)/gi.test(typeOfImage);
     if (!image) return '';
     return attachment;
-  }
-};	
+  };	
 	
-  async run(reaction, user) {
     const message = reaction.message;
     if (message.author.id === user.id) return;
     if (reaction.emoji.name !== '⭐') return;
@@ -661,7 +658,6 @@ async run(reaction, user) {
     if (!image) return '';
     return attachment;
   };
-};
 	
 	
 
