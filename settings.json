@@ -7,5 +7,6 @@
   "threshold": 3,
   "hexcolor": "f2ea00",
   "dateCutoff": 365,
-  "fetchLimit": 200
+  "fetchLimit": 200,
+  "YTAPI": "AIzaSyCWvA-tibA-PxEyktKludNxm8QuNWzKlL4"
 }
