@@ -1,0 +1,30 @@
+{
+  "name": "shaqbot",
+  "version": "1.4.0",
+  "description": "Bot for Who Invented Beans? server.",
+  "main": "app.js",
+  "dependencies": {
+    "bufferutil": "^4.0.1",
+    "discord.js": "^11.5.1",
+    "discord.js-musicbot-addon": "^13.8.1",
+    "node-fetch": "^2.6.0",
+    "node-opus": "^0.3.3",
+    "setimmediate": "^1.0.5",
+    "sqlite": "^3.0.3",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesphilippon/shaq-live.git"
+  },
+  "author": "James P, Jimmy B, Enrique A, Brett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesphilippon/shaq-live/issues"
+  },
+  "homepage": "https://github.com/jamesphilippon/shaq-live#readme"
+}
