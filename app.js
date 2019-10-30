@@ -651,7 +651,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (reaction.emoji.name !== '?') return;
     if (message.author.id === user.id) return message.channel.send(`${user}, you cannot star your own messages.`);
     if (message.author.bot) return message.channel.send(`${user}, you cannot star bot messages.`);
-    const { starboardChannel } = this.client.settings.get(message.guild.id);
     const starChannel = message.guild.channels.find(channel => channel.name === starboardChannel)
     if (!starChannel) return message.channel.send(`It appears that you do not have a \`${starboardChannel}\` channel.`); 
     const fetchedMessages = await starChannel.fetchMessages({ limit: 100 });
@@ -683,16 +682,8 @@ client.on('messageReactionAdd', async (reaction, user) => {
       await starChannel.send({ embed });
     }
   }
-
-  // Here we add the this.extension function to check if there's anything attached to the message.
-  extension(reaction, attachment) {
-    const imageLink = attachment.split('.');
-    const typeOfImage = imageLink[imageLink.length - 1];
-    const image = /(jpg|jpeg|png|gif)/gi.test(typeOfImage);
-    if (!image) return '';
-    return attachment;
-  }
-)};
+	  
+});
 
 client.on('messageReactionRemove', async (reaction, user) => {
  const message = reaction.message;
@@ -719,16 +710,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
       if(parseInt(star[1]) - 1 == 0) return starMsg.delete(1000);
     }
   }
-
-  // Now, it may seem weird that we use this in the messageReactionRemove event, but we still need to check if there's an image so that we can set it, if necessary.
-  extension(reaction, attachment) {
-    const imageLink = attachment.split('.');
-    const typeOfImage = imageLink[imageLink.length - 1];
-    const image = /(jpg|jpeg|png|gif)/gi.test(typeOfImage);
-    if (!image) return '';
-    return attachment;
-  };
-)};
+});
 
 
 client.login(config.token);
