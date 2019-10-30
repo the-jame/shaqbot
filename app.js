@@ -678,17 +678,17 @@ async function loadIntoMemory(client, guildID, channelID, limit) {
   }
 
   console.log(`${messagesLeft} messages left to load`)
-  var messages = await channel.messages.fetch({ limit: limit })
+  var messages = await message.channel.messages.fetch({ limit: limit })
 
   while (messagesLeft) {
     if (messagesLeft > 100) {
       messagesLeft = messagesLeft - 100
       console.log(`${messagesLeft} messages left to load`)
-      let moreMessages = await channel.messages.fetch({ limit: 100, before: messages.lastKey() })
+      let moreMessages = await message.channel.messages.fetch({ limit: 100, before: messages.lastKey() })
       messages = await messages.concat(moreMessages)
     } else {
       console.log(`${messagesLeft} messages left to load`)
-      let moreMessages = await channel.messages.fetch({ limit: messagesLeft, before: messages.lastKey() })
+      let moreMessages = await message.channel.messages.fetch({ limit: messagesLeft, before: messages.lastKey() })
       messages = await messages.concat(moreMessages)
       messagesLeft = 0
     }
@@ -771,8 +771,7 @@ client.on('messageReactionAdd', (reaction_orig, user) => {
       return;
     }
   }
-
-  msgChannel.messages.fetch(msg.id).then((msg) => {
+  message.msgChannel.messages.fetch(msg.id).then((msg) => {
 
     // if message is older than set amount
     let dateDiff = (new Date()) - reaction_orig.message.createdAt;
@@ -797,7 +796,7 @@ client.on('messageReactionAdd', (reaction_orig, user) => {
             const editableMessageID = messagePosted[msgID].psm;
             console.log(`updating count of message with ID ${editableMessageID}. reaction count: ${reaction.count}`);
             const messageFooter = `${reaction.count} ${tt} (${msgID})`
-            channel.messages.fetch(editableMessageID).then((message) => {
+            message.channel.messages.fetch(editableMessageID).then((message) => {
               message.embeds[0].setFooter(messageFooter)
               message.edit(message.embeds[0])
             });
