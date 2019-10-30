@@ -656,7 +656,7 @@ client.on("message", async message => {
 });
 
 board.on("ready", () => {
-  console.log(`Starboat has offically booted with no errors.`)
+  console.log(`Shaqboard has offically booted with no errors!`)
 });
 
 board.on('messageReactionAdd', async (message, emoji, user) => {
@@ -664,7 +664,7 @@ board.on('messageReactionAdd', async (message, emoji, user) => {
   if (message.channel.type !== 0 || emoji.name !== '⭐') return;
 
   const channel = board.getChannel(message.channel.id);
-  const starboard = channel.guild.channels.find(c => c.name.toLowerCase() === 'starboard');
+  const starboard = channel.guild.channels.find(c => c.name.toLowerCase() === 'shaqboard');
 
   if (channel.nsfw || !starboard || channel.id === starboard.id) return;
 
