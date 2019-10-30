@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
+const client = new Discord.Client({
+  partials: Object.values(Discord.Constants.PartialTypes),
+});
 const config = require("./config.json");
 const sql = require("sqlite");
 
@@ -678,17 +680,17 @@ async function loadIntoMemory(client, guildID, channelID, limit) {
   }
 
   console.log(`${messagesLeft} messages left to load`)
-  var messages = await message.channel.messages.fetch({ limit: limit })
+  var messages = await channel.messages.fetch({ limit: limit })
 
   while (messagesLeft) {
     if (messagesLeft > 100) {
       messagesLeft = messagesLeft - 100
       console.log(`${messagesLeft} messages left to load`)
-      let moreMessages = await message.channel.messages.fetch({ limit: 100, before: messages.lastKey() })
+      let moreMessages = await channel.messages.fetch({ limit: 100, before: messages.lastKey() })
       messages = await messages.concat(moreMessages)
     } else {
       console.log(`${messagesLeft} messages left to load`)
-      let moreMessages = await message.channel.messages.fetch({ limit: messagesLeft, before: messages.lastKey() })
+      let moreMessages = await channel.messages.fetch({ limit: messagesLeft, before: messages.lastKey() })
       messages = await messages.concat(moreMessages)
       messagesLeft = 0
     }
@@ -796,7 +798,7 @@ client.on('messageReactionAdd', (reaction_orig, user) => {
             const editableMessageID = messagePosted[msgID].psm;
             console.log(`updating count of message with ID ${editableMessageID}. reaction count: ${reaction.count}`);
             const messageFooter = `${reaction.count} ${tt} (${msgID})`
-            message.channel.messages.fetch(editableMessageID).then((message) => {
+            channel.messages.fetch(editableMessageID).then((message) => {
               message.embeds[0].setFooter(messageFooter)
               message.edit(message.embeds[0])
             });
