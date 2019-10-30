@@ -3,7 +3,6 @@ const client = new Discord.Client();
 const Eris = require('eris'); //
 const Database = require('better-sqlite3'); //
 const db = new Database('star.db'); //
-
 const config = require("./config.json");
 const sql = require("sqlite");
 
