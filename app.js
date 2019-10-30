@@ -681,7 +681,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         .setFooter(`? 1 | ${message.id}`)
         .setImage(image);
       await starChannel.send({ embed });
-    })
+    }
   }
 
   // Here we add the this.extension function to check if there's anything attached to the message.
