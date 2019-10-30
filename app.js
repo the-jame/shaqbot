@@ -655,21 +655,21 @@ client.on("message", async message => {
 
 });
 
-client.on("ready", () => {
+board.on("ready", () => {
   console.log(`Starboat has offically booted with no errors.`)
 });
 
-client.on('messageReactionAdd', async (message, emoji, user) => {
+board.on('messageReactionAdd', async (message, emoji, user) => {
 
   if (message.channel.type !== 0 || emoji.name !== '⭐') return;
 
-  const channel = client.getChannel(message.channel.id);
+  const channel = board.getChannel(message.channel.id);
   const starboard = channel.guild.channels.find(c => c.name.toLowerCase() === 'starboard');
 
   if (channel.nsfw || !starboard || channel.id === starboard.id) return;
 
   const msg = await channel.getMessage(message.id);
-  const stars = (await msg.getReaction('⭐', msg.reactions['⭐'].count)).filter(u => u.id !== msg.author.id && !client.users.get(u.id).bot).length;
+  const stars = (await msg.getReaction('⭐', msg.reactions['⭐'].count)).filter(u => u.id !== msg.author.id && !board.users.get(u.id).bot).length;
 
   if (stars < 5) return;
 
