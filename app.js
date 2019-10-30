@@ -683,7 +683,6 @@ client.on("message", async message => {
         .setImage(image);
       await starChannel.send({ embed });
     }
-  }
 
   // Here we add the this.extension function to check if there's anything attached to the message.
   extension(reaction, attachment) {
@@ -717,7 +716,6 @@ client.on("message", async message => {
       await starMsg.edit({ embed });
       if(parseInt(star[1]) - 1 == 0) return starMsg.delete(1000);
     }
-  }
 
   // Now, it may seem weird that we use this in the messageReactionRemove event, but we still need to check if there's an image so that we can set it, if necessary.
   extension(reaction, attachment) {
