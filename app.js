@@ -41,10 +41,10 @@ client.on('ready', () => {
 
   // client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
-	client.music.start(client, {
+  client.music.start(client, {
 		
   // Set the api key used for YouTube!
-  youtubeKey: "AIzaSyCWvA-tibA-PxEyktKludNxm8QuNWzKlL4",
+  youtubeKey: settings.YTAPI,
 
   // The PLAY command Object.
   play: {
