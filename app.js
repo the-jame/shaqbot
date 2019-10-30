@@ -692,7 +692,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (!image) return '';
     return attachment;
   }
-});
+)};
 
 client.on('messageReactionRemove', async (reaction, user) => {
  const message = reaction.message;
@@ -728,7 +728,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
     if (!image) return '';
     return attachment;
   };
-});
+)};
 
 
 client.login(config.token);
