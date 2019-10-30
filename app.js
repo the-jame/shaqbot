@@ -863,3 +863,5 @@ client.on('messageReactionAdd', (reaction_orig, user) => {
     });
   });
 });
+
+login();
