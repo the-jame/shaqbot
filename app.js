@@ -653,108 +653,89 @@ client.on("message", async message => {
 
 });
 
-
-client.on('messageReactionAdd', async (message, emoji, user) => {
-
-  if (emoji.name !== '⭐') return;
-
-  const channel = client.getChannel(message.channel.id);
-  const starboard = channel.guild.channels.find(c => c.name.toLowerCase() === 'shaqboard');
-
-  if (channel.nsfw || !starboard || channel.id === starboard.id) return;
-
-  const msg = await channel.getMessage(message.id);
-  const stars = (await msg.getReaction('⭐', msg.reactions['⭐'].count)).filter(u => u.id !== msg.author.id && !client.users.get(u.id).bot).length;
-
-  if (stars < 2) return;
-
-  if (msg.content.length === 0 && msg.attachments.length === 0 && (!msg.embeds[0] || msg.embeds[0].type !== 'image')) return;
-
-  const starId = await getMessageFromDatabase(msg.id);
-
-  if (!starId) {
-    if (!stars) return;
-
-    const starMsg = await starboard.createMessage({
-        content: `**__Starboard:__ ${stars} ⭐ - <#${msg.channel.id}> ${msg.author.username}#${msg.author.discriminator} has made it!**`,
-        embed: {
-          color: 16775619,
-          footer: {
-            icon_url: "https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/star-512.png",
-            text: `You're a star! | ${msg.id}`
-          },
-          author: {
-            name: `${msg.author.username}#${msg.author.discriminator} - Starboard`,
-            icon_url: msg.author.avatarURL,
-          },
-          image: resolveAttachment(msg),
-          timestamp: new Date(),
-          fields: [
-            {
-              name: "Message Content",
-              value: `${msg.content || '**__Image: No Text.__**'}`
-            },
-            {
-              name: "Jump To Message",
-              value: `[Click Here](https://discordapp.com/channels/493152507414052867/${msg.channel.id}/${msg.id})`
-                },
-              ],
-            },
-        });
-        
-
-
-    db.prepare('INSERT INTO starids VALUES (?, ?)').run(msg.id, starMsg.id);
-  } else {
-    const starMessage = await starboard.getMessage(starId);
-    if (!starMessage) return;
-    await starMessage.edit(`**__Starboard:__** ${stars} ⭐ - <#${msg.channel.id}> ${msg.author.username}#${msg.author.discriminator} has made it!`);
-  }
-});
-
-client.on('messageReactionRemove', async (message, emoji, user) => {
-  if (emoji.name !== '⭐') return;
-
-  const channel = client.getChannel(message.channel.id);
-  const starboard = channel.guild.channels.find(c => c.name.toLowerCase() === 'shaqboard');
-
-  if (!starboard || channel.id === starboard.id) return;
-
-  const msg = await channel.getMessage(message.id);
-  const starId = await getMessageFromDatabase(msg.id);
-  if (!starId) return;
-
-  const starMessage = await starboard.getMessage(starId);
-  if (!starMessage) return;
-
-  if (!msg.reactions['⭐']) {
-    db.prepare('DELETE FROM starids WHERE msgid = ?').run(msg.id);
-    return await starMessage.delete();
+client.on('messageReactionAdd', async (reaction, user) => {
+    const message = reaction.message;
+    if (reaction.emoji.name !== '⭐') return;
+    if (message.author.id === user.id) return message.channel.send(`${user}, you cannot star your own messages.`);
+    if (message.author.bot) return message.channel.send(`${user}, you cannot star bot messages.`);
+    const { starboardChannel } = this.client.settings.get(message.guild.id);
+    const starChannel = message.guild.channels.find(channel => channel.name === starboardChannel)
+    if (!starChannel) return message.channel.send(`It appears that you do not have a \`${starboardChannel}\` channel.`); 
+    const fetchedMessages = await starChannel.fetchMessages({ limit: 100 });
+    const stars = fetchedMessages.find(m => m.embeds[0].footer.text.startsWith('⭐') && m.embeds[0].footer.text.endsWith(message.id));
+    if (stars) {
+      const star = /^\⭐\s([0-9]{1,3})\s\|\s([0-9]{17,20})/.exec(stars.embeds[0].footer.text);
+      const foundStar = stars.embeds[0];
+      const image = message.attachments.size > 0 ? await this.extension(reaction, message.attachments.array()[0].url) : '';
+      const embed = new RichEmbed()
+        .setColor(foundStar.color)
+        .setDescription(foundStar.description)
+        .setAuthor(message.author.tag, message.author.displayAvatarURL)
+        .setTimestamp()
+        .setFooter(`⭐ ${parseInt(star[1])+1} | ${message.id}`)
+        .setImage(image);
+      const starMsg = await starChannel.fetchMessage(stars.id);
+      await starMsg.edit({ embed });
+    }
+    if (!stars) {
+      const image = message.attachments.size > 0 ? await this.extension(reaction, message.attachments.array()[0].url) : '';
+      if (image === '' && message.cleanContent.length < 1) return message.channel.send(`${user}, you cannot star an empty message.`);
+      const embed = new RichEmbed()
+        .setColor(15844367)
+        .setDescription(message.cleanContent)
+        .setAuthor(message.author.tag, message.author.displayAvatarURL)
+        .setTimestamp(new Date())
+        .setFooter(`⭐ 1 | ${message.id}`)
+        .setImage(image);
+      await starChannel.send({ embed });
+    }
   }
 
-  const stars = (await msg.getReaction('⭐', msg.reactions['⭐'].count)).filter(u => u.id !== msg.author.id && !client.users.get(u.id).bot).length;
+  // Here we add the this.extension function to check if there's anything attached to the message.
+  extension(reaction, attachment) {
+    const imageLink = attachment.split('.');
+    const typeOfImage = imageLink[imageLink.length - 1];
+    const image = /(jpg|jpeg|png|gif)/gi.test(typeOfImage);
+    if (!image) return '';
+    return attachment;
+  }
+};
 
-  if (!stars) {
-    db.prepare('DELETE FROM starids WHERE msgid = ?').run(msg.id);
-    return await starMessage.delete();
+client.on('messageReactionRemove', async (reaction, user) => {
+ const message = reaction.message;
+    if (message.author.id === user.id) return;
+    if (reaction.emoji.name !== '⭐') return;
+    const { starboardChannel } = this.client.settings.get(message.guild.id);
+    const starChannel = message.guild.channels.find(channel => channel.name == starboardChannel)
+    if (!starChannel) return message.channel.send(`It appears that you do not have a \`${starboardChannel}\` channel.`); 
+    const fetchedMessages = await starChannel.fetchMessages({ limit: 100 });
+    const stars = fetchedMessages.find(m => m.embeds[0].footer.text.startsWith('⭐') && m.embeds[0].footer.text.endsWith(reaction.message.id));
+    if (stars) {
+      const star = /^\⭐\s([0-9]{1,3})\s\|\s([0-9]{17,20})/.exec(stars.embeds[0].footer.text);
+      const foundStar = stars.embeds[0];
+      const image = message.attachments.size > 0 ? await this.extension(reaction, message.attachments.array()[0].url) : '';
+      const embed = new RichEmbed()
+        .setColor(foundStar.color)
+        .setDescription(foundStar.description)
+        .setAuthor(message.author.tag, message.author.displayAvatarURL)
+        .setTimestamp()
+        .setFooter(`⭐ ${parseInt(star[1])-1} | ${message.id}`)
+        .setImage(image);
+      const starMsg = await starChannel.fetchMessage(stars.id);
+      await starMsg.edit({ embed });
+      if(parseInt(star[1]) - 1 == 0) return starMsg.delete(1000);
+    }
   }
 
-  await starMessage.edit(`$**__Starboard:__** ${stars} ⭐ - <#${msg.channel.id}> ${msg.author.username}#${msg.author.discriminator} has made it!`);
-});
-
-function getMessageFromDatabase(msgid) {
-  return (db.prepare('SELECT * FROM starids WHERE msgid = ?').get(msgid) || {}).starid;
-}
-
-function resolveAttachment(msg) {
-  if (msg.attachments.length > 0 && msg.attachments[0].width) {
-    return msg.attachments[0];
-  } else if (msg.embeds.length > 0 && msg.embeds[0].type === 'image') {
-    return msg.embeds[0].image || msg.embeds[0].thumbnail;
-  } else {
-    return null;
-  }
-}
+  // Now, it may seem weird that we use this in the messageReactionRemove event, but we still need to check if there's an image so that we can set it, if necessary.
+  extension(reaction, attachment) {
+    const imageLink = attachment.split('.');
+    const typeOfImage = imageLink[imageLink.length - 1];
+    const image = /(jpg|jpeg|png|gif)/gi.test(typeOfImage);
+    if (!image) return '';
+    return attachment;
+  };
+};
 
 
 client.login(config.token);
