@@ -657,7 +657,7 @@ client.on("message", async message => {
 
 client.on('messageReactionAdd', async (message, emoji, user) => {
 
-  if (message.channel.type !== 0 || emoji.name !== '⭐') return;
+  if (emoji.name !== '⭐') return;
 
   const channel = client.getChannel(message.channel.id);
   const starboard = channel.guild.channels.find(c => c.name.toLowerCase() === 'shaqboard');
@@ -714,7 +714,7 @@ client.on('messageReactionAdd', async (message, emoji, user) => {
 });
 
 client.on('messageReactionRemove', async (message, emoji, user) => {
-  if (message.channel.type !== 0 || emoji.name !== '⭐') return;
+  if (emoji.name !== '⭐') return;
 
   const channel = client.getChannel(message.channel.id);
   const starboard = channel.guild.channels.find(c => c.name.toLowerCase() === 'shaqboard');
