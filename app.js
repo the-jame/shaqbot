@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const Eris = require('eris'); //
 const Database = require('better-sqlite3'); //
 const db = new Database('star.db'); //
-const board = new Eris('NjM5MTk3NDcyMjk1NDg1NDc0.Xbnxvw.Sb2AoP_ge1-xwR5tFZK7M1cmDuA'); //
+const board = new Eris('NDI0MDE5MzExODI1NTE4NTkz.Xbn15Q._O5JFB3RkmmuFahQhWkvTdUNs-A'); //
 
 const config = require("./config.json");
 const sql = require("sqlite");
@@ -717,10 +717,10 @@ client.on('messageReactionAdd', async (message, emoji, user) => {
   }
 });
 
-client.on('messageReactionRemove', async (message, emoji, user) => {
+board.on('messageReactionRemove', async (message, emoji, user) => {
   if (message.channel.type !== 0 || emoji.name !== '⭐') return;
 
-  const channel = client.getChannel(message.channel.id);
+  const channel = board.getChannel(message.channel.id);
   const starboard = channel.guild.channels.find(c => c.name.toLowerCase() === 'starboard');
 
   if (!starboard || channel.id === starboard.id) return;
@@ -737,7 +737,7 @@ client.on('messageReactionRemove', async (message, emoji, user) => {
     return await starMessage.delete();
   }
 
-  const stars = (await msg.getReaction('⭐', msg.reactions['⭐'].count)).filter(u => u.id !== msg.author.id && !client.users.get(u.id).bot).length;
+  const stars = (await msg.getReaction('⭐', msg.reactions['⭐'].count)).filter(u => u.id !== msg.author.id && !board.users.get(u.id).bot).length;
 
   if (!stars) {
     db.prepare('DELETE FROM starids WHERE msgid = ?').run(msg.id);
@@ -761,7 +761,7 @@ function resolveAttachment(msg) {
   }
 }
 
-client.connect();
+board.connect();
 
 
 
