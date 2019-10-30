@@ -1,1 +1,10 @@
-
+{
+  "token": "NDI0MDE5MzExODI1NTE4NTkz.D0Zu_Q.Ogvccj54W3MvFVJgefXoK-zpT-I",
+  "serverID": "95702402253983744",
+  "channelID": "639191363862396933",
+  "reactionEmoji": "⭐",
+  "threshold": 3,
+  "hexcolor": "00AE86",
+  "dateCutoff": 365,
+  "fetchLimit": 200
+}
