@@ -1,9 +1,10 @@
-const Discord = require("discord.js");
+// discord init
+const Discord = require('discord.js');
 const client = new Discord.Client({
   partials: Object.values(Discord.Constants.PartialTypes),
 });
-const sql = require("sqlite");
 
+const sql = require("sqlite");
 sql.open("./scores.sqlite");
 
 client.music = require("discord.js-musicbot-addon");
