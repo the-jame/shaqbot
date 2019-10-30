@@ -732,7 +732,7 @@ client.on('messageReactionRemove', async (message, emoji, user) => {
     return await starMessage.delete();
   }
 
-  const stars = (await msg.getReaction('⭐', msg.reactions['⭐'].count)).filter(u => u.id !== msg.author.id && !board.users.get(u.id).bot).length;
+  const stars = (await msg.getReaction('⭐', msg.reactions['⭐'].count)).filter(u => u.id !== msg.author.id && !client.users.get(u.id).bot).length;
 
   if (!stars) {
     db.prepare('DELETE FROM starids WHERE msgid = ?').run(msg.id);
