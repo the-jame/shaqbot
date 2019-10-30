@@ -681,10 +681,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
         .setImage(image);
       await starChannel.send({ embed });
     }
-  }
-	  
-});
-
+  });
+  
+  
 client.on('messageReactionRemove', async (reaction, user) => {
  const message = reaction.message;
     if (message.author.id === user.id) return;
@@ -709,8 +708,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
       await starMsg.edit({ embed });
       if(parseInt(star[1]) - 1 == 0) return starMsg.delete(1000);
     }
-  }
-});
+  });
 
 
 client.login(config.token);
