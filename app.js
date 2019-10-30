@@ -676,7 +676,7 @@ async function loadIntoMemory(client, guildID, channelID, limit) {
   let messagesLeft = 0
   if (limit > 100) {
     messagesLeft = limit - 100
-    limit = 100
+    limit = 200
   }
 
   console.log(`${messagesLeft} messages left to load`)
