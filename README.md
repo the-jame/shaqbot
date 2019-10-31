@@ -26,6 +26,8 @@ __Permissions:__
 # Installation
 ***  
 * `npm install`  
+* `cp sample-settings.json settings.json && nano settings.json` fill in your tokens.
+* `node app.js` to run.
 
 # Options & Config.
 ***
