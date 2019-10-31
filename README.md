@@ -15,11 +15,11 @@
 
 
 ## Complete
-say   
-ballsize	
-howdy	
-8 (8ball)	
-memes (=memes)	
+say (tts)  
+ballsize  
+howdy  
+8 (8ball)  
+memes (=memes for list)  
 
 
 ## Notes
