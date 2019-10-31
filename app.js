@@ -4,8 +4,6 @@ const client = new Discord.Client({
   partials: Object.values(Discord.Constants.PartialTypes),
 });
 
-const sql = require("sqlite");
-sql.open("./scores.sqlite");
 
 client.music = require("discord.js-musicbot-addon");
 
@@ -43,7 +41,7 @@ client.on('ready', () => {
   // client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
   client.music.start(client, {
-		
+
   // Set the api key used for YouTube!
   youtubeKey: settings.YTAPI,
 
@@ -52,7 +50,7 @@ client.on('ready', () => {
     // Usage text for the help command.
     usage: "{{prefix}}play some tunes",
     // Whether or not to exclude the command from the help command.
-    exclude: false  
+    exclude: false
   },
 
   // Make it so anyone in the voice channel can skip the
@@ -62,7 +60,7 @@ client.on('ready', () => {
   // Make it so the owner (you) bypass permissions for music.
   ownerOverMember: true,
   ownerID: "95702308515487744",
-  
+
   botPrefix: "=",
 
   // The cooldown Object.
@@ -104,18 +102,6 @@ client.on("message", async message => {
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-    if (!row) {
-      sql.run("INSERT INTO scores (userId, points, day, hour, lifetime, multi) VALUES (?, ?, ?, ?, ?, ?)", [message.author.id, 0, 0, 0, 0, 1]);
-    } else {
-    }
-  }).catch(() => {
-    console.error;
-    sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, day INTEGER, hour INTEGER, lifetime INTEGER, multi INTEGER)").then(() => {
-      sql.run("INSERT INTO scores (userId, points, day, hour, lifetime, multi) VALUES (?, ?, ?, ?, ?, ?)", [message.author.id, 0, 0, 0, 0, 1]);
-    });
-  });
-
 //	<Music>.playFunction();   // PLAY command.
 //	<Music>.helpFunction();   // HELP command.
 //	<Music>.queueFunction();  // QUEUE command.
@@ -129,32 +115,6 @@ client.on("message", async message => {
 //	<Music>.searchFunction(); // SEARCH command.
 //	<Music>.volumeFunction(); // VOLUME command.
 //	<Music>.removeFunction(); // REMOVE command.
-	
-//  if(command === "play"){
-//	  client.music.bot.playFunction(message, args);
-// }
-	
-	
-	
-
-function isInt(value) {
-  if (isNaN(value)) {
-    return false;
-  }
-  var x = parseFloat(value);
-  return (x | 0) === x;
-}
-
-// check Odd function
-function isOdd(num) { return num % 2;};
-
-
-  if(command === "say") {
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{});
-    message.channel.send(sayMessage,{tts: true});
-    return;
-  }
 
 // INVITE LINK??
   if(command === "invite" || command === "inv") {
@@ -220,7 +180,7 @@ function isOdd(num) { return num % 2;};
   }
 
   if(command === "consequences") {
-	message.channel.send("https://youtu.be/FSt1ptsOjL0"); 
+	message.channel.send("https://youtu.be/FSt1ptsOjL0");
   }
 
   if(command === "doubt") {
@@ -235,221 +195,13 @@ function isOdd(num) { return num % 2;};
 	message.channel.send({files: ["img/stfuboomer.jpg"]});
   }
 
-
-
-
-
+  // SET OWN ROLE
 
   if(command === "setrole") {
 	const newRole = args.join(" ");
 	const roleToChange = message.member.highestRole;
 	roleToChange.setName(newRole);
 	message.channel.send(`Role changed to ${newRole}.`);
-  }
-
-
-
-   if (command === "rps"){
-
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-      if (!row) return message.reply("sadly you do not have any points yet, use pp!daily");
-      if (row.points == 0) return message.reply("you don't have any points!");
-
-
-      function getArgs() {
-	       var args = Array.prototype.slice.call(arguments);}
-
-      var availPoints = row.points;
-      var betAmount = Math.floor(args[1]);
-
-      if (betAmount > 500)
-        betAmount = 500;
-
-      if (!isInt(betAmount)){
-	       message.reply('enter integers only!');return;}
-
-      if (betAmount < 0){message.reply('you can not bet negative.'); betAmount = 0; return;}
-
-      if (betAmount > availPoints){message.reply('you can not bet more than you have.');return;}
-
-      var userChoice = args[0];
-      var winAmount = 0;
-
-      if (userChoice.toUpperCase() === 'ROCK') {
-        result = Math.floor(Math.random() * 3) + 1
-        if (result === 1) {
-          winAmount = betAmount*2;
-          changeAmount = winAmount - betAmount;
-          sql.run(`UPDATE scores SET points = ${row.points + changeAmount} WHERE userId = ${message.author.id}`);
-          message.reply(`Result: SCISSORS. You bet ${betAmount} and won ${winAmount} points!`);
-        }
-        else if (result === 2) {
-          message.reply(`Result: ROCK. You win 0 points!`);
-        }
-        else
-        {
-          sql.run(`UPDATE scores SET points = ${row.points - betAmount} WHERE userId = ${message.author.id}`);
-          message.reply(`Result: PAPER. You bet ${betAmount} and lost ${betAmount} points.`);
-        }
-      }
-      else if(userChoice.toUpperCase() === 'SCISSORS') {
-        result = Math.floor(Math.random() * 3) + 1
-        if (result === 1) {
-          winAmount = betAmount*2;
-          changeAmount = winAmount - betAmount;
-          sql.run(`UPDATE scores SET points = ${row.points + changeAmount} WHERE userId = ${message.author.id}`);
-          message.reply(`Result: PAPER. You bet ${betAmount} and won ${winAmount} points!`);
-        }
-        else if (result === 2) {
-          message.reply(`Result: SCISSORS. You win 0 points!`);
-        }
-        else {
-          sql.run(`UPDATE scores SET points = ${row.points - betAmount} WHERE userId = ${message.author.id}`);
-          message.reply(`Result: ROCK. You bet ${betAmount} and lost ${betAmount} points.`);
-        }
-      }
-      else if(userChoice.toUpperCase() === 'PAPER') {
-        result = Math.floor(Math.random() * 3) + 1
-        if (result === 1) {
-          winAmount = betAmount*2;
-          changeAmount = winAmount - betAmount;
-          sql.run(`UPDATE scores SET points = ${row.points + changeAmount} WHERE userId = ${message.author.id}`);
-          message.reply(`Result: ROCK. You bet ${betAmount} and won ${winAmount} points!`);
-        }
-        else if (result === 2) {
-          message.reply(`Result: PAPER. You win 0 points!`);
-        }
-        else {
-          sql.run(`UPDATE scores SET points = ${row.points - betAmount} WHERE userId = ${message.author.id}`);
-          message.reply(`Result: SCISSORS. You bet ${betAmount} and lost ${betAmount} points.`);
-        }
-      }
-
-    });
-    winAmount = 0;
-    return;
-
-  }
-
-  if (command === "daily" || command === "d") {
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-      if (!row) return message.reply("Welcome outlander. Type =d once more."); // create user line in DB
-
-	var today = new Date();
-  var theDate = today.getDate();
-  
-      if(row.day != theDate){  // if day hasn't been used
-        sql.run(`UPDATE scores SET points = ${row.points + Math.round((row.multi * 300))} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET lifetime = ${row.lifetime + Math.round((row.multi * 150))} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET day = ${theDate} WHERE userId = ${message.author.id}`);
-        message.reply(`Obtained daily 300 points!`);
-      }
-      else  // if day has been used
-        message.reply(`Wait until tomorrow ya DINGUS!`);
-    });
-    return;
-  }
-
-  if (command === "hourly" || command === "h") {
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-      if (!row) return message.reply("Welcome outlander. Type =h once more.");
-
-	var today = new Date();
-	var theDate = today.getDate();
-  var theHour = today.getHours();
-  
-      if(row.hour != theHour){ // if the hour hasn't been used
-        sql.run(`UPDATE scores SET points = ${row.points + Math.round((row.multi * 50))} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET lifetime = ${row.lifetime + Math.round((row.multi * 25))} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET hour = ${theHour} WHERE userId = ${message.author.id}`);
-        message.reply(`Obtained hourly 50 points!`);
-      }
-      else {  // if the hour has been used
-        message.reply(`Hourly reward not yet ready.`);
-      }
-    });
-    return;
-  }
-
-  if (command === "claimall" || command === "ca"){
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-      if (!row) return message.reply("Welcome outlander. Type =ca once more to make an account.");
-
-    var today = new Date();
-    var theDate = today.getDate();
-    var theHour = today.getHours();
-
-        if((row.day != theDate) && (row.hour != theHour)){  // neither day nor hour used
-        sql.run(`UPDATE scores SET points = ${row.points + Math.round((row.multi * 350))} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET lifetime = ${row.lifetime + Math.round((row.multi * 175))} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET day = ${theDate} WHERE userId = ${message.author.id}`);
-        message.reply('Obtained all points!');
-        }
-        else if((row.hour) != theHour && (row.day == theDate)){ // hour unused only
-          sql.run(`UPDATE scores SET points = ${row.points + Math.round((row.multi * 50))} WHERE userId = ${message.author.id}`);
-          sql.run(`UPDATE scores SET lifetime = ${row.lifetime + Math.round((row.multi * 25))} WHERE userId = ${message.author.id}`);
-          sql.run(`UPDATE scores SET hour = ${theHour} WHERE userId = ${message.author.id}`);
-          message.reply('Obtained hourly points!');
-        }
-        else if((row.hour == theHour) && (row.day != theDate)){  // day unused only
-          sql.run(`UPDATE scores SET points = ${row.points + Math.round((row.multi * 300))} WHERE userId = ${message.author.id}`);
-          sql.run(`UPDATE scores SET lifetime = ${row.lifetime + Math.round((row.multi * 150))} WHERE userId = ${message.author.id}`);
-          sql.run(`UPDATE scores SET day = ${theDate} WHERE userId = ${message.author.id}`);
-          message.reply('Obtained daily points!');  
-        }
-        else{ // nothing available
-          message.reply('all points are on cooldown.');
-        }
-  });
-  return;
-}
-
-
-  if (command === "points" || command === "p" || command === "pts") {
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-      if (!row) return message.reply("you do not have any points yet, use =ca");
-
-      
-
-      if (row.lifetime > 2000 && row.lifetime < 10000 && row.multi == 1){
-        sql.run(`UPDATE scores SET multi = 1.1 WHERE userId = ${message.author.id}`);
-        message.reply("you've leveled up (>2000 XP) to Pleb. (1.1X)")
-        return;
-      }
-      if (row.lifetime > 10000 && row.lifetime < 25000 && row.multi <= 1.1){
-        sql.run(`UPDATE scores SET multi = 1.2 WHERE userId = ${message.author.id}`);
-        message.reply("nice! You've leveled up (>10000 XP) to Flaccid. (1.2X)")
-        return;
-      }
-      if (row.lifetime > 25000 && row.lifetime < 50000 && row.multi <= 1.2){
-        sql.run(`UPDATE scores SET multi = 1.3 WHERE userId = ${message.author.id}`);
-        message.reply("nice! You've leveled up (>25000 XP) to Sink-pisser. (1.3X)")
-        return;
-      }
-      if (row.lifetime > 50000 && row.lifetime < 100000 && row.multi <= 1.3){
-        sql.run(`UPDATE scores SET multi = 1.4 WHERE userId = ${message.author.id}`);
-        message.reply("nice! You've leveled up (>50000 XP) to Full-chub. (1.4X)")
-        return;
-      }
-      if (row.lifetime > 100000 && row.lifetime < 250000 && row.multi <= 1.4){
-        sql.run(`UPDATE scores SET multi = 1.5 WHERE userId = ${message.author.id}`);
-        message.reply("nice! You've leveled up (>100000 XP) to Diamond-chub. (1.5X)")
-        return;
-      }
-
-      else if (row.lifetime >= 100000 && row.multi == 1.5){ message.reply(`you have ${row.points} points and ${row.lifetime} XP. RANK: Diamond-chub. (1.5X)`); return;} 
-      else if (row.lifetime >= 50000 && row.multi == 1.4){ message.reply(`you have ${row.points} points and ${row.lifetime} XP. RANK: Full-chub. (1.4X)`); return;} 
-      else if (row.lifetime >= 25000 && row.multi == 1.3){ message.reply(`you have ${row.points} points and ${row.lifetime} XP. RANK: Sink-pisser. (1.3X)`); return;} 
-      else if (row.lifetime >= 10000 && row.multi == 1.2){ message.reply(`you have ${row.points} points and ${row.lifetime} XP. RANK: Flaccid. (1.2X)`); return;} 
-      else if (row.lifetime >= 2000 && row.multi == 1.1) { message.reply(`you have ${row.points} points and ${row.lifetime} XP. RANK: Pleb. (1.1X)`); return;}
-
-
-
-
-      else
-      message.reply(`you have ${row.points} points and ${row.lifetime} XP. Rank: Mung (1X)`);
-    });
-    return;
   }
 
   if(command === "poll") {
@@ -467,150 +219,6 @@ function isOdd(num) { return num % 2;};
     return;
   }
 
-  if (command === "coinflip" || command ==="cf"){
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-      if (!row) return message.reply("sadly you do not have any points yet, use =ca");
-      if (row.points == 0) return message.reply("you don't have any points!");
-
-      function getArgs() {
-      var args = Array.prototype.slice.call(arguments);
-      }
-      betAmount = args[1];
-      if (betAmount == "all"){
-        betAmount = row.points;
-      }
-      else if (betAmount == "half"){
-        betAmount = Math.round(row.points / 2);
-      }
-      else betAmount = Math.floor(args[1]); // bet
-      var availPoints = row.points;
-      var betCall = args[0]; //heads or tails
-
-      if (betAmount < 0){message.reply('you can not bet negative.'); betAmount = 0; return;}
-      if (betAmount > availPoints){message.reply('you can not bet more than you have.');return;}
-      if (isNaN(betAmount)){message.reply(`that's not a number.`);return;}
-
-      var winAmount = Math.round((row.multi * betAmount)); // win amount calculation
-
-      var random = (Math.round(Math.random()))
-      // 0 is HEADS
-      // 1 is TAILS
-
-
-      if (random == 0 && (betCall == "tails" || betCall =="t")){
-        sql.run(`UPDATE scores SET points = ${row.points - betAmount} WHERE userId = ${message.author.id}`);
-        message.reply(`\`Heads.\` You lose ${betAmount}. You now have ${row.points-betAmount} points.`)
-        return;
-      }
-      if (random == 0 && (betCall == "heads" || betCall == "h")){
-        sql.run(`UPDATE scores SET points = ${row.points + winAmount} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET lifetime = ${row.lifetime + winAmount} WHERE userId = ${message.author.id}`);
-        message.reply(`\`Heads!\` You win ${betAmount}! You now have ${row.points + winAmount} points.`)
-        return;
-      }
-      if (random == 1 && (betCall == "tails" || betCall =="t")){
-        sql.run(`UPDATE scores SET points = ${row.points + winAmount} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET lifetime = ${row.lifetime + winAmount} WHERE userId = ${message.author.id}`);
-        message.reply(`\`Tails!\` You win ${betAmount}! You now have ${row.points + winAmount} points.`) 
-        return;
-      }
-      if (random == 1 && (betCall == "heads" || betCall == "h")){
-        sql.run(`UPDATE scores SET points = ${row.points - betAmount} WHERE userId = ${message.author.id}`);
-        message.reply(`\`Tails.\` You lose ${betAmount}. You now have ${row.points-betAmount} points.`)
-        return;
-      }
-      else {message.reply(`you've entered something incorrectly.`); return;}
-
-
-    })
-    return;
-  }
-
-  if (command === "roulette" || command === "r") {
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-      if (!row) return message.reply("sadly you do not have any points yet, use =ca");
-      if (row.points == 0) return message.reply("you don't have any points!");
-
-      function getArgs() {
-      var args = Array.prototype.slice.call(arguments);
-      }
-      var betCall = args[0];
-      var betAmount = Math.floor(args[1]);
-      var availPoints = row.points;
-
-      // input validation
-      if (!isInt(betAmount)){
-	       message.reply('enter integers only!'); return;}
-      if (betAmount < 0){message.reply('you can not bet negative.'); betAmount = 0; return;}
-      if (betAmount > availPoints){message.reply('you can not bet more than you have.');return;}
-      if (betAmount < 0){message.reply('you do not have any points to bet!');return;}
-
-      var random = (Math.floor(Math.random() * 36) + 1)
-      if (random == betCall) {
-          winAmount = Math.round(row.multi * (betAmount * 60));
-          changeAmount = winAmount - betAmount;
-          sql.run(`UPDATE scores SET points = ${row.points + Math.round((row.multi * changeAmount))} WHERE userId = ${message.author.id}`);
-          sql.run(`UPDATE scores SET lifetime = ${row.lifetime + Math.round((row.multi * changeAmount))} WHERE userId = ${message.author.id}`);
-          message.reply(`Result: ${random} (MATCH)!! YOU EARNED ${Math.round((row.multi * changeAmount))} points! Shit!! New total = ${row.points + Math.round((row.multi * changeAmount))}`);
-      }
-
-        // win on RED
-      else if ((isOdd(random) == 1) && (betCall.toUpperCase() === 'RED' || betCall.toLowerCase() === 'ODD') && (betCall != 36) && (betCall != 0)) {
-        winAmount = Math.round(row.multi * betAmount);
-        sql.run(`UPDATE scores SET points = ${row.points + winAmount} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET lifetime = ${row.lifetime + winAmount} WHERE userId = ${message.author.id}`);
-        message.reply(`Result: \`RED\`. You earned ${winAmount} points! New total = ${row.points + winAmount}`);
-      }
-
-      // win on BLACK
-      else if ((isOdd(random) == 0) && (betCall.toUpperCase() === 'BLACK' || (betCall.toUpperCase() === 'EVEN')) && (betCall != 36) && (betCall != 0)) {
-        winAmount = Math.round(row.multi * betAmount);
-        sql.run(`UPDATE scores SET points = ${row.points + winAmount} WHERE userId = ${message.author.id}`);
-        sql.run(`UPDATE scores SET lifetime = ${row.lifetime + winAmount} WHERE userId = ${message.author.id}`);
-        message.reply(`Result: \`BLACK\`. You earned ${winAmount} points! New total = ${row.points + winAmount}`);
-      }
-
-      // win on ZERO
-      else if ((random == 0) && (betCall == 0)) {
-        winAmount = Math.round(row.multi * (betAmount * 36));
-        changeAmount = winAmount - betAmount;
-          sql.run(`UPDATE scores SET points = ${row.points + changeAmount} WHERE userId = ${message.author.id}`);
-          sql.run(`UPDATE scores SET lifetime = ${row.lifetime + changeAmount} WHERE userId = ${message.author.id}`);
-          message.reply(`Result: ${random}. You earned ${changeAmount} points! New total = ${row.points + changeAmount}`);
-      }
-
-      // win on DOUBLE ZERO
-      else if ((random == 36) && (betCall == 36)) {
-        winAmount = Math.round(row.multi * (betAmount * 36));
-        changeAmount = winAmount - betAmount;
-          sql.run(`UPDATE scores SET points = ${row.points + changeAmount} WHERE userId = ${message.author.id}`);
-          sql.run(`UPDATE scores SET lifetime = ${row.lifetime + changeAmount} WHERE userId = ${message.author.id}`);
-          message.reply(`Result: ${random}. You earned ${changeAmount} points! New total = ${row.points + changeAmount}`);
-      }
-
-      else if ((isNaN(betCall)) || betCall > 36 || betCall <1){message.reply(`invalid input.`);return;}
-
-        // L O S E R
-      else {
-        winAmount = 0;
-        sql.run(`UPDATE scores SET points = ${row.points - betAmount} WHERE userId = ${message.author.id}`);
-        message.reply(`Result: ${random}. You lost ${betAmount} points! Oof. New total = ${row.points - betAmount}`);
-      }
-
-    });
-    winAmount = 0;
-    return;
-  }
-
-  if (command === "plex") {
-    message.channel.send(":warning: IT HAS BEEN [0] DAYS SINCE THE LAST PLEX REFERENCE. :warning:");
-    return;
-  }
-
-	
-	
-
- 
   if (command === "howdy") {
     //This is Jimmy trying to do something very basic
     var cowboyphrases = ["Howdy partner \:cowboy:", "H'lo :cowboy:", "This town ain't big enough for the two of us :cowboy:", "_a tumbleweed rolls by_", "It's high noon :cowboy:"];
@@ -630,7 +238,7 @@ function isOdd(num) { return num % 2;};
     "1 in.", "3cm", "about that of a golf ball", "too big to handle", "just right", "ordinary", "unwieldy", "embarrassing", "cubic", "shriveled", "that of a BEAN",
     "six of one, half dozen of the other", "an acre", "US Men's 11", "UK Women's 7 & 1/2", "a lima bean", "gamer sized :video_game:", "ammassed", "in South Carolina until 10/12",
     "husky", "big and tall", "fine", "sizeable", "beach ball", ":chart_with_upwards_trend:", ":chart_with_downwards_trend:", ":bar_chart:", "boomer-sized", "minute", "old-fashioned", "frail", "nutty", "broad", "crooked", "obtuse", "portable", "stubby", "insufficient", "plump", "corn-fed", "flabby", "opulent", "liberal", "confusing", "questionable", "lacking self-confidence", "uncertain", "meager", "lacking quality"];
-	    
+
     var num = Math.floor((Math.random() * (ballsizes.length - 1)));
      	message.channel.send("Your ball size is " + ballsizes[num] + ".", {tts: true});
 	//message.channel.send("Your ball size is " + ballsizes[num] + ".");
@@ -677,6 +285,9 @@ function isOdd(num) { return num % 2;};
 
 
 });
+
+
+  // BEGIN STARBOARD CODE
 
 async function loadIntoMemory(client, guildID, channelID, limit) {
   const channel = client.guilds.get(guildID).channels.get(channelID);
