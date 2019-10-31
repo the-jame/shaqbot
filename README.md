@@ -33,6 +33,7 @@ __Permissions:__
 ## Basic variables.
 | Option | Type | Description | Default |  
 | --- | --- | --- | --- |
+| token | String | Your discord bot token. | NaN |
 | youtubeKey | String | A YouTube Data API3 key. Required to run. | NaN |
 | botPrefix | String | The prefix of the bot. Defaults to "!". Can also be a Map of prefix's. | ! |
 | ownerOverMember | Boolean | Whether the owner over-rides `CanAdjust` and `CanSkip`. | false |
