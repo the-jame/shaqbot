@@ -16,7 +16,7 @@
 
 ## Complete
 say (tts)  
-ballsize  
+ballsize (inside joke)  
 howdy  
 8 (8ball)  
 memes (=memes for list)  
