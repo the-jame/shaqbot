@@ -3,7 +3,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client({
   partials: Object.values(Discord.Constants.PartialTypes),
 });
-
 client.music = require("discord.js-musicbot-addon");
 
 // emoji that goes in the post title
