@@ -38,7 +38,7 @@ client.on('ready', () => {
   smugboardID = settings.channelID;
   loadIntoMemory(client, guildID, smugboardID, settings.fetchLimit);
 
-  // client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
+  client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
   client.music.start(client, {
 
