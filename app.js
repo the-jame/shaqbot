@@ -121,6 +121,9 @@ client.on("message", async message => {
 
   if(command === "corn") {
 	message.channel.send("https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268"); }
+	
+  if(command === "uwu" {
+     	message.channel.send("`(„ᵕᴗᵕ„)`"); }
 
 
 // MEME IMAGES
