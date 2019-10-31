@@ -1,36 +1,27 @@
-# chubbot
+# shaq-bot
 ## authors
-### james philippon
-### enrique aguirre
-### jimmy beliakoff  
+### james p
+### enrique a
+### jimmy b  
 
 
 
 ## Instructions
 	to run: open working directory
+		npm install
 		node app.js
-		(dependencies included)
 	
 	to use: =[command]
 
 
 ## Complete
-say  
-rps  
-ballsize  
-slots  
-roulette  
+say   
+ballsize
 howdy  
-
+8 (8ball)
+memes (=memes)
 
 
 ## Notes
 
-Current NPM settings are set up for Linux runtime.
-
-Ideas for functions:
-
-	Possibility of more daily credits per level based on activity?
-	
-## Youtube API
-AIzaSyCWvA-tibA-PxEyktKludNxm8QuNWzKlL4
+You will need a settings file. A sample has been provided.
