@@ -221,7 +221,6 @@ client.on("message", async message => {
     message.channel.send(cowboyphrases[num]);
   }
 
-
   if (command === "ballsize" || command ==="bs"){
    var ballsizes = ["large", "small", "medium", "puny", "gigantic", "average", "incongruous", "nice :thumbsup:", ":b:ig", "immense", "voluptuous", "h",
     "bigger than I'd like :/", "smaller than I'd like :/", "*just right*", "normal", "¡Sabado Gigante!", "narrow", "wide", "petite", "insignificant", "short", ":ok:",
