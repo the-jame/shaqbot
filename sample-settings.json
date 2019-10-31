@@ -1,0 +1,12 @@
+{
+  "token": "YOURTOKEN",
+  "prefix": "~",
+  "serverID": "SERVERID",
+  "channelID": "CHANNELID",
+  "reactionEmoji": "⭐",
+  "threshold": 3,
+  "hexcolor": "f2ea00",
+  "dateCutoff": 30,
+  "fetchLimit": 100,
+  "YTAPI": "YOUTUBEAPIKEY"
+}
