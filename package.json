@@ -1,18 +1,13 @@
 {
   "name": "shaqbot",
-  "version": "1.4.1",
-  "description": "Bot for Who Invented Beans? server.",
+  "version": "1.5.0",
+  "description": "Current live chatbot for Who Invented Beans. Chat and music functions.",
   "main": "app.js",
   "dependencies": {
-    "bufferutil": "^4.0.1",
-    "discord.js": "github:discordjs/discord.js#master",
+    "discord.js": "^11.5.1",
     "discord.js-musicbot-addon": "^13.8.1",
-    "ffmpeg": "0.0.4",
-    "node-fetch": "^2.6.0",
+    "ffmpeg": "^0.0.4",
     "node-opus": "^0.3.3",
-    "setimmediate": "^1.0.5",
-    "sqlite": "^3.0.3",
-    "sqlite3": "^4.1.0",
     "ytdl-core": "^1.0.0",
     "ytpl": "^0.1.17",
     "ytsearcher": "^1.2.2"
@@ -23,16 +18,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamesphilippon/shaq-live.git"
+    "url": "git+https://github.com/the-jame/shaq-live.git"
   },
-  "author": "James P, Jimmy B, Enrique A, Brett",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jamesphilippon/shaq-live/issues"
-  },
-  "homepage": "https://github.com/jamesphilippon/shaq-live#readme",
   "keywords": [
     "discord",
-    "bot"
-  ]
+    "bot",
+    "music",
+    "player"
+  ],
+  "author": "James P, Jimmy B, Enrique A, Brett B",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-jame/shaq-live/issues"
+  },
+  "homepage": "https://github.com/the-jame/shaq-live#readme"
 }
