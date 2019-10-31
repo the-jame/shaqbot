@@ -12,6 +12,8 @@ const tt = '⭐';
 let settings;
 let guildID = '';
 let smugboardID = '';
+let YTAPI = '';
+let token = '';
 let messagePosted = {};
 
 try {
@@ -23,7 +25,7 @@ try {
 
 function login() {
   if (settings.token) {
-    console.log('Logging in with token...');
+    console.log(`Logging in with token...`);
     client.login(settings.token);
   } else {
     console.log('Error logging in: There may be an issue with you settings.json file');
@@ -44,7 +46,6 @@ client.on('ready', () => {
 
   // Set the api key used for YouTube!
   youtubeKey: settings.YTAPI,
-
   // The PLAY command Object.
   play: {
     // Usage text for the help command.
