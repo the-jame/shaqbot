@@ -122,7 +122,7 @@ client.on("message", async message => {
   if(command === "corn") {
 	message.channel.send("https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268"); }
 	
-  if(command === "uwu" {
+  if(command === "uwu") {
      	message.channel.send("`(„ᵕᴗᵕ„)`"); }
 
 
@@ -235,7 +235,7 @@ client.on("message", async message => {
    
     var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
     if(args[0].toLowerCase() === "my") {args[0] = "Your";}
-    else if(args[0].toLowerCase() === "your") {args[0] = "My";}
+    else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq") {args[0] = "My";}
     const beingSized = args.join(" "); message.channel.send(beingSized + "'s ball size is " + ballsizes[rand] + ".", {tts: true});
     return;
   }
