@@ -5,9 +5,8 @@ This is a simple Node.js based chat and music bot for Discord.
 
 __The music commands are:__
 * `play <url>|<search string>`: Play audio from YouTube.
-* `search <search string>`: Search's for up to 10 videos from YT.
 * `skip [number]`: Skip a song or multi songs with skip [some number].
-* `queue [position]`: Display the current queue.
+* `queue`: Display the current queue.
 * `pause`: Pause music playback.
 * `resume`: Resume music playback.
 * `remove [position]`: Remove a song from the queue by position.
@@ -26,8 +25,6 @@ __Permissions:__
 ***
 # Installation
 ***  
-
-__Installation:__  
 * `npm install`  
 
 # Options & Config.
