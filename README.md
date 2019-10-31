@@ -16,10 +16,10 @@
 
 ## Complete
 say   
-ballsize
-howdy  
-8 (8ball)
-memes (=memes)
+ballsize	
+howdy	
+8 (8ball)	
+memes (=memes)	
 
 
 ## Notes
