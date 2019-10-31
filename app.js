@@ -229,11 +229,11 @@ client.on("message", async message => {
     "1 in.", "3cm", "about that of a golf ball", "too big to handle", "just right", "ordinary", "unwieldy", "embarrassing", "cubic", "shriveled", "that of a BEAN",
     "six of one, half dozen of the other", "an acre", "US Men's 11", "UK Women's 7 & 1/2", "a lima bean", "gamer sized :video_game:", "ammassed", "in South Carolina until 10/12",
     "husky", "big and tall", "fine", "sizeable", "beach ball", ":chart_with_upwards_trend:", ":chart_with_downwards_trend:", ":bar_chart:", "boomer-sized", "minute", "old-fashioned", "frail", "nutty", "broad", "crooked", "obtuse", "portable", "stubby", "insufficient", "plump", "corn-fed", "flabby", "opulent", "liberal", "confusing", "questionable", "lacking self-confidence", "uncertain", "meager", "lacking quality"];
-    if(args[0].toLowerCase() === "my") {args[0] = "Your"};
-    if(args[0].toLowerCase() === "your") {args[0] = "My"};
-    const beingSized = args.join(" ");
-    var num = Math.floor((Math.random() * (ballsizes.length - 1)));
-     	message.channel.send(beingSized + "'s ball size is " + ballsizes[num] + ".", {tts: true});
+   
+    var num = Math.floor((Math.random() * (ballsizes.length - 1)));	  
+    if(args[0].toLowerCase() === "my") {args[0] = "Your"; const beingSized = args.join(" "); message.channel.send(beingSized + " ball size is " + ballsizes[num] + ".", {tts: true});return;}
+    if(args[0].toLowerCase() === "your") {args[0] = "My"; const beingSized = args.join(" "); message.channel.send(beingSized + " ball size is " + ballsizes[num] + ".", {tts: true});return;}
+    const beingSized = args.join(" "); message.channel.send(beingSized + "'s ball size is " + ballsizes[num] + ".", {tts: true});
     return;
   }
 
