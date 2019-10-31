@@ -685,7 +685,7 @@ async function loadIntoMemory(client, guildID, channelID, limit) {
   let messagesLeft = 0
   if (limit > 100) {
     messagesLeft = limit - 100
-    limit = 200
+    limit = 100
   }
 
   console.log(`${messagesLeft} messages left to load`)
@@ -782,7 +782,7 @@ client.on('messageReactionAdd', (reaction_orig, user) => {
       return;
     }
   }
-  message.msgChannel.messages.fetch(msg.id).then((msg) => {
+  msgChannel.messages.fetch(msg.id).then((msg) => {
 
     // if message is older than set amount
     let dateDiff = (new Date()) - reaction_orig.message.createdAt;
