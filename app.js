@@ -203,17 +203,13 @@ client.on("message", async message => {
   }
 
   if(command === "poll") {
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-
     const sayMessage = args.join(" ");
     message.channel.send(sayMessage).then(sentMsg => {
       sentMsg.react("??")
       sentMsg.react("??")
       message.delete().catch(O_o=>{});
       })
-      sql.run(`UPDATE scores SET lifetime = ${row.lifetime + 5} WHERE userId = ${message.author.id}`);
 
-    })
     return;
   }
 
@@ -227,8 +223,6 @@ client.on("message", async message => {
 
 
   if (command === "ballsize" || command ==="bs"){
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-
    var ballsizes = ["large", "small", "medium", "puny", "gigantic", "average", "incongruous", "nice :thumbsup:", ":b:ig", "immense", "voluptuous", "h",
     "bigger than I'd like :/", "smaller than I'd like :/", "*just right*", "normal", "¡Sabado Gigante!", "narrow", "wide", "petite", "insignificant", "short", ":ok:",
     "smallish", "XXL", "king size", "FAT", "mediocre", "unexceptional", "immeasurable", "trivial", "intermediate", "passable", "regular", "common", "12 inches", "1 foot",
@@ -239,20 +233,13 @@ client.on("message", async message => {
 
     var num = Math.floor((Math.random() * (ballsizes.length - 1)));
      	message.channel.send("Your ball size is " + ballsizes[num] + ".", {tts: true});
-	//message.channel.send("Your ball size is " + ballsizes[num] + ".");
-     sql.run(`UPDATE scores SET lifetime = ${row.lifetime + 5} WHERE userId = ${message.author.id}`);
-    })
     return;
   }
 
   if (command === "8ball" || command === "8") {
-    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
-
     var eightball = ["It is certain.","As I see it, yes.",":thumbsup:", "Sure.", "I guess.", "No way.", "Cannot decide...","Possibru.","Mostly.","Kind of.", "Inconclusive.","Certainly.","Certainly not.", "HELL naw.","Most likely.","It is decidedly so.",":huh:","Without a doubt.","Yes - DEFINITELY","You may rely on it.","Outlook is good.","Yes.","Signs point to yes, papi.","Reply hazy... try again.","Ask again later.","Better not tell you now.","Cannot predict now.","Concentrate and ask again.","Don't count on it.","My reply is no.","My sources say no.","Outlook is not good.","Very doubtful.","Thank you Kanye, very cool!"];
     var num = Math.floor((Math.random() * (eightball.length - 1)));
      message.channel.send(eightball[num], {tts: true});
-    sql.run(`UPDATE scores SET lifetime = ${row.lifetime + 5} WHERE userId = ${message.author.id}`);
-    })
     return;
   }
 
