@@ -236,7 +236,7 @@ client.on("message", async message => {
     var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
     if(args[0].toLowerCase() === "my") {args[0] = "Your";}
     else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq's" || args[0].toLowerCase() === "shaqs") {args[0] = "My";}
-    else if(args[0].toLowerCase() === "shaq") {message.channel.send("My ball size is " + args[1] + ".", {tts: true});}
+    else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined') {message.channel.send("My ball size is " + ballsizes[rand] + ".", {tts: true});return;}
     const beingSized = args.join(" "); message.channel.send(beingSized + "'s ball size is " + ballsizes[rand] + ".", {tts: true});
     return;
   }
