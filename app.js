@@ -85,26 +85,9 @@ client.on("message", async message => {
   // which is set in the configuration file.
   if(message.content.indexOf(settings.prefix) !== 0) return;
 
-  // Here we separate our "command" name, and our "arguments" for the command.
-  // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
-  // command = say
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
-//	<Music>.playFunction();   // PLAY command.
-//	<Music>.helpFunction();   // HELP command.
-//	<Music>.queueFunction();  // QUEUE command.
-//	<Music>.npFunction();     // NOWPLAYING command.
-//	<Music>.loopFunction();   // LOOP command.
-//	<Music>.skipFunction();   // SKIP command.
-//	<Music>.pauseFunction();  // PAUSE command.
-//	<Music>.resumeFunction(); // RESUME command.
-//	<Music>.clearFunction();  // CLEARQUEUE command.
-//	<Music>.leaveFunction();  // LEAVE command.
-//	<Music>.searchFunction(); // SEARCH command.
-//	<Music>.volumeFunction(); // VOLUME command.
-//	<Music>.removeFunction(); // REMOVE command.
 
 // INVITE LINK??
   if(command === "invite" || command === "inv") {
@@ -113,7 +96,7 @@ client.on("message", async message => {
 // MEME HELP
 
   if(command === "memes") {
-	message.channel.send("> Meme responses:\nCorn!\nBreasts - King of Breasts\nShaq - Is that Shaq?\nBeans - Who invented beans??\nBlacked - Blacked RAW on Xmas day\nBurrito[mug] - Put Your Burrito In A Mug\nYallmindifi - praise the lord?\nQuean - BEAN QUEAN\nThinkin - About Thos Beans\nConsequences - There. Will. Be. CONSEQUENCES!\nKilled - This action will kill you immediately.\nBoomer - STFU boomer.\nJoker - Dance\nSmoljoker - Smol joker.\nDoubt - Doubt\nChicken - $5 Rotisserie Chicken Albertson's");
+	message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU");
   }
 
 
@@ -124,6 +107,10 @@ client.on("message", async message => {
 	
   if(command === "uwu") {
      	message.channel.send("`(„ᵕᴗᵕ„)`"); }
+
+  if(command === "pungent") {
+	message.channel.send("```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren't I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```"); }
+
 
 
 // MEME IMAGES
@@ -136,7 +123,7 @@ client.on("message", async message => {
 	message.channel.send({files: ["img/5chicken.png"]});
   }
 
-  if(command === "shaq") {
+  if(command === "isthatshaq") {
 	message.channel.send({files: ["img/isthatshaq.png"]});
   }
 
@@ -248,8 +235,8 @@ client.on("message", async message => {
     return;
   }
 
-  if(command === "help") {
-    message.channel.send("\`\`\`Welcome to SHAQ!\`\`\`\nPlease use the following commands to control me and gamble:\n\n\`\`\`ECONOMY:\`\`\`\nCollect all points - Usage: =ca\nCheck points - Usage: =points OR =p\n\n\`\`\`GAMBLIN:\`\`\`\nRoulette - Usage: =r [red/black/(1-36)] [bet]\nCoinflip - Usage: =cf [h/t] [all/half/(bet)\n\n\`\`\`GOOFS:\`\`\`\nMake Shaq say... (/tts) - Usage: =say [message]\nStart a poll! - Usage: =poll [the question]\nAsk the 8-ball! - Usage: =8 [the question]\nSize your balls! (/tts) - Usage: =bs\nJust say howdy! - Usage: =howdy\n\n\`\`\`RANKS:\`\`\`\nYou will rank up by XP (points earned) and earn accelerated rewards! Use =p to check your rank.")
+  if(command === "shaq") {
+    message.channel.send("```Welcome to Shaq!```\n`say <string>`: Bot says the string in text-to-speech.\n`poll <string>`: Make the bot post your message with up/downvote reactions to poll.\n`8 <question>`: Bot will answer with an 8-ball style response.\n`ballsize|bs <string>`: Bot will tell you the ballsize of the string in question.\n`howdy`: Say howdy.\n`memes`: List additional commands with image attachment responses.")
     return;
   }
 
