@@ -43,6 +43,7 @@ __Permissions:__
 | --- | --- | --- | --- |
 | token | String | Your discord bot token. | settings.json |
 | youtubeKey | String | A YouTube Data API3 key. Required to run. | settings.json |
-| botPrefix | String | The prefix of the bot. Defaults to "!". | settings.json |
-| ownerOverMember | Boolean | Whether the owner over-rides `CanAdjust` and `CanSkip`. | app.js |
-| ownerID | String | The ID of the Discord user to be seen as the owner. Required if using `ownerOverMember`. | app.js |
+| botPrefix | String | The prefix of the bot. Defaults to "!". | settings.json & app.js [54] |
+| anyoneCanSkip | Boolean | Whether anyone can skip songs in the queue. | app.js [48] |
+| ownerOverMember | Boolean | Whether the owner over-rides `CanAdjust` and `CanSkip`. | app.js [51] |
+| ownerID | String | The ID of the Discord user to be seen as the owner. Required if using `ownerOverMember`. | app.js [52] |
