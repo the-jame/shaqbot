@@ -39,10 +39,10 @@ __Permissions:__
 ***
 
 ## Basic variables.
-| Option | Type | Description | Default |  
+| Option | Type | Description | Location |  
 | --- | --- | --- | --- |
-| token | String | Your discord bot token. | NaN |
-| youtubeKey | String | A YouTube Data API3 key. Required to run. | NaN |
-| botPrefix | String | The prefix of the bot. Defaults to "!". Can also be a Map of prefix's. | ! |
-| ownerOverMember | Boolean | Whether the owner over-rides `CanAdjust` and `CanSkip`. | false |
-| ownerID | String | The ID of the Discord user to be seen as the owner. Required if using `ownerOverMember`. | NaN |
+| token | String | Your discord bot token. | settings.json |
+| youtubeKey | String | A YouTube Data API3 key. Required to run. | settings.json |
+| botPrefix | String | The prefix of the bot. Defaults to "!". | settings.json |
+| ownerOverMember | Boolean | Whether the owner over-rides `CanAdjust` and `CanSkip`. | app.js |
+| ownerID | String | The ID of the Discord user to be seen as the owner. Required if using `ownerOverMember`. | app.js |
