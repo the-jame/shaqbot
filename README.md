@@ -15,8 +15,14 @@ __The music commands are:__
 * `clearqueue`: Clears the song queue.
 * `np`: Show the current playing song.  
 
-
-
+__The chat commands are:__
+* `say <string>`: Bot says the string in text-to-speech.
+* `poll <string>`: Make the bot post your message with up/downvote reactions to poll.
+* `8 <question>`: Bot will answer with an 8-ball style response.
+* `ballsize|bs <string>`: Bot will tell you the ballsize of the string in question.
+* `howdy`: Say howdy.
+* `memes`: List additional commands with image attachment responses.
+ 
 __Permissions:__  
 * If `anyoneCanSkip` is true, anyone can skip songs in the queue.
 * If `anyoneCanAdjust` is true, anyone can adjust the volume.
