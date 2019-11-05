@@ -252,7 +252,7 @@ client.on("message", async message => {
     //Have a conversation with Chubbot in it's native tongue
     //Syllables used to create words
     var syllables = ["euxeux", "bu", "lemlemlem", "lumlumlum", "lem", "lum", "huehue", "hue", "h", "hhhhhhhhhh", "eak", "oom",
-    "shaq", "aqaqaq", "urts", "hurts", "anus", "buenos","farded","fard","shid","pidd","unnnnnnnnn", "yeff", "fap", "hhhuuu", "rrrrrrrrrrrr", "uuu","arf","euf","aeeeb", "ffff", "uuu", "uhhh", "aaaa", "eeeee", "iiii", "oooo", "v", "uuuuuuuuuuuuuuuuuuu", "y"];
+    "shaq", "aqaqaq", "urts", "hurts", "anus", "buenos","cumb", "cummies", "euxeux", "ahhhhhnnnnnnnnnnnnnnnnnnnn", "fard","shid","pidd","unnnnnnnnn", "yeff", "fap", "hhhuuu", "rrrrrrrrrrrr", "uuu","arf","euf","aeeeb", "ffff", "uuu", "uhhh", "aaaa", "eeeee", "iiii", "oooo", "v", "uuuuuuuuuuuuuuuuuuu", "y"];
     //Words used by themselves
     var words = ["Posichichayones ", "from ", "sucky ", "keer ", "keer him ", "Legolas ", "jerk me once ", "jerk me twice ", "compadre ",
     "papa ", "daddy ", "prease ","shame on you "];
