@@ -93,10 +93,13 @@ client.on("message", async message => {
   if(command === "invite" || command === "inv") {
 	message.channel.send("Clicc: <http://inv.whoinventedbeans.wtf>"); }
 
+  if(command === "src" || command === "source") {
+	message.channel.send("https://github.com/the-jame/shaqbot"); }
+
 // MEME HELP
 
   if(command === "memes") {
-	message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU");
+	message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!");
   }
 
 
@@ -173,6 +176,10 @@ client.on("message", async message => {
 
   if(command === "boomer") {
 	message.channel.send({files: ["img/stfuboomer.jpg"]});
+  }
+
+  if(command === "boomeralert") {
+	message.channel.send({files: ["img/boomeralert.gif"]});
   }
 
   // SET OWN ROLE
