@@ -104,13 +104,6 @@ client.on("message", async message => {
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   //const avatar = `https://cdn.discordapp.com/avatars/${message.author}/${message.author.avatar}.jpg`;
-	
-	
-  if(command === "embed") {
-	  const toEmbed = args[0]; // link to message expected 
-	  // localEmbed(author, avatar, msgLink, contentMsg); // get object from message link - TBD
-  };
-
 
 
 // INVITE LINK??
