@@ -106,7 +106,7 @@ client.on("message", async message => {
   //const avatar = `https://cdn.discordapp.com/avatars/${message.author}/${message.author.avatar}.jpg`;
 	
 	
-  if(command === "embed")) {
+  if(command === "embed") {
 	  const toEmbed = args[0]; // link to message expected 
 	  // localEmbed(author, avatar, msgLink, contentMsg); // get object from message link - TBD
   };
@@ -136,11 +136,11 @@ client.on("message", async message => {
 		.setURL('https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268')
 		.setAuthor(96492725406281728)
 		.setDescription('Corn is nasty')
-		.setThumbnail(`https://cdn.discordapp.com/avatars/96492725406281728/${440949926143328268.author.avatar}.jpg`)
+		.setThumbnail(`https://cdn.discordapp.com/avatars/96492725406281728/537b1ae185a24308310dcbd5fa3af37c.png`)
 		.setTimestamp()
 		.setFooter();
 
-	channel.send(newEmbed);
+	message.channel.send(newEmbed);
   }
 	
   if(command === "uwu") {
