@@ -73,6 +73,21 @@ client.on("guildDelete", guild => {
   client.user.setGame(`on ${client.guilds.size} servers`);
 });
 
+function localEmbed(author, avatar, messageLink, contentMessage) {
+	
+	const newEmbed = new Discord.RichEmbed()
+		.setColor('#0099ff')
+		.setTitle('Some title')
+		.setURL(messageLink)
+		.setAuthor(author)
+		.setDescription(contentMessage)
+		.setThumbnail(author.avatar)
+		.setTimestamp(new Date())
+		.setFooter();
+
+	channel.send(newEmbed);
+	
+};
 
 client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
@@ -88,6 +103,19 @@ client.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+  const avatar = `https://cdn.discordapp.com/avatars/${message.author}/${message.author.avatar}.jpg`;
+  const msgID = message.id;
+  const msgChannelID = message.channel.id;
+  const msgChannel = client.guilds.get(guildID).channels.get(msgChannelID);
+  const msgLink = `https://discordapp.com/channels/${guildID}/${msgChannelID}/${msgID}`;
+  const contentMsg = `${message.content}\n\n→ [original message](${msgLink}) in <#${msgChannelID}>`;
+	
+	
+  if(command === "embed")) {
+	  localEmbed(message.author, avatar, msgLink, contentMsg);
+  };
+
+
 
 // INVITE LINK??
   if(command === "invite" || command === "inv") {
