@@ -99,7 +99,7 @@ client.on("message", async message => {
 // MEME HELP
 
   if(command === "memes") {
-	message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!");
+	message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!");
   }
 
 
@@ -132,6 +132,10 @@ client.on("message", async message => {
 
   if(command === "beans") {
 	message.channel.send({files: ["img/inventedbeans.png"]});
+  }
+
+  if(command === "boomer") {
+	message.channel.send({files: ["img/okboomer.png"]});
   }
 
   if(command === "blacked") {
@@ -174,7 +178,7 @@ client.on("message", async message => {
 	message.channel.send({files: ["img/immediatelykillyou.png"]});
   }
 
-  if(command === "boomer") {
+  if(command === "stfuboomer") {
 	message.channel.send({files: ["img/stfuboomer.jpg"]});
   }
 
