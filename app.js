@@ -103,16 +103,12 @@ client.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  const avatar = `https://cdn.discordapp.com/avatars/${message.author}/${message.author.avatar}.jpg`;
-  const msgID = message.id;
-  const msgChannelID = message.channel.id;
-  const msgChannel = client.guilds.get(guildID).channels.get(msgChannelID);
-  const msgLink = `https://discordapp.com/channels/${guildID}/${msgChannelID}/${msgID}`;
-  const contentMsg = `${message.content}\n\n→ [original message](${msgLink}) in <#${msgChannelID}>`;
+  //const avatar = `https://cdn.discordapp.com/avatars/${message.author}/${message.author.avatar}.jpg`;
 	
 	
   if(command === "embed")) {
-	  localEmbed(message.author, avatar, msgLink, contentMsg);
+	  const toEmbed = args[0]; // link to message expected 
+	  // localEmbed(author, avatar, msgLink, contentMsg); // get object from message link - TBD
   };
 
 
