@@ -73,8 +73,8 @@ client.on("guildDelete", guild => {
   client.user.setGame(`on ${client.guilds.size} servers`);
 });
 
-function localEmbed(author, avatar, messageLink, contentMessage) {
-	
+function localEmbed(messageObj) {
+		
 	const newEmbed = new Discord.RichEmbed()
 		.setColor('#0099ff')
 		.setTitle('Some title')
@@ -85,7 +85,7 @@ function localEmbed(author, avatar, messageLink, contentMessage) {
 		.setTimestamp(new Date())
 		.setFooter();
 
-	channel.send(newEmbed);
+	// channel.send(newEmbed); disabled for now
 	
 };
 
@@ -130,17 +130,7 @@ client.on("message", async message => {
 // MEME TEXT
 
   if(command === "corn") {
-	const newEmbed = new Discord.RichEmbed()
-		.setColor('#ffff00')
-		.setTitle('CORN')
-		.setURL('https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268')
-		.setAuthor(96492725406281728)
-		.setDescription('Corn is nasty')
-		.setThumbnail(`https://cdn.discordapp.com/avatars/96492725406281728/537b1ae185a24308310dcbd5fa3af37c.png`)
-		.setTimestamp()
-		.setFooter();
-
-	message.channel.send(newEmbed);
+	// localEmbed(url to jim's message???);
   }
 	
   if(command === "uwu") {
