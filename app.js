@@ -130,7 +130,18 @@ client.on("message", async message => {
 // MEME TEXT
 
   if(command === "corn") {
-	message.channel.send("https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268"); }
+	const newEmbed = new Discord.RichEmbed()
+		.setColor('#ffff00')
+		.setTitle('CORN')
+		.setURL('https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268')
+		.setAuthor(96492725406281728)
+		.setDescription('Corn is nasty')
+		.setThumbnail(`https://cdn.discordapp.com/avatars/96492725406281728/${440949926143328268.author.avatar}.jpg`)
+		.setTimestamp()
+		.setFooter();
+
+	channel.send(newEmbed);
+  }
 	
   if(command === "uwu") {
      	message.channel.send("`(„ᵕᴗᵕ„)`"); }
