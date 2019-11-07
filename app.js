@@ -210,8 +210,8 @@ client.on("message", async message => {
   if(command === "poll") {
     const sayMessage = args.join(" ");
     message.channel.send(sayMessage).then(sentMsg => {
-      sentMsg.react("??")
-      sentMsg.react("??")
+      sentMsg.react("⬆")
+      sentMsg.react("⬇")
       message.delete().catch(O_o=>{});
       })
 
