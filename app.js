@@ -132,7 +132,7 @@ client.on("message", async message => {
       // localEmbed(url to jim's message???);
       break;
     case 'plex':
-      const plexEmoji = client.emojis.get('642089395574407171');
+      const plexEmoji = client.emojis.get('583144668125069322');
       message.channel.send(`${plexEmoji} IT HAS BEEN 0 DAYS SINCE THE LAST PLEX REFERENCE. ${plexEmoji}`);
       break;
     case 'uwu':
