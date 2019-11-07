@@ -28,7 +28,6 @@ function login() {
 client.on('ready', () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
   const realshit = client.emojis.get('487855131996585994');
-  const plexEmoji = client.emojis.get('642089395574407171');
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
   client.music.start(client, {
@@ -133,6 +132,7 @@ client.on("message", async message => {
       // localEmbed(url to jim's message???);
       break;
     case 'plex':
+      const plexEmoji = client.emojis.get('642089395574407171');
       message.channel.send(`${plexEmoji} IT HAS BEEN 0 DAYS SINCE THE LAST PLEX REFERENCE. ${plexEmoji}`);
       break;
     case 'uwu':
