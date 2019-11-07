@@ -21,7 +21,7 @@ function login() {
     console.log(`Logging in with token...`);
     client.login(settings.token);
   } else {
-    console.log('Error logging in: There may be an issue with you settings.json file');
+    console.log('Error logging in: There may be an issue with your settings.json file');
   }
 }
 
