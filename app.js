@@ -196,26 +196,26 @@ client.on("message", async message => {
       message.channel.send({files: ["img/boomeralert.gif"]});
       break;
 
-  }
+    // SET OWN ROLE
+    // setrole
+    case 'setrole':
+      const newRole = args.join(" ");
+      const roleToChange = message.member.highestRole;
+      roleToChange.setName(newRole);
+      message.channel.send(`Role changed to ${newRole}.`);
+      break;
 
-  // SET OWN ROLE
+    // poll
+    case 'poll':
+      const sayMessage = args.join(" ");
+      message.channel.send(sayMessage).then(sentMsg => {
+        sentMsg.react("⬆")
+        sentMsg.react("⬇")
+        message.delete().catch(O_o=>{});
+        })
+      return;
+      break;
 
-  if(command === "setrole") {
-	const newRole = args.join(" ");
-	const roleToChange = message.member.highestRole;
-	roleToChange.setName(newRole);
-	message.channel.send(`Role changed to ${newRole}.`);
-  }
-
-  if(command === "poll") {
-    const sayMessage = args.join(" ");
-    message.channel.send(sayMessage).then(sentMsg => {
-      sentMsg.react("⬆")
-      sentMsg.react("⬇")
-      message.delete().catch(O_o=>{});
-      })
-
-    return;
   }
 
   if (command === "howdy") {
