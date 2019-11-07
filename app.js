@@ -106,102 +106,96 @@ client.on("message", async message => {
   //const avatar = `https://cdn.discordapp.com/avatars/${message.author}/${message.author.avatar}.jpg`;
 
 
-// INVITE LINK??
-  if(command === "invite" || command === "inv") {
-	message.channel.send("Clicc: <http://inv.whoinventedbeans.wtf>"); }
+  // Here begins the commands
+  // To search for a specific command, search for '// command'
+  switch(command) {
 
-  if(command === "src" || command === "source") {
-	message.channel.send("https://github.com/the-jame/shaqbot"); }
+    // invite inv
+    // INVITE LINK??
+    case 'invite':
+    case 'inv':
+      message.channel.send("Clicc: <http://inv.whoinventedbeans.wtf>");
+      break;
+    // source src
+    case 'src':
+    case 'source':
+      message.channel.send("https://github.com/the-jame/shaqbot");
+      break;
 
-// MEME HELP
+    // MEME HELP
+    // memes
+    case 'memes':
+      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!");
+      break;
 
-  if(command === "memes") {
-	message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!");
-  }
+    // MEME TEXT
+    case 'corn':
+      // localEmbed(url to jim's message???);
+      break;
+    case 'uwu':
+      message.channel.send("`(„ᵕᴗᵕ„)`");
+      break;
+    case 'pungent':
+      message.channel.send("```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren't I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```");
+      break;
 
+    // MEME IMAGES
+    case 'breasts':
+      message.channel.send({files: ["img/kingofbreasts.jpg"]});
+      break;
+    case 'chicken':
+      message.channel.send({files: ["img/5chicken.png"]});
+      break;
+    case 'isthatshaq':
+      message.channel.send({files: ["img/isthatshaq.png"]});
+      break;
+    case 'beans':
+      message.channel.send({files: ["img/inventedbeans.png"]});
+      break;
+    case 'boomer':
+      message.channel.send({files: ["img/okboomer.png"]});
+      break;
+    case 'blacked':
+      message.channel.send({files: ["img/blacked.png"]});
+      break;
+    case 'joker':
+      message.channel.send({files: ["img/joker.jpg"]});
+      break;
+    case 'smoljoker':
+      message.channel.send({files: ["img/smoljoker.png"]});
+      break;
+    case 'burritomug':
+    case 'burrito':
+      message.channel.send({files: ["img/burritomug.png"]});
+      break;
+    case 'yallmindifi':
+    case 'praisethelord':
+      message.channel.send({files: ["img/praisethelord.gif"]});
+      break;
+    case 'quean':
+      message.channel.send({files: ["img/quean.png"]});
+      break;
+    case 'thinkin':
+    case 'thinkinaboutbeans':
+      message.channel.send({files: ["img/thinkinaboutbeans.png"]});
+      break;
+    case 'consequences':
+      message.channel.send("https://youtu.be/FSt1ptsOjL0");
+      break;
+    case 'doubt':
+      message.channel.send({files: ["img/doubt.png"]});
+      break;
+    case 'killed':
+    case 'immediately':
+      message.channel.send({files: ["img/immediatelykillyou.png"]});
+      break;
+    case 'stfuboomer':
+      message.channel.send({files: ["img/stfuboomer.jpg"]});
+      break;
+    case 'boomeralert':
+      message.channel.send({files: ["img/boomeralert.gif"]});
+      break;
 
-// MEME TEXT
-
-  if(command === "corn") {
-	// localEmbed(url to jim's message???);
-  }
-	
-  if(command === "uwu") {
-     	message.channel.send("`(„ᵕᴗᵕ„)`"); }
-
-  if(command === "pungent") {
-	message.channel.send("```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren't I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```"); }
-
-
-
-// MEME IMAGES
-
-  if(command === "breasts") {
-	message.channel.send({files: ["img/kingofbreasts.jpg"]});
-  }
-
-  if(command === "chicken") {
-	message.channel.send({files: ["img/5chicken.png"]});
-  }
-
-  if(command === "isthatshaq") {
-	message.channel.send({files: ["img/isthatshaq.png"]});
-  }
-
-  if(command === "beans") {
-	message.channel.send({files: ["img/inventedbeans.png"]});
-  }
-
-  if(command === "boomer") {
-	message.channel.send({files: ["img/okboomer.png"]});
-  }
-
-  if(command === "blacked") {
-	message.channel.send({files: ["img/blacked.png"]});
-  }
-
-  if(command === "joker") {
-	message.channel.send({files: ["img/joker.jpg"]});
-  }
-
-  if(command === "smoljoker") {
-	message.channel.send({files: ["img/smoljoker.png"]});
-  }
-
-  if(command === "burritomug" || command === "burrito") {
-	message.channel.send({files: ["img/burritomug.png"]});
-  }
-
-  if(command === "yallmindifi" || command === "praisethelord") {
-	message.channel.send({files: ["img/praisethelord.gif"]});
-  }
-
-  if(command === "quean") {
-	message.channel.send({files: ["img/quean.png"]});
-  }
-
-  if(command === "thinkin" || command === "thinkinaboutbeans") {
-	message.channel.send({files: ["img/thinkinaboutbeans.png"]});
-  }
-
-  if(command === "consequences") {
-	message.channel.send("https://youtu.be/FSt1ptsOjL0");
-  }
-
-  if(command === "doubt") {
-	message.channel.send({files: ["img/doubt.png"]});
-  }
-
-  if(command === "killed" || command === "immediately") {
-	message.channel.send({files: ["img/immediatelykillyou.png"]});
-  }
-
-  if(command === "stfuboomer") {
-	message.channel.send({files: ["img/stfuboomer.jpg"]});
-  }
-
-  if(command === "boomeralert") {
-	message.channel.send({files: ["img/boomeralert.gif"]});
   }
 
   // SET OWN ROLE
