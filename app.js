@@ -199,16 +199,16 @@ client.on("message", async message => {
     // SET OWN ROLE
     // setrole
     case 'setrole':
-      const newRole = args.join(" ");
-      const roleToChange = message.member.highestRole;
+      let newRole = args.join(" ");
+      let roleToChange = message.member.highestRole;
       roleToChange.setName(newRole);
       message.channel.send(`Role changed to ${newRole}.`);
       break;
 
     // poll
     case 'poll':
-      const sayMessage = args.join(" ");
-      message.channel.send(sayMessage).then(sentMsg => {
+      let pollMessage = args.join(" ");
+      message.channel.send(pollMessage).then(sentMsg => {
         sentMsg.react("⬆")
         sentMsg.react("⬇")
         message.delete().catch(O_o=>{});
@@ -220,14 +220,14 @@ client.on("message", async message => {
 
   if (command === "howdy") {
     //This is Jimmy trying to do something very basic
-    var cowboyphrases = ["Howdy partner \:cowboy:", "H'lo :cowboy:", "This town ain't big enough for the two of us :cowboy:", "_a tumbleweed rolls by_", "It's high noon :cowboy:"];
+    let cowboyphrases = ["Howdy partner \:cowboy:", "H'lo :cowboy:", "This town ain't big enough for the two of us :cowboy:", "_a tumbleweed rolls by_", "It's high noon :cowboy:"];
 
-    var num = Math.floor((Math.random() * (cowboyphrases.length - 1)));
+    let num = Math.floor((Math.random() * (cowboyphrases.length - 1)));
     message.channel.send(cowboyphrases[num]);
   }
 
   if(command === "say") {
-    const sayMessage = args.join(" ");
+    let sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
     message.channel.send(sayMessage,{tts: true});
     return;
@@ -252,8 +252,8 @@ client.on("message", async message => {
   }
 
   if (command === "8ball" || command === "8") {
-    var eightball = ["It is certain.","As I see it, yes.",":thumbsup:", "Sure.", "I guess.", "No way.", "Cannot decide...","Possibru.","Mostly.","Kind of.", "Inconclusive.","Certainly.","Certainly not.", "HELL naw.","Most likely.","It is decidedly so.",":huh:","Without a doubt.","Yes - DEFINITELY","You may rely on it.","Outlook is good.","Yes.","Signs point to yes, papi.","Reply hazy... try again.","Ask again later.","Better not tell you now.","Cannot predict now.","Concentrate and ask again.","Don't count on it.","My reply is no.","My sources say no.","Outlook is not good.","Very doubtful.","Thank you Kanye, very cool!"];
-    var num = Math.floor((Math.random() * (eightball.length - 1)));
+    let eightball = ["It is certain.","As I see it, yes.",":thumbsup:", "Sure.", "I guess.", "No way.", "Cannot decide...","Possibru.","Mostly.","Kind of.", "Inconclusive.","Certainly.","Certainly not.", "HELL naw.","Most likely.","It is decidedly so.",":huh:","Without a doubt.","Yes - DEFINITELY","You may rely on it.","Outlook is good.","Yes.","Signs point to yes, papi.","Reply hazy... try again.","Ask again later.","Better not tell you now.","Cannot predict now.","Concentrate and ask again.","Don't count on it.","My reply is no.","My sources say no.","Outlook is not good.","Very doubtful.","Thank you Kanye, very cool!"];
+    let num = Math.floor((Math.random() * (eightball.length - 1)));
      message.channel.send(eightball[num], {tts: true});
     return;
   }
@@ -267,17 +267,17 @@ client.on("message", async message => {
   if (command === "uuu" || command === "u" || command ==="uu") {
     //Have a conversation with Chubbot in it's native tongue
     //Syllables used to create words
-    var syllables = ["euxeux", "bu", "lemlemlem", "lumlumlum", "lem", "lum", "huehue", "hue", "h", "hhhhhhhhhh", "eak", "oom",
+    let syllables = ["euxeux", "bu", "lemlemlem", "lumlumlum", "lem", "lum", "huehue", "hue", "h", "hhhhhhhhhh", "eak", "oom",
     "shaq", "aqaqaq", "urts", "nts", "anus", "buenos", "cumb", "cummie", "euxeux", "ahhhhhnnnnnnnnnnnnnnnnnnnn", "unnnnnnnnn", "yeff", "hhhuuu", "rrrrrrrrrrrr", "uuu","arf","euf","aeeeb", "ffff", "uuu", "uhhh", "aaaa", "eeeee", "iiii", "oooo", "v", "huuuuuuuuuuuuu", "y"];
     //Words used by themselves
-    var words = ["Posichichayones ", "from ", "sucky ", "keer ", "keer him ", "Legolas ", "jerk me once ", "jerk me twice ", "compadre ",
+    let words = ["Posichichayones ", "from ", "sucky ", "keer ", "keer him ", "Legolas ", "jerk me once ", "jerk me twice ", "compadre ",
     "papa ", "daddy ", "prease ","shame on you "];
 
-    var length = Math.floor(Math.random() * 15);
-    var str = '';
+    let length = Math.floor(Math.random() * 15);
+    let str = '';
     for (i=0; i<length; i++)
     {
-      var pick = Math.floor((Math.random() * (syllables.length - 1)));
+      let pick = Math.floor((Math.random() * (syllables.length - 1)));
       str+=(syllables[pick]);
     }
     message.channel.send(str, {tts: true});
