@@ -340,7 +340,7 @@ client.on("message", async message => {
       let neck = `${wut2}`;
       let wholeNeck = '';
 
-      let neckLen = Math.floor((Math.random() * (9)));
+      let neckLen = Math.floor((Math.random() * (20)));
       for (i=0; i<neckLen; i++)
       {
         wholeNeck += neck;
