@@ -333,6 +333,7 @@ client.on("message", async message => {
       if (pinged === "liz" || pinged === "lizz"){toPing = settings.liz;}
       if (pinged === "tyra" || pinged === "moomoo"){toPing = settings.tyra;}
       if (pinged === "ysabel" || pinged === "ysa"){toPing = settings.ysabel;}
+      else break;
 
       let wut1 = client.emojis.get('431701745329111041');
       let wut2 = client.emojis.get('431701745014669314');
