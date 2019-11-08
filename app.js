@@ -318,9 +318,20 @@ client.on("message", async message => {
     //Ping someone with more flavor
     //Increase neck length based on random number, not sure how to do/if possible
     //Goal is to make one for each of us so you can do =ping<person> without using @<person>
-      if (message.guild.id != settings.beans) break;
-      let pingedUser = '';
-      if (args[0] === "jim" || args[0] === "jimmy" || args[0] === "sunder"){pingedUser = settings.jimmy;}
+      if (message.guild.id != settings.beans) break; // does not work outside our server
+		  
+      let toPing = '';
+      let pinged = args[0].toLowerCase();
+		  
+      if (pinged === "jim" || pinged === "jimmy" || pinged === "sunder"){toPing = settings.jimmy;}
+      if (pinged === "jam" || pinged === "james" || pinged === "thejame"){toPing = settings.james;}
+      if (pinged === "reeg" || pinged === "enrique"){toPing = settings.enrique;}
+      if (pinged === "ton" || pinged === "anthony"){toPing = settings.anthony;}
+      if (pinged === "cody" || pinged === "chino" || pinged === "xhinon"){toPing = settings.cody;}
+      if (pinged === "brett" || pinged === "kitty" || pinged === "kittykatt"){toPing = settings.brett;}
+      if (pinged === "liz" || pinged === "elizabeth"){toPing = settings.liz;}
+      if (pinged === "tyra" || pinged === "moomoo"){toPing = settings.tyra;}
+      if (pinged === "ysabel" || pinged === "ysa"){toPing = settings.ysabel;}
 
       let wut1 = client.emojis.get('431701745329111041');
       let wut2 = client.emojis.get('431701745014669314');
@@ -331,7 +342,7 @@ client.on("message", async message => {
       {
         neck += neck;
       }
-      message.channel.send(`${wut1}${neck}${wut3}` + `<@${pingedUser}>`);
+      message.channel.send(`${wut1}${neck}${wut3}` + `<@${toPing}>`);
       break;
   }
 
