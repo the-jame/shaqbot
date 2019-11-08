@@ -371,7 +371,7 @@ client.on("message", async message => {
 	      default: toPing = "invalid"; break;
             }
 
-      if (toPing === "invalid") break;
+      if (toPing === "invalid") {message.channel.send("No user by that name."); break;}
       let wut1 = client.emojis.get('431701745329111041');
       let wut2 = client.emojis.get('431701745014669314');
       let wut3 = client.emojis.get('431701745236967425');
