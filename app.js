@@ -1,14 +1,15 @@
-// discord init
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.music = require("discord.js-musicbot-addon");
 
 // emoji that goes in the post title
 const tt = '⭐';
+
 let settings;
 let YTAPI = '';
 let token = '';
 
+// require settings file
 try {
   settings = require('./settings.json');
 } catch (e) {
@@ -16,6 +17,7 @@ try {
   process.exit();
 }
 
+// log in bot with settings token
 function login() {
   if (settings.token) {
     console.log(`Logging in with token...`);
