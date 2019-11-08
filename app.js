@@ -322,6 +322,7 @@ client.on("message", async message => {
 		  
       let toPing = '';
       let pinged = args[0].toLowerCase();
+      message.delete().catch(O_o=>{});
 		  
       if (pinged === "jim" || pinged === "jimmy" || pinged === "sunder"){toPing = settings.jimmy;}
       if (pinged === "jam" || pinged === "james" || pinged === "thejame"){toPing = settings.james;}
@@ -337,7 +338,8 @@ client.on("message", async message => {
       let wut2 = client.emojis.get('431701745014669314');
       let wut3 = client.emojis.get('431701745236967425');
       let neck = `${wut2}`;
-      let neckLen = Math.floor((Math.random() * (7)));
+		  
+      let neckLen = Math.floor((Math.random() * (6)));
       for (i=0; i<neckLen; i++)
       {
         neck += neck;
