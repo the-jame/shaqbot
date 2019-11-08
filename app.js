@@ -319,11 +319,11 @@ client.on("message", async message => {
     //Increase neck length based on random number, not sure how to do/if possible
     //Goal is to make one for each of us so you can do =ping<person> without using @<person>
       if (message.guild.id != settings.beans) break; // does not work outside our server
-		  
+
       let toPing = '';
       let pinged = args[0].toLowerCase();
       message.delete().catch(O_o=>{});
-		  
+
       if (pinged === "jim" || pinged === "jimmy" || pinged === "sunder"){toPing = settings.jimmy;}
       if (pinged === "jam" || pinged === "james" || pinged === "thejame"){toPing = settings.james;}
       if (pinged === "reeg" || pinged === "enrique"){toPing = settings.enrique;}
