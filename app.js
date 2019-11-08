@@ -314,20 +314,21 @@ client.on("message", async message => {
       message.channel.send(str, {tts: true});
       break;
 
-    case 'pingshaq':
+    case 'ping':
     //Ping someone with more flavor
     //Increase neck length based on random number, not sure how to do/if possible
     //Goal is to make one for each of us so you can do =ping<person> without using @<person>
       let wut1 = client.emojis.get('431701745329111041');
       let wut2 = client.emojis.get('431701745014669314');
       let wut3 = client.emojis.get('431701745236967425');
-      let neck = ${wut2};
-      let neckLen = Math.floor((Math.random() * (100)));
+      let neck = `${wut2}`;
+      let neckLen = Math.floor((Math.random() * (7)));
       for (i=0; i<neckLen; i++)
       {
-        let neck += neck;
+        neck += neck;
       }
       message.channel.send(`${wut1}${neck}${wut3}` + client.users.get('424019311825518593'));
+      break;
   }
 
 });
