@@ -318,12 +318,12 @@ client.on("message", async message => {
     //Ping someone with more flavor
     //Increase neck length based on random number, not sure how to do/if possible
     //Goal is to make one for each of us so you can do =ping<person> without using @<person>
-      if (message.guild.id != settings.beans) {message.channel.send("Sorry, this only works in the home server"); break;} // does not work outside our server
+      if (message.guild.id != settings.beans) {message.channel.send("Sorry, this only works in the home server!"); break;} // does not work outside our server
 
       let toPing = '';
       let pinged = args[0].toLowerCase();
       message.delete().catch(O_o=>{});
-		  
+
       switch(pinged){
 
 	      case 'jim':
