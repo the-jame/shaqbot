@@ -338,7 +338,7 @@ client.on("message", async message => {
       let wut2 = client.emojis.get('431701745014669314');
       let wut3 = client.emojis.get('431701745236967425');
       let neck = `${wut2}`;
-		  
+
       let neckLen = Math.floor((Math.random() * (6)));
       for (i=0; i<neckLen; i++)
       {
