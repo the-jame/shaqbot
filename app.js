@@ -371,9 +371,10 @@ client.on("message", async message => {
             }
 
       if (toPing === "invalid") {message.channel.send("No user by that name."); break;}
-      let wut1 = client.emojis.get('431701745329111041');
-      let wut2 = client.emojis.get('431701745014669314');
-      let wut3 = client.emojis.get('431701745236967425');
+      const wut1 = client.emojis.get('431701745329111041');
+      const wut2 = client.emojis.get('431701745014669314');
+      const wut3 = client.emojis.get('431701745236967425');
+      const eyesleft = client.emojis.get('642179113259499571');
       let neck = `${wut2}`;
       let wholeNeck = '';
 
@@ -382,7 +383,7 @@ client.on("message", async message => {
       {
         wholeNeck += neck;
       }
-      message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>`);
+      message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>` + ` ${eyesleft}`);
       break;
   }
 
