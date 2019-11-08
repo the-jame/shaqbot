@@ -329,6 +329,8 @@ client.on("message", async message => {
 	      case 'jim':
 	      case 'jimmy':
 	      case 'jambi':
+	      case 'jimb':
+              case 'jimbi':
 	      case 'sunder': toPing = settings.jimmy; break;
 
 	      case 'jam':
