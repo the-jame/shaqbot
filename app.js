@@ -20,7 +20,6 @@ try {
 // log in bot with settings token
 function login() {
   if (settings.token) {
-    console.log(`Logging in with token...`);
     client.login(settings.token);
   } else {
     console.log('Error logging in: There may be an issue with your settings.json file');
@@ -28,7 +27,7 @@ function login() {
 }
 
 client.on('ready', () => {
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
+  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\nEpstein didn't kill himself.`);
   const realshit = client.emojis.get('487855131996585994');
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
