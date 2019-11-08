@@ -265,7 +265,7 @@ client.on("message", async message => {
         "plump", "corn-fed", "flabby", "opulent", "liberal", "confusing", "questionable", "lacking self-confidence", "uncertain", "meager",
         "lacking quality"];
       var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
-      if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") { message.channel.send("Your ball size is " + ballsizes[rand] +".", {tts: true});return;}
+      if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; const beingSized = args.join(" "); message.channel.send("Your ${beingSized} ball size is " + ballsizes[rand] +".", {tts: true});return;}
       else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq's" || args[0].toLowerCase() === "shaqs") {args[0] = "My";}
       else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined') {message.channel.send("My ball size is " + ballsizes[rand] + ".", {tts: true});return;}
       const beingSized = args.join(" ");
@@ -318,7 +318,7 @@ client.on("message", async message => {
     //Ping someone with more flavor
     //Increase neck length based on random number, not sure how to do/if possible
     //Goal is to make one for each of us so you can do =ping<person> without using @<person>
-      if (message.guild.id != settings.beans) break; // does not work outside our server
+      if (message.guild.id != settings.beans) {message.channel.send("Sorry, this only works in the home server"); break;} // does not work outside our server
 
       let toPing = '';
       let pinged = args[0].toLowerCase();
