@@ -318,6 +318,10 @@ client.on("message", async message => {
     //Ping someone with more flavor
     //Increase neck length based on random number, not sure how to do/if possible
     //Goal is to make one for each of us so you can do =ping<person> without using @<person>
+      if (message.guild.id != settings.beans) break;
+      let pingedUser = '';
+      if (args[0] === "jim" || args[0] === "jimmy" || args[0] === "sunder"){pingedUser = settings.jimmy;}
+
       let wut1 = client.emojis.get('431701745329111041');
       let wut2 = client.emojis.get('431701745014669314');
       let wut3 = client.emojis.get('431701745236967425');
@@ -327,7 +331,7 @@ client.on("message", async message => {
       {
         neck += neck;
       }
-      message.channel.send(`${wut1}${neck}${wut3}` + client.users.get('424019311825518593'));
+      message.channel.send(`${wut1}${neck}${wut3}` + `<@${pingedUser}>`);
       break;
   }
 
