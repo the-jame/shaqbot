@@ -268,7 +268,8 @@ client.on("message", async message => {
       if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") { message.channel.send("Your ball size is " + ballsizes[rand] +".", {tts: true});return;}
       else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq's" || args[0].toLowerCase() === "shaqs") {args[0] = "My";}
       else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined') {message.channel.send("My ball size is " + ballsizes[rand] + ".", {tts: true});return;}
-      const beingSized = args.join(" "); message.channel.send(beingSized + "'s ball size is " + ballsizes[rand] + ".", {tts: true});
+      const beingSized = args.join(" ");
+      message.channel.send(beingSized + "'s ball size is " + ballsizes[rand] + ".", {tts: true});
       return;
       break;
 
@@ -313,6 +314,20 @@ client.on("message", async message => {
       message.channel.send(str, {tts: true});
       break;
 
+    case 'pingshaq':
+    //Ping someone with more flavor
+    //Increase neck length based on random number, not sure how to do/if possible
+    //Goal is to make one for each of us so you can do =ping<person> without using @<person>
+      let wut1 = client.emojis.get('431701745329111041');
+      let wut2 = client.emojis.get('431701745014669314');
+      let wut3 = client.emojis.get('431701745236967425');
+      let neck = ${wut2};
+      let neckLen = Math.floor((Math.random() * (100)));
+      for (i=0; i<neckLen; i++)
+      {
+        let neck += neck;
+      }
+      message.channel.send(`${wut1}${neck}${wut3}` + client.users.get('424019311825518593'));
   }
 
 });
