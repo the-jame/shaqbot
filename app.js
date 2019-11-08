@@ -367,6 +367,8 @@ client.on("message", async message => {
 
 	      case 'ysabel':
 	      case 'ysa': toPing = settings.ysabel; break;
+
+	      default: return; break;
             }
 
       let wut1 = client.emojis.get('431701745329111041');
