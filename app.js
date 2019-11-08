@@ -265,10 +265,10 @@ client.on("message", async message => {
         "plump", "corn-fed", "flabby", "opulent", "liberal", "confusing", "questionable", "lacking self-confidence", "uncertain", "meager",
         "lacking quality"];
       var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
-      if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; const beingSized = args.join(" "); message.channel.send("Your ${beingSized} ball size is " + ballsizes[rand] +".", {tts: true});return;}
+      if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; let beingSized = args.join(" "); if(beingSized !== ''){beingSized = beingSized += "'s";} message.channel.send(`Your${beingSized} ball size is ` + ballsizes[rand] +".", {tts: true});return;}
       else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq's" || args[0].toLowerCase() === "shaqs") {args[0] = "My";}
       else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined') {message.channel.send("My ball size is " + ballsizes[rand] + ".", {tts: true});return;}
-      const beingSized = args.join(" ");
+      let beingSized = args.join(" ");
       message.channel.send(beingSized + "'s ball size is " + ballsizes[rand] + ".", {tts: true});
       return;
       break;
