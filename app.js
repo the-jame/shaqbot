@@ -323,17 +323,47 @@ client.on("message", async message => {
       let toPing = '';
       let pinged = args[0].toLowerCase();
       message.delete().catch(O_o=>{});
+		  
+      switch(pinged){
 
-      if (pinged === "jim" || pinged === "jimmy" || pinged === "jimbi"|| pinged === "jambi" || pinged === "sunder"){toPing = settings.jimmy;}
-      if (pinged === "jam" || pinged === "james" || pinged === "thejame" || pinged === "jame"){toPing = settings.james;}
-      if (pinged === "reeg" || pinged === "enrique"){toPing = settings.enrique;}
-      if (pinged === "ton" || pinged === "anthony"){toPing = settings.anthony;}
-      if (pinged === "cody" || pinged === "chino" || pinged === "xhinon"){toPing = settings.cody;}
-      if (pinged === "brett" || pinged === "kitty" || pinged === "kittykatt"){toPing = settings.brett;}
-      if (pinged === "liz" || pinged === "lizz"){toPing = settings.liz;}
-      if (pinged === "tyra" || pinged === "moomoo"){toPing = settings.tyra;}
-      if (pinged === "ysabel" || pinged === "ysa"){toPing = settings.ysabel;}
-      else message.channel.send("No one by that name to ping."); break;
+	      case 'jim':
+	      case 'jimmy':
+	      case 'jambi':
+	      case 'sunder': toPing = settings.jimmy; break;
+
+	      case 'jam':
+	      case 'james':
+	      case 'jame':
+	      case 'thejame': toPing = settings.james; break;
+
+	      case 'enrique':
+	      case 'reegie':
+	      case 'reeg': toPing = settings.enrique; break;
+
+	      case 'chino':
+	      case 'cody':
+	      case 'chin':
+	      case 'xhinon': toPing = settings.cody; break;
+
+	      case 'ton':
+	      case 'anthony':
+	      case 'mug': toPing = settings.anthony; break;
+
+	      case 'brett':
+	      case 'kitty':
+	      case 'kittykatt': toPing = settings.brett; break;
+
+	      case 'liz':
+	      case 'lizz':
+	      case 'lizzz':
+	      case 'elizabeth': toPing = settings.liz; break;
+
+	      case 'tyra':
+	      case 'moomoo': toPing = settings.tyra; break;
+
+	      case 'ysabel':
+	      case 'ysa': toPing = settings.ysabel; break;
+            }
 
       let wut1 = client.emojis.get('431701745329111041');
       let wut2 = client.emojis.get('431701745014669314');
