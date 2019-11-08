@@ -338,13 +338,14 @@ client.on("message", async message => {
       let wut2 = client.emojis.get('431701745014669314');
       let wut3 = client.emojis.get('431701745236967425');
       let neck = `${wut2}`;
+      let wholeNeck = '';
 
-      let neckLen = Math.floor((Math.random() * (6)));
+      let neckLen = Math.floor((Math.random() * (9)));
       for (i=0; i<neckLen; i++)
       {
-        neck += neck;
+        wholeNeck += neck;
       }
-      message.channel.send(`${wut1}${neck}${wut3}` + `<@${toPing}>`);
+      message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>`);
       break;
   }
 
