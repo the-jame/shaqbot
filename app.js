@@ -324,13 +324,13 @@ client.on("message", async message => {
       let pinged = args[0].toLowerCase();
       message.delete().catch(O_o=>{});
 
-      if (pinged === "jim" || pinged === "jimmy" || pinged === "sunder"){toPing = settings.jimmy;}
-      if (pinged === "jam" || pinged === "james" || pinged === "thejame"){toPing = settings.james;}
+      if (pinged === "jim" || pinged === "jimmy" || pinged === "jimbi"|| pinged === "jambi" || pinged === "sunder"){toPing = settings.jimmy;}
+      if (pinged === "jam" || pinged === "james" || pinged === "thejame" || pinged === "jame"){toPing = settings.james;}
       if (pinged === "reeg" || pinged === "enrique"){toPing = settings.enrique;}
       if (pinged === "ton" || pinged === "anthony"){toPing = settings.anthony;}
       if (pinged === "cody" || pinged === "chino" || pinged === "xhinon"){toPing = settings.cody;}
       if (pinged === "brett" || pinged === "kitty" || pinged === "kittykatt"){toPing = settings.brett;}
-      if (pinged === "liz" || pinged === "elizabeth"){toPing = settings.liz;}
+      if (pinged === "liz" || pinged === "lizz"){toPing = settings.liz;}
       if (pinged === "tyra" || pinged === "moomoo"){toPing = settings.tyra;}
       if (pinged === "ysabel" || pinged === "ysa"){toPing = settings.ysabel;}
 
@@ -339,7 +339,7 @@ client.on("message", async message => {
       let wut3 = client.emojis.get('431701745236967425');
       let neck = `${wut2}`;
 
-      let neckLen = Math.floor((Math.random() * (6)));
+      let neckLen = Math.floor((Math.random() * (7)));
       for (i=0; i<neckLen; i++)
       {
         neck += neck;
