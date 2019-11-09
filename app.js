@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+
 client.music = require("discord.js-musicbot-addon");
 
 // emoji that goes in the post title
@@ -8,6 +9,7 @@ const tt = '⭐';
 let settings;
 let YTAPI = '';
 let token = '';
+const guild = client.guilds.get(settings.guild);
 
 // require settings file
 try {
@@ -366,7 +368,10 @@ client.on("message", async message => {
 	      case 'ysabel':
 	      case 'ysa': toPing = settings.ysabel; break;
 
-	      case 'men': toPing = settings.men; break;
+	      case 'men':
+    		const menRole = guild.roles.find("name", "Men");
+		toPing = menRole;
+	      break;
 
 	      default: toPing = "invalid"; break;
             }
