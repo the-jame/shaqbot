@@ -109,6 +109,7 @@ client.on("message", async message => {
   // Here begins the commands
   // To search for a specific command, search for '// command'
   switch(command) {
+    if(message.channel.id === "95702402253983744") {message.channel.send("Sorry, I'm not allowed in this channel!")}; break;
 
     // invite inv
     // INVITE LINK??
