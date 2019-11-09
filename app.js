@@ -323,7 +323,6 @@ client.on("message", async message => {
 
       let toPing = '';
       let pinged = args[0].toLowerCase();
-      message.delete().catch(O_o=>{});
 
       switch(pinged){
 
