@@ -104,7 +104,6 @@ client.on("message", async message => {
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   //const avatar = `https://cdn.discordapp.com/avatars/${message.author}/${message.author.avatar}.jpg`;
-  if(message.channel.id === "95702402253983744") {message.channel.send("Sorry, I'm not allowed in this channel!")}; return;
 
 
   // Here begins the commands
