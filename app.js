@@ -273,14 +273,14 @@ client.on("message", async message => {
       else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq's" || args[0].toLowerCase() === "shaqs") {args[0] = "My";}
       else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined') {message.channel.send("My ball size is " + ballsizes[rand] + ".", {tts: true});return;}
       let beingSized = args.join(" ");
-      message.channel.send(beingSized + "'s ball size is " + ballsizes[rand] + ` ${huh}.`, {tts: true});
+      message.channel.send(beingSized + "'s ball size is " + ballsizes[rand] + ".", {tts: true});
       return;
       break;
 
     // 8ball 8
     case '8ball':
     case '8':
-      const huh = client.emojis.get("431693012788314132");
+      huh = client.emojis.get('431693012788314132');
       let eightball = ["It is certain.","As I see it, yes.",":thumbsup:", "Sure.", "I guess.", "No way.", "Cannot decide...","Possibru.","Mostly.",
         "Kind of.", "Inconclusive.","Certainly.","Certainly not.", "HELL naw.","Most likely.","It is decidedly so.",`${huh}`,"Without a doubt.",
         "Yes - DEFINITELY","You may rely on it.","Outlook is good.","Yes.","Signs point to yes, papi.","Reply hazy... try again.","Ask again later.",
