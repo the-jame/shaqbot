@@ -368,7 +368,7 @@ client.on("message", async message => {
 	      case 'ysabel':
 	      case 'ysa': toPing = settings.ysabel; break;
 
-	      case 'men': toPing = '&' + settings.men; break;
+	      case 'men': toPing = settings.men; break;
 
 	      default: toPing = "invalid"; break;
             }
