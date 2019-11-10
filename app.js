@@ -9,7 +9,6 @@ const tt = '⭐';
 let settings;
 let YTAPI = '';
 let token = '';
-const guild = client.guilds.get(settings.guild);
 
 // require settings file
 try {
@@ -29,8 +28,9 @@ function login() {
 }
 
 client.on('ready', () => {
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\nEpstein didn't kill himself.`);
+  console.log(`Bot has started with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\nEpstein didn't kill himself.`);
   const realshit = client.emojis.get('487855131996585994');
+
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
   client.music.start(client, {
@@ -368,10 +368,7 @@ client.on("message", async message => {
 	      case 'ysabel':
 	      case 'ysa': toPing = settings.ysabel; break;
 
-	      case 'men':
-    		const menRole = guild.roles.find("name", "Men");
-		toPing = menRole;
-	      break;
+	      case 'men': toPing = '&' + settings.men; break;
 
 	      default: toPing = "invalid"; break;
             }
@@ -389,6 +386,7 @@ client.on("message", async message => {
       {
         wholeNeck += neck;
       }
+
       message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>` + ` ${eyesleft}`);
       break;
   }
