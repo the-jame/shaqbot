@@ -105,11 +105,9 @@ client.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  //const avatar = `https://cdn.discordapp.com/avatars/${message.author}/${message.author.avatar}.jpg`;
+  const huh = client.emojis.get('431693012788314132');
 
-
-  // Here begins the commands
-  // To search for a specific command, search for '// command'
+  // begin commands, search for //(command) to find
   switch(command) {
 
     // invite inv
@@ -256,7 +254,6 @@ client.on("message", async message => {
     // ballsize bs
     case 'ballsize':
     case 'bs':
-      let huh = client.emojis.get('431693012788314132');
       var ballsizes = ["large", "small", "medium", "puny", "gigantic", "average", "incongruous", "nice :thumbsup:", ":b:ig", "immense", "voluptuous", "h",
         "bigger than I'd like :/", "smaller than I'd like :/", "vast", "globular", "eternal", "*just right*", "normal", "¡Sabado Gigante!", "narrow", "wide", "petite", "insignificant", 
         "short", ":ok:", "smallish", "XXL", "XXS", "big-boned", "king size", "FAT", "mediocre", "unexceptional", "immeasurable", "trivial", "intermediate", "passable", 
@@ -280,7 +277,6 @@ client.on("message", async message => {
     // 8ball 8
     case '8ball':
     case '8':
-      huh = client.emojis.get('431693012788314132');
       let eightball = ["It is certain.","As I see it, yes.",":thumbsup:", "Sure.", "I guess.", "No way.", "Cannot decide...","Possibru.","Mostly.",
         "Kind of.", "Inconclusive.","Certainly.","Certainly not.", "HELL naw.","Most likely.","It is decidedly so.",`${huh}`,"Without a doubt.",
         "Yes - DEFINITELY","You may rely on it.","Outlook is good.","Yes.","Signs point to yes, papi.","Reply hazy... try again.","Ask again later.",
