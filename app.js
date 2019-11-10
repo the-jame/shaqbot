@@ -264,7 +264,7 @@ client.on("message", async message => {
         "about that of a golf ball", "Epstein didn't kill himself", "too big to handle", "just right", "ordinary", "unwieldy", "embarrassing", "cubic", "shriveled", "that of a BEAN",
         "six of one, half dozen of the other", "an acre", "US Men's 11", "UK Women's 7 & 1/2", "a lima bean", "unusual", "gamer sized :video_game:", "amassed",
         "in South Carolina until 10/12","husky", "big and tall", "fine", "sizeable", "beach ball", ":chart_with_upwards_trend:", ":chart_with_downwards_trend:",
-        ":bar_chart:", "boomer-sized", "minute", "old-fashioned", "frail", "nutty", "broad", "crooked", "obtuse", "portable", "stubby", "insufficient",
+        ":bar_chart:", "boomer-sized", "minute", "old-fashioned", "frail", "nutty", "broad", "crooked", "euclidean", "obtuse", "portable", "stubby", "insufficient",
         "plump", "corn-fed", "flabby", "opulent", "liberal", "confusing", "questionable", "lacking self-confidence", "uncertain", "meager",
         "lacking quality"];
       var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
