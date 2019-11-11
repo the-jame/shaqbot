@@ -395,21 +395,18 @@ client.on("message", async message => {
       break;
 
   case 'stretch':
-		  
+
       let finalNeck = '';
       let neck2 = `${wut2}`;
-		  
-      message.channel.send(`${wut1}${wut2}${wut3}`)
-      .then((msg)=> {
-		for(i=0; i<10;i++){
-			let lengthRand = Math.floor((Math.random() * (7)));
-			for(j=0;j<lengthRand;j++) { finalNeck += neck2; };
-			setTimeout(function(){
-			  msg.edit(`${wut1}${finalNeck}${wut3}`);
-			}, 600)
-      		    }
-      });
 
+      setTimeout(()=> {
+      clearTimeout(elongate);
+      }, 10000);
+
+      message.channel.send(`${wut1}${wut2}${wut3}`)
+        .then((msg)=> {
+        elongate = setInterval(function(){ for(i=0;i<Math.floor((Math.random() * 10));i++){finalNeck +=neck2;} msg.edit(`${wut1}${finalNeck}${wut3}`); finalNeck ='';}, 500)
+      });
 
   break;
   }
