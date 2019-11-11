@@ -405,7 +405,7 @@ client.on("message", async message => {
 
       message.channel.send(`${wut1}${wut2}${wut3}`)
         .then((msg)=> {
-        elongate = setInterval(function(){ for(i=0;i<Math.floor((Math.random() * 6));i++){finalNeck +=neck2;} msg.edit(`${wut1}${finalNeck}${wut3}`);}, 1500)
+        elongate = setInterval(function(){ for(i=0;i<Math.floor((Math.random() * 7));i++){finalNeck +=neck2;} msg.edit(`${wut1}${finalNeck}${wut3}`);}, 1500)
       });
 
   break;
