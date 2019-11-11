@@ -397,7 +397,7 @@ client.on("message", async message => {
   case 'stretch':
 
       let finalNeck = '';
-      let neck2 = `${wut2}`;
+      let neck2 = `${wut2}${wut2}`;
 
       setTimeout(()=> {
       clearTimeout(elongate);
@@ -405,7 +405,7 @@ client.on("message", async message => {
 
       message.channel.send(`${wut1}${wut2}${wut3}`)
         .then((msg)=> {
-        elongate = setInterval(function(){ for(i=0;i<Math.floor((Math.random() * 8));i++){finalNeck +=neck2;} msg.edit(`${wut1}${finalNeck}${wut3}`);}, 1200)
+        elongate = setInterval(function(){ for(i=0;i<2;i++){finalNeck +=neck2;} msg.edit(`${wut1}${finalNeck}${wut3}`);}, 1200)
       });
 
   break;
