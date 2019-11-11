@@ -389,6 +389,20 @@ client.on("message", async message => {
 
       message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>` + ` ${eyesleft}`);
       break;
+
+  case 'stretch':
+
+      iterations = args[0];
+
+      message.channel.send(`${wut1}${wut2}${wut3}`)
+      .then((msg)=> {
+        setTimeout(function(){
+          msg.edit(`${wut1}${wut2}${wut2}${wut3}`);
+        }, 2000)
+      });
+
+
+  break;
   }
 
 });
