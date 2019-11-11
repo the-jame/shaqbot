@@ -10,6 +10,11 @@ let settings;
 let YTAPI = '';
 let token = '';
 
+const wut1 = client.emojis.get('431701745329111041');
+const wut2 = client.emojis.get('431701745014669314');
+const wut3 = client.emojis.get('431701745236967425');
+const eyesleft = client.emojis.get('642179113259499571');
+
 // require settings file
 try {
   settings = require('./settings.json');
@@ -374,10 +379,6 @@ client.on("message", async message => {
             }
 
       if (toPing === "invalid") {message.channel.send("No user by that name."); break;}
-      const wut1 = client.emojis.get('431701745329111041');
-      const wut2 = client.emojis.get('431701745014669314');
-      const wut3 = client.emojis.get('431701745236967425');
-      const eyesleft = client.emojis.get('642179113259499571');
       let neck = `${wut2}`;
       let wholeNeck = '';
 
@@ -391,14 +392,19 @@ client.on("message", async message => {
       break;
 
   case 'stretch':
-
-      iterations = args[0];
-
+		  
+      let finalNeck = '';
+      let neck2 = `${wut2}`;
+		  
       message.channel.send(`${wut1}${wut2}${wut3}`)
       .then((msg)=> {
-        setTimeout(function(){
-          msg.edit(`${wut1}${wut2}${wut2}${wut3}`);
-        }, 2000)
+		for(i=0; i<10;i++){
+			let lengthRand = Math.floor((Math.random() * (7)));
+			for(j=0;j<lengthRand;j++) { finalNeck += neck2; };
+			setTimeout(function(){
+			  msg.edit(`${wut1}${finalNeck}${wut3}`);
+			}, 600)
+      		    }
       });
 
 
