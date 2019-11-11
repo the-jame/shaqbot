@@ -394,6 +394,7 @@ client.on("message", async message => {
       message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>` + ` ${eyesleft}`);
       break;
 
+  case 'look':
   case 'stretch':
 
       let finalNeck = '';
