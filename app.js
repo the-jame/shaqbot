@@ -398,14 +398,16 @@ client.on("message", async message => {
 
       let finalNeck = '';
       let neck2 = `${wut2}${wut2}`;
+      let lookAt = args.join(" ");
+
 
       setTimeout(()=> {
       clearTimeout(elongate);
       }, 12000);
 
-      message.channel.send(`${wut1}${wut2}${wut3}`)
+      message.channel.send(`${wut1}${wut2}${wut3} ${lookAt}`)
         .then((msg)=> {
-        elongate = setInterval(function(){ for(i=0;i<2;i++){finalNeck +=neck2;} msg.edit(`${wut1}${finalNeck}${wut3}`);}, 1200)
+        elongate = setInterval(function(){ for(i=0;i<2;i++){finalNeck +=neck2;} msg.edit(`${wut1}${finalNeck}${wut3} ${lookAt}`);}, 1200)
       });
 
   break;
