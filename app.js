@@ -404,7 +404,7 @@ client.on("message", async message => {
 
       setTimeout(()=> {
       clearTimeout(elongate);
-      }, 12000);
+      }, 30000);
 
       message.channel.send(`${wut1}${wut2}${wut3} ${lookAt}`)
         .then((msg)=> {
