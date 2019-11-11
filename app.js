@@ -9,11 +9,10 @@ const tt = '⭐';
 let settings;
 let YTAPI = '';
 let token = '';
-
-const wut1 = client.emojis.get('431701745329111041');
-const wut2 = client.emojis.get('431701745014669314');
-const wut3 = client.emojis.get('431701745236967425');
-const eyesleft = client.emojis.get('642179113259499571');
+let wut1;
+let wut2;
+let wut3;
+let eyesleft;
 
 // require settings file
 try {
@@ -34,7 +33,11 @@ function login() {
 
 client.on('ready', () => {
   console.log(`Bot has started with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\nEpstein didn't kill himself.`);
-  const realshit = client.emojis.get('487855131996585994');
+  let realshit = client.emojis.get('487855131996585994');
+  wut1 = client.emojis.get('431701745329111041');
+  wut2 = client.emojis.get('431701745014669314');
+  wut3 = client.emojis.get('431701745236967425');
+  eyesleft = client.emojis.get('642179113259499571');
 
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
