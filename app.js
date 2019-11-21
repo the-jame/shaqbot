@@ -40,7 +40,7 @@ client.on('ready', () => {
   eyesleft = client.emojis.get('642179113259499571');
 
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
-  client.user.setActivity(`with ${client.users.size*2} balls.`, { type: 'PLAYING' })
+  client.user.setActivity(`with ${client.users.size*2-12} balls.`, { type: 'PLAYING' })
   client.music.start(client, {
 
   // Set the api key used for YouTube!
