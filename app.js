@@ -32,7 +32,7 @@ function login() {
 }
 
 client.on('ready', () => {
-  console.log(`Bot has started with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\nEpstein didn't kill himself.`);
+  console.log(`Bot has started with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\n`);
   let realshit = client.emojis.get('487855131996585994');
   wut1 = client.emojis.get('431701745329111041');
   wut2 = client.emojis.get('431701745014669314');
@@ -40,7 +40,7 @@ client.on('ready', () => {
   eyesleft = client.emojis.get('642179113259499571');
 
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
-  client.user.setActivity(`with ${client.users.size} balls.`, { type: 'PLAYING' })
+  client.user.setActivity(`with ${client.users.size*2} balls.`, { type: 'PLAYING' })
   client.music.start(client, {
 
   // Set the api key used for YouTube!
