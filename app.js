@@ -187,6 +187,7 @@ client.on("message", async message => {
       message.channel.send({files: ["img/spoken.jpg"]});
       break;
     case 'isthatshaq':
+      message.channel.send({files: ["img/sarahshaq.png"]});
       message.channel.send({files: ["img/isthatshaq.png"]});
       break;
     case 'beans':
