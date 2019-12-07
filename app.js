@@ -415,6 +415,7 @@ client.on("message", async message => {
 
   case 'look':
   case 'stretch':
+  case 'neck':
 
       let finalNeck = '';
       let neck2 = `${wut2}${wut2}`;
