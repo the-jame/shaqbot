@@ -175,6 +175,9 @@ client.on("message", async message => {
     case 'discusting':
       message.channel.send({files: ["img/discusting.png"]});
       break;
+    case 'bitches':
+    case 'bitcheshelp':
+      message.channel.send({files: ["img/bitcheshelp.jpg"]});
     case 'nephew':
     case 'deletethis':
       message.channel.send({files: ["img/deletenephew.png"]});
@@ -286,7 +289,7 @@ client.on("message", async message => {
       var ballsizes = ["large", "small", "medium", "puny", "gigantic", "average", "incongruous", "nice :thumbsup:", ":b:ig", "immense", "voluptuous", "h",
         "bigger than I'd like :/", "smaller than I'd like :/", "vast", "globular", "eternal", "*just right*", "normal", "¡Sabado Gigante!", "narrow", "wide", "petite", "insignificant", 
         "short", ":ok:", "smallish", "XXL", "XXS", "big-boned", "king size", "FAT", "mediocre", "unexceptional", "immeasurable", "trivial", "intermediate", "passable", 
-        "regular", "tainted", "common", "12 inches", `${huh}`, "1 foot", "5 & 1/2 centimeters", "futuristic", "macho", "4 yards", "2 meters", ":fire::fire::fire::fire::100::100::100:","thicc",
+        "regular", "tainted", "common", "12 inches", `${huh}`, "1 foot", "5 & 1/2 centimeters", "futuristic", "macho", "4 yards", "2 meters", ":fire::100::fire::100::fire::100:","thicc",
         "microscopic", "gargantuan", ":flushed:", "assertive", "reptilian", "ghastly", "delightful", "debonair", "homely", "nonexistent","left: 15cm, right: 1cm", "1mm","1 in.", "3cm",
         "about that of a golf ball", "Epstein didn't kill himself", "too big to handle", "just right", "ordinary", "unwieldy", "embarrassing", "cubic", "shriveled", "that of a BEAN",
         "six of one, half dozen of the other", "an acre", "US Men's 11", "UK Women's 7 & 1/2", "a lima bean", "unusual", "gamer sized :video_game:", "amassed",
