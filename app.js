@@ -133,7 +133,7 @@ client.on("message", async message => {
     // MEME HELP
     // memes
     case 'memes':
-      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...");
+      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums");
       break;
 
     // MEME TEXT
@@ -212,6 +212,9 @@ client.on("message", async message => {
       break;
     case 'blacked':
       message.channel.send({files: ["img/blacked.png"]});
+      break;
+    case 'drums':
+      message.channel.send({files: ["img/christmasdrums.jpg"]});
       break;
     case 'joker':
       message.channel.send({files: ["img/joker.jpg"]});
