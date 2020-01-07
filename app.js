@@ -16,6 +16,21 @@ let wut2;
 let wut3;
 let eyesleft;
 
+// require cipher
+try {
+  cipher = require('./cipher.json');
+} catch (e) {
+  console.log('cipher.json not found');
+  process.exit();
+}
+
+try {
+  decipher = require('./decipher.json');
+} catch (e) {
+  console.log('decipher.json not found');
+  process.exit();
+}
+
 // require settings file
 try {
   settings = require('./settings.json');
@@ -289,17 +304,34 @@ client.on("message", async message => {
       let sayMessage = args.join(" ");
       message.delete().catch(O_o=>{});
       message.channel.send(sayMessage,{tts: true});
-      return;
       break;
 
     case 'encrypt':
-      let message = args.join(" ");
-      let messageLen = message.length;
+      let messageIn = args.join(" ");
+      let messageLen = messageIn.length;
       let encMessage = '';
+      let char = '';
       for (i=0;i<messageLen;i++){
-      encMessage += (cipher.message[i];
+       char = messageIn[i];
+       encMessage += (cipher[char]);
       }
       message.channel.send(encMessage);
+      break;
+
+    case 'decrypt':
+      let messageInDe = args.join(" ");
+      let messageLenDe = messageInDe.length / 3;
+      let decMessage = '';
+      let deChar = '';
+      for (i=0;i<messageLenDe;i++){
+       if (messageInDe[i] == ' ') { decMessage += ' ';}
+       else {
+       deChar = messageInDe[i] + messageInDe[i+1] + messageInDe[i+2];
+       decMessage += (decipher[deChar]); i = i+2;}
+       console.log(decMessage);
+      }
+      message.channel.send(decMessage);
+      break;
 
     // ballsize bs
     case 'ballsize':
