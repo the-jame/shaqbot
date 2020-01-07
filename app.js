@@ -9,6 +9,8 @@ const tt = '⭐';
 let settings;
 let YTAPI = '';
 let token = '';
+let cipher;
+let decipher;
 let wut1;
 let wut2;
 let wut3;
@@ -289,6 +291,15 @@ client.on("message", async message => {
       message.channel.send(sayMessage,{tts: true});
       return;
       break;
+
+    case 'encrypt':
+      let message = args.join(" ");
+      let messageLen = message.length;
+      let encMessage = '';
+      for (i=0;i<messageLen;i++){
+      encMessage += (cipher.message[i];
+      }
+      message.channel.send(encMessage);
 
     // ballsize bs
     case 'ballsize':
