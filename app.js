@@ -157,7 +157,7 @@ client.on("message", async message => {
          "icon_url": "https://cdn.discordapp.com/avatars/96492725406281728/537b1ae185a24308310dcbd5fa3af37c.png"
         }
       };
-      channel.send({ embed });
+      message.channel.send({ embed });
       //message.channel.send("\"Corn was domesticated about 10,000 years ago in what is now Mexico.\" \n- <https://en.wikipedia.org/wiki/Maize#History>\n\nhttps://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268");
       break;
     case 'plex':
