@@ -7,9 +7,12 @@
     "discord.js": "^11.5.1",
     "discord.js-musicbot-addon": "^13.8.1",
     "ffmpeg": "^0.0.4",
+    "libsodium": "^0.7.6",
+    "libsodium-wrappers": "^0.7.6",
     "m3u8stream": "^0.6.4",
     "node-opus": "^0.3.3",
     "parse-time": "^0.1.4",
+    "sodium": "^3.0.2",
     "ytdl-core": "^1.0.6",
     "ytpl": "^0.1.19",
     "ytsearcher": "^1.2.2"
