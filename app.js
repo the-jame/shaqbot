@@ -140,7 +140,7 @@ client.on("message", async message => {
     case 'corn':
       // localEmbed(url to jim's message???);
 const embed = {
-  "title": "corn is nasty",
+  "title": "Corn is nasty",
   "description": "\n\n\n[->  original message](https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268)",
   "color": 15921246,
   "timestamp": "2018-05-01T21:42:55.506Z",
