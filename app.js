@@ -45,6 +45,10 @@ client.on('ready', () => {
 
   // Set the api key used for YouTube!
   youtubeKey: settings.YTAPI,
+  insertMusic: true,
+  requesterName: true,
+  logging: true,
+  musicPresence: true,
   // The PLAY command Object.
   play: {
     // Usage text for the help command.
@@ -62,12 +66,6 @@ client.on('ready', () => {
   ownerID: "95702308515487744",
 
   botPrefix: "=",
-
-  // The cooldown Object.
-  cooldown: {
-    // This disables the cooldown. Not recommended.
-    enabled: false
-  }
 });
 })
 
@@ -82,22 +80,6 @@ client.on("guildDelete", guild => {
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
   client.user.setGame(`on ${client.guilds.size} servers`);
 });
-
-function localEmbed(messageObj) {
-		
-	const newEmbed = new Discord.RichEmbed()
-		.setColor('#0099ff')
-		.setTitle('Some title')
-		.setURL(messageLink)
-		.setAuthor(author)
-		.setDescription(contentMessage)
-		.setThumbnail(author.avatar)
-		.setTimestamp(new Date())
-		.setFooter();
-
-	// channel.send(newEmbed); disabled for now
-	
-};
 
 client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
