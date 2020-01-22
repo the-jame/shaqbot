@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.music = require("discord.js-musicbot-addon");
+client.music = require("discord.js-musicbot-v2");
 
 // emoji that goes in the post title
 const tt = '⭐';
