@@ -1,0 +1,29 @@
+{
+  "name": "shaqbot",
+  "version": "1.0.0",
+  "description": "***   This is a simple Node.js based chat and music bot for Discord.",
+  "main": "app.js",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "discord.js-musicbot-addon": "^13.8.1",
+    "m3u8stream": "^0.6.4",
+    "node-opus": "^0.3.3",
+    "ytdl-core": "^1.0.7",
+    "ytpl": "^0.1.19",
+    "ytsearcher": "^1.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-jame/shaqbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-jame/shaqbot/issues"
+  },
+  "homepage": "https://github.com/the-jame/shaqbot#readme"
+}
