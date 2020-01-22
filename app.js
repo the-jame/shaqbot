@@ -88,6 +88,11 @@ client.on("message", async message => {
   // and not get into a spam loop (we call that "botception").
   if(message.author.bot) return;
 
+  if(message.author.presence.status == "idle"){
+     message.delete().catch(O_o=>{});
+     message.channel.send("Aren't you idle? :thinking:");
+   }
+
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
   if(message.content.indexOf(settings.prefix) !== 0) return;
