@@ -452,7 +452,15 @@ const embed = {
 
       message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>` + ` ${eyesleft}`);
       break;
-
+  case 'lol':
+  case 'laugh':
+      setTimeout(()=> {
+      clearTimeout(laughing);
+      }, 12000);
+      message.channel.send(`:smile:`)
+        .then((msg)=> {
+        laughing = setInterval(function() {for(i=0;i<2;i++){if(i/2!=0){msg.edit(':slight_smile:')}else msg.edit(':smile:');}, 500)
+     });
   case 'look':
   case 'stretch':
   case 'neck':
