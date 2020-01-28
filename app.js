@@ -250,7 +250,7 @@ const embed = {
       message.channel.send({files: ["img/smoljoker.png"]});
       break;
     case 'head':
-      message.channel.send({files: ["img/head.jpg"]});
+      message.channel.send({files: ["img/head2.jpg"]});
       break;
     case 'burritomug':
     case 'burrito':
