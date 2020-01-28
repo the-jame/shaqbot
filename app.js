@@ -92,6 +92,9 @@ client.on("message", async message => {
   //   message.delete().catch(O_o=>{});
   //   message.channel.send("Aren't you idle? :thinking:");
   // }
+	
+  if(message.content.toLowerCase() == 'lol'){
+	  message.channel.send('lol confirmed.');}
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
