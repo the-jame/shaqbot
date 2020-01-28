@@ -93,7 +93,7 @@ client.on("message", async message => {
   //   message.channel.send("Aren't you idle? :thinking:");
   // }
 	
-  if(message.content.toLowerCase() == 'lol' || message.content.toLowerCase() == 'lmao'){
+  if(message.content.toLowerCase() == 'lol' || message.content.toLowerCase() == 'lmao' || message.content.toLowerCase() == 'haha'){
 	        setTimeout(()=> {
       clearTimeout(laughing);
       }, 4000);
