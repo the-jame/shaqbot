@@ -1,5 +1,5 @@
 
-# Discord Chat Bot - music currently unavailable
+# Discord Chat Bot - music fully working.
 ***  
 This is a simple Node.js based chat and music bot for Discord.
 
