@@ -459,7 +459,7 @@ const embed = {
       }, 12000);
       message.channel.send(`:smile:`)
         .then((msg)=> {
-        laughing = setInterval(function() {for(i=0;i<1;i++){ if(i=0)msg.edit(':slight_smile:'); if(i=1){msg.edit(':smile:');};}}, 1200)
+        laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 1200)
      });
      break;
   case 'look':
