@@ -96,10 +96,10 @@ client.on("message", async message => {
   if(message.content.toLowerCase() == 'lol'){
 	        setTimeout(()=> {
       clearTimeout(laughing);
-      }, 6000);
+      }, 4000);
       message.channel.send(`:smile:`)
         .then((msg)=> {
-        laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 1000)
+        laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
      });}
 
   // Also good practice to ignore any message that does not start with our prefix,
