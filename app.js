@@ -92,15 +92,6 @@ client.on("message", async message => {
   //   message.delete().catch(O_o=>{});
   //   message.channel.send("Aren't you idle? :thinking:");
   // }
-	
-  if(message.content.toLowerCase() == 'lol' || message.content.toLowerCase() == 'lmao' || message.content.toLowerCase() == 'haha'){
-	        setTimeout(()=> {
-      clearTimeout(laughing);
-      }, 4000);
-      message.channel.send(`:smile:`)
-        .then((msg)=> {
-        laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
-     });}
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
