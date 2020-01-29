@@ -96,7 +96,7 @@ client.on("message", async message => {
   if(message.content.toLowerCase() == 'lol' || message.content.toLowerCase() == 'lmao' || message.content.toLowerCase() == 'haha'){
 	setTimeout(()=> {
   clearTimeout(laughing);
-  }, 4000);
+  }, 2200);
   message.channel.send(`:smile:`)
   .then((msg)=> {
   laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
