@@ -89,8 +89,9 @@ client.on("message", async message => {
   if(message.author.bot) return;
 
   if(message.author.presence.status == "idle"){
+    let user = message.author.id;
     message.delete().catch(O_o=>{});
-     message.channel.send("Aren't you idle? :thinking:");
+    message.channel.send("Aren't you idle? <@" + user +" :thinking:");
     return;
    }
 
