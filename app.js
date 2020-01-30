@@ -91,6 +91,7 @@ client.on("message", async message => {
   if(message.author.presence.status == "idle"){
     message.delete().catch(O_o=>{});
      message.channel.send("Aren't you idle? :thinking:");
+    return;
    }
 
 //  if(message.content.toLowerCase() == 'lol' || message.content.toLowerCase() == 'lmao' || message.content.toLowerCase() == 'haha'){
