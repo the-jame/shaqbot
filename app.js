@@ -326,7 +326,7 @@ const embed = {
     case 'enable':
       let commandE = args.join (" ");
       if (commandE == 'lol'){lol=1; message.channel.send('lol enabled.');}
-      if (commandE == 'idle'){idle=1; messageh.channel.send('idle enabled.');}
+      if (commandE == 'idle'){idle=1; message.channel.send('idle enabled.');}
       break;
 
     // poll
