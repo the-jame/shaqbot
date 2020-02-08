@@ -97,7 +97,7 @@ client.on("message", async message => {
 //    return;
 //   }
 
-  if(message.content.toLowerCase() == 'lol' || message.content.toLowerCase() == 'lmao' || message.content.toLowerCase() == 'haha' && lol == true){
+  if(message.content.toLowerCase() == 'lol' || message.content.toLowerCase() == 'lmao' || message.content.toLowerCase() == 'haha' && lol == 1){
 	setTimeout(()=> {
   clearTimeout(laughing);
   }, 2200);
