@@ -13,6 +13,8 @@ let wut1;
 let wut2;
 let wut3;
 let eyesleft;
+let lol = 0;
+let idle = 0;
 
 // require settings file
 try {
@@ -95,14 +97,14 @@ client.on("message", async message => {
 //    return;
 //   }
 
-//  if(message.content.toLowerCase() == 'lol' || message.content.toLowerCase() == 'lmao' || message.content.toLowerCase() == 'haha'){
-//	setTimeout(()=> {
-//  clearTimeout(laughing);
-//  }, 2200);
-//  message.channel.send(`:smile:`)
-//  .then((msg)=> {
-//  laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
-//  });}
+  if(message.content.toLowerCase() == 'lol' || message.content.toLowerCase() == 'lmao' || message.content.toLowerCase() == 'haha' && lol == true){
+	setTimeout(()=> {
+  clearTimeout(laughing);
+  }, 2200);
+  message.channel.send(`:smile:`)
+  .then((msg)=> {
+  laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
+  });}
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
@@ -313,6 +315,18 @@ const embed = {
       let roleToChange = message.member.highestRole;
       roleToChange.setName(newRole);
       message.channel.send(`Role changed to ${newRole}.`);
+      break;
+
+    case 'disable':
+      let commandD = args.join(" ");
+      if (commandD == 'lol'){lol=0; message.channel.send('lol disabled.');}
+      if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
+      break;
+
+    case 'enable':
+      let commandE = args.join (" ");
+      if (commandE == 'lol'){lol=1; message.channel.send('lol enabled.');}
+      if (commandE == 'idle'){idle=1; messageh.channel.send('idle enabled.');}
       break;
 
     // poll
