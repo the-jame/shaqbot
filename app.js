@@ -159,6 +159,13 @@ const embed = {
 };      message.channel.send({ embed });
       //message.channel.send("\"Corn was domesticated about 10,000 years ago in what is now Mexico.\" \n- <https://en.wikipedia.org/wiki/Maize#History>\n\nhttps://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268");
       break;
+
+    case 'squad':
+      if(lol == 1){
+
+      }
+      break;
+
     case 'plex':
       const plexEmoji = client.emojis.get('583144668125069322');
       message.channel.send(`${plexEmoji} IT HAS BEEN 0 DAYS SINCE THE LAST PLEX REFERENCE. ${plexEmoji}`);
