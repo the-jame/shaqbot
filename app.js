@@ -161,8 +161,7 @@ const embed = {
       break;
 
     case 'squad':
-      if(lol == 1){
-      message.channel.send('Damn bro, you got the whole squad laughing.');
+        message.channel.send('Damn bro, you got the whole squad laughing.');
 	setTimeout(()=> {
 	  clearTimeout(laugh1);
 	  }, 3700);
@@ -192,8 +191,7 @@ const embed = {
 	  .then((msg)=> {
 	  laugh2 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 400)
 	  });
-      }
-      break;
+        break;
 
     case 'plex':
       const plexEmoji = client.emojis.get('583144668125069322');
