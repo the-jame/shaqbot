@@ -166,10 +166,10 @@ const embed = {
 	  clearTimeout(laugh1);
 	  }, 2600);
 	  	setTimeout(()=> {
-	  clearTimeout(laugh1);
+	  clearTimeout(laugh2);
 	  }, 4000);
 	  	setTimeout(()=> {
-	  clearTimeout(laugh1);
+	  clearTimeout(laugh3);
 	  }, 3400);
 	  message.channel.send(`:smile:`)
 	  .then((msg)=> {
@@ -179,11 +179,18 @@ const embed = {
 	  .then((msg)=> {
 	  laugh2 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 800)
 	  });
+	  message.channel.send(`:neutral_face:`)
+	  .then((msg)=> {
+	  laugh3 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 700)
+	  });
 	  message.channel.send(`:smile:`)
 	  .then((msg)=> {
-	  laugh3 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 900)
+	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 200)
 	  });
-	  message.channel.send(':neutral_face:');
+	  message.channel.send(`:flushed:`)
+	  .then((msg)=> {
+	  laugh2 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 400)
+	  });
       }
       break;
 
