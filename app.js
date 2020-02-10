@@ -162,7 +162,28 @@ const embed = {
 
     case 'squad':
       if(lol == 1){
-
+	setTimeout(()=> {
+	  clearTimeout(laugh1);
+	  }, 2600);
+	  	setTimeout(()=> {
+	  clearTimeout(laugh1);
+	  }, 4000);
+	  	setTimeout(()=> {
+	  clearTimeout(laugh1);
+	  }, 3400);
+	  message.channel.send(`:smile:`)
+	  .then((msg)=> {
+	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
+	  });
+	  message.channel.send(`:slight_smile:`)
+	  .then((msg)=> {
+	  laugh2 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 800)
+	  });
+	  message.channel.send(`:smile:`)
+	  .then((msg)=> {
+	  laugh3 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 900)
+	  });
+	  message.channel.send(':neutral_face:');
       }
       break;
 
