@@ -187,6 +187,10 @@ const embed = {
 	  .then((msg)=> {
 	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 200)
 	  });
+	  message.channel.send(`:flushed:`)
+	  .then((msg)=> {
+	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 400)
+	  });
         break;
 
     case 'plex':
