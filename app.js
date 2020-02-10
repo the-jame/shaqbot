@@ -162,9 +162,10 @@ const embed = {
 
     case 'squad':
       if(lol == 1){
+      message.channel.send('Damn bro, you got the whole squad laughing.');
 	setTimeout(()=> {
 	  clearTimeout(laugh1);
-	  }, 2600);
+	  }, 3700);
 	  	setTimeout(()=> {
 	  clearTimeout(laugh2);
 	  }, 4000);
