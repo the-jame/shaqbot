@@ -431,7 +431,7 @@ const embed = {
       else
         { if(args[1].toLowerCase() === "i"){args[1] = "You";}
           else if(args[1].toLowerCase() === "you"){args[1] = "I";}
-          let answer = args.join(" ";
+          let answer = args.join(" ");
           if (answer.charAt(answer.length - 1) === "?") {answer.charAt(answer.length - 1) = ".";}
           message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
         }
