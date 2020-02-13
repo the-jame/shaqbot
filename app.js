@@ -429,7 +429,7 @@ const embed = {
           if (answer.charAt(answer.length - 1) === "?") {answer.charAt(answer.length - 1) = ".";}
           message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
         }
-
+      break;
     // 8ball 8
     case '8ball':
     case '8':
