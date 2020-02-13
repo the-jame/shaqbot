@@ -425,7 +425,7 @@ const embed = {
           args[0]=args[1];
           args[1]=temp1;
           let answer = args.join(" ");
-          message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
+          message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return;
         }
       else
         { if (typeof args[1] === 'undefined') {
@@ -434,7 +434,7 @@ const embed = {
           else if(args[1].toLowerCase() === "i"){args[1] = "You";}
           else if(args[1].toLowerCase() === "you"){args[1] = "I";}
           answer = args.join(" ");
-          message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
+          message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return;
         }
       return;
       break;
