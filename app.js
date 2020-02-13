@@ -423,7 +423,7 @@ const embed = {
 	"white pipo", "it's SO BEEFY!!", "you didn't hit that MF LIKE AND SUBSCRIBE BUTTON"];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
       if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
-      else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does")
+      else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do")
         { if(args[1].toLowerCase() === "i"){args[1] = "You";}
           else if(args[1].toLowerCase() === "you"){args[1] = "I";}
           let temp1 = args[0];
