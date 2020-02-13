@@ -415,7 +415,7 @@ const embed = {
 
     // why
     case 'why':
-      var reasons = ["you are stupid", "you touch yourself at night", "the earth is flat", "Shaq's pee pee too big", "h", "yo momma fat"];
+      var reasons = ["you are stupid", "you touch yourself at night", "the earth is flat", "Shaq's pee pee too big", "h", "yo momma fat", "chemtrails", "Epstein didn't kill himself", "women be shoppin", "santa claus is coming to town", "jesus is watching you", "everything happens for a reason", "George Bush doesn't care about black people", "SHE'S GONE, OUT OF MY LIFE", "you've never had a dream", "birds aren't real", "2pac is still alive"];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
       if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
       else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does")
