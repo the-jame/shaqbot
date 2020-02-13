@@ -418,14 +418,20 @@ const embed = {
       var reasons = ["you are stupid"];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
       if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
-      else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase() === "did")
+      else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does")
         { if(args[1].toLowerCase() === "i"){args[1] = "You";}
           else if(args[1].toLowerCase() === "you"){args[1] = "I";}
-          //let existence = args[0];
-          //args[0]=args[1];
-          //args[1]=existence;
-          args[0]="";
+          let temp1 = args[0];
+          args[0]=args[1];
+          args[1]=temp1;
           let answer = args.join(" ");
+          if (answer.charAt(answer.length - 1) === "?") {answer.charAt(answer.length - 1) = ".";}
+          message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
+        }
+      else
+        { if(args[1].toLowerCase() === "i"){args[1] = "You";}
+          else if(args[1].toLowerCase() === "you"){args[1] = "I";}
+          let answer = args.join(" ";
           if (answer.charAt(answer.length - 1) === "?") {answer.charAt(answer.length - 1) = ".";}
           message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
         }
