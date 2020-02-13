@@ -415,7 +415,7 @@ const embed = {
 
     // why
     case 'why':
-      var reasons = ["you are stupid"];
+      var reasons = ["you are stupid", "you touch yourself at night", "the earth is flat", "Shaq's pee pee too big", "h", "yo momma fat"];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
       if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
       else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does")
@@ -425,21 +425,18 @@ const embed = {
           args[0]=args[1];
           args[1]=temp1;
           let answer = args.join(" ");
-          if (answer.charAt(answer.length - 1) === "?") {answer.charAt(answer.length - 1) = ".";}
           message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
         }
       else
         { if (typeof args[1] === 'undefined') {
 		let answer = args[0];
-		if (answer.charAt(answer.length - 1) === "?"){
-				{answer.charAt(answer.length - 1) = ".";}
 		message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return; }
           else if(args[1].toLowerCase() === "i"){args[1] = "You";}
           else if(args[1].toLowerCase() === "you"){args[1] = "I";}
           answer = args.join(" ");
-          if (answer.charAt(answer.length - 1) === "?") {answer.charAt(answer.length - 1) = ".";}
           message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
         }
+      return;
       break;
     // 8ball 8
     case '8ball':
