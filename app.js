@@ -15,6 +15,8 @@ let wut3;
 let eyesleft;
 let lol = 0;
 let idle = 0;
+let wtf = "What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Navy Seals, and I've been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You're fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that's just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little "clever" comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn't, you didn't, and now you're paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You're fucking dead, kiddo.";
+let cummies = "Just me and my :two_hearts:daddy:two_hearts:, hanging out I got pretty hungry:eggplant: so I started to pout :disappointed: He asked if I was down :arrow_down:for something yummy :heart_eyes::eggplant: and I asked what and he said he'd give me his :sweat_drops:cummies!:sweat_drops: Yeah! Yeah!:two_hearts::sweat_drops: I drink them!:sweat_drops: I slurp them!:sweat_drops: I swallow them whole:sweat_drops: :heart_eyes: It makes :cupid:daddy:cupid: :blush:happy:blush: so it's my only goal... :two_hearts::sweat_drops::tired_face:Harder daddy! Harder daddy! :tired_face::sweat_drops::two_hearts: 1 cummy:sweat_drops:, 2 cummy:sweat_drops::sweat_drops:, 3 cummy:sweat_drops::sweat_drops::sweat_drops:, 4:sweat_drops::sweat_drops::sweat_drops::sweat_drops: I'm :cupid:daddy's:cupid: :crown:princess :crown:but I'm also a whore! :heart_decoration: He makes me feel squishy:heartpulse:!He makes me feel good:purple_heart:! :cupid::cupid::cupid:He makes me feel everything a little should!~ :cupid::cupid::cupid: :crown::sweat_drops::cupid:Wa-What!:cupid::sweat_drops::crown:";
 
 // require settings file
 try {
@@ -414,6 +416,7 @@ const embed = {
       break;
 
     // why
+    case 'y':
     case 'why':
       var reasons = ["you are stupid", "you touch yourself at night", "the earth is flat", "Shaq's pee pee too big", "h", "yo momma fat", "chemtrails are turning people gay",
 	"Epstein didn't kill himself", "women be shoppin", "santa claus is coming to town", "jesus is watching you", "everything happens for a reason",
@@ -421,7 +424,7 @@ const embed = {
 	"my anus is bleeding", "john madden", "tom clancy is going to kick your ass, and i'm going to help him", "fat people have cold blood", "i forgot the question",
 	"God is an alcoholic", "my opinions only get worse", "it's 'jif' not 'gif'", ":clown:", "you're going to lose subscriber", "malarkey", "da pipo, dey suffer",
 	"white pipo", "it's SO BEEFY!!", "you didn't hit that MF LIKE AND SUBSCRIBE BUTTON", "poopie is funny", "UH OH, stinky", "plex", "i am a figment of your imagination",
-	"i am once again asking you to shut the fuck up"];
+	"i am once again asking you to shut the fuck up", "i can't read", "i've shidded", "i've a smol pebis", "i'm cooming", wtf, cummies];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
       if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
       else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do")
