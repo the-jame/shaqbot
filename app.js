@@ -160,38 +160,38 @@ const embed = {
       //message.channel.send("\"Corn was domesticated about 10,000 years ago in what is now Mexico.\" \n- <https://en.wikipedia.org/wiki/Maize#History>\n\nhttps://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268");
       break;
 
-    case 'squad':
-        message.channel.send('Damn bro, you got the whole squad laughing.');
-	setTimeout(()=> {
-	  clearTimeout(laugh1);
-	  }, 3700);
-	  	setTimeout(()=> {
-	  clearTimeout(laugh2);
-	  }, 4000);
-	  	setTimeout(()=> {
-	  clearTimeout(laugh3);
-	  }, 3400);
-	  message.channel.send(`:smile:`)
-	  .then((msg)=> {
-	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
-	  });
-	  message.channel.send(`:slight_smile:`)
-	  .then((msg)=> {
-	  laugh2 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 800)
-	  });
-	  message.channel.send(`:neutral_face:`)
-	  .then((msg)=> {
-	  laugh3 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 700)
-	  });
-	  message.channel.send(`:smile:`)
-	  .then((msg)=> {
-	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 200)
-	  });
-	  message.channel.send(`:flushed:`)
-	  .then((msg)=> {
-	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 400)
-	  });
-        break;
+//    case 'squad':
+//        message.channel.send('Damn bro, you got the whole squad laughing.');
+//	setTimeout(()=> {
+//	  clearTimeout(laugh1);
+//	  }, 3700);
+//	  	setTimeout(()=> {
+//	  clearTimeout(laugh2);
+//	  }, 4000);
+//	  	setTimeout(()=> {
+//	  clearTimeout(laugh3);
+//        }, 3400);
+//	  message.channel.send(`:smile:`)
+//	  .then((msg)=> {
+//	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
+//	  });
+//	  message.channel.send(`:slight_smile:`)
+//	  .then((msg)=> {
+//	  laugh2 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 800)
+//	  });
+//	  message.channel.send(`:neutral_face:`)
+//	  .then((msg)=> {
+//	  laugh3 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 700)
+//	  });
+//	  message.channel.send(`:smile:`)
+//	  .then((msg)=> {
+//	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 200)
+//	  });
+//	  message.channel.send(`:flushed:`)
+//	  .then((msg)=> {
+//	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 400)
+//	  });
+//      break;
 
     case 'plex':
       const plexEmoji = client.emojis.get('583144668125069322');
@@ -412,6 +412,23 @@ const embed = {
       message.channel.send(beingSized + "'s ball size is " + ballsizes[rand] + ".", {tts: true});
       return;
       break;
+
+    // why
+    case 'why':
+      var reasons = ["you are stupid"];
+      var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
+      if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
+      else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase() === "did")
+        { if(args[1].toLowerCase() === "i"){args[1] = "You";}
+          else if(args[1].toLowerCase() === "you"){args[1] = "I";}
+          //let existence = args[0];
+          //args[0]=args[1];
+          //args[1]=existence;
+          args[0]="";
+          let answer = args.join(" ");
+          if (answer.charAt(answer.length - 1) === "?") {answer.charAt(answer.length - 1) = ".";}
+          message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
+        }
 
     // 8ball 8
     case '8ball':
