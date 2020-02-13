@@ -429,9 +429,14 @@ const embed = {
           message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
         }
       else
-        { if(args[1].toLowerCase() === "i"){args[1] = "You";}
+        { if (typeof args[1] === 'undefined') {
+		let answer = args[0];
+		if (answer.charAt(answer.length - 1) === "?"){
+				{answer.charAt(answer.length - 1) = ".";}
+		message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return; }
+          else if(args[1].toLowerCase() === "i"){args[1] = "You";}
           else if(args[1].toLowerCase() === "you"){args[1] = "I";}
-          let answer = args.join(" ");
+          answer = args.join(" ");
           if (answer.charAt(answer.length - 1) === "?") {answer.charAt(answer.length - 1) = ".";}
           message.channel.send(answer + " because " + reasons[randRsn], {tts: true}); return;
         }
