@@ -356,12 +356,14 @@ const embed = {
       break;
 
     case 'disable':
+      if (message.author.id != "95702308515487744") break;
       let commandD = args.join(" ");
       if (commandD == 'lol'){lol=0; message.channel.send('lol disabled.');}
       if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
       break;
 
     case 'enable':
+      if (message.author.id != "95702308515487744") break;
       let commandE = args.join (" ");
       if (commandE == 'lol'){lol=1; message.channel.send('lol enabled.');}
       if (commandE == 'idle'){idle=1; message.channel.send('idle enabled.');}
@@ -423,17 +425,31 @@ const embed = {
       var reasons = ["the earth is flat", "Shaq's girthy balloon shlong", "h", "yo momma fat", "chemtrails are turning people gay",
 	"Epstein didn't kill himself", "women be shoppin", "santa claus is coming to town", "jesus is watching you", "everything happens for a reason",
 	"George Bush doesn't care about black people", "SHE'S GONE, OUT OF MY LIFE", "you've never had a dream", "birds aren't real", "2pac is still alive",
-	"my anus is bleeding", "john madden", "tom clancy is going to kick your ass, and i'm going to help him", "fat people have cold blood", "i forgot the question",
+	"my anus is bleeding", "john madden", "tom clancy is going to kick your ass, and i'm going to help him", "zuckerberg is a lizard", "i forgot the question",
 	"God is an alcoholic", "my opinions only get worse", "it's 'jif' not 'gif'", ":clown:", "you're going to lose subscriber", "malarkey", "da pipo, dey suffer",
 	"white pipo", "it's SO BEEFY!!", "you didn't hit that MF LIKE AND SUBSCRIBE BUTTON", "poopie is funny", "UH OH, stinky", "you refuse to use plex", "i am a figment of your imagination",
 	"i am once again asking you to shut the fuck up", "i can't read", "i've shidded", "i've a smol pebis", "i'm cooming", wtf, cummies, "god has abandoned us",
 	"they call it oven when you of in the cold food of out hot eat the food", "that salty six inch isn't big enough for the both of us", "i'm the king of being wrong", "the bean quean decreed it",
-	"you swore me to secrecy", "you haven't paid your taxes yet", "you don't rove da rord"];
+	"you swore me to secrecy", "you haven't paid your taxes yet", "you don't rove da rord", "i don't kiss and tell ;)", "a lady never reveals her age", "it's rude to even ask, seriously, what the fuck", "Best By 07 SEP 18 043 / 40", "i can has cheesburger", "the cake is a lie", "the cake is a truth", "7 eleven hot dogs aren't that bad", "7 eleven hot dogs gave me diarrhea", "taco bell isn't mexican food", "del taco is better than taco bell", "ketchup doesn't belong on eggs", "italian food is better than any other food"];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
+      let firstWord = args[0].toLowerCase();
+
       if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
-      else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase() === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do")
-        { if(args[1].toLowerCase() === "i"){args[1] = "you";}
-          else if(args[1].toLowerCase() === "you"){args[1] = "I";}
+      else if(firstWord === "are" || firstWord === "is" || firstWord === "am" || firstWord === "was" || firstWord  === "has" ||  firstWord === "did" || firstWord === "does" || firstWord === "do" || firstWord === "have" )
+        {
+	args[0] = args[0].toLowerCase();
+	if (firstWord === "am"){ args[0] = "are"; }
+	else if (firstWord === "are"){ args[0] = "am"; }
+	else if (firstWord === "does") {args[0] = "do"; }
+
+	for (i=0; i<args.length; i++)
+	  {
+	    if(args[i]==="my"){ args[i]="your";}
+	    else if(args[i]==="your"){ args[i]="my";}
+	    else if(args[i]==="i"){ args[i]="you";}
+	    else if(args[i]==="you"){ args[i]="me";}
+
+	  }
           let temp1 = args[0];
           args[0]=args[1];
           args[1]=temp1;
