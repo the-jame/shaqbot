@@ -460,8 +460,14 @@ const embed = {
         { if (typeof args[1] === 'undefined') {
 		let answer = args[0];
 		message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return; }
-          else if(args[1].toLowerCase() === "i"){args[1] = "you";}
-          else if(args[1].toLowerCase() === "you"){args[1] = "I";}
+	  for (i=0; i<args.length; i++)
+	  {
+	    if(args[i]==="my"){ args[i]="your";}
+	    else if(args[i]==="your"){ args[i]="my";}
+	    else if(args[i]==="i"){ args[i]="you";}
+	    else if(args[i]==="you"){ args[i]="me";}
+
+	  }
           answer = args.join(" ");
           message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return;
         }
