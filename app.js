@@ -102,7 +102,7 @@ if(message.author.presence.status == "idle" && idle == 1){
    }
 
   if(message.content.toLowerCase() == 'lol' && lol == 1){
-	setTimeout(()=> {
+    setTimeout(()=> {
   clearTimeout(laughing);
   }, 2200);
   message.channel.send(`:smile:`)
@@ -166,35 +166,35 @@ const embed = {
 
 //    case 'squad':
 //        message.channel.send('Damn bro, you got the whole squad laughing.');
-//	setTimeout(()=> {
-//	  clearTimeout(laugh1);
-//	  }, 3700);
-//	  	setTimeout(()=> {
-//	  clearTimeout(laugh2);
-//	  }, 4000);
-//	  	setTimeout(()=> {
-//	  clearTimeout(laugh3);
+//  setTimeout(()=> {
+//    clearTimeout(laugh1);
+//    }, 3700);
+//      setTimeout(()=> {
+//    clearTimeout(laugh2);
+//    }, 4000);
+//      setTimeout(()=> {
+//    clearTimeout(laugh3);
 //        }, 3400);
-//	  message.channel.send(`:smile:`)
-//	  .then((msg)=> {
-//	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
-//	  });
-//	  message.channel.send(`:slight_smile:`)
-//	  .then((msg)=> {
-//	  laugh2 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 800)
-//	  });
-//	  message.channel.send(`:neutral_face:`)
-//	  .then((msg)=> {
-//	  laugh3 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 700)
-//	  });
-//	  message.channel.send(`:smile:`)
-//	  .then((msg)=> {
-//	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 200)
-//	  });
-//	  message.channel.send(`:flushed:`)
-//	  .then((msg)=> {
-//	  laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 400)
-//	  });
+//    message.channel.send(`:smile:`)
+//    .then((msg)=> {
+//    laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
+//    });
+//    message.channel.send(`:slight_smile:`)
+//    .then((msg)=> {
+//    laugh2 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 800)
+//    });
+//    message.channel.send(`:neutral_face:`)
+//    .then((msg)=> {
+//    laugh3 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 700)
+//    });
+//    message.channel.send(`:smile:`)
+//    .then((msg)=> {
+//    laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 200)
+//    });
+//    message.channel.send(`:flushed:`)
+//    .then((msg)=> {
+//    laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 400)
+//    });
 //      break;
 
     case 'plex':
@@ -203,21 +203,21 @@ const embed = {
       break;
     case 'uwu':
       var uwus = ["(●´∀｀●)","(n˘v˘•)¬","(((( ;°Д°))))","(*~▽~)","(◕‿◕✿)","＼(^▽^＠)ノ"," ლ(╹◡╹ლ)","♥（ﾉ´∀`）","⊙ω⊙",
-		 "（＠￣∇￣＠）／","(☆^O^☆)", "(★^O^★)", "(☆^ー^☆)", "(´ω｀★)", "＼（Ｔ∇Ｔ）／","ヽ(´ー`)ﾉ", "( ＾∇＾)", 
-		 "＼( ｀.∀´)／", "(●⌒∇⌒●)", "o(≧∇≦o)", "ヽ(｀◇´)/", "(｡♥‿♥｡)", "(✿ ♥‿♥)", "♥╣[-_-]╠♥",
-		 "(*´ー`)ノ", "ヽ(‘ー`)ノ", "ヽ(ー_ー )ノ", "ヽ(´～｀；）", "┐(‘～`；)┌", "(∩︵∩)", "(╯︵╰,)", 
-		 "(╥_╥)", "(╯︵╰,)", "((((；゜Д゜))) ","ヾ(。￣□￣)ﾂ", "ヾ(￣0￣； )ノ", "ヾ(。￣□￣)ﾂ",
-		 "(~_~;)", "((*゜Д゜)ゞ”", "(･_-｡ )", "⊙﹏⊙", "ミ●ミ", "(-’๏_๏’-)", "(⊙…⊙ )",
-		 "（ ＾＾）人（＾＾ ）", "(〃⌒▽⌒)八(〃⌒▽⌒〃)八(⌒▽⌒〃)","☆-(ノﾟДﾟ)八(ﾟДﾟ )ノ", "( ｡･_･｡)人(｡･_･｡ )",
-		 "ヽ(*^ｰ^)人(^ｰ^*)ノ", "(・_・”)／＼(・_・”)", "└(^o^ )Ｘ( ^o^)┘", "ヾ(-_-;)","ヾ( ‘ – ‘*)",
-		 "(σ-`д･´)", "(｀Д´*)", "（=｀〜´=）", "(ﾒ｀ﾛ´)/", "Ψ(｀▽´)Ψ", "^(#｀∀´)_Ψ",
-		 "ヘ(_ _ヘ)", "(ﾉ￣д￣)ﾉ", "(;-_-)ノ", "o(-_-;*)", "ﾍ(;´Д｀ﾍ)","(ノ#-_-)ノ", "（~～~）",
-		 "( ^.^)ノ", "┌（★ｏ☆）┘ └（★ｏ★）┐", "♪(┌・。・)┌", "(＊0＊;)", "(u_u)", "(✖╭╮✖)",
-		 "(º_º)", "٩(×̯×)۶", "(ñ_ñ)"," (。・・)_且 且_(ﾟ◇ﾟ；)ノﾞ", "(＃´ー´)旦 且_(・_・ ) ",
-		 " ー( ´ ▽ ` )ﾉ", "ヽ(๏∀๏ )ﾉ ", "(◑‿◐)", "ლ(́◉◞౪◟◉‵ლ)", "(*~▽~)", "(∩▂∩)",
-		 "(¬‿¬)", "(n˘v˘•)¬", "(;*△*;)","(∩︵∩)", "(╯︵╰,)", "(╥_╥)", "(╯︵╰,)",
-		 "＼(=^‥^)/’`", "( =①ω①=)", "d(=^･ω･^=)b", "(=ＴェＴ=)", "(=;ェ;=)", "(=ｘェｘ=)",
-		 "(=；ェ；=)", "(=｀ェ´=)","(⊙_◎)", "ಠ_ರೃ", " (ﾉ_ _)ﾉ", "( °̥̥̥˟°̥̥̥ )", "(ㅇㅅㅇ❀)","≖‿≖"];
+         "（＠￣∇￣＠）／","(☆^O^☆)", "(★^O^★)", "(☆^ー^☆)", "(´ω｀★)", "＼（Ｔ∇Ｔ）／","ヽ(´ー`)ﾉ", "( ＾∇＾)", 
+         "＼( ｀.∀´)／", "(●⌒∇⌒●)", "o(≧∇≦o)", "ヽ(｀◇´)/", "(｡♥‿♥｡)", "(✿ ♥‿♥)", "♥╣[-_-]╠♥",
+         "(*´ー`)ノ", "ヽ(‘ー`)ノ", "ヽ(ー_ー )ノ", "ヽ(´～｀；）", "┐(‘～`；)┌", "(∩︵∩)", "(╯︵╰,)", 
+         "(╥_╥)", "(╯︵╰,)", "((((；゜Д゜))) ","ヾ(。￣□￣)ﾂ", "ヾ(￣0￣； )ノ", "ヾ(。￣□￣)ﾂ",
+         "(~_~;)", "((*゜Д゜)ゞ”", "(･_-｡ )", "⊙﹏⊙", "ミ●ミ", "(-’๏_๏’-)", "(⊙…⊙ )",
+         "（ ＾＾）人（＾＾ ）", "(〃⌒▽⌒)八(〃⌒▽⌒〃)八(⌒▽⌒〃)","☆-(ノﾟДﾟ)八(ﾟДﾟ )ノ", "( ｡･_･｡)人(｡･_･｡ )",
+         "ヽ(*^ｰ^)人(^ｰ^*)ノ", "(・_・”)／＼(・_・”)", "└(^o^ )Ｘ( ^o^)┘", "ヾ(-_-;)","ヾ( ‘ – ‘*)",
+         "(σ-`д･´)", "(｀Д´*)", "（=｀〜´=）", "(ﾒ｀ﾛ´)/", "Ψ(｀▽´)Ψ", "^(#｀∀´)_Ψ",
+         "ヘ(_ _ヘ)", "(ﾉ￣д￣)ﾉ", "(;-_-)ノ", "o(-_-;*)", "ﾍ(;´Д｀ﾍ)","(ノ#-_-)ノ", "（~～~）",
+         "( ^.^)ノ", "┌（★ｏ☆）┘ └（★ｏ★）┐", "♪(┌・。・)┌", "(＊0＊;)", "(u_u)", "(✖╭╮✖)",
+         "(º_º)", "٩(×̯×)۶", "(ñ_ñ)"," (。・・)_且 且_(ﾟ◇ﾟ；)ノﾞ", "(＃´ー´)旦 且_(・_・ ) ",
+         " ー( ´ ▽ ` )ﾉ", "ヽ(๏∀๏ )ﾉ ", "(◑‿◐)", "ლ(́◉◞౪◟◉‵ლ)", "(*~▽~)", "(∩▂∩)",
+         "(¬‿¬)", "(n˘v˘•)¬", "(;*△*;)","(∩︵∩)", "(╯︵╰,)", "(╥_╥)", "(╯︵╰,)",
+         "＼(=^‥^)/’`", "( =①ω①=)", "d(=^･ω･^=)b", "(=ＴェＴ=)", "(=;ェ;=)", "(=ｘェｘ=)",
+         "(=；ェ；=)", "(=｀ェ´=)","(⊙_◎)", "ಠ_ರೃ", " (ﾉ_ _)ﾉ", "( °̥̥̥˟°̥̥̥ )", "(ㅇㅅㅇ❀)","≖‿≖"];
 
       var uwuRand = Math.floor((Math.random() * (uwus.length - 1)));
       message.channel.send(uwus[uwuRand]);
@@ -381,9 +381,9 @@ const embed = {
       break;
 
     // howdy
-    case 'howdy':
+    case \'howdy\':
       //This is Jimmy trying to do something very basic
-      let cowboyphrases = ["Howdy partner \:cowboy:", "H'lo :cowboy:", "This town ain't big enough for the two of us :cowboy:", "_a tumbleweed rolls by_", "It's high noon :cowboy:"];
+      let cowboyphrases = ['Howdy partner \:cowboy:', 'H\'lo :cowboy:', 'This town ain\'t big enough for the two of us :cowboy:', '_a tumbleweed rolls by_', 'It\'s high noon :cowboy:'];
       var num = Math.floor((Math.random() * (cowboyphrases.length - 1)));
       message.channel.send(cowboyphrases[num]);
       break;
@@ -399,17 +399,17 @@ const embed = {
     // ballsize bs
     case 'ballsize':
     case 'bs':
-      var ballsizes = ["large", "small", "medium", "puny", "gigantic", "average", "incongruous", "nice :thumbsup:", ":b:ig", "immense", "voluptuous", "h",
-        "bigger than I'd like :/", "smaller than I'd like :/", "vast", "globular", "eternal", "*just right*", "normal", "¡Sabado Gigante!", "narrow", "wide", "petite", "insignificant", 
-        "short", ":ok:", "smallish", "XXL", "XXS", "big-boned", "king size", "FAT", "mediocre", "unexceptional", "immeasurable", "trivial", "intermediate", "passable", 
-        "regular", "tainted", "common", "12 inches", `${huh}`, "1 foot", "5 & 1/2 centimeters", "futuristic", "macho", "4 yards", "2 meters", ":fire::100::fire::100::fire::100:","thicc",
-        "microscopic", "gargantuan", ":flushed:", "assertive", "reptilian", "ghastly", "delightful", "debonair", "homely", "nonexistent","left: 15cm, right: 1cm", "1mm","1 in.", "3cm",
-        "about that of a golf ball", "Epstein didn't kill himself", "too big to handle", "just right", "ordinary", "unwieldy", "embarrassing", "cubic", "shriveled", "that of a BEAN",
-        "six of one, half dozen of the other", "an acre", "US Men's 11", "UK Women's 7 & 1/2", "a lima bean", "unusual", "gamer sized :video_game:", "amassed",
-        "in South Carolina until 10/12","husky", "big and tall", "fine", "sizeable", "beach ball", ":chart_with_upwards_trend:", ":chart_with_downwards_trend:",
-        ":bar_chart:", "boomer-sized", "minute", "old-fashioned", "frail", "nutty", "broad", "crooked", "euclidean", "obtuse", "portable", "stubby", "insufficient",
-        "plump", "corn-fed", "flabby", "opulent", "liberal", "confusing", "questionable", "lacking self-confidence", "uncertain", "meager",
-        "lacking quality"];
+      var ballsizes = ['large', 'small', 'medium', 'puny', 'gigantic', 'average', 'incongruous', 'nice :thumbsup:', ':b:ig', 'immense', 'voluptuous', 'h',
+        'bigger than I\'d like :/', 'smaller than I\'d like :/', 'vast', 'globular', 'eternal', '*just right*', 'normal', '¡Sabado Gigante!', 'narrow', 'wide', 'petite', 'insignificant', 
+        'short', ':ok:', 'smallish', 'XXL', 'XXS', 'big-boned', 'king size', 'FAT', 'mediocre', 'unexceptional', 'immeasurable', 'trivial', 'intermediate', 'passable', 
+        'regular', 'tainted', 'common', '12 inches', `${huh}`, '1 foot', '5 & 1/2 centimeters', 'futuristic', 'macho', '4 yards', '2 meters', ':fire::100::fire::100::fire::100:','thicc',
+        'microscopic', 'gargantuan', ':flushed:', 'assertive', 'reptilian', 'ghastly', 'delightful', 'debonair', 'homely', 'nonexistent','left: 15cm, right: 1cm', '1mm','1 in.', '3cm',
+        'about that of a golf ball', 'Epstein didn\'t kill himself', 'too big to handle', 'just right', 'ordinary', 'unwieldy', 'embarrassing', 'cubic', 'shriveled', 'that of a BEAN',
+        'six of one, half dozen of the other', 'an acre', 'US Men\'s 11', 'UK Women\'s 7 & 1/2', 'a lima bean', 'unusual', 'gamer sized :video_game:', 'amassed',
+        'in South Carolina until 10/12','husky', 'big and tall', 'fine', 'sizeable', 'beach ball', ':chart_with_upwards_trend:', ':chart_with_downwards_trend:',
+        ':bar_chart:', 'boomer-sized', 'minute', 'old-fashioned', 'frail', 'nutty', 'broad', 'crooked', 'euclidean', 'obtuse', 'portable', 'stubby', 'insufficient',
+        'plump', 'corn-fed', 'flabby', 'opulent', 'liberal', 'confusing', 'questionable', 'lacking self-confidence', 'uncertain', 'meager',
+        'lacking quality'];
       var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
       if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; let beingSized = args.join(" "); if(beingSized !== ''){beingSized = beingSized += "'s";} message.channel.send(`Your${beingSized} ball size is ` + ballsizes[rand] +".", {tts: true});return;}
       else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq's" || args[0].toLowerCase() === "shaqs") {args[0] = "My";}
@@ -422,35 +422,35 @@ const embed = {
     // why
     case 'y':
     case 'why':
-      var reasons = ["the earth is flat", "Shaq's girthy balloon shlong", "h", "yo momma fat", "chemtrails are turning people gay",
-	"Epstein didn't kill himself", "women be shoppin", "santa claus is coming to town", "jesus is watching you", "everything happens for a reason",
-	"George Bush doesn't care about black people", "it benefits the military-industrial complex", "SHE'S GONE, OUT OF MY LIFE", "you've never had a dream", "birds aren't real", "2pac is still alive",
-	"my anus is bleeding", "I have been farting alone in flaccid chat for 6 hours", "secret chat said so", "actually democrats supported slavery", "john madden", "I ate the burger king foot lettuce", "tom clancy is going to kick your ass, and i'm going to help him", "zuckerberg is a lizard", "i forgot the question",
-	"God is an alcoholic", "Dr. Shigeru Chino wills it to be so.", "Dick Cheney profited off the Iraq war", "my opinions only get worse", "its pronounced jif", ":clown:", "you're going to lose subscriber", "malarkey", "da pipo, dey suffer",
-	"white pipo", "its SO BEEFY!!", "millenials killed hooters", "young metro dont trust you :sob:", "I'm in love with the coco :weary:", "you didn't hit that MF LIKE AND SUBSCRIBE BUTTON", "poopie is funny", "UH OH, stinky", "you refuse to use plex", "i am a figment of your imagination",
-	"i am once again asking you to shut the fuck up", "im ignoring your pings", "SUKA BLYAT", "TABLE", "I hardly know her!", "i can't read", "i've shidded", "i've a smol pebis", "i'm cooming", wtf, cummies, "god has abandoned us",
-	"they call it oven when you of in the cold food of out hot eat the food", "that salty six inch isn't big enough for the both of us", "i'm the king of being wrong", "the bean quean decreed it",
-	"you swore me to secrecy", "you havent paid your taxes yet", "you dont rove da rord", "i don\'t kiss and tell ;)", "a lady never reveals her age", "it's rude to even ask, seriously, what the fuck", "Best By 07 SEP 18 043 / 40", "i can has cheesburger", "the cake is a lie", "the cake is a truth", "7 eleven hot dogs aren't that bad", "7 eleven hot dogs gave me diarrhea", "taco bell isn't mexican food", "del taco is better than taco bell", "ketchup doesn't belong on eggs", 
-	"Tyra bought another Iphone", "there's a reason rotisserie chicken from albertsons is so cheap...", "mom found the piss drawer :huh:", "it go down in the DM", "there will be CONSEQUENCES", "pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==", "italian food is better than any other food"];
+      var reasons = ['the earth is flat', 'Shaq\'s girthy balloon shlong', 'h', 'yo momma fat', 'chemtrails are turning people gay',
+    'Epstein didn\'t kill himself', 'women be shoppin', 'santa claus is coming to town', 'jesus is watching you', 'everything happens for a reason',
+    'George Bush doesn\'t care about black people', 'it benefits the military-industrial complex', 'SHE\'S GONE, OUT OF MY LIFE', 'you\'ve never had a dream', 'birds aren\'t real', '2pac is still alive',
+    'my anus is bleeding', 'I have been farting alone in flaccid chat for 6 hours', 'secret chat said so', 'actually democrats supported slavery', 'john madden', 'I ate the burger king foot lettuce', 'tom clancy is going to kick your ass, and i\'m going to help him', 'zuckerberg is a lizard', 'i forgot the question',
+    'God is an alcoholic', 'Dr. Shigeru Chino wills it to be so.', 'Dick Cheney profited off the Iraq war', 'my opinions only get worse', 'its pronounced jif', ':clown:', 'you\'re going to lose subscriber', 'malarkey', 'da pipo, dey suffer',
+    'white pipo', 'its SO BEEFY!!', 'millenials killed hooters', 'young metro dont trust you :sob:', 'I\'m in love with the coco :weary:', 'you didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'poopie is funny', 'UH OH, stinky', 'you refuse to use plex', 'i am a figment of your imagination',
+    'i am once again asking you to shut the fuck up', 'im ignoring your pings', 'SUKA BLYAT', 'TABLE', 'I hardly know her!', 'i can\'t read', 'i\'ve shidded', 'i\'ve a smol pebis', 'i\'m cooming', wtf, cummies, 'god has abandoned us',
+    'they call it oven when you of in the cold food of out hot eat the food', 'that salty six inch isn\'t big enough for the both of us', 'i\'m the king of being wrong', 'the bean quean decreed it',
+    'you swore me to secrecy', 'you havent paid your taxes yet', 'you dont rove da rord', 'i don\'t kiss and tell ;)', 'a lady never reveals her age', 'it\'s rude to even ask, seriously, what the fuck', 'Best By 07 SEP 18 043 / 40', 'i can has cheesburger', 'the cake is a lie', 'the cake is a truth', '7 eleven hot dogs aren\'t that bad', '7 eleven hot dogs gave me diarrhea', 'taco bell isn\'t mexican food', 'del taco is better than taco bell', 'ketchup doesn\'t belong on eggs', 
+    'Tyra bought another Iphone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:', 'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food'];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
       let firstWord = args[0].toLowerCase();
 
       if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
       else if(firstWord === "are" || firstWord === "is" || firstWord === "am" || firstWord === "was" || firstWord  === "has" ||  firstWord === "did" || firstWord === "does" || firstWord === "do" || firstWord === "have" )
         {
-	args[0] = args[0].toLowerCase();
-	if (firstWord === "am"){ args[0] = "are"; }
-	else if (firstWord === "are"){ args[0] = "am"; }
-	else if (firstWord === "does") {args[0] = "do"; }
+    args[0] = args[0].toLowerCase();
+    if (firstWord === "am"){ args[0] = "are"; }
+    else if (firstWord === "are"){ args[0] = "am"; }
+    else if (firstWord === "does") {args[0] = "do"; }
 
-	for (i=0; i<args.length; i++)
-	  {
-	    if(args[i]==="my"){ args[i]="your";}
-	    else if(args[i]==="your"){ args[i]="my";}
-	    else if(args[i]==="i"){ args[i]="you";}
-	    else if(args[i]==="you"){ args[i]="me";}
+    for (i=0; i<args.length; i++)
+      {
+        if(args[i]==="my"){ args[i]="your";}
+        else if(args[i]==="your"){ args[i]="my";}
+        else if(args[i]==="i"){ args[i]="you";}
+        else if(args[i]==="you"){ args[i]="me";}
 
-	  }
+      }
           let temp1 = args[0];
           args[0]=args[1];
           args[1]=temp1;
@@ -459,16 +459,16 @@ const embed = {
         }
       else
         { if (typeof args[1] === 'undefined') {
-		let answer = args[0];
-		message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return; }
-	  for (i=0; i<args.length; i++)
-	  {
-	    if(args[i]==="my"){ args[i]="your";}
-	    else if(args[i]==="your"){ args[i]="my";}
-	    else if(args[i]==="i"){ args[i]="you";}
-	    else if(args[i]==="you"){ args[i]="me";}
+        let answer = args[0];
+        message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return; }
+      for (i=0; i<args.length; i++)
+      {
+        if(args[i]==="my"){ args[i]="your";}
+        else if(args[i]==="your"){ args[i]="my";}
+        else if(args[i]==="i"){ args[i]="you";}
+        else if(args[i]==="you"){ args[i]="me";}
 
-	  }
+      }
           answer = args.join(" ");
           message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return;
         }
@@ -477,11 +477,11 @@ const embed = {
     // 8ball 8
     case '8ball':
     case '8':
-      let eightball = ["It is certain.","As I see it, yes.",":thumbsup:", "Sure.", "I guess.", "No way.", "Cannot decide...","Possibru.","Mostly.",
-        "Kind of.", "Inconclusive.","Certainly.","Certainly not.", "HELL naw.","Most likely.","It is decidedly so.",`${huh}`,"Without a doubt.",
-        "Yes - DEFINITELY","You may rely on it.","Outlook is good.","Yes.","Signs point to yes, papi.","Reply hazy... try again.","Ask again later.",
-        "Better not tell you now.","Cannot predict now.","Concentrate and ask again.","Don't count on it.","My reply is no.","My sources say no.",
-        "Outlook is not good.","Very doubtful.","Thank you Kanye, very cool!"];
+      let eightball = ['It is certain.','As I see it, yes.',':thumbsup:', 'Sure.', 'I guess.', 'No way.', 'Cannot decide...','Possibru.','Mostly.',
+        'Kind of.', 'Inconclusive.','Certainly.','Certainly not.', 'HELL naw.','Most likely.','It is decidedly so.',`${huh}`,'Without a doubt.',
+        'Yes - DEFINITELY','You may rely on it.','Outlook is good.','Yes.','Signs point to yes, papi.','Reply hazy... try again.','Ask again later.',
+        'Better not tell you now.','Cannot predict now.','Concentrate and ask again.','Don\'t count on it.','My reply is no.','My sources say no.',
+        'Outlook is not good.','Very doubtful.','Thank you Kanye, very cool!'];
       var num = Math.floor((Math.random() * (eightball.length - 1)));
       message.channel.send(eightball[num], {tts: true});
       return;
@@ -499,12 +499,12 @@ const embed = {
     case 'u':
       //Have a conversation with Chubbot in it's native tongue
       //Syllables used to create words
-      let syllables = ["euxeux", "bu", "lemlemlem", "lumlumlum", "lem", "lum", "huehue", "hue", "h", "hhhhhhhhhh", "eak", "oom",
-        "shaq", "aqaqaq", "urts", "nts", "anus", "buenos", "cumb", "cummie", "euxeux", "ahhhhhnnnnnnnnnnnnnnnnnnnn", "unnnnnnnnn", "yeff", "hhhuuu",
-        "rrrrrrrrrrrr", "uuu","arf","euf","aeeeb", "ffff", "uuu", "uhhh", "aaaa", "eeeee", "iiii", "oooo", "v", "huuuuuuuuuuuuu", "y"];
+      let syllables = ['euxeux', 'bu', 'lemlemlem', 'lumlumlum', 'lem', 'lum', 'huehue', 'hue', 'h', 'hhhhhhhhhh', 'eak', 'oom',
+        'shaq', 'aqaqaq', 'urts', 'nts', 'anus', 'buenos', 'cumb', 'cummie', 'euxeux', 'ahhhhhnnnnnnnnnnnnnnnnnnnn', 'unnnnnnnnn', 'yeff', 'hhhuuu',
+        'rrrrrrrrrrrr', 'uuu','arf','euf','aeeeb', 'ffff', 'uuu', 'uhhh', 'aaaa', 'eeeee', 'iiii', 'oooo', 'v', 'huuuuuuuuuuuuu', 'y'];
       //Words used by themselves
-      let words = ["Posichichayones ", "from ", "sucky ", "keer ", "keer him ", "Legolas ", "jerk me once ", "jerk me twice ", "compadre ",
-        "papa ", "daddy ", "prease ","shame on you "];
+      let words = ['Posichichayones ', 'from ', 'sucky ', 'keer ', 'keer him ', 'Legolas ', 'jerk me once ', 'jerk me twice ', 'compadre ',
+        'papa ', 'daddy ', 'prease ','shame on you '];
       let length = Math.floor(Math.random() * 15);
       let str = '';
       for (i=0; i<length; i++)
@@ -526,49 +526,49 @@ const embed = {
 
       switch(pinged){
 
-	      case 'jim':
-	      case 'jimmy':
-	      case 'jambi':
-	      case 'jimb':
+          case 'jim':
+          case 'jimmy':
+          case 'jambi':
+          case 'jimb':
               case 'jimbi':
-	      case 'sunder': toPing = settings.jimmy; break;
+          case 'sunder': toPing = settings.jimmy; break;
 
-	      case 'jam':
-	      case 'james':
-	      case 'jame':
-	      case 'thejame': toPing = settings.james; break;
+          case 'jam':
+          case 'james':
+          case 'jame':
+          case 'thejame': toPing = settings.james; break;
 
-	      case 'enrique':
-	      case 'reegie':
-	      case 'reeg': toPing = settings.enrique; break;
+          case 'enrique':
+          case 'reegie':
+          case 'reeg': toPing = settings.enrique; break;
 
-	      case 'chino':
-	      case 'cody':
-	      case 'chin':
-	      case 'xhinon': toPing = settings.cody; break;
+          case 'chino':
+          case 'cody':
+          case 'chin':
+          case 'xhinon': toPing = settings.cody; break;
 
-	      case 'ton':
-	      case 'anthony':
-	      case 'mug': toPing = settings.anthony; break;
+          case 'ton':
+          case 'anthony':
+          case 'mug': toPing = settings.anthony; break;
 
-	      case 'brett':
-	      case 'kitty':
-	      case 'kittykatt': toPing = settings.brett; break;
+          case 'brett':
+          case 'kitty':
+          case 'kittykatt': toPing = settings.brett; break;
 
-	      case 'liz':
-	      case 'lizz':
-	      case 'lizzz':
-	      case 'elizabeth': toPing = settings.liz; break;
+          case 'liz':
+          case 'lizz':
+          case 'lizzz':
+          case 'elizabeth': toPing = settings.liz; break;
 
-	      case 'tyra':
-	      case 'moomoo': toPing = settings.tyra; break;
+          case 'tyra':
+          case 'moomoo': toPing = settings.tyra; break;
 
-	      case 'ysabel':
-	      case 'ysa': toPing = settings.ysabel; break;
+          case 'ysabel':
+          case 'ysa': toPing = settings.ysabel; break;
 
-	      case 'men': toPing = settings.men; break;
+          case 'men': toPing = settings.men; break;
 
-	      default: toPing = "invalid"; break;
+          default: toPing = "invalid"; break;
             }
 
       if (toPing === "invalid") {message.channel.send("No user by that name."); break;}
