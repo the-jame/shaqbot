@@ -381,7 +381,7 @@ const embed = {
       break;
 
     // howdy
-    case \'howdy\':
+    case 'howdy':
       //This is Jimmy trying to do something very basic
       let cowboyphrases = ['Howdy partner \:cowboy:', 'H\'lo :cowboy:', 'This town ain\'t big enough for the two of us :cowboy:', '_a tumbleweed rolls by_', 'It\'s high noon :cowboy:'];
       var num = Math.floor((Math.random() * (cowboyphrases.length - 1)));
@@ -439,9 +439,10 @@ const embed = {
       else if(firstWord === "are" || firstWord === "is" || firstWord === "am" || firstWord === "was" || firstWord  === "has" ||  firstWord === "did" || firstWord === "does" || firstWord === "do" || firstWord === "have" )
         {
     args[0] = args[0].toLowerCase();
-    if (firstWord === "am"){ args[0] = "are"; }
-    else if (firstWord === "are"){ args[0] = "am"; }
-    else if (firstWord === "does") {args[0] = "do"; }
+    if (firstWord === "am"){ args[0] = 'are'; }
+    else if (firstWord === "are"){ args[0] = 'am'; }
+    else if (firstWord === "does") {args[0] = '';
+    else if (firstWord === "do") {args[0] = ''; }
 
     for (i=0; i<args.length; i++)
       {
