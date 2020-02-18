@@ -435,13 +435,13 @@ const embed = {
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
 
     if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
-    else if(args[0].toLowerCase === "are" || args[0].toLowerCase === "is" || args[0].toLowerCase === "am" || args[0].toLowerCase === "was" || args[0].toLowerCase  === "has" ||  args[0].toLowerCase === "did" || args[0].toLowerCase === "does" || args[0].toLowerCase === "do" || args[0].toLowerCase === "have" )
+    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" )
      {
-    args[0] = args[0].toLowerCase();
-    if (args[0].toLowerCase === "am"){ args[0] = 'are'; }
-    else if (args[0].toLowerCase === "are"){ args[0] = 'am'; }
-    else if (args[0].toLowerCase === "does") {args[0] = ''; }
-    else if (args[0].toLowerCase === "do") {args[0] = ''; }
+    let verb = args[0].toLowerCase();
+    if (verb === "am"){ args[0] = 'are'; }
+    else if (verb === "are"){ args[0] = 'am'; }
+    else if (verb === "does") {args[0] = ''; }
+    else if (verb === "do") {args[0] = ''; }
 
     for (i=0; i<args.length; i++)
       {
