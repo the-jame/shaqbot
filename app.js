@@ -434,15 +434,14 @@ const embed = {
     'Tyra bought another Iphone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:', 'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food', 'AHCKTUALLY, net worth isn\'t what\'s in their bank account!!!!11!!1'];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
 
-      if(typeof args[0] != 'undefined'){let firstWord = args[0].toLowerCase(); }  // simplify future logic
-      if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
-      else if(firstWord === "are" || firstWord === "is" || firstWord === "am" || firstWord === "was" || firstWord  === "has" ||  firstWord === "did" || firstWord === "does" || firstWord === "do" || firstWord === "have" )
-        {
+    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
+    else if(args[0].toLowerCase === "are" || args[0].toLowerCase === "is" || args[0].toLowerCase === "am" || args[0].toLowerCase === "was" || args[0].toLowerCase  === "has" ||  args[0].toLowerCase === "did" || args[0].toLowerCase === "does" || args[0].toLowerCase === "do" || args[0].toLowerCase === "have" )
+     {
     args[0] = args[0].toLowerCase();
-    if (firstWord === "am"){ args[0] = 'are'; }
-    else if (firstWord === "are"){ args[0] = 'am'; }
-    else if (firstWord === "does") {args[0] = ''; }
-    else if (firstWord === "do") {args[0] = ''; }
+    if (args[0].toLowerCase === "am"){ args[0] = 'are'; }
+    else if (args[0].toLowerCase === "are"){ args[0] = 'am'; }
+    else if (args[0].toLowerCase === "does") {args[0] = ''; }
+    else if (args[0].toLowerCase === "do") {args[0] = ''; }
 
     for (i=0; i<args.length; i++)
       {
