@@ -431,10 +431,10 @@ const embed = {
     'i am once again asking you to shut the fuck up', 'im ignoring your pings', 'SUKA BLYAT', 'TABLE', 'I hardly know her!', 'i can\'t read', 'i\'ve shidded', 'i\'ve a smol pebis', 'i\'m cooming', wtf, cummies, 'god has abandoned us',
     'they call it oven when you of in the cold food of out hot eat the food', 'that salty six inch isn\'t big enough for the both of us', 'i\'m the king of being wrong', 'the bean quean decreed it',
     'you swore me to secrecy', 'you havent paid your taxes yet', 'you dont rove da rord', 'i don\'t kiss and tell ;)', 'a lady never reveals her age', 'it\'s rude to even ask, seriously, what the fuck', 'Best By 07 SEP 18 043 / 40', 'i can has cheesburger', 'the cake is a lie', 'the cake is a truth', '7 eleven hot dogs aren\'t that bad', '7 eleven hot dogs gave me diarrhea', 'taco bell isn\'t mexican food', 'del taco is better than taco bell', 'ketchup doesn\'t belong on eggs', 
-    'Tyra bought another Iphone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:', 'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food'];
+    'Tyra bought another Iphone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:', 'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food', 'AHCKTUALLY, net worth isn\'t what\'s in their bank account!!!!11!!1'];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
-      let firstWord = args[0].toLowerCase();
 
+      if(typeof args[0] != 'undefined'){let firstWord = args[0].toLowerCase(); }  // simplify future logic
       if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
       else if(firstWord === "are" || firstWord === "is" || firstWord === "am" || firstWord === "was" || firstWord  === "has" ||  firstWord === "did" || firstWord === "does" || firstWord === "do" || firstWord === "have" )
         {
