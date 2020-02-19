@@ -7,12 +7,15 @@ client.music = require("discord.js-musicbot-v2");
 const tt = '⭐';
 
 let settings;
+let owner;
 let YTAPI = '';
 let token = '';
 let wut1;
 let wut2;
 let wut3;
 let eyesleft;
+let huh;
+let realshit;
 let lol = 0;
 let idle = 0;
 
@@ -39,11 +42,13 @@ function login() {
 
 client.on('ready', () => {
   console.log(`Bot has started with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\n`);
-  let realshit = client.emojis.get('487855131996585994');
+  realshit = client.emojis.get('487855131996585994');
   wut1 = client.emojis.get('431701745329111041');
   wut2 = client.emojis.get('431701745014669314');
   wut3 = client.emojis.get('431701745236967425');
   eyesleft = client.emojis.get('642179113259499571');
+  huh = client.emojis.get('431693012788314132');
+  owner = settings.james;
 
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${client.users.size*2-12} balls.`, { type: 'PLAYING' })
@@ -69,7 +74,7 @@ client.on('ready', () => {
 
   // Make it so the owner (you) bypass permissions for music.
   ownerOverMember: true,
-  ownerID: "95702308515487744",
+  ownerID: settings.james,
 
   botPrefix: "=",
 });
@@ -90,11 +95,9 @@ client.on("guildDelete", guild => {
 client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
 
-  // It's good practice to ignore other bots. This also makes your bot ignore itself
-  // and not get into a spam loop (we call that "botception").
   if(message.author.bot) return;
 
-if(message.author.presence.status == "idle" && idle == 1){
+  if(message.author.presence.status == "idle" && idle == 1){
     let user = message.author.id;
     //message.delete().catch(O_o=>{});
     message.channel.send("Aren't you idle <@" + user + ">? :thinking:");
@@ -117,28 +120,25 @@ if(message.author.presence.status == "idle" && idle == 1){
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  const huh = client.emojis.get('431693012788314132');
 
+  let pref = settings.prefix;
+  const commandList = ['${pref}b', '${pref}ballsize','${pref}why','${pref}y','${pref}uu','${pref}uuu','${pref}howdy','${pref}8]'];
+
+  let sArgs = args.shift();
+
+  // nested commands
+
+
+
+  console.log(command + " requested!");
   // begin commands, search for //(command) to find
   switch(command) {
+    case 'ms': if(message.author.id != owner){break;} message.channel.send(new Date().getTime() - message.createdTimestamp + " ms"); break;
 
-    // invite inv
-    // INVITE LINK??
-    case 'invite':
-    case 'inv':
-      message.channel.send("Clicc: <http://inv.whoinventedbeans.wtf>");
-      break;
-    // source src
-    case 'src':
-    case 'source':
-      message.channel.send("https://github.com/the-jame/shaqbot");
-      break;
-
-    // MEME HELP
-    // memes
     case 'memes':
       message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.");
       break;
+
 
     // MEME TEXT
     case 'corn':
@@ -163,39 +163,6 @@ const embed = {
 };      message.channel.send({ embed });
       //message.channel.send("\"Corn was domesticated about 10,000 years ago in what is now Mexico.\" \n- <https://en.wikipedia.org/wiki/Maize#History>\n\nhttps://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268");
       break;
-
-//    case 'squad':
-//        message.channel.send('Damn bro, you got the whole squad laughing.');
-//  setTimeout(()=> {
-//    clearTimeout(laugh1);
-//    }, 3700);
-//      setTimeout(()=> {
-//    clearTimeout(laugh2);
-//    }, 4000);
-//      setTimeout(()=> {
-//    clearTimeout(laugh3);
-//        }, 3400);
-//    message.channel.send(`:smile:`)
-//    .then((msg)=> {
-//    laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
-//    });
-//    message.channel.send(`:slight_smile:`)
-//    .then((msg)=> {
-//    laugh2 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 800)
-//    });
-//    message.channel.send(`:neutral_face:`)
-//    .then((msg)=> {
-//    laugh3 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 700)
-//    });
-//    message.channel.send(`:smile:`)
-//    .then((msg)=> {
-//    laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 200)
-//    });
-//    message.channel.send(`:flushed:`)
-//    .then((msg)=> {
-//    laugh1 = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 400)
-//    });
-//      break;
 
     case 'plex':
       const plexEmoji = client.emojis.get('583144668125069322');
@@ -431,7 +398,7 @@ const embed = {
     'i am once again asking you to shut the fuck up', 'im ignoring your pings', 'SUKA BLYAT', 'TABLE', 'I hardly know her!', 'i can\'t read', 'i\'ve shidded', 'i\'ve a smol pebis', 'i\'m cooming', wtf, cummies, 'god has abandoned us',
     'they call it oven when you of in the cold food of out hot eat the food', 'that salty six inch isn\'t big enough for the both of us', 'i\'m the king of being wrong', 'the bean quean decreed it',
     'you swore me to secrecy', 'you havent paid your taxes yet', 'you dont rove da rord', 'i don\'t kiss and tell ;)', 'a lady never reveals her age', 'it\'s rude to even ask, seriously, what the fuck', 'Best By 07 SEP 18 043 / 40', 'i can has cheesburger', 'the cake is a lie', 'the cake is a truth', '7 eleven hot dogs aren\'t that bad', '7 eleven hot dogs gave me diarrhea', 'taco bell isn\'t mexican food', 'del taco is better than taco bell', 'ketchup doesn\'t belong on eggs', 
-    'Tyra bought another Iphone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:', 'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food', 'AHCKTUALLY, net worth isn\'t what\'s in their bank account!!!!11!!1'];
+    'Tyra bought another Iphone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:', 'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food', 'AHCKTUALLY, net worth isn\'t what\'s in their bank account!!!!11', 'of my perfect fat pussy', 'you went to five or six stores intead of just one', 'stoop kid\'s afraid to leave his stoop'];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
 
     if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
@@ -454,6 +421,8 @@ const embed = {
           let temp1 = args[0];
           args[0]=args[1];
           args[1]=temp1;
+
+	  if (args[1] === ''){args.splice(1,1);}
           let answer = args.join(" ");
           message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return;
         }
