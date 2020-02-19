@@ -124,7 +124,6 @@ client.on("message", async message => {
   let pref = settings.prefix;
   const commandList = ['${pref}b', '${pref}ballsize','${pref}why','${pref}y','${pref}uu','${pref}uuu','${pref}howdy','${pref}8]'];
 
-  let sArgs = args.shift();
 
   // nested commands
 
@@ -410,12 +409,12 @@ const embed = {
     else if (verb === "does") {args[0] = ''; }
     else if (verb === "do") {args[0] = ''; }
 
-    for (i=0; i<args.length; i++)
+    for (e=0; e<args.length; e++)
       {
-        if(args[i]==="my"){ args[i]="your";}
-        else if(args[i]==="your"){ args[i]="my";}
-        else if(args[i]==="i"){ args[i]="you";}
-        else if(args[i]==="you"){ args[i]="me";}
+        if(args[e]==="my"){ args[e]="your";}
+        else if(args[e].toLowerCase() ==="your"){ args[e]="my";}
+        else if(args[e].toLowerCase() ==="i"){ args[e]="you";}
+        else if(args[e].toLowerCase() ==="you"){ args[e]="me";}
 
       }
           let temp1 = args[0];
@@ -430,12 +429,12 @@ const embed = {
         { if (typeof args[1] === 'undefined') {
         let answer = args[0];
         message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return; }
-      for (i=0; i<args.length; i++)
+      for (b=0; b<args.length; b++)
       {
-        if(args[i]==="my"){ args[i]="your";}
-        else if(args[i]==="your"){ args[i]="my";}
-        else if(args[i]==="i"){ args[i]="you";}
-        else if(args[i]==="you"){ args[i]="me";}
+        if(args[b]==="my"){ args[b]="your";}
+        else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
+        else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
+        else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
 
       }
           answer = args.join(" ");
