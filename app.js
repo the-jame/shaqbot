@@ -247,8 +247,8 @@ const embed = {
     case 'lahabra':
       message.channel.send({files: ["img/lahabra.png"]});
       break;
-    case 'jackoff':
-      message.channel.send({files: ["img/jackoff.jpg"]});
+    case 'shouldi':
+      message.channel.send({files: ["img/shouldi.jpg"]});
       break;
     case 'oof':
       message.channel.send({files: ["img/oof.jpg"]});
