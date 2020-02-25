@@ -135,7 +135,7 @@ client.on("message", async message => {
     case 'ms': if(message.author.id != owner){break;} message.channel.send(new Date().getTime() - message.createdTimestamp + " ms"); break;
 
     case 'memes':
-      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.");
+      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper");
       break;
 
 
@@ -240,6 +240,15 @@ const embed = {
       break;
     case 'chicken':
       message.channel.send({files: ["img/5chicken.png"]});
+      break;
+    case 'helper':
+      message.channel.send({files: ["img/helper.jpg"]});
+      break;
+    case 'lahabra':
+      message.channel.send({files: ["img/lahabra.png"]});
+      break;
+    case 'jackoff':
+      message.channel.send({files: ["img/jackoff.jpg"]});
       break;
     case 'oof':
       message.channel.send({files: ["img/oof.jpg"]});
@@ -397,7 +406,7 @@ const embed = {
     'i am once again asking you to shut the fuck up', 'im ignoring your pings', 'SUKA BLYAT', 'TABLE', 'I hardly know her!', 'i can\'t read', 'i\'ve shidded', 'i\'ve a smol pebis', 'i\'m cooming', wtf, cummies, 'god has abandoned us',
     'they call it oven when you of in the cold food of out hot eat the food', 'that salty six inch isn\'t big enough for the both of us', 'i\'m the king of being wrong', 'the bean quean decreed it',
     'you swore me to secrecy', 'you havent paid your taxes yet', 'you dont rove da rord', 'i don\'t kiss and tell ;)', 'a lady never reveals her age', 'it\'s rude to even ask, seriously, what the fuck', 'Best By 07 SEP 18 043 / 40', 'i can has cheesburger', 'the cake is a lie', 'the cake is a truth', '7 eleven hot dogs aren\'t that bad', '7 eleven hot dogs gave me diarrhea', 'taco bell isn\'t mexican food', 'del taco is better than taco bell', 'ketchup doesn\'t belong on eggs', 
-    'Tyra bought another Iphone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:', 'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food', 'AHCKTUALLY, net worth isn\'t what\'s in their bank account!!!!11', 'of my perfect fat pussy', 'you went to five or six stores intead of just one', 'stoop kid\'s afraid to leave his stoop'];
+    'Tyra bought another iPhone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:', 'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food', 'AHCKTUALLY, net worth isn\'t what\'s in their bank account!!!!11', 'of my perfect fat pussy', 'you went to five or six stores intead of just one', 'stoop kid\'s afraid to leave his stoop', 'Mike Bloomberg is a republican', 'i joined a pyramid scheme','dogs should be allowed to vote','squirt is pee','\`i shidded and farded and cummed\`', 'I INVENTED BEANS', 'cum is stored in the ass', 'pee is stored in the balls', 'rot is stored in the soul', 'i never returned backdoor sluts 4 to blockbuster :flushed:'];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
 
     if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
