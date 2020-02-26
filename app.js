@@ -403,14 +403,23 @@ const embed = {
     case 'why':
       var reasons = ['the earth is flat', 'Shaq\'s girthy balloon shlong', 'h', 'yo momma fat', 'chemtrails are turning people gay',
     'Epstein didn\'t kill himself', 'women be shoppin', 'santa claus is coming to town', 'jesus is watching you', 'everything happens for a reason',
-    'George Bush doesn\'t care about black people', 'it benefits the military-industrial complex', 'SHE\'S GONE, OUT OF MY LIFE', 'you\'ve never had a dream', 'birds aren\'t real', '2pac is still alive',
-    'my anus is bleeding', 'I have been farting alone in flaccid chat for 6 hours', 'secret chat said so', 'I ate the burger king foot lettuce', 'tom clancy is going to kick your ass, and i\'m going to help him', 'zuckerberg is a lizard', 'i forgot the question',
-    'God is an alcoholic', 'Dr. Shigeru Chino wills it to be so.', 'Dick Cheney profited off the Iraq war', 'my opinions only get worse', 'its pronounced jif', ':clown:', 'you\'re going to lose subscriber', 'malarkey', 'da pipo, dey suffer',
-    'white pipo', 'its SO BEEFY!!', 'millenials killed hooters', 'young metro dont trust you :sob:', 'I\'m in love with the coco :weary:', 'you didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'poopie is funny', 'UH OH, stinky', 'rot', 'i am a figment of your imagination',
-    'i am once again asking you to shut the fuck up', 'im ignoring your pings', 'SUKA BLYAT', 'TABLE', 'I hardly know her!', 'i can\'t read', 'i\'ve shidded', 'i\'ve a smol pebis', 'i\'m cooming', wtf, cummies, 'god has abandoned us',
-    'they call it oven when you of in the cold food of out hot eat the food', 'that salty six inch isn\'t big enough for the both of us', 'i\'m the king of being wrong', 'the bean quean decreed it',
-    'you swore me to secrecy', 'you dont rove da rord', 'a lady never reveals her age', 'it\'s rude to even ask, seriously, what the fuck', 'Best By 07 SEP 18 043 / 40', 'i can has cheesburger', 'the cake is a lie', 'the cake is a truth', '7 eleven hot dogs aren\'t that bad', '7 eleven hot dogs gave me diarrhea', 'taco bell isn\'t mexican food', 'del taco is better than taco bell', 'ketchup doesn\'t belong on eggs', 
-    'Tyra bought another iPhone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:', 'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food', 'AHCKTUALLY, net worth isn\'t what\'s in their bank account!!!!11', 'of my perfect fat pussy', 'you went to five or six stores intead of just one', 'stoop kid\'s afraid to leave his stoop', 'Mike Bloomberg is a republican', 'i joined a pyramid scheme','dogs should be allowed to vote','squirt is pee','\`i shidded and farded and cummed\`', 'I INVENTED BEANS', 'cum is stored in the ass', 'pee is stored in the balls', 'rot is stored in the soul', 'i never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is', 'you don\'t wash your ass', 'i am a registered sex offender in 38 states', '..', 'leg so hot it fry an eg'];
+    'George Bush doesn\'t care about black people', 'it benefits the military-industrial complex', 'SHE\'S GONE, OUT OF MY LIFE', 'you\'ve never had a dream',
+	'birds aren\'t real', '2pac is still alive', 'my anus is bleeding', 'I have been farting alone in flaccid chat for 6 hours', 'secret chat said so', 
+	'I ate the burger king foot lettuce', 'tom clancy is going to kick your ass, and i\'m going to help him', 'zuckerberg is a lizard', 'i forgot the question',
+    'God is an alcoholic', 'Dr. Shigeru Chino wills it to be so.', 'Dick Cheney profited off the Iraq war', 'my opinions only get worse', 'its pronounced jif',
+	':clown:', 'you\'re going to lose subscriber', 'malarkey', 'da pipo, dey suffer', 'white pipo', 'its SO BEEFY!!', 'millenials killed hooters', 'young metro dont trust you :sob:',
+	'I\'m in love with the coco :weary:', 'you didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'poopie is funny', 'UH OH, stinky', 'rot', 'i am a figment of your imagination',
+    'i am once again asking you to shut the fuck up', 'im ignoring your pings', 'SUKA BLYAT', 'TABLE', 'I hardly know her!', 'i can\'t read', 'i\'ve shidded',
+	'i\'ve a smol pebis', 'i\'m cooming', wtf, cummies, 'god has abandoned us', 'they call it oven when you of in the cold food of out hot eat the food',
+	'that salty six inch isn\'t big enough for the both of us', 'i\'m the king of being wrong', 'the bean quean decreed it', 'you dont rove da rord',
+	'a lady never reveals her age', 'it\'s rude to even ask, seriously, what the fuck', 'Best By 07 SEP 18 043 / 40', 'i can has cheesburger', 'the cake is a lie',
+	'the cake is a truth', '7 eleven hot dogs aren\'t that bad', '7 eleven hot dogs gave me diarrhea', 'taco bell isn\'t mexican food', 'del taco is better than taco bell',
+	'ketchup doesn\'t belong on eggs', 'Tyra bought another iPhone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:',
+	'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food',
+	'of my perfect fat pussy', 'you went to five or six stores intead of just one', 'stoop kid\'s afraid to leave his stoop', 'Mike Bloomberg is a republican',
+	'i joined a pyramid scheme','dogs should be allowed to vote','squirt is pee','\`i shidded and farded and cummed\`', 'I INVENTED BEANS', 'cum is stored in the ass',
+	'pee is stored in the balls', 'rot is stored in the soul', 'i never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
+	'you don\'t wash your ass', 'i am a registered sex offender in 38 states', '..', 'leg so hot it fry an eg'];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
 
     if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
