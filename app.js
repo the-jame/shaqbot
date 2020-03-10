@@ -471,6 +471,76 @@ const embed = {
         }
       return;
       break;
+		  
+		  
+case 'y2':
+case 'why2':
+	  var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy'];
+		  
+      var reasons2 = ['said the earth is flat', 'has a girthy balloon shlong', 'h', ' momma fat', 'said chemtrails are turning people gay',
+    'Epstein didn\'t kill himself', ' be shoppin', ' is coming to town', ' is watching you', 'happens for a reason',
+    'doesn\'t care about black people', 'benefits the military-industrial complex', '\'S GONE, OUT OF MY LIFE', 'has never had a dream',
+	'isn\'t real', 'thinks 2pac is still alive', '\'s anus is bleeding', 'has been farting alone in flaccid chat for 6 hours', 'said it in secret chat', 
+	'ate the burger king foot lettuce', 'is going to kick your ass, and i\'m going to help him', 'is a lizard', 'forgot the question',
+    'is an alcoholic', 'wills it to be so.', 'profited off the Iraq war', 'opinions only get worse', 'says GHIF',
+	'is a :clown:', 'going to lose subscriber', 'told malarkey', ', dey suffer', 'hates white pipo', 'is SO BEEFY!!', ' killed hooters', 'metro dont trust you :sob:',
+	'is in love with the coco :weary:', 'didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'said poopie is funny', 'said UH OH, stinky', 'rotted', 'is a figment of your imagination',
+    'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
+	'has a smol pebis', 'is cooming', 'has abandoned us', 'calls it oven when you of in the cold food of out hot eat the food',
+	'has a salty six inch that isn\'t big enough for the both of us', 'is the king of being wrong', 'decreed it', 'does not rove da rord',
+	'never reveals her age', ', what the fuck', 'Best By 07 SEP 18 043 / 40', 'can has cheesburger', 'is a lie',
+	'is a truth', 'once said 7 eleven hot dogs aren\'t that bad', 'thinks taco bell is mexican food', 'thinks del taco is better than taco bell',
+	'thinks ketchup doesn\'t belong on eggs', 'bought another iPhone', 'is the reason rotisserie chicken from albertsons is so cheap...', 'found the piss drawer :huh:',
+	'says italian food is better than any other food', 'has a perfect fat pussy', 'went to five or six stores intead of just one', 'is afraid to leave his stoop', 'is a republican',
+	'joined a pyramid scheme','shouldn\'t be allowed to vote','said squirt is pee','\`shidded and farded and cummed\`', 'INVENTED BEANS', 'is stored in the ass',
+	'is stored in the balls', 'is stored in the soul', 'never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
+	'doesn\'t wash their ass', 'is a registered sex offender in 38 states', '...', 'leg so hot it fry an eg'];
+      var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
+	  var randSub = Math.floor((Math.random() * (subjects.length - 1)));
+
+    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
+    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" )
+     {
+    let verb = args[0].toLowerCase();
+    if (verb === "am"){ args[0] = 'are'; }
+    else if (verb === "are"){ args[0] = 'am'; }
+    else if (verb === "does") {args[0] = ''; }
+    else if (verb === "do") {args[0] = ''; }
+
+    for (e=0; e<args.length; e++)
+      {
+        if(args[e]==="my"){ args[e]="your";}
+        else if(args[e].toLowerCase() ==="your"){ args[e]="my";}
+        else if(args[e].toLowerCase() ==="i"){ args[e]="you";}
+        else if(args[e].toLowerCase() ==="you"){ args[e]="me";}
+
+      }
+          let temp1 = args[0];
+          args[0]=args[1];
+          args[1]=temp1;
+
+	  if (args[1] === ''){args.splice(1,1);}
+          let answer = args.join(" ");
+          message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
+        }
+      else
+        { if (typeof args[1] === 'undefined') {
+        let answer = args[0];
+        message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return; }
+      for (b=0; b<args.length; b++)
+      {
+        if(args[b]==="my"){ args[b]="your";}
+        else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
+        else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
+        else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
+
+      }
+          answer = args.join(" ");
+          message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
+        }
+      return;
+      break;
+		  
     // 8ball 8
     case '8ball':
     case '8':
