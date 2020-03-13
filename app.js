@@ -412,14 +412,14 @@ const embed = {
     // why
     case 'why2':
       var reasons = ['the earth is flat', 'Shaq\'s girthy balloon shlong', 'h', 'yo momma fat', 'chemtrails are turning people gay',
-    'Epstein didn\'t kill himself', 'women be shoppin', 'santa claus is coming to town', 'jesus is watching you', 'everything happens for a reason',
-    'George Bush doesn\'t care about black people', 'it benefits the military-industrial complex', 'SHE\'S GONE, OUT OF MY LIFE', 'you\'ve never had a dream',
+        'Epstein didn\'t kill himself', 'women be shoppin', 'santa claus is coming to town', 'jesus is watching you', 'everything happens for a reason',
+        'George Bush doesn\'t care about black people', 'it benefits the military-industrial complex', 'SHE\'S GONE, OUT OF MY LIFE', 'you\'ve never had a dream',
 	'birds aren\'t real', '2pac is still alive', 'my anus is bleeding', 'I have been farting alone in flaccid chat for 6 hours', 'secret chat said so', 
 	'I ate the burger king foot lettuce', 'tom clancy is going to kick your ass, and i\'m going to help him', 'zuckerberg is a lizard', 'i forgot the question',
-    'God is an alcoholic', 'Dr. Shigeru Chino wills it to be so.', 'Dick Cheney profited off the Iraq war', 'my opinions only get worse', 'its pronounced jif',
+        'God is an alcoholic', 'Dr. Shigeru Chino wills it to be so.', 'Dick Cheney profited off the Iraq war', 'my opinions only get worse', 'its pronounced jif',
 	':clown:', 'you\'re going to lose subscriber', 'malarkey', 'da pipo, dey suffer', 'white pipo', 'its SO BEEFY!!', 'millenials killed hooters', 'young metro dont trust you :sob:',
 	'I\'m in love with the coco :weary:', 'you didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'poopie is funny', 'UH OH, stinky', 'rot', 'i am a figment of your imagination',
-    'i am once again asking you to shut the fuck up', 'im ignoring your pings', 'SUKA BLYAT', 'TABLE', 'I hardly know her!', 'i can\'t read', 'i\'ve shidded',
+        'i am once again asking you to shut the fuck up', 'im ignoring your pings', 'SUKA BLYAT', 'TABLE', 'I hardly know her!', 'i can\'t read', 'i\'ve shidded',
 	'i\'ve a smol pebis', 'i\'m cooming', wtf, cummies, 'god has abandoned us', 'they call it oven when you of in the cold food of out hot eat the food',
 	'that salty six inch isn\'t big enough for the both of us', 'i\'m the king of being wrong', 'the bean quean decreed it', 'you dont rove da rord',
 	'a lady never reveals her age', 'it\'s rude to even ask, seriously, what the fuck', 'Best By 07 SEP 18 043 / 40', 'i can has cheesburger', 'the cake is a lie',
@@ -481,14 +481,14 @@ case 'why':
        'pipo', '100,000 Ohioans'];
 
       var reasons2 = ['said the earth is flat', 'has a girthy balloon shlong', 'h', ' momma fat', 'said chemtrails are turning people gay',
-    'Epstein didn\'t kill himself', ' be shoppin', ' is coming to town', ' is watching you', 'happens for a reason',
-    'doesn\'t care about black people', 'benefits the military-industrial complex', '\'S GONE, OUT OF MY LIFE', 'has never had a dream',
+        'Epstein didn\'t kill himself', ' be shoppin', ' is coming to town', ' is watching you', 'happens for a reason',
+        'doesn\'t care about black people', 'benefits the military-industrial complex', '\'S GONE, OUT OF MY LIFE', 'has never had a dream',
 	'isn\'t real', 'thinks 2pac is still alive', '\'s anus is bleeding', 'has been farting alone in flaccid chat for 6 hours', 'said it in secret chat', 
 	'ate the burger king foot lettuce', 'is going to kick your ass, and i\'m going to help him', 'is a lizard', 'forgot the question',
-    'is an alcoholic', 'wills it to be so.', 'profited off the Iraq war', 'opinions only get worse', 'says GHIF',
+        'is an alcoholic', 'wills it to be so.', 'profited off the Iraq war', 'opinions only get worse', 'says GHIF',
 	'is a :clown:', 'going to lose subscriber', 'told malarkey', ', dey suffer', 'hates white pipo', 'is SO BEEFY!!', ' killed hooters', 'metro dont trust you :sob:',
 	'is in love with the coco :weary:', 'didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'said poopie is funny', 'said UH OH, stinky', 'rotted', 'is a figment of your imagination',
-    'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
+        'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
 	'has a smol pebis', 'is cooming', 'has abandoned us', 'calls it oven when you of in the cold food of out hot eat the food',
 	'has a salty six inch that isn\'t big enough for the both of us', 'is the king of being wrong', 'decreed it', 'does not rove da rord',
 	'never reveals her age', ', what the fuck', 'Best By 07 SEP 18 043 / 40', 'can has cheesburger', 'is a lie',
@@ -498,8 +498,8 @@ case 'why':
 	'joined a pyramid scheme','shouldn\'t be allowed to vote','said squirt is pee','\`shidded and farded and cummed\`', 'INVENTED BEANS', 'is stored in the ass',
 	'is stored in the balls', 'is stored in the soul', 'never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
 	'doesn\'t wash their ass', 'is a registered sex offender in 38 states', '...', 'leg so hot it fry an eg', 'slings a fat hog', 'peed in the sink', 'has a worryingly skinny pussy',
-  'has coronavirus', 'went tits up in the stock market', 'was left off bad n boujee', 'a Corona got its lime :beers:', 'needs kammies', 'ate bat soup', 'is a masochist',
-  'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers'];
+        'has coronavirus', 'went tits up in the stock market', 'was left off bad n boujee', 'a Corona got its lime :beers:', 'needs kammies', 'ate bat soup', 'is a masochist',
+        'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers'];
       var randRsn = Math.floor((Math.random() * (reasons2.length - 1)));
       var randSub = Math.floor((Math.random() * (subject.length - 1)));
 
@@ -511,6 +511,7 @@ case 'why':
     else if (verb === "are"){ args[0] = 'am'; }
     else if (verb === "does") {args[0] = ''; }
     else if (verb === "do") {args[0] = ''; }
+    else if (verb === "is") {args[0] = ''; }
 
     for (e=0; e<args.length; e++)
       {
