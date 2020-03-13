@@ -331,6 +331,10 @@ const embed = {
     case 'boomeralert':
       message.channel.send({files: ["img/boomeralert.gif"]});
       break;
+    case 'sickfuck':
+    case 'ed':
+      message.channel.send({files: ["img/ed.png"]});
+      break;
 
     // SET OWN ROLE
     // setrole
@@ -474,7 +478,8 @@ const embed = {
 
 case 'y2':
 case 'why2':
-      var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy'];
+      var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy',
+       'pipo', '100,000 Ohioans'];
 
       var reasons2 = ['said the earth is flat', 'has a girthy balloon shlong', 'h', ' momma fat', 'said chemtrails are turning people gay',
     'Epstein didn\'t kill himself', ' be shoppin', ' is coming to town', ' is watching you', 'happens for a reason',
@@ -493,7 +498,9 @@ case 'why2':
 	'says italian food is better than any other food', 'has a perfect fat pussy', 'went to five or six stores intead of just one', 'is afraid to leave his stoop', 'is a republican',
 	'joined a pyramid scheme','shouldn\'t be allowed to vote','said squirt is pee','\`shidded and farded and cummed\`', 'INVENTED BEANS', 'is stored in the ass',
 	'is stored in the balls', 'is stored in the soul', 'never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
-	'doesn\'t wash their ass', 'is a registered sex offender in 38 states', '...', 'leg so hot it fry an eg'];
+	'doesn\'t wash their ass', 'is a registered sex offender in 38 states', '...', 'leg so hot it fry an eg', 'slings a fat hog', 'peed in the sink', 'has a worryingly skinny pussy',
+  'has coronavirus', 'went tits up in the stock market', 'was left off bad n boujee', 'a Corona got its lime :beers:', 'needs kammies', 'ate bat soup', 'is a masochist',
+  'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers'];
       var randRsn = Math.floor((Math.random() * (reasons2.length - 1)));
       var randSub = Math.floor((Math.random() * (subject.length - 1)));
 
