@@ -410,8 +410,7 @@ const embed = {
       break;
 
     // why
-    case 'y':
-    case 'why':
+    case 'why2':
       var reasons = ['the earth is flat', 'Shaq\'s girthy balloon shlong', 'h', 'yo momma fat', 'chemtrails are turning people gay',
     'Epstein didn\'t kill himself', 'women be shoppin', 'santa claus is coming to town', 'jesus is watching you', 'everything happens for a reason',
     'George Bush doesn\'t care about black people', 'it benefits the military-industrial complex', 'SHE\'S GONE, OUT OF MY LIFE', 'you\'ve never had a dream',
@@ -476,8 +475,8 @@ const embed = {
       return;
       break;
 
-case 'y2':
-case 'why2':
+case 'y':
+case 'why':
       var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy',
        'pipo', '100,000 Ohioans'];
 
