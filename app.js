@@ -487,14 +487,16 @@ const embed = {
 case 'y':
 case 'why':
       var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy',
-       'pipo', '100,000 Ohioans'];
+       'pipo', '100,000 Ohioans', 'the one dentist that doesnt recommend sugarless gum', 'kurt russell\'s mustache from the movie \'Tombstone\' ', 'beast sandwich',
+	'drumpf', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend', 
+	'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush'];
 
       var reasons2 = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
         'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
         'doesn\'t care about black people', 'benefits the military-industrial complex', '\'S GONE, OUT OF MY LIFE', 'has never had a dream',
 	'isn\'t real', 'thinks 2pac is still alive', '\'s anus is bleeding', 'has been farting alone in flaccid chat for 6 hours', 'said it in secret chat', 
 	'ate the burger king foot lettuce', 'is going to kick your ass, and i\'m going to help him', 'is a lizard', 'forgot the question',
-        'is an alcoholic', 'wills it to be so.', 'profited off the Iraq war', 'opinions only get worse', 'says GHIF',
+        'is an alcoholic', 'wills it to be so.', 'profited off the Iraq war', 'opinions only get worse', 'says GHIF', 'is COOOOOOOOOOOMING', 
 	'is a :clown:', 'going to lose subscriber', 'told malarkey', ', dey suffer', 'hates white pipo', 'is SO BEEFY!!', 'killed hooters', 'metro dont trust you :sob:',
 	'is in love with the coco :weary:', 'didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'said poopie is funny', 'said UH OH, stinky', 'rotted', 'is a figment of your imagination',
         'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
@@ -508,7 +510,8 @@ case 'why':
 	'is stored in the balls', 'is stored in the soul', 'never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
 	'doesn\'t wash their ass', 'is a registered sex offender in 38 states', '...', 'leg so hot it fry an eg', 'slings a fat hog', 'peed in the sink', 'has a worryingly skinny pussy',
         'has coronavirus', 'went tits up in the stock market', 'was left off bad n boujee', 'a Corona got its lime :beers:', 'needs kammies', 'ate bat soup', 'is a masochist',
-        'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers'];
+        'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers', 'never really loved you anyway', 'is secretly an alt-right youtuber with a cartoon animal avitar in a suit', 
+	'want\'s to wear your skin', 'just walked into autozone with big dick energy', 'smells like gun-girl\'s undies', 'is locked in an ICE internment center', 'doesn\'t care about black people'];
       var randRsn = Math.floor((Math.random() * (reasons2.length - 1)));
       var randSub = Math.floor((Math.random() * (subject.length - 1)));
 
