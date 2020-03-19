@@ -486,8 +486,8 @@ const embed = {
 
 case 'y':
 case 'why':
-      var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy',
-       'pipo', '100,000 Ohioans'];
+      var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass',
+	'your ass','your mom','Joe Biden','tom clancy', 'pipo', '100,000 Ohioans', 'the Tainted One', 'Tom Nook', 'your sam', 'He', 'She', 'It', 'God', 'Satan', 'John Freeman'];
 
       var reasons2 = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
         'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
