@@ -135,6 +135,11 @@ client.on("message", async message => {
     case 'ms': if(message.author.id != owner){break;} message.channel.send(new Date().getTime() - message.createdTimestamp + " ms"); break;
 
     case 'memes':
+    case 'list':
+    case 'commands':
+    case 'pics':
+    case 'pictures':
+    case 'commandlist':
       message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK");
       break;
 
@@ -269,6 +274,10 @@ const embed = {
       break;
     case 'thinkabout':
     case 'muchtothink':
+    case 'muchthink':
+    case 'much':
+    case 'tothink':
+    case 'pictureofthetweetbybillyraycyruswherehesaysmuchtothinkaboutandlookskindasad':
       message.channel.send({files: ["img/muchtothink.jpg"]});
       break;
     case 'spoken':
@@ -480,13 +489,13 @@ case 'why':
       var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy',
        'pipo', '100,000 Ohioans'];
 
-      var reasons2 = ['said the earth is flat', 'has a girthy balloon shlong', 'h', ' momma fat', 'said chemtrails are turning people gay',
-        'Epstein didn\'t kill himself', ' be shoppin', ' is coming to town', ' is watching you', 'happens for a reason',
+      var reasons2 = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
+        'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
         'doesn\'t care about black people', 'benefits the military-industrial complex', '\'S GONE, OUT OF MY LIFE', 'has never had a dream',
 	'isn\'t real', 'thinks 2pac is still alive', '\'s anus is bleeding', 'has been farting alone in flaccid chat for 6 hours', 'said it in secret chat', 
 	'ate the burger king foot lettuce', 'is going to kick your ass, and i\'m going to help him', 'is a lizard', 'forgot the question',
         'is an alcoholic', 'wills it to be so.', 'profited off the Iraq war', 'opinions only get worse', 'says GHIF',
-	'is a :clown:', 'going to lose subscriber', 'told malarkey', ', dey suffer', 'hates white pipo', 'is SO BEEFY!!', ' killed hooters', 'metro dont trust you :sob:',
+	'is a :clown:', 'going to lose subscriber', 'told malarkey', ', dey suffer', 'hates white pipo', 'is SO BEEFY!!', 'killed hooters', 'metro dont trust you :sob:',
 	'is in love with the coco :weary:', 'didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'said poopie is funny', 'said UH OH, stinky', 'rotted', 'is a figment of your imagination',
         'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
 	'has a smol pebis', 'is cooming', 'has abandoned us', 'calls it oven when you of in the cold food of out hot eat the food',
@@ -504,7 +513,7 @@ case 'why':
       var randSub = Math.floor((Math.random() * (subject.length - 1)));
 
     if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + subject[randSub] + " " + reasons2[randRsn] + ".", {tts: true}); return;}  // blank inquiry
-    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" )
+    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" || args[0].toLowerCase() === "should")
      {
     let verb = args[0].toLowerCase();
     if (verb === "am"){ args[0] = 'are'; }
