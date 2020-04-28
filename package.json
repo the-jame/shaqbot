@@ -1,0 +1,39 @@
+{
+  "name": "shaqbot",
+  "version": "1.1.0",
+  "description": "Simple music (Youtube) and chat bot for my personal discord. Chat commands and music info in README.",
+  "main": "app.js",
+  "dependencies": {
+    "discord.js": "^11.6.1",
+    "discord.js-musicbot-addon": "^13.9.1",
+    "discord.js-musicbot-v2": "^1.1.5",
+    "m3u8stream": "^0.6.5",
+    "node-opus": "^0.3.3",
+    "ytdl-core": "^1.0.9",
+    "ytpl": "^0.1.20",
+    "ytsearcher": "^1.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-jame/shaqbot.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "discord-js",
+    "chat",
+    "memes",
+    "javascript",
+    "discordbot"
+  ],
+  "author": "James Philippon& deps:darko-pendragon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-jame/shaqbot/issues"
+  },
+  "homepage": "https://github.com/the-jame/shaqbot#readme"
+}
