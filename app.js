@@ -16,9 +16,39 @@ let wut3;
 let eyesleft;
 let huh;
 let realshit;
-let lol = 0;
-let idle = 0;
-let boisTTS = 1;
+let lol = 0;		// disabled by default
+let idle = 0;		// disabled by default
+let boisTTS = 1;	// enabled by default
+
+
+var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy',
+'pipo', '100,000 Ohioans', 'the one dentist that doesnt recommend sugarless gum', 'kurt russell\'s mustache from the movie \'Tombstone\' ', 'beast sandwich',
+'drumpf', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend', 
+'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'the Tainted One', 'Tom Nook', 'your sam', 'He', 'She', 'It', 'God', 'Satan', 'John Freeman', 'jeff tutorials', 'johoise', 'duman', 'a cromulent unfuckcrustable', 'the fuckcrustables',
+'The Tainted One'];
+
+var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
+'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
+'doesn\'t care about black people', 'benefits the military-industrial complex', '\'S GONE, OUT OF MY LIFE', 'has never had a dream',
+'isn\'t real', 'thinks 2pac is still alive', '\'s anus is bleeding', 'has been farting alone in flaccid chat for 6 hours', 'said it in secret chat', 
+'ate the burger king foot lettuce', 'is going to kick your ass, and i\'m going to help him', 'is a lizard', 'forgot the question',
+'is an alcoholic', 'wills it to be so.', 'profited off the Iraq war', 'opinions only get worse', 'says GHIF', 'is COOOOOOOOOOOMING', 
+'is a :clown:', 'going to lose subscriber', 'told malarkey', ', dey suffer', 'hates white pipo', 'is SO BEEFY!!', 'killed hooters', 'metro dont trust you :sob:',
+'is in love with the coco :weary:', 'didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'said poopie is funny', 'said UH OH, stinky', 'rotted', 'is a figment of your imagination',
+'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
+'has a smol pebis', 'is cooming', 'has abandoned us', 'calls it oven when you of in the cold food of out hot eat the food',
+'has a salty six inch that isn\'t big enough for the both of us', 'is the king of being wrong', 'decreed it', 'does not rove da rord',
+'never reveals her age', ', what the fuck', 'Best By 07 SEP 18 043 / 40', 'can has cheesburger', 'is a lie',
+'is a truth', 'once said 7 eleven hot dogs aren\'t that bad', 'thinks taco bell is mexican food', 'thinks del taco is better than taco bell',
+'thinks ketchup doesn\'t belong on eggs', 'bought another iPhone', 'is the reason rotisserie chicken from albertsons is so cheap...', 'found the piss drawer :huh:',
+'says italian food is better than any other food', 'has a perfect fat pussy', 'went to five or six stores intead of just one', 'is afraid to leave his stoop', 'is a republican',
+'joined a pyramid scheme','shouldn\'t be allowed to vote','said squirt is pee','\`shidded and farded and cummed\`', 'INVENTED BEANS', 'is stored in the ass',
+'is stored in the balls', 'is stored in the soul', 'never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
+'doesn\'t wash their ass', 'is a registered sex offender in 38 states', '...', 'leg so hot it fry an eg', 'slings a fat hog', 'peed in the sink', 'has a worryingly skinny pussy',
+'has coronavirus', 'went tits up in the stock market', 'was left off bad n boujee', 'a Corona got its lime :beers:', 'needs kammies', 'ate bat soup', 'is a masochist',
+'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers', 'never really loved you anyway', 'is secretly an alt-right youtuber with a cartoon animal avitar in a suit', 
+'want\'s to wear your skin', 'just walked into autozone with big dick energy', 'smells like gun-girl\'s undies', 'is locked in an ICE internment center', 'doesn\'t care about black people', 'need drinky', 'is a fuckcrustable', 'is a massive fucktardian cunt waffle of epic proportions', 'got a tutorial from jeff'];
+     
 
 // copypasta strings
 let wtf = `What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Navy Seals, and I've been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You're fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that's just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little "clever" comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn't, you didn't, and now you're paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You're fucking dead, kiddo.`;
@@ -451,107 +481,13 @@ const embed = {
       return;
       break;
 
-    // why
-    case 'why2':
-      var reasons = ['the earth is flat', 'Shaq\'s girthy balloon shlong', 'h', 'yo momma fat', 'chemtrails are turning people gay',
-        'Epstein didn\'t kill himself', 'women be shoppin', 'santa claus is coming to town', 'jesus is watching you', 'everything happens for a reason',
-        'George Bush doesn\'t care about black people', 'it benefits the military-industrial complex', 'SHE\'S GONE, OUT OF MY LIFE', 'you\'ve never had a dream',
-	'birds aren\'t real', '2pac is still alive', 'my anus is bleeding', 'I have been farting alone in flaccid chat for 6 hours', 'secret chat said so', 
-	'I ate the burger king foot lettuce', 'tom clancy is going to kick your ass, and i\'m going to help him', 'zuckerberg is a lizard', 'i forgot the question',
-        'God is an alcoholic', 'Dr. Shigeru Chino wills it to be so.', 'Dick Cheney profited off the Iraq war', 'my opinions only get worse', 'its pronounced jif',
-	':clown:', 'you\'re going to lose subscriber', 'malarkey', 'da pipo, dey suffer', 'white pipo', 'its SO BEEFY!!', 'millenials killed hooters', 'young metro dont trust you :sob:',
-	'I\'m in love with the coco :weary:', 'you didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'poopie is funny', 'UH OH, stinky', 'rot', 'i am a figment of your imagination',
-        'i am once again asking you to shut the fuck up', 'im ignoring your pings', 'SUKA BLYAT', 'TABLE', 'I hardly know her!', 'i can\'t read', 'i\'ve shidded',
-	'i\'ve a smol pebis', 'i\'m cooming', wtf, cummies, 'god has abandoned us', 'they call it oven when you of in the cold food of out hot eat the food',
-	'that salty six inch isn\'t big enough for the both of us', 'i\'m the king of being wrong', 'the bean quean decreed it', 'you dont rove da rord',
-	'a lady never reveals her age', 'it\'s rude to even ask, seriously, what the fuck', 'Best By 07 SEP 18 043 / 40', 'i can has cheesburger', 'the cake is a lie',
-	'the cake is a truth', '7 eleven hot dogs aren\'t that bad', '7 eleven hot dogs gave me diarrhea', 'taco bell isn\'t mexican food', 'del taco is better than taco bell',
-	'ketchup doesn\'t belong on eggs', 'Tyra bought another iPhone', 'there\'s a reason rotisserie chicken from albertsons is so cheap...', 'mom found the piss drawer :huh:',
-	'it go down in the DM', 'there will be CONSEQUENCES', 'pLeaDS HElep mEi IImmmm hAAhhvig ssstoroooooooooookkkkke[[[[[[[[[[[[[[[----==', 'italian food is better than any other food',
-	'of my perfect fat pussy', 'you went to five or six stores intead of just one', 'stoop kid\'s afraid to leave his stoop', 'Mike Bloomberg is a republican',
-	'i joined a pyramid scheme','dogs should be allowed to vote','squirt is pee','\`i shidded and farded and cummed\`', 'I INVENTED BEANS', 'cum is stored in the ass',
-	'pee is stored in the balls', 'rot is stored in the soul', 'i never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
-	'don\'t wash your ass', 'is a registered sex offender in 38 states', '..', 'leg so hot it fry an eg'];
-      var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
-
-    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
-    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" )
-     {
-    let verb = args[0].toLowerCase();
-    if (verb === "am"){ args[0] = 'are'; }
-    else if (verb === "are"){ args[0] = 'am'; }
-    else if (verb === "does") {args[0] = ''; }
-    else if (verb === "do") {args[0] = ''; }
-    else if (verb === "did") {args[0] = ''; }
-
-    for (e=0; e<args.length; e++)
-      {
-        if(args[e]==="my"){ args[e]="your";}
-        else if(args[e].toLowerCase() ==="your"){ args[e]="my";}
-        else if(args[e].toLowerCase() ==="i"){ args[e]="you";}
-        else if(args[e].toLowerCase() ==="you"){ args[e]="me";}
-
-      }
-          let temp1 = args[0];
-          args[0]=args[1];
-          args[1]=temp1;
-
-	  if (args[1] === ''){args.splice(1,1);}
-          let answer = args.join(" ");
-          message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return;
-        }
-      else
-        { if (typeof args[1] === 'undefined') {
-        let answer = args[0];
-        message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return; }
-      for (b=0; b<args.length; b++)
-      {
-        if(args[b]==="my"){ args[b]="your";}
-        else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
-        else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
-        else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
-
-      }
-          answer = args.join(" ");
-          message.channel.send(answer + " because " + reasons[randRsn] + ".", {tts: true}); return;
-        }
-      return;
-      break;
-
 case 'y':
 case 'why':
 
-      var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy',
-       'pipo', '100,000 Ohioans', 'the one dentist that doesnt recommend sugarless gum', 'kurt russell\'s mustache from the movie \'Tombstone\' ', 'beast sandwich',
-	'drumpf', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend', 
-	'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'the Tainted One', 'Tom Nook', 'your sam', 'He', 'She', 'It', 'God', 'Satan', 'John Freeman', 'jeff tutorials', 'johoise', 'duman', 'a cromulent unfuckcrustable', 'the fuckcrustables',
-	'The Tainted One'];
-
-      var reasons2 = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
-        'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
-        'doesn\'t care about black people', 'benefits the military-industrial complex', '\'S GONE, OUT OF MY LIFE', 'has never had a dream',
-	'isn\'t real', 'thinks 2pac is still alive', '\'s anus is bleeding', 'has been farting alone in flaccid chat for 6 hours', 'said it in secret chat', 
-	'ate the burger king foot lettuce', 'is going to kick your ass, and i\'m going to help him', 'is a lizard', 'forgot the question',
-        'is an alcoholic', 'wills it to be so.', 'profited off the Iraq war', 'opinions only get worse', 'says GHIF', 'is COOOOOOOOOOOMING', 
-	'is a :clown:', 'going to lose subscriber', 'told malarkey', ', dey suffer', 'hates white pipo', 'is SO BEEFY!!', 'killed hooters', 'metro dont trust you :sob:',
-	'is in love with the coco :weary:', 'didn\'t hit that MF LIKE AND SUBSCRIBE BUTTON', 'said poopie is funny', 'said UH OH, stinky', 'rotted', 'is a figment of your imagination',
-        'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
-	'has a smol pebis', 'is cooming', 'has abandoned us', 'calls it oven when you of in the cold food of out hot eat the food',
-	'has a salty six inch that isn\'t big enough for the both of us', 'is the king of being wrong', 'decreed it', 'does not rove da rord',
-	'never reveals her age', ', what the fuck', 'Best By 07 SEP 18 043 / 40', 'can has cheesburger', 'is a lie',
-	'is a truth', 'once said 7 eleven hot dogs aren\'t that bad', 'thinks taco bell is mexican food', 'thinks del taco is better than taco bell',
-	'thinks ketchup doesn\'t belong on eggs', 'bought another iPhone', 'is the reason rotisserie chicken from albertsons is so cheap...', 'found the piss drawer :huh:',
-	'says italian food is better than any other food', 'has a perfect fat pussy', 'went to five or six stores intead of just one', 'is afraid to leave his stoop', 'is a republican',
-	'joined a pyramid scheme','shouldn\'t be allowed to vote','said squirt is pee','\`shidded and farded and cummed\`', 'INVENTED BEANS', 'is stored in the ass',
-	'is stored in the balls', 'is stored in the soul', 'never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
-	'doesn\'t wash their ass', 'is a registered sex offender in 38 states', '...', 'leg so hot it fry an eg', 'slings a fat hog', 'peed in the sink', 'has a worryingly skinny pussy',
-        'has coronavirus', 'went tits up in the stock market', 'was left off bad n boujee', 'a Corona got its lime :beers:', 'needs kammies', 'ate bat soup', 'is a masochist',
-        'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers', 'never really loved you anyway', 'is secretly an alt-right youtuber with a cartoon animal avitar in a suit', 
-	'want\'s to wear your skin', 'just walked into autozone with big dick energy', 'smells like gun-girl\'s undies', 'is locked in an ICE internment center', 'doesn\'t care about black people', 'need drinky', 'is a fuckcrustable', 'is a massive fucktardian cunt waffle of epic proportions', 'got a tutorial from jeff'];
-      var randRsn = Math.floor((Math.random() * (reasons2.length - 1)));
+      var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
       var randSub = Math.floor((Math.random() * (subject.length - 1)));
 
-    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + subject[randSub] + " " + reasons2[randRsn] + ".", {tts: true}); return;}  // blank inquiry
+    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
     else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" || args[0].toLowerCase() === "should")
      {
     let verb = args[0].toLowerCase();
@@ -576,12 +512,12 @@ case 'why':
 
 	  if (args[1] === ''){args.splice(1,1);}
           let answer = args.join(" ");
-          message.channel.send(answer + " because " + subject[randSub] + " " + reasons2[randRsn] + ".", {tts: true}); return;
+          message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
         }
       else
         { if (typeof args[1] === 'undefined') {
         let answer = args[0];
-        message.channel.send(answer + " because " + subject[randSub] + " " + reasons2[randRsn] + ".", {tts: true}); return; }
+        message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return; }
       for (b=0; b<args.length; b++)
       {
         if(args[b]==="my"){ args[b]="your";}
@@ -591,15 +527,15 @@ case 'why':
 
       }
           answer = args.join(" ");
-          message.channel.send(answer + " because " + subject[randSub] + " " + reasons2[randRsn] + ".", {tts: true}); return;
+          message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
         }
       return;
       break;
 
     case 'who':
-      var randSub = Math.floor((Math.random() * (subject.length - 1)));
+      var randWho = Math.floor((Math.random() * (subject.length - 1)));
       let whom = args.join(" ");
-      message.channel.send(randSub + " " + whom);
+      message.channel.send(randWho + " " + whom);
       break;
 
     // 8ball 8
