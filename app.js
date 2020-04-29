@@ -535,7 +535,7 @@ case 'why':
     case 'who':
       var randWho = Math.floor((Math.random() * (subject.length - 1)));
       let whom = args.join(" ");
-      message.channel.send(randWho + " " + whom);
+      message.channel.send(subject[randWho] + " " + whom + ".");
       break;
 
     // 8ball 8
