@@ -471,7 +471,7 @@ const embed = {
 	'of my perfect fat pussy', 'you went to five or six stores intead of just one', 'stoop kid\'s afraid to leave his stoop', 'Mike Bloomberg is a republican',
 	'i joined a pyramid scheme','dogs should be allowed to vote','squirt is pee','\`i shidded and farded and cummed\`', 'I INVENTED BEANS', 'cum is stored in the ass',
 	'pee is stored in the balls', 'rot is stored in the soul', 'i never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
-	'you don\'t wash your ass', 'i am a registered sex offender in 38 states', '..', 'leg so hot it fry an eg'];
+	'don\'t wash your ass', 'is a registered sex offender in 38 states', '..', 'leg so hot it fry an eg'];
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
 
     if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
@@ -547,7 +547,7 @@ case 'why':
 	'doesn\'t wash their ass', 'is a registered sex offender in 38 states', '...', 'leg so hot it fry an eg', 'slings a fat hog', 'peed in the sink', 'has a worryingly skinny pussy',
         'has coronavirus', 'went tits up in the stock market', 'was left off bad n boujee', 'a Corona got its lime :beers:', 'needs kammies', 'ate bat soup', 'is a masochist',
         'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers', 'never really loved you anyway', 'is secretly an alt-right youtuber with a cartoon animal avitar in a suit', 
-	'want\'s to wear your skin', 'just walked into autozone with big dick energy', 'smells like gun-girl\'s undies', 'is locked in an ICE internment center', 'doesn\'t care about black people'];
+	'want\'s to wear your skin', 'just walked into autozone with big dick energy', 'smells like gun-girl\'s undies', 'is locked in an ICE internment center', 'doesn\'t care about black people', 'need drinky', 'is a fuckcrustable', 'is a massive fucktardian cunt waffle of epic proportions', 'got a tutorial from jeff'];
       var randRsn = Math.floor((Math.random() * (reasons2.length - 1)));
       var randSub = Math.floor((Math.random() * (subject.length - 1)));
 
