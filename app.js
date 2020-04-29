@@ -389,7 +389,7 @@ const embed = {
       let commandD = args.join(" ");
       if (commandD == 'lol'){lol=0; message.channel.send('lol disabled.');}
       if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
-      if (commandD == 'say'){boisTTS=0; message.channel.send('=say in #bois disabled.');}
+      if (commandD == 'say'||commandD == 'bois'){boisTTS=0; message.channel.send('=say in #bois disabled.');}
       break;
 
     case 'enable':
@@ -397,7 +397,7 @@ const embed = {
       let commandE = args.join (" ");
       if (commandE == 'lol'){lol=1; message.channel.send('lol enabled.');}
       if (commandE == 'idle'){idle=1; message.channel.send('idle enabled.');}
-      if (commandE == 'say'){boisTTS=1; message.channel.send('=say in #bois enabled.');}
+      if (commandE == 'say'||commandE == 'bois'){boisTTS=1; message.channel.send('=say in #bois enabled.');}
       break;
 
     // pol
@@ -524,7 +524,8 @@ case 'why':
       var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy',
        'pipo', '100,000 Ohioans', 'the one dentist that doesnt recommend sugarless gum', 'kurt russell\'s mustache from the movie \'Tombstone\' ', 'beast sandwich',
 	'drumpf', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend', 
-	'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'the Tainted One', 'Tom Nook', 'your sam', 'He', 'She', 'It', 'God', 'Satan', 'John Freeman', 'jeff tutorials'];
+	'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'the Tainted One', 'Tom Nook', 'your sam', 'He', 'She', 'It', 'God', 'Satan', 'John Freeman', 'jeff tutorials', 'johoise', 'duman', 'a cromulent unfuckcrustable', 'the fuckcrustables',
+	'The Tainted One'];
 
       var reasons2 = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
         'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
