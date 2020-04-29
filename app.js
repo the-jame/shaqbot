@@ -25,7 +25,7 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah'
 'pipo', '100,000 Ohioans', 'the one dentist that doesnt recommend sugarless gum', 'kurt russell\'s mustache from the movie \'Tombstone\' ', 'beast sandwich',
 'drumpf', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend', 
 'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'the Tainted One', 'Tom Nook', 'your sam', 'He', 'She', 'It', 'God', 'Satan', 'John Freeman', 'jeff tutorials', 'johoise', 'duman', 'a cromulent unfuckcrustable', 'the fuckcrustables',
-'The Tainted One'];
+'The Tainted One', 'Mr. Imlay', 'Mrs. Matsuyama', 'Jeb Bush', 'cody', 'a sentient cum sock', 'cool guy'];
 
 var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
 'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
@@ -311,6 +311,11 @@ const embed = {
       break;
     case 'damn':
       message.channel.send({files: ["img/damn.jpg"]});
+      break;
+    case 'jeff':
+    case 'tutorials':
+    case 'jefftutorials':
+      message.channel.send({files: ["img/jefftutorials.png"]});
       break;
     case '1993':
     case 'hotchip':
