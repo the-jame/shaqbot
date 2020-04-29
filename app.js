@@ -389,7 +389,7 @@ const embed = {
       let commandD = args.join(" ");
       if (commandD == 'lol'){lol=0; message.channel.send('lol disabled.');}
       if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
-      if (commandD == 'tts'){speech=false; message.channel.send('tts disabled.');}
+      if (commandD == 'say'){boisTTS=0; message.channel.send('=say in #bois disabled.');}
       break;
 
     case 'enable':
@@ -397,7 +397,7 @@ const embed = {
       let commandE = args.join (" ");
       if (commandE == 'lol'){lol=1; message.channel.send('lol enabled.');}
       if (commandE == 'idle'){idle=1; message.channel.send('idle enabled.');}
-      if (commandE == 'tts'){speech=true; message.channel.send('tts enabled.');}
+      if (commandE == 'say'){boisTTS=1; message.channel.send('=say in #bois enabled.');}
       break;
 
     // pol
@@ -423,7 +423,7 @@ const embed = {
     case 'say':
       let sayMessage = args.join(" ");
       message.delete().catch(O_o=>{});
-      //if (message.channel.id == '95702402253983744'){break;}
+      if (boisTTS == 0 && message.channel.id == '95702402253983744'){break;}
       message.channel.send(sayMessage,{tts: true});
       break;
 
