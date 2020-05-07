@@ -50,7 +50,7 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'mo
 'is stored in the balls', 'is stored in the soul', 'never returned backdoor sluts 4 to blockbuster :flushed:', 'because la habra 300 bowl is',
 'doesn\'t wash their ass', 'is a registered sex offender in 38 states', '...', 'leg so hot it fry an eg', 'slings a fat hog', 'peed in the sink', 'has a worryingly skinny pussy',
 'has coronavirus', 'went tits up in the stock market', 'was left off bad n boujee', 'got its lime :beers:', 'needs kammies', 'ate bat soup', 'is a masochist',
-'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers', 'never really loved you anyway', 'is secretly an alt-right youtuber with a cartoon animal avitar in a suit', 
+'mate am genuinely jus here for a laff', 'has gone mental, absolutely bonkers', 'never really loved you anyway', 'is secretly an alt-right youtuber with a cartoon animal avatar in a suit', 
 'wants to wear your skin', 'just walked into autozone with big dick energy', 'smells like gun-girl\'s undies', 'is locked in an ICE internment center', 'doesn\'t care about black people', 'need drinky', 'is a fuckcrustable', 'is a massive fucktardian cunt waffle of epic proportions', 'got a tutorial from jeff','has dementia','forgot to','has died','worships satan','has 3 nipples','smells like shit','drank redbull and didn\'t get wings'];
 
 
