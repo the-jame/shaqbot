@@ -47,4 +47,3 @@ __Permissions:__
 | anyoneCanSkip | Boolean | Whether anyone can skip songs in the queue. | app.js [48] |
 | ownerOverMember | Boolean | Whether the owner over-rides `CanAdjust` and `CanSkip`. | app.js [51] |
 | ownerID | String | The ID of the Discord user to be seen as the owner. Required if using `ownerOverMember`. | app.js [52] |
-# shaq-transfer
