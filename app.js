@@ -30,7 +30,7 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah'
 'my hairy ass', 'slenderman', 'joseph smith', 'the mormon church', 'the pope', 'bill burr', 'lady gaga', 'your neighbor', 'your dad\'s best friend that you call uncle', 'your real parents',
 'colonel sanders', 'bernie sanders', 'tim cook', 'the reanimated corpse of steve jobs', 'eminem', 'la habra 300 bowl', 'elon musk', 'anne frank', 'marshall pope', 'hila klein',
 'shigeru miyamoto', 'your unwashed ass', 'She Who Squirts', 'He Who Cums', 'Liz\'s cat', 'Beemo', 'the British', 'bisexuals', 'papi', 'bat soup', 'a bloody fucker', 'an actual chimp', 'a New York City subway rat',
-'shawty', 'I'];
+'shawty', 'I', 'hawaiian green bean pizza'];
 
 var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
 'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
@@ -55,7 +55,7 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'mo
 'wants to wear your skin', 'just walked into autozone with big dick energy', 'smells like gun-girl\'s undies', 'is locked in an ICE internment center', 'doesn\'t care about black people',
 'need drinky', 'is a fuckcrustable', 'is a massive fucktardian cunt waffle of epic proportions', 'got a tutorial from jeff','has dementia','forgot to','has died','worships satan',
 'has 3 nipples','smells like shit','drank redbull and didn\'t get wings', 'sucks blyat','needs a sorking', 'cums first', 'wasn\'t invited to the Roman orgy', 'is off his rocker, innit?',
-'has nipple piercings', 'creamed in the trash', 'do kinda be vibin tho', 'is tokin n strokin, bruv', 'did black face 10 years ago', 'smokes cigarettes without the filters'];
+'has nipple piercings', 'creamed in the trash', 'do kinda be vibin tho', 'is tokin n strokin, bruv', 'did black face 10 years ago', 'smokes cigarettes without the filters', 'confused ham for string beans', 'thinks green beans belong on pizza'];
 
 
 // copypasta strings
