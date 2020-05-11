@@ -294,6 +294,10 @@ const embed = {
     case 'brain':
       message.channel.send({files: ["img/brains.png"]});
       break;
+    case 'sork':
+    case 'sorkmydick':
+      message.channel.send({files: ["img/sork.png"]});
+      break;
     case 'ben':
     case 'bensmoke':
     case 'benalcony':
