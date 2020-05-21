@@ -185,26 +185,25 @@ client.on("message", async message => {
 
     // MEME TEXT
     case 'corn':
-      // localEmbed(url to jim's message???);
-const embed = {
-  "title": "Corn is nasty",
-  "description": "\n\n\n[->  original message](https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268)",
-  "color": 15921246,
-  "timestamp": "2018-05-01T21:42:55.506Z",
-  "footer": {
-    "icon_url": "https://cdn.discordapp.com/avatars/96492725406281728/537b1ae185a24308310dcbd5fa3af37c.png",
-    "text": "sent"
-  },
-  "thumbnail": {
-    "url": "https://www.eatnpark.com/UserFiles/Menu/CornOLO.jpg"
-  },
-  "author": {
-    "name": "Sunder",
-    "url": "https://discordapp.com",
-    "icon_url": "https://cdn.discordapp.com/avatars/96492725406281728/537b1ae185a24308310dcbd5fa3af37c.png"
-  }
-};      message.channel.send({ embed });
-      //message.channel.send("\"Corn was domesticated about 10,000 years ago in what is now Mexico.\" \n- <https://en.wikipedia.org/wiki/Maize#History>\n\nhttps://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268");
+      const embed = {
+        "title": "Corn is nasty",
+        "description": "\n\n\n[->  original message](https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268)",
+        "color": 15921246,
+        "timestamp": "2018-05-01T21:42:55.506Z",
+        "footer": {
+          "icon_url": "https://cdn.discordapp.com/avatars/96492725406281728/537b1ae185a24308310dcbd5fa3af37c.png",
+          "text": "sent"
+        },
+        "thumbnail": {
+          "url": "https://www.eatnpark.com/UserFiles/Menu/CornOLO.jpg"
+        },
+        "author": {
+          "name": "Sunder",
+          "url": "https://discordapp.com",
+          "icon_url": "https://cdn.discordapp.com/avatars/96492725406281728/537b1ae185a24308310dcbd5fa3af37c.png"
+        }
+      };      //message.channel.send({ embed });
+      message.channel.send("\"Corn was domesticated about 10,000 years ago in what is now MEXICO.\" \n- <https://en.wikipedia.org/wiki/Maize#History>");
       break;
 
     case 'plex':
