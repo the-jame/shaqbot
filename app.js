@@ -27,10 +27,10 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah'
 'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'the Tainted One', 'Tom Nook', 'your sam',  'God', 'Satan', 'John Freeman', 'jeff tutorials',
 'johoise', 'duman', 'a cromulent unfuckcrustable', 'the fuckcrustables', 'The Tainted One', 'Mr. Imlay', 'Mrs. Matsuyama', 'Jeb Bush', 'cody', 'a sentient cum sock', 'cool guy',
 'the chinese spy assigned to your zoom meeting', 'bilbo baggins', 'a sentient cum sock', 'an obama drone', 'al qaeda', 'melania trump', 'michelle obama', 'deadmau5', 'your boss',
-'my hairy ass', 'slenderman', 'joseph smith', 'the mormon church', 'the pope', 'bill burr', 'lady gaga', 'your neighbor', 'your dad\'s best friend that you call uncle', 'your real parents',
+'my hairy ass', 'slenderman', 'joseph smith', 'the mormon church', 'the pope', 'bill burr', 'lady gaga', 'your neighbor', 'your dad\'s best friend that you thought was your uncle', 'your real parents',
 'colonel sanders', 'bernie sanders', 'tim cook', 'the reanimated corpse of steve jobs', 'eminem', 'la habra 300 bowl', 'elon musk', 'anne frank', 'marshall pope', 'hila klein',
 'shigeru miyamoto', 'your unwashed ass', 'She Who Squirts', 'He Who Cums', 'Liz\'s cat', 'Beemo', 'the British', 'bisexuals', 'papi', 'bat soup', 'a bloody fucker', 'an actual chimp', 'a New York City subway rat',
-'shawty', 'I', 'hawaiian green bean pizza'];
+'shawty', 'I', 'hawaiian green bean pizza', 'Ronald Reagan', 'Nicolas Cage', 'Queen Elizabeth', 'Judge Judy', 'Nickelback', 'Keanu Reeves'];
 
 var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
 'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
