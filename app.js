@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.music = require("discord.js-musicbot-addon");
+client.music = require("discord.js-musicbot-v2");
 
 // emoji that goes in the post title
 const tt = '⭐';
@@ -43,7 +43,7 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'mo
 'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
 'has a smol pebis', 'is cooming', 'has abandoned us', 'calls it oven when you of in the cold food of out hot eat the food',
 'has a salty six inch that isn\'t big enough for the both of us', 'is the king of being wrong', 'decreed it', 'does not rove da rord',
-'never reveals her age', ', what the fuck', 'Best By 07 SEP 18 043 / 40', 'can has cheesburger', 'is a lie',
+'never reveals her age', 'Best By 07 SEP 18 043 / 40', 'can has cheesburger', 'is a lie',
 'is a truth', 'once said 7 eleven hot dogs aren\'t that bad', 'thinks taco bell is mexican food', 'thinks del taco is better than taco bell',
 'thinks ketchup doesn\'t belong on eggs', 'bought another iPhone', 'is the reason rotisserie chicken from albertsons is so cheap...', 'found the piss drawer ${huh}',
 'says italian food is better than any other food', 'has a perfect fat pussy', 'went to five or six stores instead of just one', 'is afraid to leave his stoop', 'is a republican',
@@ -81,12 +81,12 @@ function login() {
 
 client.on('ready', () => {
   console.log(`Bot has started with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\n`);
-  realshit = client.emojis.get('487855131996585994');
-  wut1 = client.emojis.get('431701745329111041');
-  wut2 = client.emojis.get('431701745014669314');
-  wut3 = client.emojis.get('431701745236967425');
-  eyesleft = client.emojis.get('642179113259499571');
-  huh = client.emojis.get('431693012788314132');
+  realshit = client.emojis.cache.get('487855131996585994');
+  wut1 = client.emojis.cache.get('431701745329111041');
+  wut2 = client.emojis.cache.get('431701745014669314');
+  wut3 = client.emojis.cache.get('431701745236967425');
+  eyesleft = client.emojis.cache.get('642179113259499571');
+  huh = client.emojis.cache.get('431693012788314132');
   owner = settings.james;
 
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
@@ -207,7 +207,7 @@ client.on("message", async message => {
       break;
 
     case 'plex':
-      const plexEmoji = client.emojis.get('583144668125069322');
+      const plexEmoji = client.emojis.get('628993764173807636');
       message.channel.send(`${plexEmoji} IT HAS BEEN 0 DAYS SINCE THE LAST PLEX REFERENCE. ${plexEmoji}`);
       break;
     case 'uwu':
@@ -426,6 +426,12 @@ client.on("message", async message => {
       break;
     case 'lfg':
       message.channel.send({files: ["img/letsfuckinggo.jpg"]});
+      break;
+    case 'gun':
+    case 'ishouldbuy':
+    case 'fascist':
+    case 'fascistslob':
+      message.channel.send({files: ["img/buygun.png"]});
       break;
 
     // SET OWN ROLE
