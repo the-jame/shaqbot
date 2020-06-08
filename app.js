@@ -90,7 +90,7 @@ client.on('ready', () => {
   owner = settings.james;
 
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
-  client.user.setActivity(`with ${client.users.size*2-12} balls.`, { type: 'PLAYING' })
+  client.user.setActivity(`with ${client.users.cache.size*2-12} balls.`, { type: 'PLAYING' })
   client.music.start(client, {
 
   // Set the api key used for YouTube!
@@ -207,7 +207,7 @@ client.on("message", async message => {
       break;
 
     case 'plex':
-      const plexEmoji = client.emojis.get('628993764173807636');
+      const plexEmoji = client.emojis.cache.get('628993764173807636');
       message.channel.send(`${plexEmoji} IT HAS BEEN 0 DAYS SINCE THE LAST PLEX REFERENCE. ${plexEmoji}`);
       break;
     case 'uwu':
@@ -433,12 +433,16 @@ client.on("message", async message => {
     case 'fascistslob':
       message.channel.send({files: ["img/buygun.png"]});
       break;
+    case 'snoopwho':
+      message.channel.send({files: ["img/snoopwho.gif"]});
+      break;
+
 
     // SET OWN ROLE
     // setrole
     case 'setrole':
       let newRole = args.join(" ");
-      let roleToChange = message.member.highestRole;
+      let roleToChange = message.member.roles.highest;
       roleToChange.setName(newRole);
       message.channel.send(`Role changed to ${newRole}.`);
       break;
