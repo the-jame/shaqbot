@@ -90,7 +90,7 @@ client.on('ready', () => {
   owner = settings.james;
 
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
-  client.user.setActivity(`with ${client.users.cache.size*2-12} balls.`, { type: 'PLAYING' })
+  client.user.setActivity(`with ${client.users.cache.size*2-10} balls.`, { type: 'PLAYING' })
   client.music.start(client, {
 
   // Set the api key used for YouTube!
