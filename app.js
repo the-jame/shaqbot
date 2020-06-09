@@ -438,7 +438,7 @@ client.on("message", async message => {
       break;
     case 'no':
     case 'idontthinkiwill':
-      message.channel.send({files: ["img/idontthinkiwill.png"]});
+      message.channel.send({files: ["img/idontthinkiwill.jpg"]});
       break;
 
 
