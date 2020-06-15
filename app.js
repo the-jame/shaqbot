@@ -511,6 +511,7 @@ client.on("message", async message => {
           pollEmbed.addField(pollEmoji[k],pollAnswers[k]);
          }
 
+      message.delete().catch(O_o=>{});
       message.channel.send(pollEmbed).then(pollEmbed => {
        for(let b=0;b<pollNum;b++){
          pollEmbed.react(pollEmoji[b]);
