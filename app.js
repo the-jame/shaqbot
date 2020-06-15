@@ -143,6 +143,12 @@ client.on("message", async message => {
     if(message.content.indexOf(settings.prefix) !== 0) return;
    }
 
+  if(message.content.includes('http://' || 'https://')){
+    //if(message.channelData.parentID != '377966527330385920') return;
+    let msgLink = message.content.toString();
+    client.channels.cache.get('722149268885995522').send(msgLink);
+  }
+
   //if(message.content.toLowerCase() == 'lol' && lol == 1){
   //  setTimeout(()=> {
   //clearTimeout(laughing);
