@@ -472,13 +472,52 @@ client.on("message", async message => {
 
     // pol
     case 'poll':
-      let pollMessage = args.join(" ");
-      message.channel.send(pollMessage).then(sentMsg => {
-        sentMsg.react("⬆")
-        sentMsg.react("⬇")
-        message.delete().catch(O_o=>{});
-        })
+      let endOfQuestion = 1 + args.indexOf(':');
+      if (endOfQuestion == -1) break;
+      let qLength = endOfQuestion - 1;
+      let qArray = args.slice(0,qLength);
+      let question = qArray.join(" ");
+
+      let newArgs = args.slice(endOfQuestion);
+      let tempString = newArgs.join(' ');
+      let pollAnswers = tempString.split(',');
+      let pollNum = pollAnswers.length;
+      let pollTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
+
+      for (let w=0;w<pollNum;w++){
+        pollAnswers[w] = pollAnswers[w].trim();
+      }
+
+      let pollEmoji = ['🅱','👌','👀','🌹','👻','✨','💀','⚠', '🎂','🎆','🥓', '🛌'];
+      for (let p = pollEmoji.length -1; p > 0; p--){
+        const j = Math.floor(Math.random() * p);
+        const temp = pollEmoji[p];
+        pollEmoji[p] = pollEmoji[j];
+        pollEmoji[j] = temp;
+       }
+
+      let color = message.member.displayHexColor;
+      let pAuthor = message.author.username + ' asks...';
+      let authorAvi = message.author.avatarURL();
+      let pollEmbed = new Discord.MessageEmbed()
+        .setAuthor(pAuthor)
+        .setColor(color)
+        .setThumbnail(authorAvi)
+        .setTitle(question)
+        .setDescription(' ~\n\n')
+        .setTimestamp(pollTS);
+        for(let k = 0;k<pollNum;k++)
+         {
+          pollEmbed.addField(pollEmoji[k],pollAnswers[k]);
+         }
+
+      message.channel.send(pollEmbed).then(pollEmbed => {
+       for(let b=0;b<pollNum;b++){
+         pollEmbed.react(pollEmoji[b]);
+       }
+      })
       break;
+
     case 'vid':
     case 'save':
     case 'link':
@@ -487,6 +526,7 @@ client.on("message", async message => {
       let author = '\`' + message.author.username + ' at ' + vidTS + '\`\n\n';
       args.unshift(author);
       let vidMessage = args.join(" ");
+      vidMessage.trim();
       client.channels.cache.get('722147349425684582').send(vidMessage);
     break;
 
