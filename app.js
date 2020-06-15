@@ -143,12 +143,6 @@ client.on("message", async message => {
     if(message.content.indexOf(settings.prefix) !== 0) return;
    }
 
-  if(message.content.includes('http://' || 'https://')){
-    //if(message.channelData.parentID != '377966527330385920') return;
-    let msgLink = message.content.toString();
-    client.channels.cache.get('722149268885995522').send(msgLink);
-  }
-
   //if(message.content.toLowerCase() == 'lol' && lol == 1){
   //  setTimeout(()=> {
   //clearTimeout(laughing);
@@ -485,6 +479,16 @@ client.on("message", async message => {
         message.delete().catch(O_o=>{});
         })
       break;
+    case 'vid':
+    case 'save':
+    case 'link':
+      if(!message.content.includes("http")){ message.delete().catch(O_o=>{}); break;}
+      let vidTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
+      let author = '\`' + message.author.username + ' at ' + vidTS + '\`\n\n';
+      args.unshift(author);
+      let vidMessage = args.join(" ");
+      client.channels.cache.get('722147349425684582').send(vidMessage);
+    break;
 
     case 'random':
     case 'rand':
