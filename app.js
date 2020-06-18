@@ -472,16 +472,24 @@ client.on("message", async message => {
 
     // pol
     case 'poll':
-      let endOfQuestion = 1 + args.indexOf(':');
-      if (endOfQuestion == -1) break;
+      let endOfQuestion = 1 + args.indexOf(':'); console.log(endOfQuestion); console.log(args.length);
+      	if (endOfQuestion == -1 || endOfQuestion === args.length) {
+	    message.delete().catch(O_o=>{});
+	    message.channel.send('Correct format is: `=poll your question : option, option, ...`');
+	    break;
+	    };
       let qLength = endOfQuestion - 1;
       let qArray = args.slice(0,qLength);
       let question = qArray.join(" ");
-
       let newArgs = args.slice(endOfQuestion);
       let tempString = newArgs.join(' ');
       let pollAnswers = tempString.split(',');
       let pollNum = pollAnswers.length;
+	if (pollNum <2){
+	    message.delete().catch(O_o=>{});
+	    message.channel.send('Correct format is: `=poll your question? : option, option, ...`');
+	    break;
+            };
       let pollTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
 
       for (let w=0;w<pollNum;w++){
