@@ -488,7 +488,7 @@ client.on("message", async message => {
         pollAnswers[w] = pollAnswers[w].trim();
       }
 
-      let pollEmoji = ['🅱','👌','👀','🌹','👻','✨','💀','⚠', '🎂','🎆','🥓', '🛌'];
+      let pollEmoji = ['🅱','👌','👀','🌹','👻','✨','💀','⚠', '🎂','🎆','🥓', '🛌', '⚾','🔑','📌','💊','💎','🎧','🥕'];
       for (let p = pollEmoji.length -1; p > 0; p--){
         const j = Math.floor(Math.random() * p);
         const temp = pollEmoji[p];
