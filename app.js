@@ -80,7 +80,7 @@ function login() {
 }
 
 client.on('ready', () => {
-  console.log(`Bot has started with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\n`);
+  console.log(`SHAQ has started with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} servers.\n`);
   realshit = client.emojis.cache.get('487855131996585994');
   wut1 = client.emojis.cache.get('431701745329111041');
   wut2 = client.emojis.cache.get('431701745014669314');
@@ -97,7 +97,7 @@ client.on('ready', () => {
   youtubeKey: settings.YTAPI,
   insertMusic: true,
   requesterName: true,
-  logging: true,
+  logging: false,
   musicPresence: true,
   // The PLAY command Object.
   play: {

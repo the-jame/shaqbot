@@ -1,5 +1,5 @@
 
-# Discord Chat Bot - music NOT working since discord.js v12.
+# Discord Chat Bot - music NOT working. Youtube broke it again.
 ***  
 This is a simple Node.js based chat and music bot for Discord.
 
