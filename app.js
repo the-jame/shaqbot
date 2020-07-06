@@ -566,7 +566,6 @@ client.on("message", async message => {
       args.unshift(author);
       let vidMessage = args.join(" ");
       vidMessage.trim();
-      message.delete().catch(O_o=>{});
       client.channels.cache.get('722147349425684582').send(vidMessage);
     break;
 
