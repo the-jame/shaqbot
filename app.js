@@ -562,7 +562,8 @@ client.on("message", async message => {
     case 'link':
       if(!message.content.includes("http")){ message.delete().catch(O_o=>{}); break;}
       let vidTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
-      let author = '\`' + message.author.username + ' at ' + vidTS + '\`\n\n';
+      let vidChn = message.channel.id;
+      let author = '\`' + message.author.username + ' at ' + vidTS + ' in <#{vidChn}> + \`\n\n';
       args.unshift(author);
       let vidMessage = args.join(" ");
       vidMessage.trim();
