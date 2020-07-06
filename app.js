@@ -268,17 +268,17 @@ client.on("message", async message => {
     case 'bighio':
       message.delete().catch(O_o=>{});
 
-      const ohio1 = client.emojis.get('642164336390832138');
-      const ohio2 = client.emojis.get('642164350362320896');
-      const ohio3 = client.emojis.get('642164360709537802');
-      const ohio4 = client.emojis.get('642164371841220608');
-      const ohio5 = client.emojis.get('642164380867362826');
-      const ohio6 = client.emojis.get('642164393823698954');
-      const ohio7 = client.emojis.get('642164405806563358');
-      const ohio8 = client.emojis.get('642164415646531614');
-      const ohio9 = client.emojis.get('642164426966958120');
-      const ohio10 = client.emojis.get('642164436161003547');
-      const ohio11 = client.emojis.get('642164446067949618');
+      const ohio1 = client.emojis.cache.get('642164336390832138');
+      const ohio2 = client.emojis.cache.get('642164350362320896');
+      const ohio3 = client.emojis.cache.get('642164360709537802');
+      const ohio4 = client.emojis.cache.get('642164371841220608');
+      const ohio5 = client.emojis.cache.get('642164380867362826');
+      const ohio6 = client.emojis.cache.get('642164393823698954');
+      const ohio7 = client.emojis.cache.get('642164405806563358');
+      const ohio8 = client.emojis.cache.get('642164415646531614');
+      const ohio9 = client.emojis.cache.get('642164426966958120');
+      const ohio10 = client.emojis.cache.get('642164436161003547');
+      const ohio11 = client.emojis.cache.get('642164446067949618');
 
       message.channel.send(`${ohio1}${ohio2}${ohio3}${ohio4}\n${ohio5}${ohio6}${ohio6}${ohio7}\n${ohio5}${ohio6}${ohio6}${ohio8}\n${ohio9}${ohio10}${ohio11}`);
       break;
