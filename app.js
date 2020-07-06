@@ -473,6 +473,12 @@ client.on("message", async message => {
     case 'jeggs':
       message.channel.send({files: ["img/jeggs.png"]});
       break;
+    case 'david':
+    case 'brian':
+    case 'letsengage':
+      message.channel.send ({files: ["img/david.png"]});
+      break;
+	// lastmeme last meme images
 
 
     // SET OWN ROLE
