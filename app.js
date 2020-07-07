@@ -478,7 +478,13 @@ client.on("message", async message => {
     case 'letsengage':
       message.channel.send ({files: ["img/david.png"]});
       break;
-	// lastmeme last meme images
+    case 'fajitas':
+    case 'sadwife':
+    case 'shreddedcheese':
+    case 'fajita':
+      message.channel.send ({files: ["img/fajitas.jpg"]});
+      break;
+	// zzzzz endofmeme
 
 
     // SET OWN ROLE
