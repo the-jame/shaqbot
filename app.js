@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.music = require("discord.js-musicbot-v2");
+//client.music = require("discord.js-musicbot-v2");
 
 // emoji that goes in the post title
 const tt = '⭐';
@@ -117,7 +117,7 @@ client.on('ready', () => {
 
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${client.users.cache.size*2-10} balls.`, { type: 'PLAYING' })
-  client.music.start(client, {
+  /*client.music.start(client, {
 
   // Set the api key used for YouTube!
   youtubeKey: settings.YTAPI,
@@ -143,19 +143,7 @@ client.on('ready', () => {
 
   botPrefix: "=",
 });
-})
-
-client.on("guildCreate", guild => {
-  // This event triggers when the bot joins a guild.
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setGame(`on ${client.guilds.size} servers`);
-});
-
-client.on("guildDelete", guild => {
-  // this event triggers when the bot is removed from a guild.
-  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setGame(`on ${client.guilds.size} servers`);
-});
+})*/
 
 client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
@@ -190,15 +178,11 @@ client.on("message", async message => {
   const commandList = ['${pref}b', '${pref}ballsize','${pref}why','${pref}y','${pref}uu','${pref}uuu','${pref}howdy','${pref}8]'];
 
 
-  // nested commands
-
-
-
-  console.log(command + " requested!");
   // begin commands, search for //(command) to find
   switch(command) {
     case 'ms': if(message.author.id != owner){break;} message.channel.send(new Date().getTime() - message.createdTimestamp + " ms"); break;
 
+    case 'play': break;
     case 'memes':
     case 'list':
     case 'commands':
@@ -835,4 +819,4 @@ case 'why':
 
 });
 
-login();
+//login();
