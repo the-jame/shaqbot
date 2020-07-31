@@ -272,9 +272,9 @@ client.on("message", async message => {
   setTimeout(()=> {
   clearTimeout(pleading);
   }, 3400);
-  message.channel.send(`:pleading:`)
+  message.channel.send(`:pleading_face:`)
   .then((msg)=> {
-  pleading = setInterval(function() {if(msg.content.includes(`pleadah`)) msg.edit(`:pleading:`); else msg.edit(`${pleadah}`);}, 500)
+  pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 500)
   }); break;
 
     // MEME IMAGES
