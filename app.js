@@ -271,11 +271,11 @@ client.on("message", async message => {
     case 'plead':
   setTimeout(()=> {
   clearTimeout(pleading);
-  }, 2400);
+  }, 3400);
   message.channel.send(`:pleading:`)
   .then((msg)=> {
-  pleading = setInterval(function() {if(msg.content.includes('pleadah')) msg.edit(':pleading:'); else msg.edit('${pleadah}');}, 500)
-  });} break;
+  pleading = setInterval(function() {if(msg.content.includes(`pleadah`)) msg.edit(`:pleading:`); else msg.edit(`${pleadah}`);}, 500)
+  }); break;
 
     // MEME IMAGES
     case 'breasts':
