@@ -267,6 +267,15 @@ client.on("message", async message => {
 
       message.channel.send(`${ohio1}${ohio2}${ohio3}${ohio4}\n${ohio5}${ohio6}${ohio6}${ohio7}\n${ohio5}${ohio6}${ohio6}${ohio8}\n${ohio9}${ohio10}${ohio11}`);
       break;
+		  
+	  case 'plead':
+  setTimeout(()=> {
+  clearTimeout(pleading);
+  }, 2400);
+  message.channel.send(`:pleading:`)
+  .then((msg)=> {
+  pleading = setInterval(function() {if(msg.content.includes('pleadah')) msg.edit(':pleading:'); else msg.edit('${pleadah}');}, 500)
+  });}
 
     // MEME IMAGES
     case 'breasts':
