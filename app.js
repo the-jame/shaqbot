@@ -245,11 +245,6 @@ client.on("message", async message => {
     case 'pungent':
       message.channel.send("```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren't I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```");
       break;
-    case 'watchchino':
-      message.channel.send('https://youtu.be/1YcC-pK5zMg');
-      message.channel.send('https://youtu.be/Okv9CCxMQYo');
-      message.channel.send(`<@${settings.cody}>` + ` ${eyesleft}`);
-      break;
     case 'bighio':
       message.delete().catch(O_o=>{});
 
@@ -268,14 +263,15 @@ client.on("message", async message => {
       message.channel.send(`${ohio1}${ohio2}${ohio3}${ohio4}\n${ohio5}${ohio6}${ohio6}${ohio7}\n${ohio5}${ohio6}${ohio6}${ohio8}\n${ohio9}${ohio10}${ohio11}`);
       break;
 
+    case 'pleading':
     case 'plead':
-  setTimeout(()=> {
-  clearTimeout(pleading);
-  }, 4500);
-  message.channel.send(`:pleading_face:`)
-  .then((msg)=> {
-  pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 500)
-  }); break;
+     setTimeout(()=> {
+     clearTimeout(pleading);
+     }, 6400);
+     message.channel.send(`:pleading_face:`)
+     .then((msg)=> {
+     pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 400)
+     }); break;
 
     // MEME IMAGES
     case 'breasts':
@@ -422,6 +418,13 @@ client.on("message", async message => {
       break;
     case 'thinkin':
     case 'thinkinaboutbeans':
+    case 'beanthink':
+    case 'beanthought':
+    case 'thinkingabout':
+    case 'beanthinkin':
+    case 'thinkbeans':
+    case 'beanthoughts':
+    case 'thinking':
       message.channel.send({files: ["img/thinkinaboutbeans.png"]});
       break;
     case 'consequences':
@@ -497,6 +500,11 @@ client.on("message", async message => {
     case 'fatnuts':
     case 'remembermyballs':
       message.channel.send ({files: ["img/fatnuts.jpg"]});
+      break;
+    case 'thenperish':
+    case 'perish':
+    case 'jameperish':
+      message.channel.send ({files: ["img/thenperish.jpg"]});
       break;
 	// zzzzz endofmeme newest latest recent
 
