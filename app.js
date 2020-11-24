@@ -576,19 +576,7 @@ client.on("message", async message => {
 	// zzzzz endofmeme newest latest recent
 
 
-    // how many pipo
-    case 'pipo':
-      let subSize = subject.length;
-      message.channel.send (`There are ${subSize} people in the shaq db.`);
-      break;
-    case 'reasons':
-      let reaSize = reasons.length;
-      message.channel.send (`There are ${reaSize} reasons in the shaq db.`);
-      break;
-    case 'sizes':
-      let ballCount = ballsizes.length;
-      message.channel.send (`There are ${ballCount} ball sizes in the shaq db.`);
-      break;
+
 
 
     // SET OWN ROLE
@@ -840,6 +828,20 @@ case 'why':
         str+=(syllables[pick]);
       }
       message.channel.send(str, {tts: true});
+      break;
+		  
+// how many pipo
+    case 'pipo':
+      let subSize = subject.length;
+      message.channel.send (`There are ${subSize} people in the shaq db.`);
+      break;
+    case 'reasons':
+      let reaSize = reasons.length;
+      message.channel.send (`There are ${reaSize} reasons in the shaq db.`);
+      break;
+    case 'sizes':
+      let ballCount = ballsizes.length;
+      message.channel.send (`There are ${ballCount} ball sizes in the shaq db.`);
       break;
 
     case 'ping':
