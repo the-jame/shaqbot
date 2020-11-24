@@ -829,8 +829,8 @@ case 'why':
       }
       message.channel.send(str, {tts: true});
       break;
-		  
-// how many pipo
+
+    // how many pipo
     case 'pipo':
       let subSize = subject.length;
       message.channel.send (`There are ${subSize} people in the shaq db.`);
