@@ -58,6 +58,18 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'mo
 'has 3 nipples','smells like shit','drank redbull and didn\'t get wings', 'sucks blyat','needs a sorking', 'cums first', 'wasn\'t invited to the Roman orgy', 'is off his rocker, innit?',
 'has nipple piercings', 'creamed in the trash', 'do kinda be vibin tho', 'is tokin n strokin, bruv', 'did black face 10 years ago', 'smokes cigarettes without the filters', 'confused ham for string beans', 'thinks green beans belong on pizza'];
 
+var ballsizes = ['large', 'small', 'medium', 'puny', 'gigantic', 'average', 'incongruous', 'nice :thumbsup:', ':b:ig', 'immense', 'voluptuous', 'h',
+    'bigger than I\'d like :/', 'smaller than I\'d like :/', 'vast', 'globular', 'eternal', '*just right*', 'normal', '¡Sabado Gigante!', 'narrow', 'wide', 'petite', 'insignificant', 
+    'short', ':ok:', 'smallish', 'XXL', 'XXS', 'big-boned', 'king size', 'FAT', 'mediocre', 'unexceptional', 'immeasurable', 'trivial', 'intermediate', 'passable', 
+    'regular', 'tainted', 'common', '12 inches', `${huh}`, '1 foot', '5 & 1/2 centimeters', 'futuristic', 'macho', '4 yards', '2 meters', ':fire::100::fire::100::fire::100:','thicc',
+    'microscopic', 'gargantuan', ':flushed:', 'assertive', 'reptilian', 'ghastly', 'delightful', 'debonair', 'homely', 'nonexistent','left: 15cm, right: 1cm', '1mm','1 in.', '3cm',
+    'about that of a golf ball', 'Epstein didn\'t kill himself', 'too big to handle', 'just right', 'ordinary', 'unwieldy', 'embarrassing', 'cubic', 'shriveled', 'that of a BEAN',
+    'six of one, half dozen of the other', 'an acre', 'US Men\'s 11', 'UK Women\'s 7 & 1/2', 'a lima bean', 'unusual', 'gamer sized :video_game:', 'amassed',
+    'in South Carolina until 10/12','husky', 'big and tall', 'fine', 'sizeable', 'beach ball', ':chart_with_upwards_trend:', ':chart_with_downwards_trend:',
+    ':bar_chart:', 'boomer-sized', 'minute', 'old-fashioned', 'frail', 'nutty', 'broad', 'crooked', 'euclidean', 'obtuse', 'portable', 'stubby', 'insufficient',
+    'plump', 'corn-fed', 'flabby', 'opulent', 'liberal', 'confusing', 'questionable', 'lacking self-confidence', 'uncertain', 'meager',
+    'lacking quality'];
+
 var allEmoji = ["🅰️","🅱️","🅾️","🅿️","🆎","🆑","🆒","🆓","🆔","🆕","🆖","🆗","🆘","🆙","🌂","🌃","🌄","🌅","🌆","🌇","🌈","🌉","🌊","🌋","🌌",
 		"🌍","🌐","🌑","🌒","🌕","🌙","🌚","🌛","🌜","🌝","🌞","🌟","🌠","🌡️","🌤️","🌥️","🌦️","🌧️","🌨️","🌩️","🌪️","🌫️","🌬️","🌭","🌮","🌯","🌰","🌱","🌲","🌳","🌴","🌵","🌶️","🌷","🌸","🌹","🌺","🌻","🌼","🌽","🌾","🌿","🍀","🍁",
 		"🍂","🍃","🍄","🍅","🍆","🍇","🍈","🍉","🍊","🍋","🍌","🍍","🍎","🍏","🍐","🍑","🍒","🍓","🍔","🍕","🍖","🍗","🍘","🍙","🍚","🍛","🍜","🍝","🍞","🍟","🍠","🍡","🍢","🍣","🍤","🍥","🍦","🍧","🍨","🍩","🍪","🍫","🍬","🍭",
@@ -704,17 +716,6 @@ client.on("message", async message => {
     // ballsize bs
     case 'ballsize':
     case 'bs':
-      var ballsizes = ['large', 'small', 'medium', 'puny', 'gigantic', 'average', 'incongruous', 'nice :thumbsup:', ':b:ig', 'immense', 'voluptuous', 'h',
-        'bigger than I\'d like :/', 'smaller than I\'d like :/', 'vast', 'globular', 'eternal', '*just right*', 'normal', '¡Sabado Gigante!', 'narrow', 'wide', 'petite', 'insignificant', 
-        'short', ':ok:', 'smallish', 'XXL', 'XXS', 'big-boned', 'king size', 'FAT', 'mediocre', 'unexceptional', 'immeasurable', 'trivial', 'intermediate', 'passable', 
-        'regular', 'tainted', 'common', '12 inches', `${huh}`, '1 foot', '5 & 1/2 centimeters', 'futuristic', 'macho', '4 yards', '2 meters', ':fire::100::fire::100::fire::100:','thicc',
-        'microscopic', 'gargantuan', ':flushed:', 'assertive', 'reptilian', 'ghastly', 'delightful', 'debonair', 'homely', 'nonexistent','left: 15cm, right: 1cm', '1mm','1 in.', '3cm',
-        'about that of a golf ball', 'Epstein didn\'t kill himself', 'too big to handle', 'just right', 'ordinary', 'unwieldy', 'embarrassing', 'cubic', 'shriveled', 'that of a BEAN',
-        'six of one, half dozen of the other', 'an acre', 'US Men\'s 11', 'UK Women\'s 7 & 1/2', 'a lima bean', 'unusual', 'gamer sized :video_game:', 'amassed',
-        'in South Carolina until 10/12','husky', 'big and tall', 'fine', 'sizeable', 'beach ball', ':chart_with_upwards_trend:', ':chart_with_downwards_trend:',
-        ':bar_chart:', 'boomer-sized', 'minute', 'old-fashioned', 'frail', 'nutty', 'broad', 'crooked', 'euclidean', 'obtuse', 'portable', 'stubby', 'insufficient',
-        'plump', 'corn-fed', 'flabby', 'opulent', 'liberal', 'confusing', 'questionable', 'lacking self-confidence', 'uncertain', 'meager',
-        'lacking quality'];
       var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
       if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; let beingSized = args.join(" "); if(beingSized !== ''){beingSized = beingSized += "'s";} message.channel.send(`Your${beingSized} ball size is ` + ballsizes[rand] +".", {tts: true});return;}
       else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq's" || args[0].toLowerCase() === "shaqs") {args[0] = "My";}
