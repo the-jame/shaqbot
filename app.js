@@ -21,7 +21,7 @@ let idle = 0;		// disabled by default
 let boisTTS = 1;	// enabled by default
 
 
-var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','tom clancy',
+var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','sarah','tom clancy',
 'pipo', '100,000 Ohioans', 'the one dentist that doesnt recommend sugarless gum', 'kurt russell\'s mustache from the movie *Tombstone*', 'beast sandwich',
 'drumpf', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend',
 'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'the Tainted One', 'Tom Nook', 'your sam',  'God', 'Satan', 'John Freeman', 'jeff tutorials',
@@ -31,7 +31,7 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah'
 'colonel sanders', 'bernie sanders','tim cook', 'the reanimated corpse of steve jobs', 'eminem', 'la habra 300 bowl', 'elon musk', 'anne frank', 'marshall pope', 'hila klein',
 'shigeru miyamoto', 'your unwashed ass', 'She Who Squirts', 'He Who Cums', 'Liz\'s cat', 'Beemo', 'the British', 'bisexuals', 'papi', 'bat soup', 'a bloody fucker', 'an actual chimp', 'a New York City subway rat',
 'shawty', 'I', 'hawaiian green bean pizza', 'Ronald Reagan', 'Nicolas Cage', 'Queen Elizabeth', 'Judge Judy', 'Nickelback', 'Keanu Reeves', 'Democrats', 'Republicans', 'donald johnald tronald', 'donald john president', 'the fall guy',
-'kacey', 'kc', 'chris', 'broduck', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger'];
+'kacey', 'chris', 'broduck', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger', 'my left nut', 'god', 'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'the one cop that isn\'t a bastard', 'socialists', 'nazis', 'communists', 'pikachu', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'gary', 'the shit stain in your underwear', 'a crusty sock', 'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker'];
 
 var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
 'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
@@ -128,7 +128,7 @@ client.on('ready', () => {
   huh = client.emojis.cache.get('431693012788314132');
   pleadah = client.emojis.cache.get('665307736866684968');
   owner = settings.james;
-  var ballsRand = Math.floor((Math.random() * (40 - 1)));
+  var ballsRand = Math.floor((Math.random() * (69 - 1)));
 
 
   //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
@@ -587,7 +587,24 @@ client.on("message", async message => {
     case 'keepsuckin':
     case 'whenyounutandshekeepssuckin':
     case 'whenyounutandshekeepssucking':
+    case 'nut':
+    case 'keepsucking':
+    case 'nutbutkeepsucking':
       message.channel.send ({files: ["img/suckdry.png"]});
+      break;
+    case 'cummies':
+      message.channel.send(`${cummies}`);
+      break;
+    case 'oven':
+      message.channel.send('why do they call it oven when you of in the cold food of out hot eat the food',{tts: true});
+      break;
+    case 'mormon':
+    case 'mormonism':
+      message.channel.send('https://youtu.be/1YcC-pK5zMg');
+      break;
+    case 'biden':
+    case 'bidensmile':
+      message.channel.send ({files: ["img/bidensmile.jpg"]});
       break;
 	// zzzzz endofmeme newest latest recent
 
@@ -814,6 +831,9 @@ case 'why':
     case 'shaq':
       message.channel.send("```Welcome to Shaq!```\n`say <string>`: Bot says the string in text-to-speech.\n`poll <string>`: Make the bot post your message with up/downvote reactions to poll.\n`ping <name>`[Home Server Only] Shaq pings the user.\n`8 <question>`: Bot will answer with an 8-ball style response.\n`ballsize|bs <string>`: Bot will tell you the ballsize of the string in question.\n`howdy`: Say howdy.\n`memes`: List additional commands with image attachment responses.")
       return;
+      break;
+    case 'src':
+      message.channel.send("https://github.com/the-jame/shaqbot"); break;
       break;
 
     // uuu uu u
