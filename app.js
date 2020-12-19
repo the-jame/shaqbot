@@ -606,6 +606,9 @@ client.on("message", async message => {
     case 'bidensmile':
       message.channel.send ({files: ["img/bidensmile.jpg"]});
       break;
+    case 'biden2':
+      message.channel.send ({files: ["img/bidenmagik.png"]});
+      break;
 	// zzzzz endofmeme newest latest recent
 
 
