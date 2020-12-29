@@ -609,6 +609,14 @@ client.on("message", async message => {
     case 'biden2':
       message.channel.send ({files: ["img/bidenmagik.png"]});
       break;
+    case 'eg':
+      message.channel.send ({files: ["img/eg.jpg"]});
+      break;
+    case 'oiI':
+    case 'oii':
+    case 'oil':
+      message.channel.send ('https://twitter.com/marthastewart/status/326365867111772160');
+      break;
 	// zzzzz endofmeme newest latest recent
 
 
