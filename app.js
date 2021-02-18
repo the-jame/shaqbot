@@ -18,6 +18,7 @@ let huh;
 let realshit;
 let lol = 0;		// disabled by default
 let idle = 0;		// disabled by default
+let sus = 1;
 let amogus = 1;
 let boisTTS = 1;	// enabled by default
 
@@ -131,7 +132,8 @@ client.on('ready', () => {
   eyesleft = client.emojis.cache.get('642179113259499571');
   huh = client.emojis.cache.get('431693012788314132');
   pleadah = client.emojis.cache.get('665307736866684968');
-  sus = client.emojis.cache.get('811733298254446612');
+  amogus = client.emojis.cache.get('811733298254446612');
+  sus = client.emojis.cache.get('811814942939807754');
   owner = settings.james;
 
   var ballsRand = Math.floor((Math.random() * (69 - 1)));
@@ -180,6 +182,10 @@ client.on("message", async message => {
    }
 
   if(message.content.toLowerCase() == 'amogus' && amogus == 1){
+    message.react(amogus);
+    return;
+  }
+  if(message.content.toLowerCase() == 'sus' && sus == 1){
     message.react(sus);
     return;
   }
@@ -689,7 +695,8 @@ client.on("message", async message => {
       let commandD = args.join(" ");
       //if (commandD == 'lol'){lol=0; message.channel.send('lol disabled.');}
       if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
-      if (commandD == 'sus'){idle=0; message.channel.send('sus disabled.');}
+      if (commandD == 'amogus'){amogus=0; message.channel.send('amogus disabled.');}
+      if (commandD == 'sus'){sus=0; message.channel.send('sus disabled.');}
       if (commandD == 'say'||commandD == 'bois'){boisTTS=0; message.channel.send('=say in #bois disabled.');}
       break;
 
@@ -698,7 +705,8 @@ client.on("message", async message => {
       let commandE = args.join (" ");
       if (commandE == 'lol'){lol=1; message.channel.send('lol enabled.');}
       if (commandE == 'idle'){idle=1; message.channel.send('idle enabled.');}
-      if (commandE == 'sus'){amogus=1; message.channel.send('sus enabled.');}
+      if (commandE == 'amogus'){amogus=1; message.channel.send('amogus enabled.');}
+      if (commandE == 'sus'){sus=1; message.channel.send('sus enabled.');}
       if (commandE == 'say'||commandE == 'bois'){boisTTS=1; message.channel.send('=say in #bois enabled.');}
       break;
     case 'status':
