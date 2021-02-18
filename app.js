@@ -18,11 +18,14 @@ let huh;
 let realshit;
 let lol = 0;		// disabled by default
 let idle = 0;		// disabled by default
+let amogus = 1;
 let boisTTS = 1;	// enabled by default
+
+let pungent = 'BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren\'t I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```';
 
 
 var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','sarah','tom clancy',
-'pipo', '100,000 Ohioans', 'the one dentist that doesnt recommend sugarless gum', 'kurt russell\'s mustache from the movie *Tombstone*', 'beast sandwich',
+'pipo', '100,000 Ohioans', 'the one dentist that doesnt recommend sugarless gum', 'beast sandwich',
 'drumpf', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend',
 'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'the Tainted One', 'Tom Nook', 'your sam',  'God', 'Satan', 'John Freeman', 'jeff tutorials',
 'johoise', 'duman', 'a cromulent unfuckcrustable', 'the fuckcrustables', 'The Tainted One', 'Mr. Imlay', 'Mrs. Matsuyama', 'Jeb Bush', 'cody', 'a sentient cum sock', 'cool guy',
@@ -31,11 +34,11 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah'
 'colonel sanders', 'bernie sanders','tim cook', 'the reanimated corpse of steve jobs', 'eminem', 'la habra 300 bowl', 'elon musk', 'anne frank', 'marshall pope', 'hila klein',
 'shigeru miyamoto', 'your unwashed ass', 'She Who Squirts', 'He Who Cums', 'Liz\'s cat', 'Beemo', 'the British', 'bisexuals', 'papi', 'bat soup', 'a bloody fucker', 'an actual chimp', 'a New York City subway rat',
 'shawty', 'I', 'hawaiian green bean pizza', 'Ronald Reagan', 'Nicolas Cage', 'Queen Elizabeth', 'Judge Judy', 'Nickelback', 'Keanu Reeves', 'Democrats', 'Republicans', 'donald johnald tronald', 'donald john president', 'the fall guy',
-'kacey', 'chris', 'broduck', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger', 'my left nut', 'god', 'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'the one cop that isn\'t a bastard', 'socialists', 'nazis', 'communists', 'pikachu', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'gary', 'the shit stain in your underwear', 'a crusty sock', 'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'a taint hair', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker', 'Todd Howard'];
+'kacey', 'chris', 'broduck', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger', 'my left nut', 'god', 'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'socialists', 'nazis', 'communists', 'pikachu', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'gary', 'the shit stain in your underwear', 'a crusty sock', 'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'a taint hair', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker', 'Todd Howard', 'amogus', 'sus guy', 'jim halpert', 'popcat'];
 
 var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
 'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
-'doesn\'t care about black people', 'benefits the military-industrial complex', '\'S GONE, OUT OF MY LIFE', 'has never had a dream',
+'doesn\'t care about black people', 'benefits the military-industrial complex', 'has never had a dream',
 'isn\'t real', 'thinks 2pac is still alive', '\'s anus is bleeding', 'has been farting alone in flaccid chat for 6 hours', 'said it in secret chat', 
 'ate the burger king foot lettuce', 'is going to kick your ass, and i\'m going to help him', 'is a lizard', 'forgot the question',
 'is an alcoholic', 'wills it to be so.', 'profited off the Iraq war', 'opinions only get worse', 'says GHIF', 'is COOOOOOOOOOOMING', 
@@ -44,7 +47,7 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'mo
 'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
 'has a smol pebis', 'is cooming', 'has abandoned us', 'calls it oven when you of in the cold food of out hot eat the food',
 'has a salty six inch that isn\'t big enough for the both of us', 'is the king of being wrong', 'decreed it', 'does not rove da rord',
-'never reveals her age', 'Best By 07 SEP 18 043 / 40', 'can has cheesburger', 'is a lie',
+'never reveals her age', 'Best By 07 SEP 18 043 / 40', 'can has cheesburger', 'is a lie', pungent,
 'is a truth', 'once said 7 eleven hot dogs aren\'t that bad', 'thinks taco bell is mexican food', 'thinks del taco is better than taco bell',
 'thinks ketchup doesn\'t belong on eggs', 'bought another iPhone', 'is the reason rotisserie chicken from albertsons is so cheap...', `found the piss drawer ${huh}`,
 'says italian food is better than any other food', 'has a perfect fat pussy', 'went to five or six stores instead of just one', 'is afraid to leave his stoop', 'is a republican',
@@ -128,7 +131,9 @@ client.on('ready', () => {
   eyesleft = client.emojis.cache.get('642179113259499571');
   huh = client.emojis.cache.get('431693012788314132');
   pleadah = client.emojis.cache.get('665307736866684968');
+  sus = client.emojis.cache.get('811733298254446612');
   owner = settings.james;
+
   var ballsRand = Math.floor((Math.random() * (69 - 1)));
 
 
@@ -174,6 +179,11 @@ client.on("message", async message => {
     return;
    }
 
+  if(message.content.toLowerCase() == 'amogus' && amogus == 1){
+    message.react(sus);
+    return;
+  }
+
   if(message.content.toLowerCase() == 'lol' && lol == 1){
     setTimeout(()=> {
   clearTimeout(laughing);
@@ -204,8 +214,8 @@ client.on("message", async message => {
     case 'pics':
     case 'pictures':
     case 'commandlist':
-      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`pungent` - BRRRAPPP\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
-      message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred");
+      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
+      message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred\n`eels` - eels");
       break;
 
 
@@ -257,9 +267,7 @@ client.on("message", async message => {
       var uwuRand = Math.floor((Math.random() * (uwus.length - 1)));
       message.channel.send(uwus[uwuRand]);
       break;
-    case 'pungent69':
-      message.channel.send("```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren't I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```");
-      break;
+
     case 'bighio':
       message.delete().catch(O_o=>{});
 
@@ -658,6 +666,9 @@ client.on("message", async message => {
     case 'fred':
       message.channel.send ({files: ["img/fred.jpeg"]});
       break;
+    case 'eels':
+      message.channel.send ({files: ["img/eels.png"]});
+      break;
 	// zzzzz endofmeme newest latest recent
 
 
@@ -678,6 +689,7 @@ client.on("message", async message => {
       let commandD = args.join(" ");
       //if (commandD == 'lol'){lol=0; message.channel.send('lol disabled.');}
       if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
+      if (commandD == 'sus'){idle=0; message.channel.send('sus disabled.');}
       if (commandD == 'say'||commandD == 'bois'){boisTTS=0; message.channel.send('=say in #bois disabled.');}
       break;
 
@@ -686,6 +698,7 @@ client.on("message", async message => {
       let commandE = args.join (" ");
       if (commandE == 'lol'){lol=1; message.channel.send('lol enabled.');}
       if (commandE == 'idle'){idle=1; message.channel.send('idle enabled.');}
+      if (commandE == 'sus'){amogus=1; message.channel.send('sus enabled.');}
       if (commandE == 'say'||commandE == 'bois'){boisTTS=1; message.channel.send('=say in #bois enabled.');}
       break;
     case 'status':
@@ -869,11 +882,21 @@ case 'why':
     // 8ball 8
     case '8ball':
     case '8':
-      let eightball = ['It is certain.','As I see it, yes.',':thumbsup:', 'Sure.', 'I guess.', 'No way.', 'Cannot decide...','Possibru.','Mostly.',
-        'Kind of.', 'Inconclusive.','Certainly.','Certainly not.', 'HELL naw.','Most likely.','It is decidedly so.',`${huh}`,'Without a doubt.',
-        'Yes - DEFINITELY','You may rely on it.','Outlook is good.','Yes.','Signs point to yes, papi.','Reply hazy... try again.','Ask again later.',
-        'Better not tell you now.','Cannot predict now.','Concentrate and ask again.','Don\'t count on it.','My reply is no.','My sources say no.',
-        'Outlook is not good.','Very doubtful.','Thank you Kanye, very cool!'];
+    case 'can':
+    case 'am':
+    case 'should':
+    case 'is':
+    case 'do':
+    case 'are':
+    case 'were':
+    case 'was':
+    case 'does':
+    case 'will':
+      let eightball = ['It is certain.','As I see it, yes.',':thumbsup:', 'Sure.', 'I guess.', 'No way.', 'Cannot decide...','Possibly??','For the most part.',
+        'Kind of.','Certainly.','Certainly not.', 'HELL no.','Most likely.','It is decidedly so.',`${huh}`,'Without a doubt.',
+        'Yes - DEFINITELY','You may rely on it.','Outlook is good.','Yes.','Signs point to yes, papi.','Ask again later.',
+        'Better not tell you now.','Concentrate and ask again.','Don\'t count on it.','My reply is no.','My sources say no.',
+        'Outlook is not good.','Very doubtful.','Thank you Kanye, very cool!', 'Sometimes... (shhh)'];
       var num = Math.floor((Math.random() * (eightball.length - 1)));
       message.channel.send(eightball[num], {tts: true});
       return;
