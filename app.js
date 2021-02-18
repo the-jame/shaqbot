@@ -18,8 +18,9 @@ let huh;
 let realshit;
 let lol = 0;		// disabled by default
 let idle = 0;		// disabled by default
-let sus = 1;
-let amogus = 1;
+let scanAll = 0;
+let amogus = 0;
+let sus = 0;
 let boisTTS = 1;	// enabled by default
 
 let pungent = 'BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren\'t I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```';
@@ -132,8 +133,8 @@ client.on('ready', () => {
   eyesleft = client.emojis.cache.get('642179113259499571');
   huh = client.emojis.cache.get('431693012788314132');
   pleadah = client.emojis.cache.get('665307736866684968');
-  amogus = client.emojis.cache.get('811733298254446612');
-  sus = client.emojis.cache.get('811814942939807754');
+  amogusE = client.emojis.cache.get('811734705807294574');
+  susE = client.emojis.cache.get('811814942939807754');
   owner = settings.james;
 
   var ballsRand = Math.floor((Math.random() * (69 - 1)));
@@ -182,11 +183,11 @@ client.on("message", async message => {
    }
 
   if(message.content.toLowerCase() == 'amogus' && amogus == 1){
-    message.react(amogus);
+    message.react(amogusE);
     return;
   }
   if(message.content.toLowerCase() == 'sus' && sus == 1){
-    message.react(sus);
+    message.react(susE);
     return;
   }
 
@@ -199,11 +200,24 @@ client.on("message", async message => {
   laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
   });}
 
-  if(message.content.indexOf(settings.prefix) !== 0) return;
 
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+
+  if(scanAll == 1)
+  {
+  let args2 = message.content.trim().split(/ +/g);
+   if(args2[0] != settings.prefix){
+    for (let a=0; a<args2.length; a++)
+    {
+     if((args2[a].toLowerCase() == 'amogus'))message.react(amogusE);
+     else if((args2[a].toLowerCase() == 'sus')) message.react(susE);
+    }
+   }
+  }
+
+  if(message.content.indexOf(settings.prefix) !== 0) return;
 
   let pref = settings.prefix;
   const commandList = ['${pref}b', '${pref}ballsize','${pref}why','${pref}y','${pref}uu','${pref}uuu','${pref}howdy','${pref}8]'];
@@ -221,7 +235,7 @@ client.on("message", async message => {
     case 'pictures':
     case 'commandlist':
       message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
-      message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred\n`eels` - eels");
+      message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred\n`eels` - eels\n`bussy` - it can squirt");
       break;
 
 
@@ -675,6 +689,9 @@ client.on("message", async message => {
     case 'eels':
       message.channel.send ({files: ["img/eels.png"]});
       break;
+    case 'bussy':
+      message.channel.send ({files: ["img/bussy.jpg"]});
+      break;
 	// zzzzz endofmeme newest latest recent
 
 
@@ -693,8 +710,8 @@ client.on("message", async message => {
     case 'disable':
       if (message.author.id != "95702308515487744") break;
       let commandD = args.join(" ");
-      //if (commandD == 'lol'){lol=0; message.channel.send('lol disabled.');}
       if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
+      if (commandD == 'scanall'){scanAll=0; message.channel.send('ScanAll disabled.');}
       if (commandD == 'amogus'){amogus=0; message.channel.send('amogus disabled.');}
       if (commandD == 'sus'){sus=0; message.channel.send('sus disabled.');}
       if (commandD == 'say'||commandD == 'bois'){boisTTS=0; message.channel.send('=say in #bois disabled.');}
@@ -703,8 +720,8 @@ client.on("message", async message => {
     case 'enable':
       if (message.author.id != "95702308515487744") break;
       let commandE = args.join (" ");
-      if (commandE == 'lol'){lol=1; message.channel.send('lol enabled.');}
       if (commandE == 'idle'){idle=1; message.channel.send('idle enabled.');}
+      if (commandE == 'scanall'){scanAll=1; message.channel.send('ScanAll enabled.');}
       if (commandE == 'amogus'){amogus=1; message.channel.send('amogus enabled.');}
       if (commandE == 'sus'){sus=1; message.channel.send('sus enabled.');}
       if (commandE == 'say'||commandE == 'bois'){boisTTS=1; message.channel.send('=say in #bois enabled.');}
