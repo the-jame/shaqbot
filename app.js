@@ -899,6 +899,14 @@ case 'why':
     case 'who':
       var randWho = Math.floor((Math.random() * (subject.length - 1)));
       if (typeof args[0] === 'undefined') { message.channel.send(subject[randWho] + '.',{tts:true}); break;}
+       for (b=0; b<args.length; b++)
+      {
+        if(args[b]==="my"){ args[b]="your";}
+        else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
+        else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
+        else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
+      }
+		  
       let whom = args.join(" ");
       while(whom.charAt(whom.length-1)=="?"){whom=whom.substring(0, whom.length-1);}
       message.channel.send(subject[randWho] + " " + whom + ".", {tts:true});
