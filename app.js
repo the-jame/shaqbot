@@ -692,6 +692,10 @@ client.on("message", async message => {
     case 'bussy':
       message.channel.send ({files: ["img/bussy.jpg"]});
       break;
+    case 'bread':
+    case 'worsebread':
+      message.channel.send ('https://twitter.com/gloomfather/status/1141347662333140994?s=20');
+      break;
 	// zzzzz endofmeme newest latest recent
 
 
@@ -924,10 +928,11 @@ case 'why':
     case 'were':
     case 'was':
     case 'does':
+    case 'did':
     case 'will':
       let eightball = ['It is certain.','As I see it, yes.',':thumbsup:', 'Sure.', 'I guess.', 'No way.', 'Cannot decide...','Possibly??','For the most part.',
         'Kind of.','Certainly.','Certainly not.', 'HELL no.','Most likely.','It is decidedly so.',`${huh}`,'Without a doubt.',
-        'Yes - DEFINITELY','You may rely on it.','Outlook is good.','Yes.','Signs point to yes, papi.','Ask again later.',
+        'Yes - DEFINITELY','You may rely on it.','Outlook is good.','Yes.','Signs point to yes.','Ask again later.',
         'Better not tell you now.','Concentrate and ask again.','Don\'t count on it.','My reply is no.','My sources say no.',
         'Outlook is not good.','Very doubtful.','Thank you Kanye, very cool!', 'Sometimes... (shhh)'];
       var num = Math.floor((Math.random() * (eightball.length - 1)));
