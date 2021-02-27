@@ -1,5 +1,5 @@
 
-# Discord Chat Bot - YoutTube broke all music functions.
+# Discord Chat Bot - YouTube broke all music functions.
 ***  
 This is a simple Node.js based chat and music bot for Discord.
 
