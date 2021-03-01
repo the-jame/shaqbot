@@ -870,6 +870,7 @@ case 'why':
         else if(args[e].toLowerCase() ==="your"){ args[e]="my";}
         else if(args[e].toLowerCase() ==="i"){ args[e]="you";}
         else if(args[e].toLowerCase() ==="you"){ args[e]="me";}
+        else if(args[e].toLowerCase() ==="me"){ args[e]="you";}
 
       }
           let temp1 = args[0];
@@ -891,6 +892,7 @@ case 'why':
         else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
         else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
         else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
+        else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
 
       }
           answer = args.join(" ");
@@ -909,6 +911,8 @@ case 'why':
         else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
         else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
         else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
+	else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
+
       }
 		  
       let whom = args.join(" ");
