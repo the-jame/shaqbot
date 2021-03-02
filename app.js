@@ -825,7 +825,18 @@ client.on("message", async message => {
       var num = Math.floor((Math.random() * (cowboyphrases.length - 1)));
       message.channel.send(cowboyphrases[num]);
       break;
-
+		  
+    // when
+    case 'when':
+      //This is Kacey being very cool and smart
+      let times = ['right now', 'right this second :gun:', 'in a few minutes', 'in half an hour', 'in an hour', 'in a few hours', 'tonight', 'today', 'tomorrow', 'the day after tomorrow', 'exactly 30 minutes from now', 'in one week',
+	     'never', 'at an uncertain point in the annals of history', 'at tooth-hurty :tooth: :toothbrush:', 'time is merely a construct', 'TIME IS MERELY A CONSTRUCT', 'at six, gordon!', 'at 4:20 XDDDDDDD', 'on 4/20 XDDDDDDD',
+	     'when hell freezes over', 'when rush limbaugh died', 'when marvel vs capcom 4 comes out', 'when james stops bitching about sauce', 'when final fantasy 7 remake is finished', 'when team fortress 3 comes out',
+	     'when bernie sanders is elected', 'when you fucking do something about it yourself', 'when the imposter stops being sus'];
+      var num = Math.floor((Math.random() * (times.length - 1)));
+      message.channel.send(times[num]);
+      break;
+		  
     // say
     case 'say':
       let sayMessage = args.join(" ");
