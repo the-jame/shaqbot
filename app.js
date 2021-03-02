@@ -825,7 +825,7 @@ client.on("message", async message => {
       var num = Math.floor((Math.random() * (cowboyphrases.length - 1)));
       message.channel.send(cowboyphrases[num]);
       break;
-		  
+
     // when
     case 'when':
       //This is Kacey being very cool and smart (and oni is ruining it)
@@ -835,9 +835,9 @@ client.on("message", async message => {
 	     'when bernie sanders is elected', 'when you fucking do something about it yourself', 'when the imposter stops being sus', 'at twelve bong', 'when half life 3 comes out', 'yesterday', 'before you were born',
 	     'last tuesday', 'when daft punk breaks up... oh', 'whenever that franz dude got shot', 'at dinner time', 'when yandere simulator comes out'];
       var num = Math.floor((Math.random() * (times.length - 1)));
-      message.channel.send(times[num]);
+      message.channel.send(times[num] + '.', {tts:true});
       break;
-		  
+
     // say
     case 'say':
       let sayMessage = args.join(" ");
