@@ -852,7 +852,7 @@ client.on("message", async message => {
 					  'the cum sock', 'Lavender Town', 'Yharnam', 'Blood Gulch', 'Brazil', 'the alley behind Tescos', 'Gondor', 'the New Califonia Republic', 'Kekistan', 'Shangri-La', 'Wakanda', 'Duckburg', 'Mos Eisley', 'Castle Rock',
 					  'City 17', 'Night City', 'Raccoon City', 'Skyrim'];
       var randWhere = Math.floor((Math.random() * (locations.length - 1)));
-      message.channel.send(capitalize(locations[num]) + '.', {tts:true});
+      message.channel.send(capitalize(locations[randWhere]) + '.', {tts:true});
       break;
 
     // say
