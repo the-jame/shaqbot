@@ -860,6 +860,14 @@ client.on("message", async message => {
       var randWhere = Math.floor((Math.random() * (locations.length - 1)));
       message.channel.send(capitalize(locations[randWhere]) + '.', {tts:true});
       break;
+		  
+// when
+    case 'what':
+      //This is Kacey being very cool and smart (and oni is ruining it)
+      let things = ['your stupid ass'];
+      var numThing = Math.floor((Math.random() * (things.length - 1)));
+      message.channel.send(capitalize(things[numThing]) + '.', {tts:true});
+      break;
 
     // say
     case 'say':
