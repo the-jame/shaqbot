@@ -879,10 +879,22 @@ client.on("message", async message => {
       break;
 
     case 'whatis':
-      let
-      let numThing = Math.floor((Math.random() * (things.length - 1)));
-      message.channel.send(capitalize(things[numThing]) + '.', {tts:true});
+      let what2 = Math.floor((Math.random() * (things.length - 1)));
+      if (typeof args[0] === 'undefined') { message.channel.send(subject[what2] + '.',{tts:true}); break;}
+       for (b=0; b<args.length; b++)
+      {
+        if(args[b]==="my"){ args[b]="your";}
+        else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
+        else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
+        else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
+	else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
+      }
+
+      let whatis = args.join(" ");
+      while(whatis.charAt(whatis.length-1)=="?"){whatis=whatis.substring(0, whatis.length-1);}
+      message.channel.send(whatis + "is" things[what2] + ".", {tts:true});
       break;
+
 
     // say
     case 'say':
@@ -908,58 +920,60 @@ client.on("message", async message => {
     case 'y':
     case 'why':
 
-      var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
-      var randSub = Math.floor((Math.random() * (subject.length - 1)));
+	    var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
+	    var randSub = Math.floor((Math.random() * (subject.length - 1)));
 
-    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
-    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" || args[0].toLowerCase() === "should")
-     {
-    let verb = args[0].toLowerCase();
-    if (verb === "am"){ args[0] = 'are'; }
-    else if (verb === "are"){ args[0] = 'am'; }
-    else if (verb === "does") {args[0] = ''; }
-    else if (verb === "do") {args[0] = ''; }
-    else if (verb === "did") {args[0] = ''; }
-    else if (verb === "is") {args[0] = ''; }
+	    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
+	    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" || args[0].toLowerCase() === "should")
+	     {
+	    let verb = args[0].toLowerCase();
+	    if (verb === "am"){ args[0] = 'are'; }
+	    else if (verb === "are"){ args[0] = 'am'; }
+	    else if (verb === "does") {args[0] = ''; }
+	    else if (verb === "do") {args[0] = ''; }
+	    else if (verb === "did") {args[0] = ''; }
+	    else if (verb === "is") {args[0] = ''; }
 
-    for (e=0; e<args.length; e++)
-      {
-        if(args[e]==="my"){ args[e]="your";}
-        else if(args[e].toLowerCase() ==="your"){ args[e]="my";}
-        else if(args[e].toLowerCase() ==="i"){ args[e]="you";}
-        else if(args[e].toLowerCase() ==="you"){ args[e]="me";}
-        else if(args[e].toLowerCase() ==="me"){ args[e]="you";}
+	    for (e=0; e<args.length; e++)
+	      {
+		if(args[e]==="my"){ args[e]="your";}
+		else if(args[e].toLowerCase() ==="your"){ args[e]="my";}
+		else if(args[e].toLowerCase() ==="i"){ args[e]="you";}
+		else if(args[e].toLowerCase() ==="you"){ args[e]="me";}
+		else if(args[e].toLowerCase() ==="me"){ args[e]="you";}
 
-      }
-          let temp1 = args[0];
-          args[0]=args[1];
-          args[1]=temp1;
+	      }
+		  let temp1 = args[0];
+		  args[0]=args[1];
+		  args[1]=temp1;
 
-	  if (args[1] === ''){args.splice(1,1);}
-          let answer = args.join(" ");
-	  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
-          message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
-        }
-      else
-        { if (typeof args[1] === 'undefined') {
-        let answer = args[0];
-        message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return; }
-      for (b=0; b<args.length; b++)
-      {
-        if(args[b]==="my"){ args[b]="your";}
-        else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
-        else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
-        else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
-        else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
+		  if (args[1] === ''){args.splice(1,1);}
+		  let answer = args.join(" ");
+		  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
+		  message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
+		}
+	      else
+		{ if (typeof args[1] === 'undefined') {
+		let answer = args[0];
+		message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return; }
+	      for (b=0; b<args.length; b++)
+	      {
+		if(args[b]==="my"){ args[b]="your";}
+		else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
+		else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
+		else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
+		else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
 
-      }
-          answer = args.join(" ");
-	  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
-          message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
-        }
-      return;
+	      }
+		  answer = args.join(" ");
+		  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
+		  message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
+		}
+	      return;
       break;
 
+
+		  
     case 'who':
       var randWho = Math.floor((Math.random() * (subject.length - 1)));
       if (typeof args[0] === 'undefined') { message.channel.send(subject[randWho] + '.',{tts:true}); break;}
@@ -978,6 +992,7 @@ client.on("message", async message => {
       message.channel.send(subject[randWho] + " " + whom + ".", {tts:true});
       break;
 
+		  
     // 8ball 8
     case '8ball':
     case '8':
