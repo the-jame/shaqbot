@@ -861,20 +861,26 @@ client.on("message", async message => {
     // when
     case 'when':
       //This is Kacey being very cool and smart (and oni is ruining it)
-      var num = Math.floor((Math.random() * (times.length - 1)));
+      let num = Math.floor((Math.random() * (times.length - 1)));
       message.channel.send(capitalize(times[num]) + '.', {tts:true});
       break;
 
     // where
     // It's Oni time
     case 'where':
-      var randWhere = Math.floor((Math.random() * (locations.length - 1)));
+      let randWhere = Math.floor((Math.random() * (locations.length - 1)));
       message.channel.send(capitalize(locations[randWhere]) + '.', {tts:true});
       break;
 
     // what
     case 'what':
-      var numThing = Math.floor((Math.random() * (things.length - 1)));
+      let numThing = Math.floor((Math.random() * (things.length - 1)));
+      message.channel.send(capitalize(things[numThing]) + '.', {tts:true});
+      break;
+
+    case 'whatis':
+      let
+      let numThing = Math.floor((Math.random() * (things.length - 1)));
       message.channel.send(capitalize(things[numThing]) + '.', {tts:true});
       break;
 
@@ -899,8 +905,8 @@ client.on("message", async message => {
       return;
       break;
 
-case 'y':
-case 'why':
+    case 'y':
+    case 'why':
 
       var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
       var randSub = Math.floor((Math.random() * (subject.length - 1)));
@@ -966,7 +972,7 @@ case 'why':
 	else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
 
       }
-		  
+
       let whom = args.join(" ");
       while(whom.charAt(whom.length-1)=="?"){whom=whom.substring(0, whom.length-1);}
       message.channel.send(subject[randWho] + " " + whom + ".", {tts:true});
