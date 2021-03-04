@@ -854,14 +854,14 @@ client.on("message", async message => {
     case 'howdy':
       //This is Jimmy trying to do something very basic
       let cowboyphrases = ['Howdy partner \:cowboy:', 'H\'lo :cowboy:', 'This town ain\'t big enough for the two of us :cowboy:', '_a tumbleweed rolls by_', 'It\'s high noon :cowboy:'];
-      var num = Math.floor((Math.random() * (cowboyphrases.length - 1)));
-      message.channel.send(cowboyphrases[num]);
+      let howdyN = Math.floor((Math.random() * (cowboyphrases.length - 1)));
+      message.channel.send(cowboyphrases[howdyN]);
       break;
 
     // when
     case 'when':
       //This is Kacey being very cool and smart (and oni is ruining it)
-      let num = Math.floor((Math.random() * (times.length - 1)));
+      var num = Math.floor((Math.random() * (times.length - 1)));
       message.channel.send(capitalize(times[num]) + '.', {tts:true});
       break;
 
@@ -874,7 +874,7 @@ client.on("message", async message => {
 
     // what
     case 'what':
-      let numThing = Math.floor((Math.random() * (things.length - 1)));
+      var numThing = Math.floor((Math.random() * (things.length - 1)));
       message.channel.send(capitalize(things[numThing]) + '.', {tts:true});
       break;
 
@@ -892,7 +892,7 @@ client.on("message", async message => {
 
       let whatis = args.join(" ");
       while(whatis.charAt(whatis.length-1)=="?"){whatis=whatis.substring(0, whatis.length-1);}
-      message.channel.send(whatis + "is" things[what2] + ".", {tts:true});
+      message.channel.send(whatis + " is " + things[what2] + ".", {tts:true});
       break;
 
 
