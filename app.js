@@ -42,7 +42,7 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah'
 
 // what
 var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double double', 'french fries', 'a coffee', 'pikachu', 'hand lotion', 'nothing', 'alcohol', 'hand sanitizer', 'yeast', 'magnets', 'rubiks cube', 'piss from the piss drawer', 
-      'sad minion memes', 'sharp objects', 'a cat', 'an ICE detention center', 'a human child', 'a bullet', 'a rose'];
+      'sad minion memes', 'sharp objects', 'a cat', 'an ICE detention center', 'a human child', 'a bullet', 'a rose', 'a gun', 'a bomb', 'a silent fart that smells really bad', 'a loud fart that goes unnoticed', 'a shit you dont have to wipe', 'a bottle of vodka', 'a field mouse', 'a barn cat', 'a 1999 Toyota Corolla', 'a semi truck full of eggs'];
 
 // when
 var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in half an hour', 'in an hour', 'in a few hours', 'tonight', 'today', 'tomorrow', 'the day after tomorrow', 'exactly 30 minutes from now', 'in one week',
