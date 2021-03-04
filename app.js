@@ -1054,15 +1054,16 @@ client.on("message", async message => {
 
     // how many pipo
     case 'counts':
-      var whoSize = subjects.length;
+    case 'count':
+      var whoSize = subject.length;
       var whatSize = things.length;
       var whenSize = times.length;
       var whereSize = locations.length;
       var whySize = reasons.length;
-		  
-      message.channel.send('There are\n${whoSize} people,\n${whatSize} things,\n${whenSize} times,\n${whereSize} locations,\n${whySize} reasons in the shaq DB.');      
+      var sizedBalls = ballsizes.length;
+      message.channel.send(`There are\n\`${whoSize} people\n${whatSize} things\n${whenSize} times\n${whereSize} locations\n${whySize} reasons\n${sizedBalls} ballsizes\`\nin the shaq brain.`);
       break;
-		  
+
     //case 'sizes':
       //let ballCount = ballsizes.length;
       //message.channel.send (`There are ${ballCount} ball sizes in the shaq db.`);
