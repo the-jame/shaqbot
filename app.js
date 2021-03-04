@@ -15,7 +15,9 @@ let wut2;
 let wut3;
 let eyesleft;
 let huh;
+let idleE;
 let realshit;
+let ignored = 0;
 let lol = 0;		// disabled by default
 let idle = 0;		// disabled by default
 let scanAll = 1;
@@ -158,6 +160,7 @@ client.on('ready', () => {
   wut3 = client.emojis.cache.get('431701745236967425');
   eyesleft = client.emojis.cache.get('642179113259499571');
   huh = client.emojis.cache.get('431693012788314132');
+  idleE = client.emojis.cache.get('817148372057849866');
   pleadah = client.emojis.cache.get('665307736866684968');
   amogusE = client.emojis.cache.get('811734705807294574');
   susE = client.emojis.cache.get('811814942939807754');
@@ -199,12 +202,12 @@ client.on('ready', () => {
 client.on("message", async message => {
   // This event will run on every single message received, from any channel or DM.
 
-  if(message.author.bot) return;
+  if(message.author.bot || message.author.id == ignored) return;
 
-  if(message.author.presence.status == 'idle' && idle == 1){
-    let user = message.author.id;
-    message.delete().catch(O_o=>{});
-    message.channel.send("Aren't you idle <@" + user + ">? :thinking:");
+  if(message.author.presence.status == 'idle'){
+    if(idle == 1) {message.react(idleE);}
+    //message.delete().catch(O_o=>{});
+    //message.author.sendMessage("Aren't you idle? :thinking:");
     return;
    }
 
@@ -743,8 +746,20 @@ client.on("message", async message => {
       message.channel.send(`Role changed to ${newRole}.`);
       break;
 
+    case 'ignore':
+      if (message.author.id != settings.james) break;
+      var ignored = args[0];
+      message.channel.send(`now ignoring ${ignored}`);
+      break;
+
+    case 'unignore':
+      if (message.author.id != settings.james) break;
+      var unignored = args[0];
+      message.channel.send(`no longer ignoring ${unignored}`);
+      break;
+
     case 'disable':
-      if (message.author.id != "95702308515487744") break;
+      if (message.author.id != settings.james) break;
       let commandD = args.join(" ");
       if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
       if (commandD == 'scanall'){scanAll=0; message.channel.send('ScanAll disabled.');}
