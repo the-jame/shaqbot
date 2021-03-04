@@ -1053,14 +1053,16 @@ client.on("message", async message => {
       break;
 
     // how many pipo
-    case 'pipo':
-      let subSize = subject.length;
-      message.channel.send (`There are ${subSize} people in the shaq db.`);
+    case 'counts':
+      var whoSize = subjects.length;
+      var whatSize = things.length;
+      var whenSize = times.length;
+      var whereSize = locations.length;
+      var whySize = reasons.length;
+		  
+      message.channel.send('There are\n${whoSize} people,\n${whatSize} things,\n${whenSize} times,\n${whereSize} locations,\n${whySize} reasons in the shaq DB.');      
       break;
-    case 'reasons':
-      let reaSize = reasons.length;
-      message.channel.send (`There are ${reaSize} reasons in the shaq db.`);
-      break;
+		  
     //case 'sizes':
       //let ballCount = ballsizes.length;
       //message.channel.send (`There are ${ballCount} ball sizes in the shaq db.`);
@@ -1068,8 +1070,6 @@ client.on("message", async message => {
 
     case 'ping':
     //Ping someone with more flavor
-    //Increase neck length based on random number, not sure how to do/if possible
-    //Goal is to make one for each of us so you can do =ping<person> without using @<person>
       if (message.guild.id != settings.beans) {message.channel.send("Sorry, this only works in the home server!"); break;} // does not work outside our server
 
       let toPing = '';
