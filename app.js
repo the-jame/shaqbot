@@ -52,7 +52,8 @@ var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double doub
               'a trashbag full of cum', 'a rusty bicycle', 'blood', 'tears of the natives', 'a crusty keyboard', 'a half eaten burrito', 'a mug of cold coffee', 
               'a nigerian prince in your spam folder', 'a job offer', 'nasal spray', 'a bidet that shoots milk', 'an old toothbrush', 'a pen that ran out of ink', 
               'tupperware full of moldy leftovers', 'a white flag', 'fake news', 'the coup of Jan 6, 2021', 'Microsoft Outlook 2013', 'lifesavers gummies', 'a kit kat bar', 
-              'a newborn chimp', 'an adult boar', 'a dead cockroach', 'a horny dog', 'The Beast', 'a succulent that you overwatered', 'a shard of glass', 'a honeycomb'];
+              'a newborn chimp', 'an adult boar', 'a dead cockroach', 'a horny dog', 'The Beast', 'a succulent that you overwatered', 'a shard of glass', 'a honeycomb', 'a half eaten sandwich', 'the worst, most disgusting, carnal fantasy you\'ve ever had',
+	      'a shit you definitely should have wiped'];
 
 // when
 var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in half an hour', 'in an hour', 'in a few hours', 'tonight', 'today', 'tomorrow', 'the day after tomorrow', 'exactly 30 minutes from now', 'in one week',
