@@ -45,9 +45,9 @@ var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double doub
 	      'hand sanitizer', 'yeast', 'magnets', 'rubiks cube', 'piss from the piss drawer', 'sad minion memes', 'sharp objects', 'a cat', 'an ICE detention center', 
 	      'a human child', 'a bullet', 'a rose', 'a gun', 'a bomb', 'a silent fart that smells really bad', 'a loud fart that goes unnoticed', 
 	      'a shit you dont have to wipe', 'a bottle of vodka', 'a field mouse', 'a barn cat', 'a 1999 Toyota Corolla', 'a semi truck full of eggs', 
-	      'the true meaning of Christmas', 'last year\'s cum sock (reborn)', 'last year\s cum sock (deceased)', 'the source of Kacey\'s power', 'the vomit coffin',
+	      'the true meaning of Christmas', 'last year\'s cum sock (reborn)', 'last year\'s cum sock (deceased)', 'the source of Kacey\'s power', 'the vomit coffin',
 	      'the manifestation of your innermost fears', 'the incarnation of guilt', 'a lesser manifestation of evil', 'origin of cum', 'an erect penis', 'a flaccid penis',
-	      ' a docile, but friendly penis', 'an aggressive penis', 'nothing. It\s nothing. Stop fucking asking!', 'an old pioneer survivalist strategy'];
+	      ' a docile, but friendly penis', 'an aggressive penis', 'nothing. It\'s nothing. Stop fucking asking!', 'an old pioneer survivalist strategy'];
 
 // when
 var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in half an hour', 'in an hour', 'in a few hours', 'tonight', 'today', 'tomorrow', 'the day after tomorrow', 'exactly 30 minutes from now', 'in one week',
@@ -63,8 +63,8 @@ var locations = ['the Grand Canyon', 'a sex dungeon',  'my sex dungeon', 'the mo
 	'Mystery Flesh Pit National Park, Texas', 'Hell', 'Heaven', 'Purgatory', 'Limbo (The outer border of Hell, not the game)', 'Limbo (The game, not the outer border of Hell)', 'de_dust2', '2Fort', 'gm_construct',
 	'Taco Bell:tm:', 'Mcdonalds:tm:', 'a strip club', 'my basement', 'a basement', 'a haunted house', 'my arms', 'my arms, bridal style', 'the Piss Drawer:tm:', 'Northern Undead Asylum', 'Anor Londo', 'Firelink Shrine',
 	'the cum sock', 'Lavender Town', 'Yharnam', 'Blood Gulch', 'Brazil', 'the alley behind Tescos', 'Gondor', 'the New California Republic', 'Kekistan', 'Shangri-La', 'Wakanda', 'Duckburg', 'Mos Eisley', 'Castle Rock',
-	'City 17', 'Night City', 'Raccoon City', 'Skyrim', 'Jame\'s bedroom', 'the toilet', 'the cum hamper', 'the piss drawer', 'my rectum', 'your ear', '6 feet underground', 'under AOC\'s feet', 'Atlantis', 'among the trees', 'North Korea'
-	 'screaming from within the vomit coffin', 'within Shaq\'s intercranial space', 'flailing endlessly through innumerable, spontaneous cycles of death and rebirth', 'within the fibers of Mario\'s mustache'];
+	'City 17', 'Night City', 'Raccoon City', 'Skyrim', 'Jame\'s bedroom', 'the toilet', 'the cum hamper', 'the piss drawer', 'my rectum', 'your ear', '6 feet underground', 'under AOC\'s feet', 'Atlantis', 'among the trees', 'North Korea',
+	'screaming from within the vomit coffin', 'within Shaq\'s intercranial space', 'flailing endlessly through innumerable, spontaneous cycles of death and rebirth', 'within the fibers of Mario\'s mustache'];
 
 // why
 var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
