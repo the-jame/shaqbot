@@ -56,7 +56,7 @@ var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in hal
      'when bernie sanders is elected', 'when you fucking do something about it yourself', 'when the imposter stops being sus', 'at twelve bong', 'when half life 3 comes out', 'yesterday', 'before you were born',
      'last tuesday', 'when daft punk breaks up... oh', 'whenever that franz dude got shot', 'at dinner time', 'when yandere simulator comes out', 'Bungie goes bankrupt', 'when Papa Biden gives me the stimmy wimmy uwu',
      'when James embraces the void', 'when the void calls me back', 'when Duman brings me the wine', 'whe Johoise brings me the wine', 'when the people revolt', 'the heat death of my anus', 'the heat death of your anus',
-     'at the beginning of the mass ejaculation event (tbd)', 'in the middle of the mass ejaculation event', 'at the end of the mass ejaculation event'];
+     'at the beginning of the mass ejaculation event (tbd)', 'in the middle of the mass ejaculation event', 'at the end of the mass ejaculation event', 'in 34 minutes and 19 seconds', 'at around tree fiddy', 'when ICP discovers how magnets work', 'when your shit smells like roses', 'when we are all vaccinated', 'when drumpf dies while taking a shit', 'in 3 days', 'in 7 weeks', 'in 2 months', 'in 5 years', 'one year from today this very minute', 'when i discover who the FUCK invented beans', 'when i die'];
 
 // where
 var locations = ['the Grand Canyon', 'a sex dungeon',  'my sex dungeon', 'the moon', 'the Epstein island', 'a gulag', 'Big Ben', 'Ireland', 'the bottom of the Atlantic Ocean', 'Ohio', 'Deep Stone Crypt', 'a Garfield comic',
