@@ -47,13 +47,13 @@ var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double doub
 	      'a shit you dont have to wipe', 'a bottle of vodka', 'a field mouse', 'a barn cat', 'a 1999 Toyota Corolla', 'a semi truck full of eggs', 
 	      'the true meaning of Christmas', 'last year\'s cum sock (reborn)', 'last year\'s cum sock (deceased)', 'the source of Kacey\'s power', 'the vomit coffin',
 	      'the manifestation of your innermost fears', 'the incarnation of guilt', 'a lesser manifestation of evil', 'origin of cum', 'an erect penis', 'a flaccid penis',
-	      ' a docile, but friendly penis', 'an aggressive penis', 'nothing. It\'s nothing. Stop fucking asking!', 'an old pioneer survivalist strategy', 'my left shoe', 
+	      'a docile, but friendly penis', 'an aggressive penis', 'nothing. It\'s nothing. Stop fucking asking!', 'an old pioneer survivalist strategy', 'my left shoe', 
 	      'a rock', 'a boulder', 'bees', 'hot sauce', 'scotch tape', 'a breathmint', 'a facemask', 'a half eaten bar of chapstick', 'some scrap metal', 'a used condom', 
               'a trashbag full of cum', 'a rusty bicycle', 'blood', 'tears of the natives', 'a crusty keyboard', 'a half eaten burrito', 'a mug of cold coffee', 
               'a nigerian prince in your spam folder', 'a job offer', 'nasal spray', 'a bidet that shoots milk', 'an old toothbrush', 'a pen that ran out of ink', 
               'tupperware full of moldy leftovers', 'a white flag', 'fake news', 'the coup perpetrated by fascist Trump supporters on the United States capitol on Jan 6, 2021', 'Microsoft Outlook 2013', 'lifesavers gummies', 'a kit kat bar', 
               'a newborn chimp', 'an adult boar', 'a dead cockroach', 'a horny dog', 'The Beast', 'a succulent that you overwatered', 'a shard of glass', 'a honeycomb', 'a half eaten sandwich', 'the worst, most disgusting, carnal fantasy you\'ve ever had',
-	      'a shit you definitely should have wiped', 'a shit you wish you didn\'t wipe', 'a protein bar that is well past the expiration date', 'a pair of shit-stained underwear', 'an asshole', 'a really nice business card', 'an electric fly swatter', 'a stress ball that oozes', 'a molotov cocktail'];
+	      'a shit you definitely should have wiped', 'a shit you wish you didn\'t wipe', 'a protein bar that is well past the expiration date', 'a pair of shit-stained underwear', 'an asshole', 'a really nice business card', 'an electric fly swatter', 'a stress ball that oozes', 'a molotov cocktail', 'an AK-47', 'a dirty old shoe', 'a hairball from the shower drain', 'a single atom', 'a greasy nude man', 'a puddle of cooking oil', 'a piss disc mid-air', 'a t-shirt cannon', 'a volleyball with a face'];
 
 // when
 var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in half an hour', 'in an hour', 'in a few hours', 'tonight', 'today', 'tomorrow', 'the day after tomorrow', 'exactly 30 minutes from now', 'in one week',
@@ -70,7 +70,8 @@ var locations = ['the Grand Canyon', 'a sex dungeon',  'my sex dungeon', 'the mo
 	'Taco Bell:tm:', 'Mcdonalds:tm:', 'a strip club', 'my basement', 'a basement', 'a haunted house', 'my arms', 'my arms, bridal style', 'the Piss Drawer:tm:', 'Northern Undead Asylum', 'Anor Londo', 'Firelink Shrine',
 	'the cum sock', 'Lavender Town', 'Yharnam', 'Blood Gulch', 'Brazil', 'the alley behind Tescos', 'Gondor','the New Califonia Republic', 'the New California Republic', 'Kekistan', 'Shangri-La', 'Wakanda', 'Duckburg', 'Mos Eisley', 'Castle Rock',
 	'City 17', 'Night City', 'Raccoon City', 'Skyrim', 'Jame\'s bedroom', 'the toilet', 'the cum hamper', 'the piss drawer', 'my rectum', 'your ear', '6 feet underground', 'under AOC\'s feet', 'Atlantis', 'among the trees', 'North Korea',
-	'screaming from within the vomit coffin', 'within Shaq\'s intercranial space', 'flailing endlessly through innumerable, spontaneous cycles of death and rebirth', 'within the fibers of Mario\'s mustache'];
+	'screaming from within the vomit coffin', 'within Shaq\'s intercranial space', 'flailing endlessly through innumerable, spontaneous cycles of death and rebirth', 'within the fibers of Mario\'s mustache',
+        'the bathroom at work', 'the trough urinal at the baseball stadium', 'ronald reagan\'s grave'];
 
 // why
 var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
