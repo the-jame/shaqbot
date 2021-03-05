@@ -41,22 +41,30 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah'
 	'kacey', 'oni', 'chris', 'broduck', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger', 'my left nut', 'god', 'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'socialists', 'nazis', 'communists', 'pikachu', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'gary', 'the shit stain in your underwear', 'a crusty sock', 'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'a taint hair', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker', 'Todd Howard', 'amogus', 'sus guy', 'jim halpert', 'popcat', 'shmedium', 'cheesy bread', 'some dumb binch', 'the CEO of Robinhood', 'AOC', 'ted cruz', 'j cole', 'elmer fudd', 'a cum stain', 'the inventor of Worms the video game', 'justin timberlake', 'some guy', 'a rando', 'that one friend who never interacts in discord', 'the pogchamp guy'];
 
 // what
-var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double double', 'french fries', 'a coffee', 'pikachu', 'hand lotion', 'nothing', 'alcohol', 'hand sanitizer', 'yeast', 'magnets', 'rubiks cube', 'piss from the piss drawer', 
-      'sad minion memes', 'sharp objects', 'a cat', 'an ICE detention center', 'a human child', 'a bullet', 'a rose', 'a gun', 'a bomb', 'a silent fart that smells really bad', 'a loud fart that goes unnoticed', 'a shit you dont have to wipe', 'a bottle of vodka', 'a field mouse', 'a barn cat', 'a 1999 Toyota Corolla', 'a semi truck full of eggs'];
+var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double double', 'french fries', 'a coffee', 'pikachu', 'hand lotion', 'nothing', 'alcohol', 
+	      'hand sanitizer', 'yeast', 'magnets', 'rubiks cube', 'piss from the piss drawer', 'sad minion memes', 'sharp objects', 'a cat', 'an ICE detention center', 
+	      'a human child', 'a bullet', 'a rose', 'a gun', 'a bomb', 'a silent fart that smells really bad', 'a loud fart that goes unnoticed', 
+	      'a shit you dont have to wipe', 'a bottle of vodka', 'a field mouse', 'a barn cat', 'a 1999 Toyota Corolla', 'a semi truck full of eggs', 
+	      'the true meaning of Christmas', 'last year\'s cum sock (reborn)', 'last year\s cum sock (deceased)', 'the source of Kacey\'s power', 'the vomit coffin',
+	      'the manifestation of your innermost fears', 'the incarnation of guilt', 'a lesser manifestation of evil', 'origin of cum', 'an erect penis', 'a flaccid penis',
+	      ' a docile, but friendly penis', 'an aggressive penis', 'nothing. It\s nothing. Stop fucking asking!', 'an old pioneer survivalist strategy'];
 
 // when
 var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in half an hour', 'in an hour', 'in a few hours', 'tonight', 'today', 'tomorrow', 'the day after tomorrow', 'exactly 30 minutes from now', 'in one week',
      'never', 'at an uncertain point in the annals of history', 'at tooth-hurty :tooth: :toothbrush:', 'time is merely a construct', 'TIME IS MERELY A CONSTRUCT', 'at six, gordon!', 'at 4:20 XDDDDDDD', 'on 4/20 XDDDDDDD',
      'when hell freezes over', 'when rush limbaugh died', 'when marvel vs capcom 4 comes out', 'when james stops bitching about sauce', 'when final fantasy 7 remake is finished', 'when team fortress 3 comes out',
      'when bernie sanders is elected', 'when you fucking do something about it yourself', 'when the imposter stops being sus', 'at twelve bong', 'when half life 3 comes out', 'yesterday', 'before you were born',
-     'last tuesday', 'when daft punk breaks up... oh', 'whenever that franz dude got shot', 'at dinner time', 'when yandere simulator comes out'];
+     'last tuesday', 'when daft punk breaks up... oh', 'whenever that franz dude got shot', 'at dinner time', 'when yandere simulator comes out', 'Bungie goes bankrupt', 'when Papa Biden gives me the stimmy wimmy uwu',
+     'when James embraces the void', 'when the void calls me back', 'when Duman brings me the wine', 'whe Johoise brings me the wine', 'when the people revolt', 'the heat death of my anus', 'the heat death of your anus',
+     'at the beginning of the mass ejaculation event (tbd)', 'in the middle of the mass ejaculation event', 'at the end of the mass ejaculation event'];
 
 // where
 var locations = ['the Grand Canyon', 'a sex dungeon',  'my sex dungeon', 'the moon', 'the Epstein island', 'a gulag', 'Big Ben', 'Ireland', 'the bottom of the Atlantic Ocean', 'Ohio', 'Deep Stone Crypt', 'a Garfield comic',
 	'Mystery Flesh Pit National Park, Texas', 'Hell', 'Heaven', 'Purgatory', 'Limbo (The outer border of Hell, not the game)', 'Limbo (The game, not the outer border of Hell)', 'de_dust2', '2Fort', 'gm_construct',
 	'Taco Bell:tm:', 'Mcdonalds:tm:', 'a strip club', 'my basement', 'a basement', 'a haunted house', 'my arms', 'my arms, bridal style', 'the Piss Drawer:tm:', 'Northern Undead Asylum', 'Anor Londo', 'Firelink Shrine',
 	'the cum sock', 'Lavender Town', 'Yharnam', 'Blood Gulch', 'Brazil', 'the alley behind Tescos', 'Gondor', 'the New California Republic', 'Kekistan', 'Shangri-La', 'Wakanda', 'Duckburg', 'Mos Eisley', 'Castle Rock',
-	'City 17', 'Night City', 'Raccoon City', 'Skyrim', 'Jame\'s bedroom', 'the toilet', 'the cum hamper', 'the piss drawer', 'my rectum', 'your ear', '6 feet underground', 'under AOC\'s feet', 'Atlantis', 'among the trees', 'North Korea'];
+	'City 17', 'Night City', 'Raccoon City', 'Skyrim', 'Jame\'s bedroom', 'the toilet', 'the cum hamper', 'the piss drawer', 'my rectum', 'your ear', '6 feet underground', 'under AOC\'s feet', 'Atlantis', 'among the trees', 'North Korea'
+	 'screaming from within the vomit coffin', 'within Shaq\'s intercranial space', 'flailing endlessly through innumerable, spontaneous cycles of death and rebirth', 'within the fibers of Mario\'s mustache'];
 
 // why
 var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
