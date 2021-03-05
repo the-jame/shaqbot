@@ -47,7 +47,7 @@ var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double doub
 	      'a shit you dont have to wipe', 'a bottle of vodka', 'a field mouse', 'a barn cat', 'a 1999 Toyota Corolla', 'a semi truck full of eggs', 
 	      'the true meaning of Christmas', 'last year\'s cum sock (reborn)', 'last year\'s cum sock (deceased)', 'the source of Kacey\'s power', 'the vomit coffin',
 	      'the manifestation of your innermost fears', 'the incarnation of guilt', 'a lesser manifestation of evil', 'origin of cum', 'an erect penis', 'a flaccid penis',
-	      ' a docile, but friendly penis', 'an aggressive penis', 'nothing. It\'s nothing. Stop fucking asking!', 'an old pioneer survivalist strategy', 'my left shoe', 'a rock', 'a boulder', 'bees', 'hot sauce', 'scotch tape', 'a breathmint', 'a facemask', 'a half eaten bar of chapstick'];
+	      ' a docile, but friendly penis', 'an aggressive penis', 'nothing. It\'s nothing. Stop fucking asking!', 'an old pioneer survivalist strategy', 'my left shoe', 'a rock', 'a boulder', 'bees', 'hot sauce', 'scotch tape', 'a breathmint', 'a facemask', 'a half eaten bar of chapstick', 'some scrap metal', 'a used condom', 'a trashbag full of cum', 'a rusty bicycle'];
 
 // when
 var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in half an hour', 'in an hour', 'in a few hours', 'tonight', 'today', 'tomorrow', 'the day after tomorrow', 'exactly 30 minutes from now', 'in one week',
