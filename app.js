@@ -51,7 +51,7 @@ var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double doub
 	      'a rock', 'a boulder', 'bees', 'hot sauce', 'scotch tape', 'a breathmint', 'a facemask', 'a half eaten bar of chapstick', 'some scrap metal', 'a used condom', 
               'a trashbag full of cum', 'a rusty bicycle', 'blood', 'tears of the natives', 'a crusty keyboard', 'a half eaten burrito', 'a mug of cold coffee', 
               'a nigerian prince in your spam folder', 'a job offer', 'nasal spray', 'a bidet that shoots milk', 'an old toothbrush', 'a pen that ran out of ink', 
-              'tupperware full of moldy leftovers', 'a white flag', 'fake news', 'the coup of Jan 6, 2021', 'Microsoft Outlook 2013', 'lifesavers gummies', 'a kit kat bar', 
+              'tupperware full of moldy leftovers', 'a white flag', 'fake news', 'the coup perpetrated by fascist Trump supporters on the United States capitol on Jan 6, 2021', 'Microsoft Outlook 2013', 'lifesavers gummies', 'a kit kat bar', 
               'a newborn chimp', 'an adult boar', 'a dead cockroach', 'a horny dog', 'The Beast', 'a succulent that you overwatered', 'a shard of glass', 'a honeycomb', 'a half eaten sandwich', 'the worst, most disgusting, carnal fantasy you\'ve ever had',
 	      'a shit you definitely should have wiped', 'a shit you wish you didn\'t wipe', 'a protein bar that is well past the expiration date'];
 
