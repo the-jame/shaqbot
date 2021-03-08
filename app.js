@@ -51,9 +51,12 @@ var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double doub
 	      'a rock', 'a boulder', 'bees', 'hot sauce', 'scotch tape', 'a breathmint', 'a facemask', 'a half eaten bar of chapstick', 'some scrap metal', 'a used condom', 
               'a trashbag full of cum', 'a rusty bicycle', 'blood', 'tears of the natives', 'a crusty keyboard', 'a half eaten burrito', 'a mug of cold coffee', 
               'a nigerian prince in your spam folder', 'a job offer', 'nasal spray', 'a bidet that shoots milk', 'an old toothbrush', 'a pen that ran out of ink', 
-              'tupperware full of moldy leftovers', 'a white flag', 'fake news', 'the coup perpetrated by fascist Trump supporters on the United States capitol on Jan 6, 2021', 'Microsoft Outlook 2013', 'lifesavers gummies', 'a kit kat bar', 
-              'a newborn chimp', 'an adult boar', 'a dead cockroach', 'a horny dog', 'The Beast', 'a succulent that you overwatered', 'a shard of glass', 'a honeycomb', 'a half eaten sandwich', 'the worst, most disgusting, carnal fantasy you\'ve ever had',
-	      'a shit you definitely should have wiped', 'a shit you wish you didn\'t wipe', 'a protein bar that is well past the expiration date', 'a pair of shit-stained underwear', 'an asshole', 'a really nice business card', 'an electric fly swatter', 'a stress ball that oozes', 'a molotov cocktail', 'an AK-47', 'a dirty old shoe', 'a hairball from the shower drain', 'a single atom', 'a greasy nude man', 'a puddle of cooking oil', 'a piss disc mid-air', 'a t-shirt cannon', 'a volleyball with a face', 'in n out fries'];
+              'tupperware full of moldy leftovers', 'a white flag', 'fake news', 'the coup perpetrated by fascist Trump supporters on the United States capitol on Jan 6, 2021',
+              'Microsoft Outlook 2013', 'lifesavers gummies', 'a kit kat bar', 'a newborn chimp', 'an adult boar', 'a dead cockroach', 'a horny dog', 'The Beast',
+              'a succulent that you overwatered', 'a shard of glass', 'a honeycomb', 'a half eaten sandwich', 'the worst, most disgusting, carnal fantasy you\'ve ever had',
+	      'a shit you definitely should have wiped', 'a shit you wish you didn\'t wipe', 'a protein bar that is well past the expiration date', 'a pair of shit-stained underwear',
+              'an asshole', 'a really nice business card', 'an electric fly swatter', 'a stress ball that oozes', 'a molotov cocktail', 'an AK-47', 'a dirty old shoe', 'a hairball from the shower drain',
+              'a single atom', 'a greasy nude man', 'a puddle of cooking oil', 'a piss disc mid-air', 'a t-shirt cannon', 'a volleyball with a face', 'in n out fries', 'cheam creems', 'spinch', 'ranibow sprimkle', 'chichen nuggest'];
 
 // when
 var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in half an hour', 'in an hour', 'in a few hours', 'tonight', 'today', 'tomorrow', 'the day after tomorrow', 'exactly 30 minutes from now', 'in one week',
@@ -1005,6 +1008,7 @@ client.on("message", async message => {
 
 		  
     case 'who':
+    case 'whois':
       var randWho = Math.floor((Math.random() * (subject.length - 1)));
       if (typeof args[0] === 'undefined') { message.channel.send(subject[randWho] + '.',{tts:true}); break;}
        for (b=0; b<args.length; b++)
