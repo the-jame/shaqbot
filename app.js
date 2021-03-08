@@ -1,14 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-//client.music = require("discord.js-musicbot-v2");
-
-// emoji that goes in the post title
-const tt = '⭐';
-
 let settings;
 let owner;
-let YTAPI = '';
 let token = '';
 let wut1;
 let wut2;
@@ -18,12 +12,10 @@ let huh;
 let idleE;
 let realshit;
 let ignored = 0;
-let lol = 0;		// disabled by default
-let idle = 0;		// disabled by default
+let lol = 0;
+let idle = 0;
 let scanAll = 1;
-let amogus = 0;
-let sus = 0;
-let boisTTS = 1;	// enabled by default
+let boisTTS = 1;
 
 let pungent = 'BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren\'t I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```';
 
@@ -171,7 +163,7 @@ function login() {
 
 // start bot
 client.on('ready', () => {
-  console.log(`SHAQ has started with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} servers.\n`);
+  console.log(`Shaq started with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} servers.\n`);
   realshit = client.emojis.cache.get('487855131996585994');
   wut1 = client.emojis.cache.get('431701745329111041');
   wut2 = client.emojis.cache.get('431701745014669314');
@@ -186,57 +178,18 @@ client.on('ready', () => {
 
   var ballsRand = Math.floor((Math.random() * (69 - 1)));
 
-
-  //client.channels.get('95702402253983744').send(`${realshit} **SHAQTIVATION COMPLETE** ${realshit}`);
   client.user.setActivity(`with ${ballsRand} balls.`, { type: 'PLAYING' })
-  /*client.music.start(client, {
 
-  // Set the api key used for YouTube!
-  youtubeKey: settings.YTAPI,
-  insertMusic: true,
-  requesterName: true,
-  logging: false,
-  musicPresence: true,
-  // The PLAY command Object.
-  play: {
-    // Usage text for the help command.
-    usage: "{{prefix}}play some tunes",
-    // Whether or not to exclude the command from the help command.
-    exclude: false
-  },
-
-  // Make it so anyone in the voice channel can skip the
-  // currently playing song.
-  anyoneCanSkip: true,
-
-  // Make it so the owner (you) bypass permissions for music.
-  ownerOverMember: true,
-  ownerID: settings.james,
-
-  botPrefix: "=",
-});*/
 })
 
 client.on("message", async message => {
-  // This event will run on every single message received, from any channel or DM.
 
   if(message.author.bot || message.author.id == ignored) return;
 
   if(message.author.presence.status == 'idle'){
     if(idle == 1) {message.react(idleE);}
-    //message.delete().catch(O_o=>{});
-    //message.author.sendMessage("Aren't you idle? :thinking:");
     return;
    }
-
-  //if(message.content.toLowerCase() == 'amogus' && amogus == 1){
-  //  message.react(amogusE);
-  //  return;
-  // }
-  //if(message.content.toLowerCase() == 'sus' && sus == 1){
-  //  message.react(susE);
-  //  return;
-  //}
 
   if(message.content.toLowerCase() == 'lol' && lol == 1){
     setTimeout(()=> {
@@ -274,40 +227,19 @@ client.on("message", async message => {
   switch(command) {
     case 'ms': if(message.author.id != owner){break;} message.channel.send(new Date().getTime() - message.createdTimestamp + " ms"); break;
 
-    case 'play': break;
     case 'memes':
-    case 'list':
+    case 'memelist':
     case 'commands':
     case 'pics':
     case 'pictures':
     case 'commandlist':
+    case 'memelist':
       message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
       message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems");
       break;
 
 
     // MEME TEXT
-    case 'corn':
-      const embed = {
-        "title": "Corn is nasty",
-        "description": "\n\n\n[->  original message](https://discordapp.com/channels/95702402253983744/95702402253983744/440949926143328268)",
-        "color": 15921246,
-        "timestamp": "2018-05-01T21:42:55.506Z",
-        "footer": {
-          "icon_url": "https://cdn.discordapp.com/avatars/96492725406281728/537b1ae185a24308310dcbd5fa3af37c.png",
-          "text": "sent"
-        },
-        "thumbnail": {
-          "url": "https://www.eatnpark.com/UserFiles/Menu/CornOLO.jpg"
-        },
-        "author": {
-          "name": "Sunder",
-          "url": "https://discordapp.com",
-          "icon_url": "https://cdn.discordapp.com/avatars/96492725406281728/537b1ae185a24308310dcbd5fa3af37c.png"
-        }
-      };      //message.channel.send({ embed });
-      message.channel.send("\"Corn was domesticated about 10,000 years ago in what is now MEXICO.\" \n- <https://en.wikipedia.org/wiki/Maize#History>");
-      break;
 
     case 'plex':
       const plexEmoji = client.emojis.cache.get('628993764173807636');
@@ -335,35 +267,7 @@ client.on("message", async message => {
       message.channel.send(uwus[uwuRand]);
       break;
 
-    case 'bighio':
-      message.delete().catch(O_o=>{});
 
-      const ohio1 = client.emojis.cache.get('642164336390832138');
-      const ohio2 = client.emojis.cache.get('642164350362320896');
-      const ohio3 = client.emojis.cache.get('642164360709537802');
-      const ohio4 = client.emojis.cache.get('642164371841220608');
-      const ohio5 = client.emojis.cache.get('642164380867362826');
-      const ohio6 = client.emojis.cache.get('642164393823698954');
-      const ohio7 = client.emojis.cache.get('642164405806563358');
-      const ohio8 = client.emojis.cache.get('642164415646531614');
-      const ohio9 = client.emojis.cache.get('642164426966958120');
-      const ohio10 = client.emojis.cache.get('642164436161003547');
-      const ohio11 = client.emojis.cache.get('642164446067949618');
-
-      message.channel.send(`${ohio1}${ohio2}${ohio3}${ohio4}\n${ohio5}${ohio6}${ohio6}${ohio7}\n${ohio5}${ohio6}${ohio6}${ohio8}\n${ohio9}${ohio10}${ohio11}`);
-      break;
-
-    case 'pleading':
-    case 'plead':
-     setTimeout(()=> {
-     clearTimeout(pleading);
-     }, 6400);
-     message.channel.send(`:pleading_face:`)
-     .then((msg)=> {
-     pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 400)
-     }); break;
-
-    // MEME IMAGES
     case 'breasts':
       message.channel.send({files: ["img/kingofbreasts.jpg"]});
       break;
@@ -757,10 +661,6 @@ client.on("message", async message => {
 	// zzzzz endofmeme newest latest recent
 
 
-
-
-
-    // SET OWN ROLE
     // setrole
     case 'setrole':
       let newRole = args.join(" ");
@@ -856,7 +756,6 @@ client.on("message", async message => {
          {
           pollEmbed.addField(pollEmoji[k],pollAnswers[k]);
          }
-
       message.delete().catch(O_o=>{});
       message.channel.send(pollEmbed).then(pollEmbed => {
        for(let b=0;b<pollNum;b++){
@@ -890,7 +789,6 @@ client.on("message", async message => {
 
     // howdy
     case 'howdy':
-      //This is Jimmy trying to do something very basic
       let cowboyphrases = ['Howdy partner \:cowboy:', 'H\'lo :cowboy:', 'This town ain\'t big enough for the two of us :cowboy:', '_a tumbleweed rolls by_', 'It\'s high noon :cowboy:'];
       let howdyN = Math.floor((Math.random() * (cowboyphrases.length - 1)));
       message.channel.send(cowboyphrases[howdyN]);
@@ -898,13 +796,11 @@ client.on("message", async message => {
 
     // when
     case 'when':
-      //This is Kacey being very cool and smart (and oni is ruining it)
       var num = Math.floor((Math.random() * (times.length - 1)));
       message.channel.send(capitalize(times[num]) + '.', {tts:true});
       break;
 
     // where
-    // It's Oni time
     case 'where':
       let randWhere = Math.floor((Math.random() * (locations.length - 1)));
       message.channel.send(capitalize(locations[randWhere]) + '.', {tts:true});
@@ -1022,8 +918,7 @@ client.on("message", async message => {
         else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
         else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
         else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
-	else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
-
+		else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
       }
 
       let whom = args.join(" ");
@@ -1091,7 +986,7 @@ client.on("message", async message => {
       message.channel.send(str, {tts: true});
       break;
 
-    // how many pipo
+    // how many things there ams
     case 'counts':
     case 'count':
       var whoSize = subject.length;
@@ -1103,10 +998,6 @@ client.on("message", async message => {
       message.channel.send(`There are\n\`${whoSize} people\n${whatSize} things\n${whenSize} times\n${whereSize} locations\n${whySize} reasons\n${sizedBalls} ballsizes\`\nin the shaq brain.`);
       break;
 
-    //case 'sizes':
-      //let ballCount = ballsizes.length;
-      //message.channel.send (`There are ${ballCount} ball sizes in the shaq db.`);
-      //break;
 
     case 'ping':
     //Ping someone with more flavor
@@ -1184,6 +1075,35 @@ client.on("message", async message => {
         laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 1200)
      });
      break;
+	 
+  case 'bighio':
+      message.delete().catch(O_o=>{});
+
+      const ohio1 = client.emojis.cache.get('642164336390832138');
+      const ohio2 = client.emojis.cache.get('642164350362320896');
+      const ohio3 = client.emojis.cache.get('642164360709537802');
+      const ohio4 = client.emojis.cache.get('642164371841220608');
+      const ohio5 = client.emojis.cache.get('642164380867362826');
+      const ohio6 = client.emojis.cache.get('642164393823698954');
+      const ohio7 = client.emojis.cache.get('642164405806563358');
+      const ohio8 = client.emojis.cache.get('642164415646531614');
+      const ohio9 = client.emojis.cache.get('642164426966958120');
+      const ohio10 = client.emojis.cache.get('642164436161003547');
+      const ohio11 = client.emojis.cache.get('642164446067949618');
+
+      message.channel.send(`${ohio1}${ohio2}${ohio3}${ohio4}\n${ohio5}${ohio6}${ohio6}${ohio7}\n${ohio5}${ohio6}${ohio6}${ohio8}\n${ohio9}${ohio10}${ohio11}`);
+      break;
+
+  case 'pleading':
+  case 'plead':
+     setTimeout(()=> {
+     clearTimeout(pleading);
+     }, 6400);
+     message.channel.send(`:pleading_face:`)
+     .then((msg)=> {
+     pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 400)
+     }); break;
+ 
   case 'look':
   case 'stretch':
   case 'neck':
