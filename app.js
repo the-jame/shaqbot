@@ -188,8 +188,8 @@ client.on("message", async message => {
 
   if(message.author.bot || message.author.id == ignored) return;
 
-  if(message.author.presence.status == 'idle'){
-    if(idle == 1) {message.react(idleE);}
+  if(idle==1){
+    if{message.react(idleE);}
     return;
    }
 
@@ -1147,7 +1147,7 @@ client.on("message", async message => {
 	    // final stage
         setTimeout(function() {
            msg.edit(philipCenter)
-        }, 1300)
+        }, 3200)
       }); break;
 
   case 'look':
