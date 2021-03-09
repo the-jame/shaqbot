@@ -986,6 +986,9 @@ client.on("message", async message => {
       break;
 
     // uuu uu u
+    case 'uuuuuuuuuu':
+    case 'uuuuuuuuu':
+    case 'uuuuuuuu':
     case 'uuuuuuu':
     case 'uuuuuu':
     case 'uuuuu':
