@@ -1119,14 +1119,26 @@ client.on("message", async message => {
       then.(msg => {
         setTimeout(function() {
           msg.edit(`${philipR}`)
-        }, 1000);
+        }, 700);
         setTimeout(function() {
           msg.edit(`${philipL}`)
         }, 1000);
-        
+	setTimeout(function() {
+          msg.edit(`${philipR}`)
+        }, 500);
+        setTimeout(function() {
+          msg.edit(`${philipL}`)
+        }, 1200);
+	setTimeout(function() {
+          msg.edit(`${philipR}`)
+        }, 200);
+        setTimeout(function() {
+          msg.edit(`${philipL}`)
+        }, 1400);
+        // final stage
         setTimeout(function() {
            msg.edit(philipCenter)
-        }, 1000)
+        }, 1300)
       }); break;
 
   case 'look':
