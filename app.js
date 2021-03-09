@@ -174,6 +174,7 @@ client.on('ready', () => {
   pleadah = client.emojis.cache.get('665307736866684968');
   philipL = client.emojis.cache.get('818651366250643466');
   philipR = client.emojis.cache.get('818650382472314911');
+  philipC = client.emojis.cache.get('818649301802156094');
   thinkAss = client.emojis.cache.get('813835069780918304');
   amogusE = client.emojis.cache.get('811734705807294574');
   susE = client.emojis.cache.get('811814942939807754');
@@ -1107,6 +1108,20 @@ client.on("message", async message => {
      .then((msg)=> {
      pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 400)
      }); break;
+
+  case 'asscheek':
+  case 'asscrack':
+    philipLeft = `${philipL} ${thinkAss}`;
+    philipRight = `${philipR} ${thinkAss}`;
+    philipCenter = `${philipC} ${thinkAss}`;
+
+     setTimeout(()=> {
+     clearTimeout(crack);
+     }, 16200);
+     message.channel.send(philipLeft)
+     .then((msg)=> {
+     crack = setInterval(function() {if(msg.content.includes(philipLeft)) msg.edit(philipRight); else msg.edit(philipLeft);}, 1200)
+     }); message.channel.edit (philipCenter); break;
 
   case 'look':
   case 'stretch':
