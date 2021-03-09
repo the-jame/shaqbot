@@ -189,7 +189,7 @@ client.on("message", async message => {
   if(message.author.bot || message.author.id == ignored) return;
 
   if(idle==1){
-    if{message.react(idleE);}
+    message.react(idleE);
     return;
    }
 
@@ -939,6 +939,7 @@ client.on("message", async message => {
     case 'am':
     case 'should':
     case 'is':
+    case 'would':
     case 'do':
     case 'are':
     case 'were':
