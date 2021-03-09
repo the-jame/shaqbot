@@ -1115,26 +1115,26 @@ client.on("message", async message => {
     philipRight = `${philipR} ${thinkAss}`;
     philipCenter = `${philipC} ${thinkAss}`;
 
-    message.channel.send(`${philipL}`)
-      then.(msg => {
+    message.channel.send(philipLeft)
+      .then((msg) => {
         setTimeout(function() {
-          msg.edit(`${philipR}`)
-        }, 700);
+          msg.edit(philipRight)
+        }, 1400);
         setTimeout(function() {
-          msg.edit(`${philipL}`)
-        }, 1000);
+          msg.edit(philipLeft)
+        }, 1800);
 	setTimeout(function() {
-          msg.edit(`${philipR}`)
-        }, 500);
+          msg.edit(philipRight)
+        }, 2400);
         setTimeout(function() {
-          msg.edit(`${philipL}`)
+          msg.edit(philipLeft)
         }, 1200);
 	setTimeout(function() {
-          msg.edit(`${philipR}`)
-        }, 200);
+          msg.edit(philipRight)
+        }, 900);
         setTimeout(function() {
-          msg.edit(`${philipL}`)
-        }, 1400);
+          msg.edit(philipLeft)
+        }, 1100);
         // final stage
         setTimeout(function() {
            msg.edit(philipCenter)
