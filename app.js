@@ -172,14 +172,15 @@ client.on('ready', () => {
   huh = client.emojis.cache.get('431693012788314132');
   idleE = client.emojis.cache.get('817148372057849866');
   pleadah = client.emojis.cache.get('665307736866684968');
+  philipL = client.emojis.cache.get('818651366250643466');
+  philipR = client.emojis.cache.get('818650382472314911');
+  thinkAss = client.emojis.cache.get('813835069780918304');
   amogusE = client.emojis.cache.get('811734705807294574');
   susE = client.emojis.cache.get('811814942939807754');
   owner = settings.james;
 
   var ballsRand = Math.floor((Math.random() * (69 - 1)));
-
   client.user.setActivity(`with ${ballsRand} balls.`, { type: 'PLAYING' })
-
 })
 
 client.on("message", async message => {
@@ -1106,7 +1107,7 @@ client.on("message", async message => {
      .then((msg)=> {
      pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 400)
      }); break;
- 
+
   case 'look':
   case 'stretch':
   case 'neck':
