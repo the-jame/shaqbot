@@ -1121,7 +1121,13 @@ client.on("message", async message => {
      message.channel.send(philipLeft)
      .then((msg)=> {
      crack = setInterval(function() {if(msg.content.includes(philipLeft)) msg.edit(philipRight); else msg.edit(philipLeft);}, 1200)
-     }); message.edit(philipCenter); break;
+     });
+
+     message.channel.messages.fetch({limit:1})
+       .then(botmsg => {
+          const philip = botmsg.filter(msg => msg.author.bot);
+          botmsg.edit(philipCenter);
+       }); break;
 
   case 'look':
   case 'stretch':
