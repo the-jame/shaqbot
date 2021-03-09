@@ -971,6 +971,9 @@ client.on("message", async message => {
       break;
 
     case 'iscaonfire':
+    case 'iscaliforniaonfire':
+    case 'californiafire':
+    case 'calfire':
       const url = 'http://iscaliforniaonfire.com';
       async function fetchHTML(url){
         const { data } = await axios.get(url);
