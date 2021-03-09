@@ -1121,7 +1121,7 @@ client.on("message", async message => {
      message.channel.send(philipLeft)
      .then((msg)=> {
      crack = setInterval(function() {if(msg.content.includes(philipLeft)) msg.edit(philipRight); else msg.edit(philipLeft);}, 1200)
-     }); message.channel.edit (philipCenter); break;
+     }); message.edit(philipCenter); break;
 
   case 'look':
   case 'stretch':
