@@ -1125,17 +1125,26 @@ client.on("message", async message => {
         }, 1800);
 	setTimeout(function() {
           msg.edit(philipRight)
-        }, 2400);
+        }, 1200);
         setTimeout(function() {
           msg.edit(philipLeft)
-        }, 1200);
+        }, 1700);
 	setTimeout(function() {
           msg.edit(philipRight)
         }, 900);
         setTimeout(function() {
           msg.edit(philipLeft)
         }, 1100);
-        // final stage
+	setTimeout(function() {
+          msg.edit(philipRight)
+        }, 1300);        
+	setTimeout(function() {
+          msg.edit(philipLeft)
+        }, 1100);
+	setTimeout(function() {
+          msg.edit(philipRight)
+        }, 1200);
+	    // final stage
         setTimeout(function() {
            msg.edit(philipCenter)
         }, 1300)
