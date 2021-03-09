@@ -1115,19 +1115,19 @@ client.on("message", async message => {
     philipRight = `${philipR} ${thinkAss}`;
     philipCenter = `${philipC} ${thinkAss}`;
 
-     setTimeout(()=> {
-     clearTimeout(crack);
-     }, 16200);
-     message.channel.send(philipLeft)
-     .then((msg)=> {
-     crack = setInterval(function() {if(msg.content.includes(philipLeft)) msg.edit(philipRight); else msg.edit(philipLeft);}, 1200)
-     });
-
-     message.channel.messages.fetch({limit:1})
-       .then(botmsg => {
-          const philip = botmsg.filter(msg => msg.author.bot);
-          botmsg.edit(philipCenter);
-       }); break;
+    message.channel.send(`${philipL}`)
+      then.(msg => {
+        setTimeout(function() {
+          msg.edit(`${philipR}`)
+        }, 1000);
+        setTimeout(function() {
+          msg.edit(`${philipL}`)
+        }, 1000);
+        
+        setTimeout(function() {
+           msg.edit(philipCenter)
+        }, 1000)
+      }); break;
 
   case 'look':
   case 'stretch':
