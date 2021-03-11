@@ -14,7 +14,7 @@ let eyesleft;
 let huh;
 let idleE;
 let realshit;
-let ignored = 0;
+let ignored;
 let lol = 0;
 let idle = 0;
 let scanAll = 1;
@@ -37,12 +37,12 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah'
 
 // what
 var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double double', 'french fries', 'a coffee', 'hand lotion', 'nothing', 'alcohol', 
-	      'hand sanitizer', 'yeast', 'magnets', 'rubiks cube', 'piss from the piss drawer', 'sad minion memes', 'sharp objects', 'a cat', 'an ICE detention center', 
+	      'hand sanitizer', 'yeast', 'magnets', 'a solved rubiks cube', 'piss from the piss drawer', 'sad minion memes', 'sharp objects', 'a cat', 'an ICE detention center', 
 	      'a human child', 'a bullet', 'a rose', 'a gun', 'a bomb', 'a silent fart that smells really bad', 'a loud fart that goes unnoticed', 
 	      'a shit you dont have to wipe', 'a bottle of vodka', 'a field mouse', 'a barn cat', 'a 1999 Toyota Corolla', 'a semi truck full of eggs', 
 	      'the true meaning of Christmas', 'last year\'s cum sock (reborn)', 'last year\'s cum sock (deceased)', 'the source of Kacey\'s power', 'the vomit coffin',
-	      'the manifestation of your innermost fears', 'the incarnation of guilt', 'a lesser manifestation of evil', 'origin of cum', 'an erect penis', 'a flaccid penis',
-	      'a docile, but friendly penis', 'an aggressive penis', 'nothing. It\'s nothing. Stop fucking asking!', pungent, 'an old pioneer survivalist strategy', 'my left shoe', 
+	      'the manifestation of your innermost fears', 'the incarnation of guilt', 'a lesser manifestation of evil', 'the origin of cum', 'an erect penis', 'a flaccid penis',
+	      'a docile, but friendly penis', 'an aggressive penis', 'nothing. It\'s nothing. Stop fucking asking!', 'an old pioneer survivalist strategy', 'my left shoe', 
 	      'a rock', 'a boulder', 'bees', 'hot sauce', 'scotch tape', 'a breathmint', 'a facemask', 'a half eaten bar of chapstick', 'some scrap metal', 'a used condom', 
               'a trashbag full of cum', 'a rusty bicycle', 'blood', 'tears of the natives', 'a crusty keyboard', 'a half eaten burrito', 'a mug of cold coffee', 
               'a nigerian prince in your spam folder', 'a job offer', 'nasal spray', 'a bidet that shoots milk', 'an old toothbrush', 'a pen that ran out of ink', 
@@ -50,7 +50,7 @@ var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double doub
               'Microsoft Outlook 2013', 'lifesavers gummies', 'a kit kat bar', 'a newborn chimp', 'an adult boar', 'a dead cockroach', 'a horny dog', 'The Beast',
               'a succulent that you overwatered', 'a shard of glass', 'a honeycomb', 'a half eaten sandwich', 'the worst, most disgusting, carnal fantasy you\'ve ever had',
 	      'a shit you definitely should have wiped', 'a shit you wish you didn\'t wipe', 'a protein bar that is well past the expiration date', 'a pair of shit-stained underwear',
-              'an asshole', 'a really nice business card', 'an electric fly swatter', 'a stress ball that oozes', 'a molotov cocktail', 'an AK-47', 'a dirty old shoe', 'a hairball from the shower drain',
+              'an asshole', 'a really nice business card', 'an electric fly swatter', 'a stress ball that oozes blood', 'a molotov cocktail', 'an AK-47', 'a dirty old shoe', 'a hairball from the shower drain',
               'a single atom', 'a greasy nude man', 'a puddle of cooking oil', 'a piss disc mid-air', 'a t-shirt cannon', 'a volleyball with a face', 'in n out fries', 'cheam creems', 'spinch', 'ranibow sprimkle', 'chichen nuggest', 'mcdonald\'s sprite', 'chick fil a sauce', 'poopy doopy wee wee haha', 'a jar of honey', 'a comfortable sweater', 'an ugly, scratchy sweater', 'a water balloon full of vinegar', 'a can of pringles but they are all broken', 'a dead pig', 'dirty stripper shoes', 'super glue', 'a pen that ran dry ages ago'];
 
 // when
@@ -191,20 +191,10 @@ client.on("message", async message => {
 
   if(message.author.bot || message.author.id == ignored) return;
 
-  if(idle==1){
+  if(message.author.presence.status == 'idle' && idle == 1){
     message.react(idleE);
     return;
    }
-
-  if(message.content.toLowerCase() == 'lol' && lol == 1){
-    setTimeout(()=> {
-  clearTimeout(laughing);
-  }, 2200);
-  message.channel.send(`:smile:`)
-  .then((msg)=> {
-  laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 500)
-  });}
-
 
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
@@ -673,6 +663,9 @@ client.on("message", async message => {
     case 'peanutbutter':
       message.channel.send ({files: ["img/pb.png"]});
       break;
+    case 'gay':
+      message.channel.send ({files: ["img/gay.png"]});
+      break;
 	// zzzzz endofmeme newest latest recent
 
 
@@ -687,6 +680,7 @@ client.on("message", async message => {
     case 'ignore':
       if (message.author.id != settings.james) break;
       var ignored = args[0];
+      console.log(ignored);
       message.channel.send(`now ignoring ${ignored}`);
       break;
 
