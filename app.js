@@ -956,7 +956,7 @@ client.on("message", async message => {
         'Kind of.','Certainly.','Certainly not.', 'HELL no.','Most likely.','It is decidedly so.',`${huh}`,'Without a doubt.',
         'Yes - DEFINITELY','You may rely on it.','Outlook is good.','Yes.','Signs point to yes.','Ask again later.',
         'Better not tell you now.','Concentrate and ask again.','Don\'t count on it.','My reply is no.','My sources say no.',
-        'Outlook is not good.','Very doubtful.','Thank you Kanye, very cool!', 'Sometimes... (shhh)'];
+        'Outlook is not good.','Very doubtful.','Thank you Kanye, very cool!', 'Sometimes... (shhh)', 'Why not??', 'Absolutely not.', 'Yes. Now leave me alone.', 'Ehhhh', 'Surely!'];
       var num = Math.floor((Math.random() * (eightball.length - 1)));
       message.channel.send(capitalize(eightball[num]), {tts: true});
       return;
