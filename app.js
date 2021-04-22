@@ -950,6 +950,7 @@ client.on("message", async message => {
     case '8':
     case 'can':
     case 'am':
+    case 'may':
     case 'should':
     case 'is':
     case 'would':
@@ -1145,7 +1146,7 @@ client.on("message", async message => {
   case 'asscrack':
     philipLeft = `${philipL} ${thinkAss}`;
     philipRight = `${philipR} ${thinkAss}`;
-    philipCenter = `${philipC} ${thinkAss}`;
+    philipCenter = `:coffin: ${thinkAss}`;
 
     message.channel.send(philipLeft)
       .then((msg) => {
