@@ -230,7 +230,7 @@ client.on("message", async message => {
     case 'commandlist':
     case 'memelist':
       message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`spoken` - Shaq has spoken\n`shaqspoken` - \'Shaq\' has spoken.\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
-      message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke");
+      message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`no2/pointno` - dr manhattan saying no");
       break;
 
 
@@ -674,7 +674,20 @@ client.on("message", async message => {
     case 'monkey':
       message.channel.send ({files: ["img/monkey.png"]});
       break;
-
+    case 'icecream':
+    case 'snowflake':
+      message.channel.send ({files: ["img/icecream.png"]});
+      break;
+    case 'misogyny':
+    case 'misogynyisshowing':
+    case 'misogynyshowing':
+      message.channel.send ({files: ["img/mysogyny.png"]});
+      break;
+    case 'nopoint':
+    case 'pointno':
+    case 'no2':
+      message.channel.send ({files: ["img/nopoint.png"]});
+      break;
 	// zzzzz endofmeme newest latest recent
 
 
@@ -729,9 +742,10 @@ client.on("message", async message => {
     // poll
     case 'poll':
       let endOfQuestion = 1 + args.indexOf(';');
+      if(args.indexOf(';') == -1){ endOfQuestion = 1 + args.indexOf(':');};
       	if (endOfQuestion == -1 || endOfQuestion === args.length) {
 	    message.delete().catch(O_o=>{});
-	    message.channel.send('Correct format is: `=poll your question `;` option, option, ...`');
+	    message.channel.send('Correct format is: `=poll your question ; option, option, ...` (note the spacing!!)');
 	    break;
 	    };
       let qLength = endOfQuestion - 1;
@@ -743,7 +757,7 @@ client.on("message", async message => {
       let pollNum = pollAnswers.length;
 	if (pollNum <2){
 	    message.delete().catch(O_o=>{});
-	    message.channel.send('Correct format is: `=poll ask your question here : option, option, option, etc`');
+	    message.channel.send('Correct format is: `=poll ask your question here ; option, option, option, etc` (note the spacing!!)');
 	    break;
             };
       let pollTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
@@ -927,7 +941,6 @@ client.on("message", async message => {
 		  
     case 'who':
     case 'whom':
-    case 'whois':
       var randWho = Math.floor((Math.random() * (subject.length - 1)));
       if (typeof args[0] === 'undefined') { message.channel.send(subject[randWho] + '.',{tts:true}); break;}
        for (b=0; b<args.length; b++)
@@ -949,6 +962,7 @@ client.on("message", async message => {
     case '8ball':
     case '8':
     case 'can':
+    case 'if':
     case 'am':
     case 'may':
     case 'should':
