@@ -1057,7 +1057,7 @@ client.on("message", async message => {
       var whereSize = locations.length;
       var whySize = reasons.length;
       var sizedBalls = ballsizes.length;
-      message.channel.send(`There are\n\`${whoSize} people\n${whatSize} things\n${whenSize} times\n${whereSize} locations\n${whySize} reasons\n${sizedBalls} ballsizes\`\nin the shaq brain.`);
+      message.channel.send(`There are\n\`${whoSize} people\n${whatSize} things\n${whenSize} times\n${whereSize} locations\n${whySize} reasons\n${sizedBalls} ballsizes\`\nin the shaqverse.`);
       break;
 
 
