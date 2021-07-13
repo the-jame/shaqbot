@@ -703,7 +703,7 @@ client.on("message", async message => {
       break;
     case 'shroom':
     case 'kys':
-      message.channel.send ({files: ["img/shroom.jpg]});
+      message.channel.send ({files: ["img/shroom.jpg"]});
       break;
 
 	// zzzzz endofmeme newest latest recent
