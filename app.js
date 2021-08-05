@@ -181,6 +181,7 @@ client.on('ready', () => {
   thinkAss = client.emojis.cache.get('813835069780918304');
   amogusE = client.emojis.cache.get('811734705807294574');
   susE = client.emojis.cache.get('811814942939807754');
+  lin = client.emojis.cache.get('869621287700537409');
   owner = settings.james;
 
   var ballsRand = Math.floor((Math.random() * (99 - 1)));
@@ -208,6 +209,7 @@ client.on("message", async message => {
     {
      if((args2[a].toLowerCase() == 'amogus'))message.react(amogusE);
      else if((args2[a].toLowerCase() == 'sus')) message.react(susE);
+     else if((args2[a].toLowerCase() == 'lin')) message.react(lin);
     }
    }
   }
