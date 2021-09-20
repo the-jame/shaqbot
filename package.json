@@ -5,7 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "cheerio": "^1.0.0-rc.5",
     "discord.js": "^12.5.1",
     "discord.js-musicbot-v2": "^13.9.3",
