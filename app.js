@@ -868,6 +868,18 @@ client.on("message", async message => {
       client.channels.cache.get('866833451890245682').send(vidMessage);
     break;
 
+    case 'music':
+    case 'song':
+      if(!message.content.includes("http")){ message.delete().catch(O_o=>{}); break;}
+      let vidTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
+      let vidChn = message.channel.id;
+      let authorTS = `\`` + message.author.username + ` at ` + vidTS + ` in\`` + `<#${vidChn}>\n\n`;
+      args.unshift(authorTS);
+      let vidMessage = args.join(" ");
+      vidMessage.trim();
+      client.channels.cache.get('897315648559001620').send(vidMessage);
+    break;
+
     case 'random':
     case 'rand':
     case 'roll':
