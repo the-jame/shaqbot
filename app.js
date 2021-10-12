@@ -875,9 +875,9 @@ client.on("message", async message => {
       let songChn = message.channel.id;
       let authorMusicTS = `\`` + message.author.username + ` at ` + songTS + ` in\`` + `<#${songChn}>\n\n`;
       args.unshift(authorMusicTS);
-      let vidMessage = args.join(" ");
-      vidMessage.trim();
-      client.channels.cache.get('897315648559001620').send(vidMessage);
+      let songMessage = args.join(" ");
+      songMessage.trim();
+      client.channels.cache.get('897315648559001620').send(songMessage);
     break;
 
     case 'random':
