@@ -871,10 +871,10 @@ client.on("message", async message => {
     case 'music':
     case 'song':
       if(!message.content.includes("http")){ message.delete().catch(O_o=>{}); break;}
-      let vidTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
-      let vidChn = message.channel.id;
-      let authorTS = `\`` + message.author.username + ` at ` + vidTS + ` in\`` + `<#${vidChn}>\n\n`;
-      args.unshift(authorTS);
+      let songTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
+      let songChn = message.channel.id;
+      let authorMusicTS = `\`` + message.author.username + ` at ` + songTS + ` in\`` + `<#${songChn}>\n\n`;
+      args.unshift(authorMusicTS);
       let vidMessage = args.join(" ");
       vidMessage.trim();
       client.channels.cache.get('897315648559001620').send(vidMessage);
