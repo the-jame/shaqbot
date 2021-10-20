@@ -957,7 +957,7 @@ client.on("message", async message => {
     case 'ballsize':
     case 'bs':
       var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
-      if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; let beingSized = args.join(" "); if(beingSized !== ''){beingSized = beingSized += "'s";} message.channel.send(`Your${beingSized} ball size is ` + ballsizes[rand] +".", {tts: true}); ballCommand = true; return;}
+      if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; let beingSized = args.join(" "); if(beingSized !== ''){beingSized = beingSized += "'s";} if(ballCommand == true){message.channel.send(`Your${beingSized} ball size is ` + ballsizes[rand] +".", {tts: true});}if(ballCommand == false){ message.channel.send(`Your${beingSized} size is ` + ballsizes[rand] +".", {tts: true});} ballCommand = true; return;}
       else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq's" || args[0].toLowerCase() === "shaqs") {args[0] = "My";}
       else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined' && ballCommand == true) {message.channel.send("My ball size is " + ballsizes[rand] + ".", {tts: true}); ballCommand = true; return;}
       else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined' && ballCommand == false) {message.channel.send("My size is " + ballsizes[rand] + ".", {tts: true}); ballCommand = true; return;}
