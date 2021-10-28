@@ -265,6 +265,12 @@ client.on("messageCreate", async message => {
   let pref = settings.prefix;
   const commandList = ['${pref}b', '${pref}ballsize','${pref}why','${pref}y','${pref}uu','${pref}uuu','${pref}howdy','${pref}8]'];
 
+  function sayTTS(speak){
+    message.channel.send({ content: speak, tts: true });
+    return;
+  }
+
+
 
   // begin commands, search for //(command) to find
   switch(command) {
@@ -618,8 +624,7 @@ client.on("messageCreate", async message => {
       break;
     case 'oven':
       let ovenMessage='why do they call it oven when you of in the cold food of out hot eat the food';
-      await message.channel.send({ content: ovenMessage, tts: true });
-
+      sayTTS(ovenMessage);
       break;
     case 'mormon':
     case 'mormonism':
@@ -925,15 +930,16 @@ client.on("messageCreate", async message => {
     // when
     case 'when':
       var num = Math.floor((Math.random() * (times.length - 1)));
-      message.channel.send(capitalize(times[num]) + '.', {tts:true});
-      //await message.channel.send({ content: sayMessage, tts: true });
+      let whenMsg = capitalize(times[num]) + '.';
+      sayTTS(whenMsg);
 
       break;
 
     // where
     case 'where':
       let randWhere = Math.floor((Math.random() * (locations.length - 1)));
-      message.channel.send(capitalize(locations[randWhere]) + '.', {tts:true});
+      let whereMsg = capitalize(locations[randWhere]) + '.';
+      sayTTS(whereMsg);
       break;
 
     // what
@@ -942,12 +948,13 @@ client.on("messageCreate", async message => {
       //message.channel.send(capitalize(things[numThing]) + '.', {tts:true});
       //break;
       var needsIs;
+      let whatMsg = "";
       if(args[0]=='is') {needsIs=1;}
 
     case 'whatis':
       if(args[0]=='is') {args.shift();}
       let what2 = Math.floor((Math.random() * (things.length - 1)));
-      if (typeof args[0] === 'undefined') { message.channel.send(subject[what2] + '.',{tts:true}); break;}
+      if (typeof args[0] === 'undefined') { whatMsg = subject[what2] + '.'; sayTTS(whatMsg); break;}
        for (b=0; b<args.length; b++)
       {
         if(args[b]==="my"){ args[b]="your";}
@@ -959,16 +966,16 @@ client.on("messageCreate", async message => {
 
       let whatis = args.join(" ");
       while(whatis.charAt(whatis.length-1)=="?"){whatis=whatis.substring(0, whatis.length-1);}
-      if(needsIs==1){message.channel.send(capitalize(things[what2]) + " is " + whatis + ".", {tts:true});}
-      else message.channel.send(capitalize(things[what2]) + " " + whatis + ".", {tts:true});
+      if(needsIs==1){whatMsg = capitalize(things[what2]) + " is " + whatis + "."; sayTTS(whatMsg);}
+      else whatMsg = capitalize(things[what2]) + " " + whatis + "."; sayTTS(whatMsg);
       break;
 
 
     // say
     case 'say':
-      let sayMessage = args.join(" ");
+      let sayMsg = args.join(" ");
       await message.delete().catch(O_o=>{});
-      await message.channel.send({ content: sayMessage, tts: true });
+      sayTTS(sayMsg);
     break;
 
 
