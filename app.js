@@ -212,25 +212,21 @@ client.on('ready', () => {
     ['1/11', settings.kacey]
   ];
 
+  //log current date
   var dateObj = new Date();
   var month = dateObj.getUTCMonth() + 1; //months from 1-12
   var day = dateObj.getUTCDate();
   todayIs = month + "/" + day;
   console.log("Today is: "+ todayIs);
-  //console.table(birthdays);
 
-  //find
+  //find birthday
   var bFound = false;
   var bPerson = "";
   for (let i=0;i<birthdays.length;i++){
   if (birthdays[i][0] == todayIs){ bFound = true; bPerson = birthdays[i][1]; break;}
   }
 
-
   if(bFound){ client.channels.cache.get('95702402253983744').send(`:confetti_ball: It is <@${bPerson}>\'s birthday today! :confetti_ball:`);}
-
-  // Shaq restarted confirmation
-  client.channels.cache.get('888157588695429130').send('Shaq rebooted.');
 })
 
 client.on("messageCreate", async message => {
@@ -243,7 +239,6 @@ client.on("messageCreate", async message => {
   //  return;
   // }
 
-  // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
@@ -271,7 +266,6 @@ client.on("messageCreate", async message => {
   }
 
 
-
   // begin commands, search for //(command) to find
   switch(command) {
     case 'ms': if(message.author.id != owner){break;} message.channel.send(new Date().getTime() - message.createdTimestamp + " ms"); break;
@@ -287,13 +281,11 @@ client.on("messageCreate", async message => {
       message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`no2/pointno` - dr manhattan saying no\n`finally` - finally, anything\n`zany` - not me being goofy i-\n`shroom` - origin of shroom wojak\n`borntodie` - world is a fuck\n`sickos` - YES");
       break;
 
-
-    // MEME TEXT
-
     case 'plex':
       const plexEmoji = client.emojis.cache.get('628993764173807636');
       message.channel.send(`${plexEmoji} IT HAS BEEN 0 DAYS SINCE THE LAST PLEX REFERENCE. ${plexEmoji}`);
       break;
+
     case 'uwu':
       var uwus = ["(●´∀｀●)","(n˘v˘•)¬","(((( ;°Д°))))","(*~▽~)","(◕‿◕✿)","＼(^▽^＠)ノ"," ლ(╹◡╹ლ)","♥（ﾉ´∀`）","⊙ω⊙",
          "（＠￣∇￣＠）／","(☆^O^☆)", "(★^O^★)", "(☆^ー^☆)", "(´ω｀★)", "＼（Ｔ∇Ｔ）／","ヽ(´ー`)ﾉ", "( ＾∇＾)", 
@@ -315,7 +307,6 @@ client.on("messageCreate", async message => {
       var uwuRand = Math.floor((Math.random() * (uwus.length - 1)));
       message.channel.send(uwus[uwuRand]);
       break;
-
 
     case 'breasts':
       message.channel.send({files: ["img/kingofbreasts.jpg"]});
@@ -774,10 +765,10 @@ client.on("messageCreate", async message => {
       message.channel.send ({files: ["img/shityourself.png"]});
       break;
 
-	// zzzzz endofmeme newest latest recent
+// zzzzz endofmeme newest latest recent
 
 
-    // setrole
+// setrole
     case 'setrole':
       let newRole = args.join(" ");
       let roleToChange = message.member.roles.highest;
@@ -785,41 +776,24 @@ client.on("messageCreate", async message => {
       message.channel.send(`Role changed to ${newRole}.`);
       break;
 
-//    case 'ignore':
-//     if (message.author.id != settings.james) break;
-//     var ignored = args[0];
-//     console.log(ignored);
-//     message.channel.send(`now ignoring ${ignored}`);
-//     break;
-
-//    case 'unignore':
-//      if (message.author.id != settings.james) break;
-//      var unignored = args[0];
-//      message.channel.send(`no longer ignoring ${unignored}`);
-//      break;
-
     case 'disable':
-      if (message.author.id != settings.james) break;
+      if (message.author.id != owner) break;
       let commandD = args.join(" ");
       if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
       if (commandD == 'scanall'){scanAll=0; message.channel.send('ScanAll disabled.');}
-      if (commandD == 'amogus'){amogus=0; message.channel.send('amogus disabled.');}
-      if (commandD == 'sus'){sus=0; message.channel.send('sus disabled.');}
       if (commandD == 'tts'){ttsE = false; message.channel.send('tts is disabled');}
       break;
 
     case 'enable':
-      if (message.author.id != "95702308515487744") break;
+      if (message.author.id != owner) break;
       let commandE = args.join (" ");
       if (commandE == 'idle'){idle=1; message.channel.send('idle enabled.');}
       if (commandE == 'scanall'){scanAll=1; message.channel.send('ScanAll enabled.');}
-      if (commandE == 'amogus'){amogus=1; message.channel.send('amogus enabled.');}
-      if (commandE == 'sus'){sus=1; message.channel.send('sus enabled.');}
       if (commandE == 'tts'){ttsE = true; message.channel.send('tts is enabled');}
       break;
 
     case 'status':
-      if (message.author.id != "95702308515487744") break;
+      if (message.author.id != owner) break;
       let idleStatus = false; if(idle==1){idleStatus = true;}
       let ttsStatus = ttsE;
       let scanAllStatus = false;
@@ -924,33 +898,27 @@ client.on("messageCreate", async message => {
     case 'howdy':
       let cowboyphrases = ['Howdy partner \:cowboy:', 'H\'lo :cowboy:', 'This town ain\'t big enough for the two of us :cowboy:', '_a tumbleweed rolls by_', 'It\'s high noon :cowboy:'];
       let howdyN = Math.floor((Math.random() * (cowboyphrases.length - 1)));
-      message.channel.send(cowboyphrases[howdyN]);
+      let howdyMsg = cowboyphrases[howdyN]; sayTTS(howdyMsg);
       break;
 
     // when
     case 'when':
       var num = Math.floor((Math.random() * (times.length - 1)));
-      let whenMsg = capitalize(times[num]) + '.';
-      sayTTS(whenMsg);
+      let whenMsg = capitalize(times[num]) + '.'; sayTTS(whenMsg);
 
       break;
 
     // where
     case 'where':
       let randWhere = Math.floor((Math.random() * (locations.length - 1)));
-      let whereMsg = capitalize(locations[randWhere]) + '.';
-      sayTTS(whereMsg);
+      let whereMsg = capitalize(locations[randWhere]) + '.'; sayTTS(whereMsg);
       break;
 
     // what
     case 'what':
-      //var numThing = Math.floor((Math.random() * (things.length - 1)));
-      //message.channel.send(capitalize(things[numThing]) + '.', {tts:true});
-      //break;
       var needsIs;
       let whatMsg = "";
       if(args[0]=='is') {needsIs=1;}
-
     case 'whatis':
       if(args[0]=='is') {args.shift();}
       let what2 = Math.floor((Math.random() * (things.length - 1)));
@@ -970,14 +938,11 @@ client.on("messageCreate", async message => {
       else whatMsg = capitalize(things[what2]) + " " + whatis + "."; sayTTS(whatMsg);
       break;
 
-
     // say
     case 'say':
       let sayMsg = args.join(" ");
-      await message.delete().catch(O_o=>{});
-      sayTTS(sayMsg);
+      await message.delete().catch(O_o=>{}); sayTTS(sayMsg);
     break;
-
 
     // ballsize bs
     case 'size':
@@ -1071,11 +1036,6 @@ client.on("messageCreate", async message => {
       message.channel.send(subject[randWho] + " " + whom + ".", {tts:true});
       break;
 
-    // iscaonfire
-    case 'cafire':
-
-    break;
-
     // 8ball 8
     case '8ball':
     case '8':
@@ -1103,33 +1063,16 @@ client.on("messageCreate", async message => {
       return;
       break;
 
-    // shaq
-    case 'shaq':
-      message.channel.send("```Welcome to Shaq!```\n`say <string>`: Bot says the string in text-to-speech.\n`poll <string>`: Make the bot post your message with up/downvote reactions to poll.\n`ping <name>`[Home Server Only] Shaq pings the user.\n`8 <question>`: Bot will answer with an 8-ball style response.\n`ballsize|bs <string>`: Bot will tell you the ballsize of the string in question.\n`howdy`: Say howdy.\n`memes`: List additional commands with image attachment responses.")
-      return;
-      break;
     case 'src':
       message.channel.send("https://github.com/the-jame/shaqbot"); break;
-      break;
 
-    case 'iscaonfire':
-    case 'iscaliforniaonfire':
-    case 'californiafire':
-    case 'calfire':
-      const url = 'http://iscaliforniaonfire.com';
-      async function fetchHTML(url){
-        const { data } = await axios.get(url);
-        return cheerio.load(data);
-      }
-
-      const $ = await fetchHTML(url);
-
-      message.channel.send(`${$('h1').text()}`+ '.'); 
-      break;
-    case 'pungent2':
+    case 'pungent':
       message.channel.send(pungent);
       break;
+
     // uuu uu u
+    case 'uuuuuuuuuuuu':
+    case 'uuuuuuuuuuu':
     case 'uuuuuuuuuu':
     case 'uuuuuuuuu':
     case 'uuuuuuuu':
@@ -1140,12 +1083,11 @@ client.on("messageCreate", async message => {
     case 'uuu':
     case 'uu':
     case 'u':
-      //Have a conversation with Chubbot in it's native tongue
-      //Syllables used to create words
+		  
       let syllables = ['euxeux', 'bu', 'lemlemlem', 'lumlumlum', 'lem', 'lum', 'huehue', 'hue', 'h', 'hhhhhhhhhh', 'eak', 'oom',
         'shaq', 'aqaqaq', 'urts', 'nts', 'anus', 'buenos', 'cumb', 'cummie', 'euxeux', 'ahhhhhnnnnnnnnnnnnnnnnnnnn', 'unnnnnnnnn', 'yeff', 'hhhuuu',
         'rrrrrrrrrrrr', 'uuu','arf','euf','aeeeb', 'ffff', 'uuu', 'uhhh', 'aaaa', 'eeeee', 'iiii', 'oooo', 'v', 'huuuuuuuuuuuuu', 'y', 'ahu', 'abib', 'ebbebb', 'horf', '(nuts)', 'speuxch', 'lum', 'uhh', 'nunnnn','papa','fathhhhhhhhhh', 'asiiiduuu', 'elulux', 'iwueyad', 'blublublub','uhnnnn', 'azzz'];
-      //Words used by themselves
+
       let words = ['Posichichayones ', 'from ', 'sucky ', 'keer ', 'keer him ', 'Legolas ', 'jerk me once ', 'jerk me twice ', 'compadre ',
         'papa ', 'daddy ', 'prease ','shame on you '];
       let length = Math.floor(Math.random() * (command.length + 10));
@@ -1158,7 +1100,7 @@ client.on("messageCreate", async message => {
       message.channel.send(str, {tts: true});
       break;
 
-    // how many things there ams
+// how many things there are
     case 'counts':
     case 'count':
       var whoSize = subject.length;
@@ -1170,14 +1112,10 @@ client.on("messageCreate", async message => {
       message.channel.send(`There are\n\`${whoSize} people\n${whatSize} things\n${whenSize} times\n${whereSize} locations\n${whySize} reasons\n${sizedBalls} ballsizes\`\nin the shaqverse.`);
       break;
 
-
     case 'ping':
-    //Ping someone with more flavor
       if (message.guild.id != settings.beans) {message.channel.send("Sorry, this only works in the home server!"); break;} // does not work outside our server
-
       let toPing = '';
       let pinged = args[0].toLowerCase();
-
       switch(pinged){
 
           case 'jim':
@@ -1245,6 +1183,7 @@ client.on("messageCreate", async message => {
 
       message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>` + ` ${eyesleft}`);
       break;
+
   case 'lol':
   case 'laugh':
       setTimeout(()=> {
@@ -1253,26 +1192,7 @@ client.on("messageCreate", async message => {
       message.channel.send(`:smile:`)
         .then((msg)=> {
         laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 1200)
-     });
-     break;
-	 
-  case 'bighio':
-      message.delete().catch(O_o=>{});
-
-      const ohio1 = client.emojis.cache.get('642164336390832138');
-      const ohio2 = client.emojis.cache.get('642164350362320896');
-      const ohio3 = client.emojis.cache.get('642164360709537802');
-      const ohio4 = client.emojis.cache.get('642164371841220608');
-      const ohio5 = client.emojis.cache.get('642164380867362826');
-      const ohio6 = client.emojis.cache.get('642164393823698954');
-      const ohio7 = client.emojis.cache.get('642164405806563358');
-      const ohio8 = client.emojis.cache.get('642164415646531614');
-      const ohio9 = client.emojis.cache.get('642164426966958120');
-      const ohio10 = client.emojis.cache.get('642164436161003547');
-      const ohio11 = client.emojis.cache.get('642164446067949618');
-
-      message.channel.send(`${ohio1}${ohio2}${ohio3}${ohio4}\n${ohio5}${ohio6}${ohio6}${ohio7}\n${ohio5}${ohio6}${ohio6}${ohio8}\n${ohio9}${ohio10}${ohio11}`);
-      break;
+     }); break;
 
   case 'pleading':
   case 'plead':
@@ -1284,7 +1204,6 @@ client.on("messageCreate", async message => {
      pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 400)
      }); break;
 
-  case 'asscheek':
   case 'asscrack':
     philipLeft = `${philipL} ${thinkAss}`;
     philipRight = `${philipR} ${thinkAss}`;
@@ -1333,7 +1252,6 @@ client.on("messageCreate", async message => {
       let neck2 = `${wut2}${wut2}`;
       let lookAt = args.join(" ");
 
-
       setTimeout(()=> {
       clearTimeout(elongate);
       }, 15000);
@@ -1342,7 +1260,6 @@ client.on("messageCreate", async message => {
         .then((msg)=> {
         elongate = setInterval(function(){ for(i=0;i<2;i++){finalNeck +=neck2;} msg.edit(`${wut1}${finalNeck}${wut3} ${lookAt}`);}, 1200)
       });
-
   break;
   }
 
