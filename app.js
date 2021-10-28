@@ -934,7 +934,7 @@ client.on("messageCreate", async message => {
 
       let whatis = args.join(" ");
       while(whatis.charAt(whatis.length-1)=="?"){whatis=whatis.substring(0, whatis.length-1);}
-      if(needsIs==1){whatMsg = capitalize(things[what2]) + " is " + whatis + "."; sayTTS(whatMsg);}
+      if(needsIs==1){whatMsg = capitalize(things[what2]) + " is " + whatis + "."; sayTTS(whatMsg); break;}
       else whatMsg = capitalize(things[what2]) + " " + whatis + "."; sayTTS(whatMsg);
       break;
 
