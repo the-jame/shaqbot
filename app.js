@@ -35,7 +35,7 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah'
 	'colonel sanders', 'bernie sanders','tim cook', 'the reanimated corpse of steve jobs', 'eminem', 'la habra 300 bowl', 'elon musk', 'anne frank', 'marshall pope', 'hila klein',
 	'shigeru miyamoto', 'your unwashed ass', 'She Who Squirts', 'He Who Cums', 'Liz\'s cat', 'Beemo', 'the British', 'bisexuals', 'papi', 'a bloody fucker', 'an actual chimp',
 	'shawty', 'I', 'hawaiian green bean pizza', 'Ronald Reagan', 'Nicolas Cage', 'Queen Elizabeth', 'Nickelback', 'Keanu Reeves', 'Democrats', 'Republicans', 'donald johnald tronald', 'donald john president', 'the fall guy', 'Disney Pixar\'s Cars™️ Pope Pinion IV',
-	'kacey', 'olm', 'olmyra', 'chris', 'jed sheeran', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'an actual nigerian prince trying to give you money','donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger', 'my left nut', 'god', 'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'socialists', 'nazis', 'communists', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'gary', 'the shit stain in your underwear', 'a crusty sock', 'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'a taint hair', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker', 'Todd Howard', 'amogus', 'sus guy', 'jim halpert', 'popcat', 'shmedium', 'cheesy bread', 'some dumb binch', 'the CEO of Robinhood', 'AOC', 'ted cruz', 'j cole', 'elmer fudd', 'a cum stain', 'the inventor of Worms the video game', 'justin timberlake', 'some guy', 'a rando', 'that one friend who never interacts in discord', 'the pogchamp guy', 'some chud on parler', 'an idiot who got banned from twitter', 'mark zuckerberg\'s lizard offspring', 'prince philip', 'prince philip (in dust form)', 'your best friend', 'the guy', 'robert downey jr', 'morgan freeman', 'a friendly neighborhood cat', 'a birb', 'some ducklings', 'the person reading this', 'abby shapiro', 'a gamer gril', 'a butterfly, floating peacefully', 'Hasbulla', 'the taliban', 'that one guy with an eyepatch', 'chet','brad', 'steven crowder', 'the vitamin D council', 'the fish oil triumvirate'];
+	'kacey', 'olm', 'olmyra', 'chris', 'jed sheeran', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'an actual nigerian prince trying to give you money','donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger', 'my left nut', 'god', 'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'socialists', 'nazis', 'communists', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'chandler', 'the shit stain in your underwear', 'a crusty sock', 'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'a taint hair', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker', 'Todd Howard', 'amogus', 'sus guy', 'jim halpert', 'popcat', 'shmedium', 'cheesy bread', 'some dumb binch', 'the CEO of Robinhood', 'AOC', 'ted cruz', 'j cole', 'elmer fudd', 'a cum stain', 'the inventor of Worms the video game', 'justin timberlake', 'some guy', 'a rando', 'that one friend who never interacts in discord', 'the pogchamp guy', 'some chud on parler', 'an idiot who got banned from twitter', 'mark zuckerberg\'s lizard offspring', 'prince philip', 'prince philip (in dust form)', 'your best friend', 'the guy', 'robert downey jr', 'morgan freeman', 'a friendly neighborhood cat', 'a birb', 'some ducklings', 'the person reading this', 'abby shapiro', 'a gamer gril', 'a butterfly, floating peacefully', 'Hasbulla', 'the taliban', 'that one guy with an eyepatch', 'chet','brad', 'steven crowder', 'the vitamin D council', 'the fish oil triumvirate'];
 
 // what
 var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double double', 'french fries', 'a coffee', 'hand lotion', 'nothing', 'alcohol', 
@@ -357,8 +357,12 @@ client.on("message", async message => {
       message.channel.send({files: ["img/helper.jpg"]});
       break;
     case 'lahabra':
+    case 'lahabra300':
+    case 'lahabra300bowl':
+    case '300bowl':
       message.channel.send({files: ["img/lahabra.png"]});
       break;
+    case 'onion':
     case 'onions':
       message.channel.send({files: ["img/onions.jpg"]});
       break;
@@ -748,6 +752,10 @@ client.on("message", async message => {
       break;
     case 'sickos':
       message.channel.send ({files: ["img/sickos.png"]});
+      break;
+    case 'shityourself':
+    case 'sys':
+      message.channel.send ({files: ["img/shityourself.png"]});
       break;
 
 	// zzzzz endofmeme newest latest recent
