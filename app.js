@@ -22,7 +22,7 @@ let eyesleft;
 let huh;
 let idleE;
 let realshit;
-//let ignored;
+let ignored;
 let lol = 0;
 let idle = 0;
 let scanAll = 1;
@@ -617,7 +617,9 @@ client.on("messageCreate", async message => {
       message.channel.send(`${cummies}`);
       break;
     case 'oven':
-      message.channel.send('why do they call it oven when you of in the cold food of out hot eat the food',{tts: true});
+      let ovenMessage='why do they call it oven when you of in the cold food of out hot eat the food';
+      await message.channel.send({ content: ovenMessage, tts: true });
+
       break;
     case 'mormon':
     case 'mormonism':
@@ -822,7 +824,7 @@ client.on("messageCreate", async message => {
       break;
 
     // poll
-    case 'poll_deprecated':
+/*    case 'poll_deprecated':
       let endOfQuestion = 1 + args.indexOf(';');
       if(args.indexOf(';') == -1){ endOfQuestion = 1 + args.indexOf(':');};
       	if (endOfQuestion == -1 || endOfQuestion === args.length) {
@@ -877,7 +879,7 @@ client.on("messageCreate", async message => {
        }
       })
       break;
-
+*/
     case 'vid':
     case 'save':
     case 'link':
@@ -924,6 +926,8 @@ client.on("messageCreate", async message => {
     case 'when':
       var num = Math.floor((Math.random() * (times.length - 1)));
       message.channel.send(capitalize(times[num]) + '.', {tts:true});
+      //await message.channel.send({ content: sayMessage, tts: true });
+
       break;
 
     // where
@@ -964,8 +968,8 @@ client.on("messageCreate", async message => {
     case 'say':
       let sayMessage = args.join(" ");
       await message.delete().catch(O_o=>{});
-      await message.channel.send(sayMessage,{tts: ttsE});
-      break;
+      await message.channel.send({ content: sayMessage, tts: true });
+    break;
 
 
     // ballsize bs
