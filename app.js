@@ -1,6 +1,14 @@
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
+//const Discord = require('discord.js');
+//const client = new Discord.Client();
+
+//const client = new Client({ ws: { intents: new Intents(Intents.ALL) }});
+let Discord = require("discord.js");
+
+const allIntents = new Discord.Intents(32767);
+const client = new Discord.Client({ intents: allIntents });
+
+
 //const axios = require('axios');
 //const cheerio = require('cheerio');
 
@@ -14,7 +22,7 @@ let eyesleft;
 let huh;
 let idleE;
 let realshit;
-let ignored;
+//let ignored;
 let lol = 0;
 let idle = 0;
 let scanAll = 1;
@@ -225,14 +233,15 @@ client.on('ready', () => {
   client.channels.cache.get('888157588695429130').send('Shaq rebooted.');
 })
 
-client.on("message", async message => {
+client.on("messageCreate", async message => {
 
-  if(message.author.bot || message.author.id == ignored) return;
+  if(message.author.bot) return;
+  if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{}); console.log('Shitty pog sticker');}
 
-  if(message.author.presence.status == 'idle' && idle == 1){
-    message.react(idleE);
-    return;
-   }
+  //if(message.author.presence.status == 'idle' && idle == 1){
+  //  message.react(idleE);
+  //  return;
+  // }
 
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
@@ -769,18 +778,18 @@ client.on("message", async message => {
       message.channel.send(`Role changed to ${newRole}.`);
       break;
 
-    case 'ignore':
-      if (message.author.id != settings.james) break;
-      var ignored = args[0];
-      console.log(ignored);
-      message.channel.send(`now ignoring ${ignored}`);
-      break;
+//    case 'ignore':
+//     if (message.author.id != settings.james) break;
+//     var ignored = args[0];
+//     console.log(ignored);
+//     message.channel.send(`now ignoring ${ignored}`);
+//     break;
 
-    case 'unignore':
-      if (message.author.id != settings.james) break;
-      var unignored = args[0];
-      message.channel.send(`no longer ignoring ${unignored}`);
-      break;
+//    case 'unignore':
+//      if (message.author.id != settings.james) break;
+//      var unignored = args[0];
+//      message.channel.send(`no longer ignoring ${unignored}`);
+//      break;
 
     case 'disable':
       if (message.author.id != settings.james) break;
@@ -813,7 +822,7 @@ client.on("message", async message => {
       break;
 
     // poll
-    case 'poll':
+    case 'poll_deprecated':
       let endOfQuestion = 1 + args.indexOf(';');
       if(args.indexOf(';') == -1){ endOfQuestion = 1 + args.indexOf(':');};
       	if (endOfQuestion == -1 || endOfQuestion === args.length) {
