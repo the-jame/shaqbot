@@ -950,13 +950,14 @@ client.on("messageCreate", async message => {
     case 'ballsize':
     case 'bs':
       var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
-      if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; let beingSized = args.join(" "); if(beingSized !== ''){beingSized = beingSized += "'s";} if(ballCommand == true){message.channel.send(`Your${beingSized} ball size is ` + ballsizes[rand] +".", {tts: true});}if(ballCommand == false){ message.channel.send(`Your${beingSized} size is ` + ballsizes[rand] +".", {tts: true});} ballCommand = true; return;}
+      let sayBalls;
+      if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; let beingSized = args.join(" "); if(beingSized !== ''){beingSized = beingSized += "'s";} if(ballCommand == true){ sayBalls = `Your${beingSized} ball size is ` + ballsizes[rand] +"."; sayTTS(sayBalls);return;});} if(ballCommand == false){ sayBalls = `Your${beingSized} size is ` + ballsizes[rand] +"."; return;} ballCommand = true; return;}
       else if(args[0].toLowerCase() === "your" || args[0].toLowerCase() === "shaq's" || args[0].toLowerCase() === "shaqs") {args[0] = "My";}
-      else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined' && ballCommand == true) {message.channel.send("My ball size is " + ballsizes[rand] + ".", {tts: true}); ballCommand = true; return;}
-      else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined' && ballCommand == false) {message.channel.send("My size is " + ballsizes[rand] + ".", {tts: true}); ballCommand = true; return;}
+      else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined' && ballCommand == true) {sayBalls = "My ball size is " + ballsizes[rand] + "."; sayTTS(sayBalls); ballCommand = true; return;}
+      else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined' && ballCommand == false) {sayBalls = "My size is " + ballsizes[rand] + "."; sayTTS(sayBalls); ballCommand = true; return;}
       let beingSized = args.join(" ");
-      if(ballCommand == true){message.channel.send(beingSized + "'s ball size is " + ballsizes[rand] + ".", {tts: true});}
-      if(ballCommand == false){message.channel.send(beingSized + "'s size is " + ballsizes[rand] + ".", {tts: true});}
+      if(ballCommand == true){sayBalls = beingSized + "'s ball size is " + ballsizes[rand] + "."; sayTTS(sayBalls);}
+      if(ballCommand == false){sayBalls = beingSized + "'s size is " + ballsizes[rand] + "."; sayTTS(sayBalls);}
       ballCommand = true;
       return;
       break;
@@ -966,8 +967,9 @@ client.on("messageCreate", async message => {
 
 	    var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
 	    var randSub = Math.floor((Math.random() * (subject.length - 1)));
+	    let sayWhy;
 
-	    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); message.channel.send("Because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;}  // blank inquiry
+	    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); sayWhy = "Because " + subject[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;}  // blank inquiry
 	    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" || args[0].toLowerCase() === "should")
 	     {
 	    let verb = args[0].toLowerCase();
@@ -994,12 +996,12 @@ client.on("messageCreate", async message => {
 		  if (args[1] === ''){args.splice(1,1);}
 		  let answer = args.join(" ");
 		  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
-		  message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
+		  sayWhy= answer + " because " + subject[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;
 		}
 	      else
 		{ if (typeof args[1] === 'undefined') {
 		let answer = args[0];
-		message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return; }
+		sayWhy = answer + " because " + subject[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return; }
 	      for (b=0; b<args.length; b++)
 	      {
 		if(args[b]==="my"){ args[b]="your";}
@@ -1011,7 +1013,7 @@ client.on("messageCreate", async message => {
 	      }
 		  answer = args.join(" ");
 		  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
-		  message.channel.send(answer + " because " + subject[randSub] + " " + reasons[randRsn] + ".", {tts: true}); return;
+		  sayWhy = answer + " because " + subject[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;
 		}
 	      return;
       break;
@@ -1021,7 +1023,8 @@ client.on("messageCreate", async message => {
     case 'who':
     case 'whom':
       var randWho = Math.floor((Math.random() * (subject.length - 1)));
-      if (typeof args[0] === 'undefined') { message.channel.send(subject[randWho] + '.',{tts:true}); break;}
+      let sayWho;
+      if (typeof args[0] === 'undefined') { sayWho = subject[randWho] + '.'; sayTTS(sayWho); break;}
        for (b=0; b<args.length; b++)
       {
         if(args[b]==="my"){ args[b]="your";}
@@ -1033,7 +1036,7 @@ client.on("messageCreate", async message => {
 
       let whom = args.join(" ");
       while(whom.charAt(whom.length-1)=="?"){whom=whom.substring(0, whom.length-1);}
-      message.channel.send(subject[randWho] + " " + whom + ".", {tts:true});
+      sayWho = subject[randWho] + " " + whom + "."; sayTTS(sayWho);
       break;
 
     // 8ball 8
@@ -1059,7 +1062,7 @@ client.on("messageCreate", async message => {
         'Better not tell you now.','Concentrate and ask again.','Don\'t count on it.','My reply is no.','My sources say no.',
         'Outlook is not good.','Very doubtful.','Thank you Kanye, very cool!', 'Sometimes... (shhh)', 'Why not??', 'Absolutely not.', 'Yes. Now leave me alone.', 'Ehhhh', 'Surely!'];
       var num = Math.floor((Math.random() * (eightball.length - 1)));
-      message.channel.send(capitalize(eightball[num]), {tts: true});
+      let say8 = capitalize(eightball[num]); sayTTS(say8);
       return;
       break;
 
@@ -1097,7 +1100,7 @@ client.on("messageCreate", async message => {
         let pick = Math.floor((Math.random() * (syllables.length - 1)));
         str+=(syllables[pick]);
       }
-      message.channel.send(str, {tts: true});
+      sayTTS(str);
       break;
 
 // how many things there are
