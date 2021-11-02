@@ -1,16 +1,7 @@
-
-//const Discord = require('discord.js');
-//const client = new Discord.Client();
-
-//const client = new Client({ ws: { intents: new Intents(Intents.ALL) }});
 let Discord = require("discord.js");
 
 const allIntents = new Discord.Intents(32767);
 const client = new Discord.Client({ intents: allIntents });
-
-
-//const axios = require('axios');
-//const cheerio = require('cheerio');
 
 let settings;
 let owner;
@@ -22,8 +13,7 @@ let eyesleft;
 let huh;
 let realshit;
 let ignored;
-let lol = false;
-let ass = false;
+let anim = true;
 let scanAll = true;
 let boisTTS = true;
 let ballCommand = true;
@@ -254,7 +244,8 @@ client.on("messageCreate", async message => {
   const commandList = ['${pref}b', '${pref}ballsize','${pref}why','${pref}y','${pref}uu','${pref}uuu','${pref}howdy','${pref}8]'];
 
   function sayTTS(speak){
-    message.channel.send({ content: speak, tts: true });
+    if(ttsE) { message.channel.send({ content: speak, tts: true });}
+    else if(!ttsE) { message.channel.send({ content: speak, tts: false });}
     return;
   }
 
@@ -785,8 +776,7 @@ client.on("messageCreate", async message => {
     case 'disable':
       if (message.author.id != owner) break;
       let commandD = args.join(" ");
-      if (commandD == 'lol'){lol=false; message.channel.send('lol disabled.');}
-      if (commandD == 'ass' || commandD == 'asscrack'){ass=false; message.channel.send('ass disabled.');}
+      if (commandD == 'animation' || commandD == 'animate' || commandD == 'animated'){ anim=false; message.channel.send('Animation disabled.');}
       if (commandD == 'scanall'){scanAll=false; message.channel.send('ScanAll disabled.');}
       if (commandD == 'tts'){ttsE = false; message.channel.send('tts is disabled');}
       break;
@@ -794,79 +784,18 @@ client.on("messageCreate", async message => {
     case 'enable':
       if (message.author.id != owner) break;
       let commandE = args.join (" ");
-      if (commandE == 'lol'){lol=true; message.channel.send('lol enabled.');}
-      if (commandE == 'ass' || commandE == 'asscrack'){ass=true; message.channel.send('asscrack enabled.');}
-      if (commandE == 'scanall'){scanAll=true; message.channel.send('ScanAll enabled.');}
-      if (commandE == 'tts'){ttsE = true; message.channel.send('tts is enabled');}
+      if (commandE == 'animation' || commandE == 'animate' || commandE == 'animated'){anim=true; message.channel.send('Animation enabled.');}
+      if (commandE == 'scanall'){scanAll=true; message.channel.send('Scanall enabled.');}
+      if (commandE == 'tts'){ttsE = true; message.channel.send('TTS is enabled.');}
       break;
 
     case 'status':
-      if (message.author.id != owner) break;
       let ttsStatus = ttsE;
       let scanAllStatus = scanAll;
-      let assStatus = ass;
-      let lolStatus = lol;
-
-      message.channel.send(`LOL: ${lolStatus}\nAsscrack: ${assStatus}\nScan all msgs: ${scanAllStatus}\nTTS: ${ttsStatus}`);
+      let animStatus = anim;
+      message.channel.send(`Animation: ${animStatus}\nScan all msgs: ${scanAllStatus}\nTTS: ${ttsStatus}`);
       break;
 
-    // poll
-/*    case 'poll_deprecated':
-      let endOfQuestion = 1 + args.indexOf(';');
-      if(args.indexOf(';') == -1){ endOfQuestion = 1 + args.indexOf(':');};
-      	if (endOfQuestion == -1 || endOfQuestion === args.length) {
-	    message.delete().catch(O_o=>{});
-	    message.channel.send('Correct format is: `=poll your question ; option, option, ...` (note the spacing!!)');
-	    break;
-	    };
-      let qLength = endOfQuestion - 1;
-      let qArray = args.slice(0,qLength);
-      let question = qArray.join(" ");
-      let newArgs = args.slice(endOfQuestion);
-      let tempString = newArgs.join(' ');
-      let pollAnswers = tempString.split(',');
-      let pollNum = pollAnswers.length;
-	if (pollNum <2){
-	    message.delete().catch(O_o=>{});
-	    message.channel.send('Correct format is: `=poll ask your question here ; option, option, option, etc` (note the spacing!!)');
-	    break;
-            };
-      let pollTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
-
-      for (let w=0;w<pollNum;w++){
-        pollAnswers[w] = pollAnswers[w].trim();
-      }
-
-      let pollEmoji = allEmoji;
-      for (let p = pollEmoji.length -1; p > 0; p--){
-        const j = Math.floor(Math.random() * p);
-        const temp = pollEmoji[p];
-        pollEmoji[p] = pollEmoji[j];
-        pollEmoji[j] = temp;
-       }
-
-      let color = message.member.displayHexColor;
-      let pAuthor = message.author.username + ' asks...';
-      let authorAvi = message.author.avatarURL();
-      let pollEmbed = new Discord.MessageEmbed()
-        .setAuthor(pAuthor)
-        .setColor(color)
-        .setThumbnail(authorAvi)
-        .setTitle(question)
-        .setDescription(' ~\n\n')
-        .setTimestamp(pollTS);
-        for(let k = 0;k<pollNum;k++)
-         {
-          pollEmbed.addField(pollEmoji[k],pollAnswers[k]);
-         }
-      message.delete().catch(O_o=>{});
-      message.channel.send(pollEmbed).then(pollEmbed => {
-       for(let b=0;b<pollNum;b++){
-         pollEmbed.react(pollEmoji[b]);
-       }
-      })
-      break;
-*/
     case 'vid':
     case 'save':
     case 'link':
@@ -1195,7 +1124,7 @@ client.on("messageCreate", async message => {
 
   case 'lol':
   case 'laugh':
-      if(lol == false) {break;}
+      if(!anim) {break;}
       setTimeout(()=> {
       clearTimeout(laughing);
       }, 12000);
@@ -1215,7 +1144,7 @@ client.on("messageCreate", async message => {
      }); break;
 
   case 'zasscrack':
-    if(ass==false){break;}
+    if(!anim){break;}
     philipLeft = `${philipL} ${thinkAss}`;
     philipRight = `${philipR} ${thinkAss}`;
     philipCenter = `:coffin: ${thinkAss}`;
