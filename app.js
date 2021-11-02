@@ -232,7 +232,7 @@ client.on('ready', () => {
 client.on("messageCreate", async message => {
 
   if(message.author.bot) return;
-  if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{}); console.log('Shitty pog sticker');}
+  if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{}); console.log('Shitty pog sticker removed.');}
 
   //if(message.author.presence.status == 'idle' && idle == 1){
   //  message.react(idleE);
@@ -764,6 +764,11 @@ client.on("messageCreate", async message => {
     case 'sys':
       message.channel.send ({files: ["img/shityourself.png"]});
       break;
+    case 'corn':
+    case 'owned':
+    case 'notowned':
+      message.channel.send ('https://twitter.com/dril/status/134787490526658561?lang=en');
+      break;
 
 // zzzzz endofmeme newest latest recent
 
@@ -774,6 +779,7 @@ client.on("messageCreate", async message => {
       let roleToChange = message.member.roles.highest;
       roleToChange.setName(newRole);
       message.channel.send(`Role changed to ${newRole}.`);
+      console.log(`Role changed.`);
       break;
 
     case 'disable':
@@ -869,7 +875,7 @@ client.on("messageCreate", async message => {
       args.unshift(authorTS);
       let vidMessage = args.join(" ");
       vidMessage.trim();
-      client.channels.cache.get('866833451890245682').send(vidMessage);
+      client.channels.cache.get('866833451890245682').send(vidMessage); console.log('Video saved.');
     break;
 
     case 'music':
@@ -881,7 +887,7 @@ client.on("messageCreate", async message => {
       args.unshift(authorMusicTS);
       let songMessage = args.join(" ");
       songMessage.trim();
-      client.channels.cache.get('897315648559001620').send(songMessage);
+      client.channels.cache.get('897315648559001620').send(songMessage); console.log('Song saved.');
     break;
 
     case 'random':
@@ -1018,7 +1024,6 @@ client.on("messageCreate", async message => {
       break;
 
 
-		  
     case 'who':
     case 'whom':
       var randWho = Math.floor((Math.random() * (subject.length - 1)));
@@ -1085,7 +1090,7 @@ client.on("messageCreate", async message => {
     case 'uuu':
     case 'uu':
     case 'u':
-		  
+
       let syllables = ['euxeux', 'bu', 'lemlemlem', 'lumlumlum', 'lem', 'lum', 'huehue', 'hue', 'h', 'hhhhhhhhhh', 'eak', 'oom',
         'shaq', 'aqaqaq', 'urts', 'nts', 'anus', 'buenos', 'cumb', 'cummie', 'euxeux', 'ahhhhhnnnnnnnnnnnnnnnnnnnn', 'unnnnnnnnn', 'yeff', 'hhhuuu',
         'rrrrrrrrrrrr', 'uuu','arf','euf','aeeeb', 'ffff', 'uuu', 'uhhh', 'aaaa', 'eeeee', 'iiii', 'oooo', 'v', 'huuuuuuuuuuuuu', 'y', 'ahu', 'abib', 'ebbebb', 'horf', '(nuts)', 'speuxch', 'lum', 'uhh', 'nunnnn','papa','fathhhhhhhhhh', 'asiiiduuu', 'elulux', 'iwueyad', 'blublublub','uhnnnn', 'azzz'];
