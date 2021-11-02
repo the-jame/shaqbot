@@ -20,13 +20,12 @@ let wut2;
 let wut3;
 let eyesleft;
 let huh;
-let idleE;
 let realshit;
 let ignored;
-let lol = 0;
-let idle = 0;
-let scanAll = 1;
-let boisTTS = 1;
+let lol = false;
+let ass = false;
+let scanAll = true;
+let boisTTS = true;
 let ballCommand = true;
 let ttsE = true;
 
@@ -183,7 +182,6 @@ client.on('ready', () => {
   wut3 = client.emojis.cache.get('431701745236967425');
   eyesleft = client.emojis.cache.get('642179113259499571');
   huh = client.emojis.cache.get('431693012788314132');
-  idleE = client.emojis.cache.get('817148372057849866');
   pleadah = client.emojis.cache.get('665307736866684968');
   philipL = client.emojis.cache.get('818651366250643466');
   philipR = client.emojis.cache.get('818650382472314911');
@@ -234,15 +232,10 @@ client.on("messageCreate", async message => {
   if(message.author.bot) return;
   if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{}); console.log('Shitty pog sticker removed.');}
 
-  //if(message.author.presence.status == 'idle' && idle == 1){
-  //  message.react(idleE);
-  //  return;
-  // }
-
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(scanAll == 1)
+  if(scanAll)
   {
   let args2 = message.content.trim().split(/ +/g);
    if(args2[0] != settings.prefix){
@@ -769,6 +762,13 @@ client.on("messageCreate", async message => {
     case 'notowned':
       message.channel.send ('https://twitter.com/dril/status/134787490526658561?lang=en');
       break;
+    case 'themoreyouknow':
+    case 'moreyouknow':
+      message.channel.send ({files: ["img/themoreyouknow.gif"]});
+      break;
+    case 'coward':
+      message.channel.send ({files: ["img/coward.jpg"]});
+      break;
 
 // zzzzz endofmeme newest latest recent
 
@@ -785,27 +785,29 @@ client.on("messageCreate", async message => {
     case 'disable':
       if (message.author.id != owner) break;
       let commandD = args.join(" ");
-      if (commandD == 'idle'){idle=0; message.channel.send('idle disabled.');}
-      if (commandD == 'scanall'){scanAll=0; message.channel.send('ScanAll disabled.');}
+      if (commandD == 'lol'){lol=false; message.channel.send('lol disabled.');}
+      if (commandD == 'ass' || commandD == 'asscrack'){ass=false; message.channel.send('ass disabled.');}
+      if (commandD == 'scanall'){scanAll=false; message.channel.send('ScanAll disabled.');}
       if (commandD == 'tts'){ttsE = false; message.channel.send('tts is disabled');}
       break;
 
     case 'enable':
       if (message.author.id != owner) break;
       let commandE = args.join (" ");
-      if (commandE == 'idle'){idle=1; message.channel.send('idle enabled.');}
-      if (commandE == 'scanall'){scanAll=1; message.channel.send('ScanAll enabled.');}
+      if (commandE == 'lol'){lol=true; message.channel.send('lol enabled.');}
+      if (commandE == 'ass' || commandE == 'asscrack'){ass=true; message.channel.send('asscrack enabled.');}
+      if (commandE == 'scanall'){scanAll=true; message.channel.send('ScanAll enabled.');}
       if (commandE == 'tts'){ttsE = true; message.channel.send('tts is enabled');}
       break;
 
     case 'status':
       if (message.author.id != owner) break;
-      let idleStatus = false; if(idle==1){idleStatus = true;}
       let ttsStatus = ttsE;
-      let scanAllStatus = false;
-      if(scanAll == 1){scanAllStatus = true;}
+      let scanAllStatus = scanAll;
+      let assStatus = ass;
+      let lolStatus = lol;
 
-      message.channel.send(`Idle: ${idleStatus}\nScan all msgs: ${scanAllStatus}\nTTS: ${ttsStatus}`);
+      message.channel.send(`LOL: ${lolStatus}\nAsscrack: ${assStatus}\nScan all msgs: ${scanAllStatus}\nTTS: ${ttsStatus}`);
       break;
 
     // poll
@@ -1193,6 +1195,7 @@ client.on("messageCreate", async message => {
 
   case 'lol':
   case 'laugh':
+      if(lol == false) {break;}
       setTimeout(()=> {
       clearTimeout(laughing);
       }, 12000);
@@ -1211,7 +1214,8 @@ client.on("messageCreate", async message => {
      pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 400)
      }); break;
 
-  case 'asscrack':
+  case 'zasscrack':
+    if(ass==false){break;}
     philipLeft = `${philipL} ${thinkAss}`;
     philipRight = `${philipR} ${thinkAss}`;
     philipCenter = `:coffin: ${thinkAss}`;
