@@ -261,7 +261,7 @@ client.on("messageCreate", async message => {
     case 'pictures':
     case 'commandlist':
     case 'memelist':
-      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`boomeralert` - Boomer alert!\n`brains` - more than 1% of our brains\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
+      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`brains` - more than 1% of our brains\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
       message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`no2/pointno` - dr manhattan saying no\n`finally` - finally, anything\n`zany` - not me being goofy i-\n`shroom` - origin of shroom wojak\n`borntodie` - world is a fuck\n`sickos` - YES");
       break;
 
@@ -454,9 +454,6 @@ client.on("messageCreate", async message => {
       break;
     case 'stfuboomer':
       message.channel.send({files: ["img/stfuboomer.jpg"]});
-      break;
-    case 'boomeralert':
-      message.channel.send({files: ["img/boomeralert.gif"]});
       break;
     case 'sickfuck':
     case 'ed':
@@ -760,6 +757,10 @@ client.on("messageCreate", async message => {
     case 'coward':
       message.channel.send ({files: ["img/coward.jpg"]});
       break;
+    case 'boomerfication':
+      message.channel.send ('https://twitter.com/disco_socialist/status/1454064237798518790?s=21');
+      break;
+
 
 // zzzzz endofmeme newest latest recent
 
@@ -1124,27 +1125,54 @@ client.on("messageCreate", async message => {
 
   case 'lol':
   case 'laugh':
-      if(!anim) {break;}
+      if(!anim) {console.log('Animation blocked: lol'); break;}
       setTimeout(()=> {
       clearTimeout(laughing);
-      }, 12000);
+      }, 10000);
       message.channel.send(`:smile:`)
         .then((msg)=> {
-        laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 1200)
+        laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 1000)
      }); break;
 
   case 'pleading':
   case 'plead':
-     setTimeout(()=> {
-     clearTimeout(pleading);
-     }, 6400);
-     message.channel.send(`:pleading_face:`)
-     .then((msg)=> {
-     pleading = setInterval(function() {if(msg.content.includes(`${pleadah}`)) msg.edit(`:pleading_face:`); else msg.edit(`${pleadah}`);}, 400)
-     }); break;
+    if(!anim){console.log('Animation blocked: plead'); break;}
+    let pleadReg = `:pleading_face:`;
+    let plead2 = `${pleadah}`;
+    message.channel.send(pleadReg)
+      .then((msg) => {
+        setTimeout(function() {
+          msg.edit(plead2)
+        }, 400);
+        setTimeout(function() {
+          msg.edit(pleadReg)
+        }, 800);
+	setTimeout(function() {
+          msg.edit(plead2)
+        }, 1200);
+	setTimeout(function() {
+          msg.edit(pleadReg)
+        }, 1600);
+        setTimeout(function() {
+          msg.edit(plead2)
+        }, 2000);
+	setTimeout(function() {
+          msg.edit(pleadReg)
+        }, 2400);
+	setTimeout(function() {
+          msg.edit(plead2)
+        }, 2800);
+	setTimeout(function() {
+          msg.edit(pleadReg)
+        }, 3200);
+	    // final stage
+        setTimeout(function() {
+           msg.edit(plead2)
+        }, 3600)
+      }); break;
 
-  case 'zasscrack':
-    if(!anim){break;}
+  case 'asscrack':
+    if(!anim){console.log('Animation blocked: asscrack'); break;}
     philipLeft = `${philipL} ${thinkAss}`;
     philipRight = `${philipR} ${thinkAss}`;
     philipCenter = `:coffin: ${thinkAss}`;
@@ -1187,7 +1215,7 @@ client.on("messageCreate", async message => {
   case 'look':
   case 'stretch':
   case 'neck':
-
+      if(!anim){console.log('Animation blocked: neck'); break;}
       let finalNeck = '';
       let neck2 = `${wut2}${wut2}`;
       let lookAt = args.join(" ");
@@ -1201,7 +1229,9 @@ client.on("messageCreate", async message => {
         elongate = setInterval(function(){ for(i=0;i<2;i++){finalNeck +=neck2;} msg.edit(`${wut1}${finalNeck}${wut3} ${lookAt}`);}, 1200)
       });
   break;
+  default: console.log(`Failed command: "${command}"`);
   }
+
 
 });
 
