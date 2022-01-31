@@ -18,21 +18,23 @@ let scanAll = true;
 let boisTTS = true;
 let ballCommand = true;
 let ttsE = true;
+let irl = false;
 
 let pungent = '```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren\'t I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```';
 
 // who
 var subject = ['reeg','james','jimmy','tyra','liz','ton','chino','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','sarah','tom clancy',
-	'pipo', '100,000 Ohioans', 'the 1 out of 10 dentists that dont recommend sugarless gum', 'beast sandwich',
-	'drumpf', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend','Hasbulla',
-	'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'the Tainted One', 'Tom Nook', 'your sam',  'God', 'Satan', 'John Freeman', 'jeff tutorials',
+	'pipo', '100,000 Ohioans', 'the 1 out of 10 dentists that dont recommend sugarless gum',
+	'trump', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend','Hasbulla',
+	'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fierri', 'george bush', 'Tom Nook', 'your sam',  'God', 'Satan', 'John Freeman', 'jeff tutorials',
 	'johoise', 'duman', 'a cromulent unfuckcrustable', 'the fuckcrustables', 'The Tainted One', 'Mr. Imlay', 'Mrs. Matsuyama', 'Jeb Bush', 'cody', 'a sentient cum sock', 'cool guy',
 	'the spy watching your zoom meeting', 'bilbo baggins', 'a sentient cum sock', 'an obama drone', 'al qaeda', 'melania trump', 'michelle obama', 'deadmau5', 'your boss',
-	'my hairy ass', 'slenderman', 'joseph smith', 'the mormon church', 'the pope', 'bill burr', 'lady gaga', 'your neighbor', 'your dad\'s best friend that you called "uncle" as a child', 'your real parents',
-	'colonel sanders', 'bernie sanders','tim cook', 'the reanimated corpse of steve jobs', 'eminem', 'la habra 300 bowl', 'elon musk', 'anne frank', 'marshall pope', 'hila klein',
+	'slenderman', 'joseph smith', 'the mormon church', 'the pope', 'bill burr', 'lady gaga', 'your neighbor', 'your dad\'s best friend that you called "uncle" as a child', 'your real parents',
+	'colonel sanders', 'bernie sanders', 'the reanimated corpse of steve jobs', 'eminem', 'la habra 300 bowl', 'elon musk', 'anne frank', 'marshall pope', 'hila klein',
 	'shigeru miyamoto', 'your unwashed ass', 'She Who Squirts', 'He Who Cums', 'Liz\'s cat', 'Beemo', 'the British', 'bisexuals', 'papi', 'a bloody fucker', 'an actual chimp',
-	'shawty', 'I', 'hawaiian green bean pizza', 'Ronald Reagan', 'Nicolas Cage', 'Queen Elizabeth', 'Nickelback', 'Keanu Reeves', 'Democrats', 'Republicans', 'donald johnald tronald', 'donald john president', 'the fall guy', 'Disney Pixar\'s Cars™️ Pope Pinion IV',
-	'kacey', 'olm', 'olmyra', 'chris', 'jed sheeran', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'an actual nigerian prince trying to give you money','donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger', 'my left nut', 'god', 'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'socialists', 'nazis', 'communists', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'chandler', 'the shit stain in your underwear', 'a crusty sock', 'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'a taint hair', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker', 'Todd Howard', 'amogus', 'sus guy', 'jim halpert', 'popcat', 'shmedium', 'cheesy bread', 'some dumb binch', 'the CEO of Robinhood', 'AOC', 'ted cruz', 'j cole', 'elmer fudd', 'a cum stain', 'the inventor of Worms the video game', 'justin timberlake', 'some guy', 'a rando', 'that one friend who never interacts in discord', 'the pogchamp guy', 'some chud on parler', 'an idiot who got banned from twitter', 'mark zuckerberg\'s lizard offspring', 'prince philip', 'prince philip (in dust form)', 'your best friend', 'the guy', 'robert downey jr', 'morgan freeman', 'a friendly neighborhood cat', 'a birb', 'some ducklings', 'the person reading this', 'abby shapiro', 'a gamer gril', 'a butterfly, floating peacefully', 'Hasbulla', 'the taliban', 'that one guy with an eyepatch', 'chet','brad', 'steven crowder', 'the vitamin D council', 'the fish oil triumvirate'];
+	'shawty', 'I', 'Ronald Reagan', 'Nicolas Cage', 'Queen Elizabeth', 'Nickelback', 'Keanu Reeves', 'Democrats', 'Republicans', 'donald johnald tronald', 'donald john president', 'the fall guy', 'Disney Pixar\'s Cars™️ Pope Pinion IV',
+	'kacey', 'olm', 'olmyra', 'chris', 'jed sheeran', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'an actual nigerian prince trying to give you money','donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger', 'god', 'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'socialists', 'nazis', 'communists', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'chandler', 'the shit stain in your underwear', 'a crusty sock', 'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker', 'Todd Howard', 'amogus', 'sus guy', 'jim halpert', 'popcat', 'some dumb binch', 'the CEO of Robinhood', 'AOC', 'ted cruz', 'j cole', 'elmer fudd', 'a cum stain', 'the inventor of Worms the video game', 'justin timberlake', 'the area man', 'a rando', 'that one friend who never interacts in discord', 'the pogchamp guy', 'some chud on parler', 'an idiot who got banned from twitter', 'mark zuckerberg\'s lizard offspring', 'prince philip', 'prince philip (in dust form)', 'your best friend', 'the guy', 'robert downey jr', 'morgan freeman', 'a friendly neighborhood cat', 'a birb', 'some ducklings', 'the person reading this', 'abby shapiro', 'a gamer gril', 'a butterfly, floating peacefully', 'Hasbulla', 'the taliban', 'that one guy with an eyepatch', 'chet','brad', 'steven crowder', 'the vitamin D council', 'the fish oil triumvirate'];
+var subjectirl = ['reeg', 'james', 'jimmy', 'tyra', 'liz', 'ton', 'cody', 'ysabel', 'leah', 'kitty', 'john', 'kacey', 'olm'];
 
 // what
 var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double double', 'french fries', 'a coffee', 'hand lotion', 'nothing', 'alcohol', 
@@ -50,14 +52,14 @@ var things = ['your stupid ass', 'your smart ass', 'poop', 'in n out double doub
               'a succulent that you overwatered', 'a shard of glass', 'a honeycomb', 'a half eaten sandwich', 'the worst, most disgusting, carnal fantasy you\'ve ever had',
 	      'a shit you definitely should have wiped', 'a shit you wish you didn\'t wipe', 'a protein bar that is well past the expiration date', 'a pair of shit-stained underwear',
               'an asshole', 'a really nice business card', 'an electric fly swatter', 'a stress ball that oozes blood', 'a molotov cocktail', 'an AK-47', 'a dirty old shoe', 'a hairball from the shower drain',
-              'a single atom', 'a greasy nude man', 'a puddle of cooking oil', 'a piss disc mid-air', 'a t-shirt cannon', 'a volleyball with a face', 'in n out fries', 'cheam creems', 'spinch', 'ranibow sprimkle', 'chichen nuggest', 'mcdonald\'s sprite', 'chick fil a sauce', 'poopy doopy wee wee haha', 'a jar of honey', 'a comfortable sweater', 'an ugly, scratchy sweater', 'a water balloon full of vinegar', 'a can of pringles but they are all broken', 'a dead pig', 'dirty stripper shoes', 'super glue', 'a pen that ran dry ages ago', 'an spicey meatbole', 'a laptop with sticky keys', 'underwear lint','a sundress','a funko pop of your least favorite anime character', 'a security camera'];
+              'a single atom', 'a greasy nude man', 'a puddle of cooking oil', 'a piss disc mid-air', 'a t-shirt cannon', 'a volleyball with a face', 'in n out fries', 'cheam creems', 'spinch', 'ranibow sprimkle', 'chichen nuggest', 'mcdonald\'s sprite', 'chick fil a sauce', 'poopy doopy wee wee haha', 'a jar of honey', 'a comfortable sweater', 'an ugly, scratchy sweater', 'a water balloon full of vinegar', 'a can of pringles but they are all broken', 'a dead pig', 'dirty stripper shoes', 'super glue', 'a pen that ran dry ages ago', 'an spicey meatbole', 'a laptop with sticky keys', 'underwear lint','a sundress','a funko pop of your least favorite anime character', 'a security camera', 'hawaiian green bean pizza', 'my hairy ass', 'a taint hair','beast sandwich','my left nut', 'shmedium', 'cheesy garlic bread', 'ten gigs worth of women\'s butts'];
 
 // when
 var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in half an hour', 'in an hour', 'in a few hours', 'tonight', 'today', 'tomorrow', 'the day after tomorrow', 'exactly 30 minutes from now', 'in one week',
      'never', 'at an uncertain point in the annals of history', 'at tooth-hurty :tooth: :toothbrush:', 'time is merely a construct', 'TIME IS MERELY A CONSTRUCT', 'at six, gordon!', 'at 4:20 XDDDDDDD', 'on 4/20 XDDDDDDD',
      'when hell freezes over', 'when rush limbaugh died', 'when marvel vs capcom 4 comes out', 'when james stops bitching about sauce', 'when final fantasy 7 remake is finished', 'when team fortress 3 comes out',
      'when bernie sanders is elected', 'when you fucking do something about it yourself', 'when the imposter stops being sus', 'at twelve bong', 'when half life 3 comes out', 'yesterday', 'before you were born',
-     'last tuesday', 'when daft punk breaks up... oh', 'whenever that franz dude got shot', 'at dinner time', 'when yandere simulator comes out', 'Bungie goes bankrupt', 'when Papa Biden gives me the stimmy wimmy uwu',
+     'last tuesday', 'when daft punk breaks up... oh', 'whenever that franz dude got shot', 'at dinner time', 'when yandere simulator comes out', 'When Bungie goes bankrupt', 'when Papa Biden gives me the stimmy wimmy uwu',
      'when James embraces the void', 'when the void calls me back', 'when Duman brings me the wine', 'whe Johoise brings me the wine', 'when the people revolt', 'the heat death of my anus', 'the heat death of your anus',
      'at the beginning of the mass ejaculation event (tbd)', 'in the middle of the mass ejaculation event', 'at the end of the mass ejaculation event', 'in 34 minutes and 19 seconds', 'at around tree fiddy', 'when ICP discovers how magnets work', 'when your shit smells like roses', 'when we are all vaccinated', 'when drumpf dies while taking a shit', 'in 3 days', 'in 7 weeks', 'in 2 months', 'in 5 years', 'one year from today this very minute', 'when i discover who the FUCK invented beans', 'when i die', 'in a little bit...', 'i am not sure, really', 'eventually', 'shortly, just wait!', 'never..', 'when you least expect it..', 'when you admit you have a problem', 'when they admit they have a problem', 'while you are sleeping', 'next time you fart', 'immediately', 'when you get off your ASS', '2 years from yesterday', 'next week', 'next sunday at 11am', 'next wednesday at 4:19pm', 'tomorrow morning'];
 
@@ -65,7 +67,7 @@ var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in hal
 var locations = ['the Grand Canyon', 'a sex dungeon',  'my sex dungeon', 'the moon', 'the Epstein island', 'a gulag', 'Big Ben', 'Ireland', 'the bottom of the Atlantic Ocean', 'Ohio', 'Deep Stone Crypt', 'a Garfield comic',
 	'Mystery Flesh Pit National Park, Texas', 'Hell', 'Heaven', 'Purgatory', 'Limbo (The outer border of Hell, not the game)', 'Limbo (The game, not the outer border of Hell)', 'de_dust2', '2Fort', 'gm_construct',
 	'Taco Bell:tm:', 'Mcdonalds:tm:', 'a strip club', 'my basement', 'a basement', 'a haunted house', 'my arms', 'my arms, bridal style', 'the Piss Drawer:tm:', 'Northern Undead Asylum', 'Anor Londo', 'Firelink Shrine',
-	'the cum sock', 'Lavender Town', 'Yharnam', 'Blood Gulch', 'Brazil', 'the alley behind Tescos', 'Gondor','the New Califonia Republic', 'the New California Republic', 'Kekistan', 'Shangri-La', 'Wakanda', 'Duckburg', 'Mos Eisley', 'Castle Rock',
+	'the cum sock', 'Lavender Town', 'Yharnam', 'Blood Gulch', 'Brazil', 'the alley behind Tescos', 'Gondor','the New California Republic', 'the New California Republic', 'Kekistan', 'Shangri-La', 'Wakanda', 'Duckburg', 'Mos Eisley', 'Castle Rock',
 	'City 17', 'Night City', 'Raccoon City', 'Skyrim', 'Jame\'s bedroom', 'the toilet', 'the cum hamper', 'the piss drawer', 'my rectum', 'your ear', '6 feet underground', 'under AOC\'s feet', 'Atlantis', 'among the trees', 'North Korea',
 	'screaming from within the vomit coffin', 'within Shaq\'s intercranial space', 'flailing endlessly through innumerable, spontaneous cycles of death and rebirth', 'within the fibers of Mario\'s mustache',
         'the bathroom at work', 'the trough urinal at the baseball stadium', 'ronald reagan\'s grave'];
@@ -189,6 +191,7 @@ client.on('ready', () => {
   let birthdays = [
     ['7/14', settings.james],
     ['1/9', settings.ysabel],
+    ['1/8', settings.leah],
     ['11/9', settings.jimmy],
     ['5/27', settings.anthony],
     ['8/2', settings.enrique],
@@ -262,7 +265,7 @@ client.on("messageCreate", async message => {
     case 'commandlist':
     case 'memelist':
       message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`brains` - more than 1% of our brains\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
-      message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`no2/pointno` - dr manhattan saying no\n`finally` - finally, anything\n`zany` - not me being goofy i-\n`shroom` - origin of shroom wojak\n`borntodie` - world is a fuck\n`sickos` - YES\n`sys` - shit yourself\n`notowned` - corn cob tweet\n`themoreyouknow`\n`coward` - grandpa coward\n`boomerfication` - progressing nicely");
+      message.channel.send("`didiask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`no2/pointno` - dr manhattan saying no\n`finally` - finally, anything\n`zany` - not me being goofy i-\n`shroom` - origin of shroom wojak\n`borntodie` - world is a fuck\n`sickos` - YES\n`sys` - shit yourself\n`notowned` - corn cob tweet\n`themoreyouknow`\n`coward` - grandpa coward\n`boomerfication` - progressing nice\n`old` - old\n`corb` - corn on the orb\n`bunt` - 3 girlfriends\n`society` - improve society somewhat\n`dislikedthat` - everyone disliked that\n`zamn` - zamn\n`johnker` - john joker laugh");
       break;
 
     case 'plex':
@@ -746,6 +749,7 @@ client.on("messageCreate", async message => {
       message.channel.send ({files: ["img/shityourself.png"]});
       break;
     case 'corn':
+    case 'cob':
     case 'owned':
     case 'notowned':
       message.channel.send ('https://twitter.com/dril/status/134787490526658561?lang=en');
@@ -759,6 +763,34 @@ client.on("messageCreate", async message => {
       break;
     case 'boomerfication':
       message.channel.send ('https://twitter.com/disco_socialist/status/1454064237798518790?s=21');
+      break;
+    case 'old':
+      message.channel.send ({files: ["img/old.jpg"]});
+      break;
+    case 'corb':
+      message.channel.send ({files: ["img/corb.png"]});
+      break;
+    case 'bunt':
+    case 'bunts':
+    case '3girlfriends':
+      message.channel.send ({files: ["img/bunt.png"]});
+      break;
+    case 'society':
+    case 'improvesociety':
+    case 'improvesocietysomewhat':
+    case 'yetyouparticipateinit':
+      message.channel.send ({files: ["img/society.png"]});
+      break;
+    case 'everyonedislikedthat':
+    case 'everyonedisliked':
+    case 'dislikedthat':
+      message.channel.send ({files: ["img/dislikedthat.jpg"]});
+      break;
+    case 'zamn':
+      message.channel.send ({files: ["img/zamn.png"]});
+      break;
+    case 'johnker':
+      message.channel.send ({files: ["img/johnker.png"]});
       break;
 
 
@@ -801,9 +833,10 @@ client.on("messageCreate", async message => {
     case 'save':
     case 'link':
       if(!message.content.includes("http")){ message.delete().catch(O_o=>{}); break;}
-      let vidTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
+      let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit', timeZoneName : 'short' };
+      let vidTS = new Date().toLocaleString('en-US', options);
       let vidChn = message.channel.id;
-      let authorTS = `\`` + message.author.username + ` at ` + vidTS + ` in\`` + `<#${vidChn}>\n\n`;
+      let authorTS = `\`` + message.author.username + ` - ` + vidTS + ` in\`` + `<#${vidChn}>\n\n`;
       args.unshift(authorTS);
       let vidMessage = args.join(" ");
       vidMessage.trim();
@@ -822,6 +855,7 @@ client.on("messageCreate", async message => {
       client.channels.cache.get('897315648559001620').send(songMessage); console.log('Song saved.');
     break;
 
+    // roll random number
     case 'random':
     case 'rand':
     case 'roll':
@@ -830,6 +864,16 @@ client.on("messageCreate", async message => {
       if(isNaN(input)){ message.delete().catch(O_o=>{}); break;}
       rollTop = parseInt(args[0]);
       message.channel.send("Roll 1 - " + rollTop + " = " + Math.floor((Math.random() * rollTop) + 1) + ".");
+      break;
+
+    // yes no simple
+    case 'yn':
+    case 'yesno':
+    case 'truefalse':
+    case '2':
+      var randYN = Math.random() < 0.5;
+      if(randYN) message.channel.send("Yes.");
+      else message.channel.send("No.");
       break;
 
     // howdy
@@ -956,11 +1000,14 @@ client.on("messageCreate", async message => {
       break;
 
 
-    case 'who':
     case 'whom':
-      var randWho = Math.floor((Math.random() * (subject.length - 1)));
+      irl = true;
+    case 'who':
+      if(irl) {var subjects = subjectirl;}
+      else if(!irl){ var subjects = subject;}
+      var randWho = Math.floor((Math.random() * (subjects.length - 1)));
       let sayWho;
-      if (typeof args[0] === 'undefined') { sayWho = subject[randWho] + '.'; sayTTS(sayWho); break;}
+      if (typeof args[0] === 'undefined') { sayWho = subjects[randWho] + '.'; sayTTS(sayWho); break;}
        for (b=0; b<args.length; b++)
       {
         if(args[b]==="my"){ args[b]="your";}
@@ -972,7 +1019,8 @@ client.on("messageCreate", async message => {
 
       let whom = args.join(" ");
       while(whom.charAt(whom.length-1)=="?"){whom=whom.substring(0, whom.length-1);}
-      sayWho = subject[randWho] + " " + whom + "."; sayTTS(sayWho);
+      sayWho = subjects[randWho] + " " + whom + "."; sayTTS(sayWho);
+      irl = false;
       break;
 
     // 8ball 8
