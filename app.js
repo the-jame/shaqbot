@@ -792,6 +792,14 @@ client.on("messageCreate", async message => {
     case 'johnker':
       message.channel.send ({files: ["img/johnker.png"]});
       break;
+    case 'meyellin':
+    case 'yellin':
+    case 'datsmeyellin':
+      message.channel.send ({files: ["img/yellin.png"]});
+      break;
+    case 'therapy':
+      message.channel.send ({files: ["img/therapy.png"]});
+      break;
 
 
 // zzzzz endofmeme newest latest recent
