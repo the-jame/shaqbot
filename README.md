@@ -26,7 +26,7 @@ __The (dumb) chat commands are:__
 ***  
 * `npm install`  
 * `cp sample-settings.json settings.json && nano settings.json` fill in your token.
-* `node app.js` to run.
+* `node main.js` to run.
 
 # Options & Config.
 ***
@@ -35,4 +35,4 @@ __The (dumb) chat commands are:__
 | Option | Type | Description | Location |  
 | --- | --- | --- | --- |
 | token | String | Your discord bot token. | settings.json |
-| botPrefix | String | The prefix of the bot. Defaults to "=". | settings.json + app.js [54] |
+| botPrefix | String | The prefix of the bot. Defaults to "=". | settings.json + main.js [54] |
