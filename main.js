@@ -284,9 +284,11 @@ client.on("messageCreate", async message => {
       let erWord = erW[Math.floor((Math.random() * (erW.length - 1)))]; console.log(erWord);
       let erPhrase = erP[Math.floor((Math.random() * (erP.length - 1)))];
       erPhrase = erPhrase.replace("{word1}", erWord);
+      erPhrase = erPhrase.replace("{word1}", erWord);
       if (c < 0.25){
         let erWord = erW[Math.floor((Math.random() * (erW.length - 1)))]; console.log(erWord);
         let erPhrase2 = erP[Math.floor((Math.random() * (erP.length - 1)))];
+        erPhrase2 = erPhrase2.replace("{word1}", erWord);
         erPhrase2 = erPhrase2.replace("{word1}", erWord);
         let connect = erC[Math.floor((Math.random() * (erC.length - 1)))]; message.channel.send(erPhrase + " " + connect + " " + erPhrase2);}
       else message.channel.send(erPhrase);
