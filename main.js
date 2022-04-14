@@ -280,6 +280,7 @@ client.on("messageCreate", async message => {
     case 'er':
     case 'elden':
     case 'eldenring':
+      await message.delete().catch(O_o=>{});
       var c = Math.random();
       let erWord = erW[Math.floor((Math.random() * (erW.length - 1)))];
       let erPhrase = erP[Math.floor((Math.random() * (erP.length - 1)))];
@@ -954,7 +955,8 @@ client.on("messageCreate", async message => {
     // say
     case 'say':
       let sayMsg = args.join(" ");
-      await message.delete().catch(O_o=>{}); sayTTS(sayMsg);
+      await message.delete().catch(O_o=>{});
+      sayTTS(sayMsg);
     break;
 
     // ballsize bs
