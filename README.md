@@ -6,9 +6,9 @@ This is a simple Node.js based chat and music bot for Discord.
 
 __The normal chat commands are:__
 * `say <string>`: Bot says the string in text-to-speech.
-* `poll your question? ; answer1, answer2, answer3`: Make the bot post your message with reactions for polling. Supports 2 - 20 options.
 * `roll <integer>`: Make the bot randomly roll from 1 to your number.
 * `8 <question>`: Bot will answer with an 8-ball style response.
+* `er`: Bot will answer with a randomly-generated Elden Ring style message.
 
 __The (dumb) chat commands are:__
 * `who <question>(optional)`: Bot answers who did the thing that you just asked.
