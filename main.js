@@ -198,7 +198,7 @@ client.on('ready', () => {
     ['1/11', settings.kacey],
     ['5/27', settings.anthony],
     ['6/10', settings.john],
-    ['7/14', settings.james],
+   // ['7/14', settings.james],
     ['8/2', settings.enrique],
     ['9/1', settings.cody],
     ['10/4', settings.olm],
@@ -982,7 +982,7 @@ client.on("messageCreate", async message => {
       break;
 
     case 'whym':
-      irly = true;
+      var irly = true;
     case 'y':
     case 'why':
             if(irly) {var subjecty = subjectirl;}
