@@ -822,12 +822,18 @@ client.on("messageCreate", async message => {
       message.channel.send ({files: ["img/yellin.png"]});
       break;
     case 'therapy':
-      message.channel.send ({files: ["img/therapy.png"]});
       break;
     case 'bloodyfuckyou':
     case 'fuckyoubloody':
     case 'bloodyfucker':
       message.channel.send ('https://www.youtube.com/watch?v=ukznXQ3MgN0');
+      break;
+    case 'hillary':
+      message.channel.send ({files: ["img/hillary.jpg"]});
+      break;
+    case 'foodwater':
+    case 'breastsimage':
+      message.channel.send ({files: ["img/breastsimage.jpg"]});
       break;
 
 
