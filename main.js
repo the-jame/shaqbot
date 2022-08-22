@@ -3,6 +3,14 @@ let Discord = require("discord.js");
 const allIntents = new Discord.Intents(32767);
 const client = new Discord.Client({ intents: allIntents });
 
+require('dotenv').config();
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+  organization: "org-IWYZO72FTk8eb9VbxM6SjJN2",
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
 let settings;
 let owner;
 let token = '';
@@ -77,7 +85,7 @@ var locations = ['the Grand Canyon', 'a sex dungeon',  'my sex dungeon', 'the mo
         'the bathroom at work', 'the trough urinal at the baseball stadium', 'ronald reagan\'s grave'];
 
 // why
-var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'momma fat', 'said chemtrails are turning people gay',
+var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'stinky', 'said chemtrails are turning people gay',
 	'Epstein didn\'t kill himself', 'be shoppin', 'is coming to town', 'is watching you', 'happens for a reason',
 	'doesn\'t care about black people', 'benefits the military-industrial complex', 'has never had a dream',
 	'isn\'t real', 'thinks 2pac is still alive', '\'s anus is bleeding', 'has been farting alone in flaccid chat for 6 hours', 'said it in secret chat', 
@@ -831,6 +839,7 @@ client.on("messageCreate", async message => {
       break;
     case 'foodwater':
     case 'breastsimage':
+    case 'breastimage':
       message.channel.send ({files: ["img/breastsimage.jpg"]});
       break;
     case 'megarobert':
@@ -846,6 +855,9 @@ client.on("messageCreate", async message => {
     case 'japaneseytp':
     case 'contac':
       message.channel.send ({files: ["img/japaneseytp.mp4"]});
+      break;
+    case 'badvibes':
+      message.channel.send ({files: ["img/badvibes.jpg"]});
       break;
 
 
@@ -999,6 +1011,43 @@ client.on("messageCreate", async message => {
       ballCommand = true;
       break;
 
+    case 'complete':
+    case 'ai':
+      let prompt = args.join(" ");
+
+      (async () => {
+            const gptResponse = await openai.createCompletion({
+                model: "text-davinci-002",
+                prompt: prompt,
+                max_tokens: 150,
+                temperature: 0.75,
+                top_p: 1,
+                presence_penalty: 0,
+                frequency_penalty: 0.4,
+              });
+            message.reply(`${gptResponse.data.choices[0].text}`);
+            //prompt += `${gptResponse.data.choices[0].text}\n`;
+        })();
+
+      break;
+    case '4chan':
+      let prompt4 = "write me a 4chan greentext\n" + args.join(" ") + "\n>";
+
+      (async () => {
+            const gptResponse = await openai.createCompletion({
+                model: "text-davinci-002",
+                prompt: prompt4,
+                max_tokens: 150,
+                temperature: 0.75,
+                top_p: 1,
+                presence_penalty: 0,
+                frequency_penalty: 0.4,
+              });
+            message.reply(`${gptResponse.data.choices[0].text}`);
+            //prompt += `${gptResponse.data.choices[0].text}\n`;
+        })();
+
+      break;
     case 'whym':
       var irly = true;
     case 'y':
