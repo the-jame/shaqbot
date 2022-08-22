@@ -1017,9 +1017,9 @@ client.on("messageCreate", async message => {
 
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: "text-davinci-002",
+                model: "text-curie-001",
                 prompt: prompt,
-                max_tokens: 150,
+                max_tokens: 200,
                 temperature: 0.75,
                 top_p: 1,
                 presence_penalty: 0,
@@ -1035,7 +1035,7 @@ client.on("messageCreate", async message => {
 
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: "text-davinci-002",
+                model: "text-curie-001",
                 prompt: prompt4,
                 max_tokens: 150,
                 temperature: 0.75,
