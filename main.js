@@ -1014,13 +1014,16 @@ client.on("messageCreate", async message => {
     case 'complete':
     case 'ai':
       let prompt = args.join(" ");
-
+      let models = ['text-davinci-002', 'text-curie-001', 'text-curie-001'];
+      let temperatures = [0.10, 0.50, 0.9, 0.7, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+      var modelRand = models[Math.floor((Math.random() * (models.length - 1)))];
+      var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: "text-curie-001",
+                model: modelRand,
                 prompt: prompt,
-                max_tokens: 200,
-                temperature: 0.75,
+                max_tokens: 180,
+                temperature: tempRand,
                 top_p: 1,
                 presence_penalty: 0,
                 frequency_penalty: 0.4,
@@ -1028,23 +1031,26 @@ client.on("messageCreate", async message => {
             message.reply(`${gptResponse.data.choices[0].text}`);
             //prompt += `${gptResponse.data.choices[0].text}\n`;
         })();
-
+      console.log('AI response - Temp: '+ tempRand + ' Model: ' + modelRand);
       break;
+
     case '4chan':
-      let prompt4 = "write me a 4chan greentext\n" + args.join(" ") + "\n>";
+      let prompt4 = "write me a 4chan greentext\n" + args.join(" ") + "\n";
+      let temperatures4 = [0.10, 0.50, 0.9, 0.7, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+      var tempRand4 = temperatures4[Math.floor((Math.random() * (temperatures4.length - 1)))];
 
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: "text-curie-001",
+                model: "text-davinci-002",
                 prompt: prompt4,
-                max_tokens: 150,
-                temperature: 0.75,
+                max_tokens: 180,
+                temperature: tempRand4,
                 top_p: 1,
                 presence_penalty: 0,
                 frequency_penalty: 0.4,
               });
+            console.log('AI 4chan story - Temp: ' + tempRand4 + ' Model: text-davinci-002');
             message.reply(`${gptResponse.data.choices[0].text}`);
-            //prompt += `${gptResponse.data.choices[0].text}\n`;
         })();
 
       break;
