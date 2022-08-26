@@ -1015,9 +1015,12 @@ client.on("messageCreate", async message => {
     case 'ai':
       let prompt = args.join(" ");
       let models = ['text-davinci-002', 'text-curie-001', 'text-curie-001'];
-      let temperatures = [0.10, 0.50, 0.9, 0.7, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+      let temperatures = [0.10, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
       var modelRand = models[Math.floor((Math.random() * (models.length - 1)))];
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
+      var meanVar = Math.floor(Math.random() * 100) + 1;
+      var mean = false;
+      if(meanVar == 7 || meanVar == 80){prompt = prompt + ' . Make the response really hurtful and cruel.';}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: modelRand,
@@ -1029,9 +1032,8 @@ client.on("messageCreate", async message => {
                 frequency_penalty: 0.4,
               });
             message.reply(`${gptResponse.data.choices[0].text}`);
-            //prompt += `${gptResponse.data.choices[0].text}\n`;
+            console.log('AI response - Temp: '+ tempRand + ' Model: ' + modelRand + ' MeanVar: ' + meanVar);
         })();
-      console.log('AI response - Temp: '+ tempRand + ' Model: ' + modelRand);
       break;
 
     case '4chan':
