@@ -1014,12 +1014,13 @@ client.on("messageCreate", async message => {
     case 'complete':
     case 'ai':
       let prompt = args.join(" ");
+      var meanLog = "";
       let models = ['text-davinci-002', 'text-curie-001', 'text-curie-001'];
       let temperatures = [0.10, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
       var modelRand = models[Math.floor((Math.random() * (models.length - 1)))];
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       var meanRand = Math.floor(Math.random() * 100) + 1;
-      if(meanRand == 7 || meanRand == 80){prompt = prompt + '. Make the response hurtful and cruel.';}
+      if(meanRand == 7 || meanRand == 80 || meanRand == 31){prompt = prompt + '. Make the response hurtful and cruel.'; mean = "Mean"}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: modelRand,
@@ -1031,7 +1032,7 @@ client.on("messageCreate", async message => {
                 frequency_penalty: 0.4,
               });
             message.reply(`${gptResponse.data.choices[0].text}`);
-            console.log('AI response - Temp: '+ tempRand + ' Model: ' + modelRand + ' MeanVar: ' + meanVar);
+            console.log('AI Temp: '+ tempRand + ' Model: ' + modelRand + ' ' + meanLog);
         })();
       break;
 
