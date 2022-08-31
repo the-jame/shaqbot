@@ -1015,24 +1015,24 @@ client.on("messageCreate", async message => {
     case 'ai':
       let prompt = args.join(" ");
       var meanLog = "";
-      let models = ['text-davinci-002', 'text-curie-001', 'text-curie-001'];
-      let temperatures = [0.10, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
-      var modelRand = models[Math.floor((Math.random() * (models.length - 1)))];
+      var model = "text-curie-001";
+      let temperatures = [0.10, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+      if(Math.random() < 0.6){model = 'text-davinci-002';}
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       var meanRand = Math.floor(Math.random() * 100) + 1;
-      if(meanRand == 7 || meanRand == 80 || meanRand == 31){prompt = prompt + '. Make the response hurtful and cruel.'; mean = "Mean"}
+      if(meanRand <= 4){prompt = prompt + '. Make the response hurtful and cruel.'; meanLog = " + MEAN";}
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: modelRand,
+                model: model,
                 prompt: prompt,
-                max_tokens: 180,
+                max_tokens: 200,
                 temperature: tempRand,
                 top_p: 1,
                 presence_penalty: 0,
                 frequency_penalty: 0.4,
               });
             message.reply(`${gptResponse.data.choices[0].text}`);
-            console.log('AI Temp: '+ tempRand + ' Model: ' + modelRand + ' ' + meanLog);
+            console.log('Model: '+ model + ' @ temp: ' + tempRand + meanLog);
         })();
       break;
 
