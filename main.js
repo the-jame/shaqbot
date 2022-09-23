@@ -24,7 +24,7 @@ let ignored;
 let anim = true;
 let scanAll = true;
 let boisTTS = true;
-let ballCommand = true;
+let ballCommand;
 let ttsE = true;
 let irl = false;
 
@@ -206,7 +206,7 @@ client.on('ready', () => {
     ['1/11', settings.kacey],
     ['5/27', settings.anthony],
     ['6/10', settings.john],
-   // ['7/14', settings.james],
+    ['7/14', settings.james],
     ['8/2', settings.enrique],
     ['9/1', settings.cody],
     ['10/4', settings.olm],
@@ -996,9 +996,10 @@ client.on("messageCreate", async message => {
 
     // ballsize bs
     case 'size':
-      ballCommand = false;
     case 'ballsize':
     case 'bs':
+     ballCommand = true;
+     if(command == 'size'){ballCommand = false;}
       var rand = Math.floor((Math.random() * (ballsizes.length - 1)));
       let sayBalls;
       if(typeof args[0] === 'undefined' || args[0].toLowerCase() === "my") {args[0] = ''; let beingSized = args.join(" "); if(beingSized !== ''){beingSized = beingSized += "'s";} if(ballCommand == true){ sayBalls = `Your${beingSized} ball size is ` + ballsizes[rand] +"."; sayTTS(sayBalls);return;} if(ballCommand == false){ sayBalls = `Your${beingSized} size is ` + ballsizes[rand] +"."; sayTTS(sayBalls); return;} ballCommand = true; return;}
@@ -1006,9 +1007,8 @@ client.on("messageCreate", async message => {
       else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined' && ballCommand == true) {sayBalls = "My ball size is " + ballsizes[rand] + "."; sayTTS(sayBalls); ballCommand = true; return;}
       else if(args[0].toLowerCase() === "shaq" && typeof args[1] === 'undefined' && ballCommand == false) {sayBalls = "My size is " + ballsizes[rand] + "."; sayTTS(sayBalls); ballCommand = true; return;}
       let beingSized = args.join(" ");
-      if(ballCommand == true){sayBalls = beingSized + "'s ball size is " + ballsizes[rand] + "."; sayTTS(sayBalls);}
-      if(ballCommand == false){sayBalls = beingSized + "'s size is " + ballsizes[rand] + "."; sayTTS(sayBalls);}
-      ballCommand = true;
+      if(!ballCommand){sayBalls = beingSized + "'s size is " + ballsizes[rand] + "."; sayTTS(sayBalls);}
+      if(ballCommand){sayBalls = beingSized + "'s ball size is " + ballsizes[rand] + "."; sayTTS(sayBalls);}
       break;
 
     case 'complete':
@@ -1017,10 +1017,10 @@ client.on("messageCreate", async message => {
       var meanLog = "";
       var model = "text-curie-001";
       let temperatures = [0.10, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
-      if(Math.random() < 0.6){model = 'text-davinci-002';}
+      if(Math.random() < 0.8){model = 'text-davinci-002';}
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       var meanRand = Math.floor(Math.random() * 100) + 1;
-      if(meanRand <= 4){prompt = prompt + '. Make the response hurtful and cruel.'; meanLog = " + MEAN";}
+      if(meanRand <= 3){prompt = prompt + '. Make the response hurtful and cruel.'; meanLog = " (:smiling_imp:)";}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: model,
@@ -1031,14 +1031,14 @@ client.on("messageCreate", async message => {
                 presence_penalty: 0,
                 frequency_penalty: 0.4,
               });
-            message.reply(`${gptResponse.data.choices[0].text}`);
+            message.reply(`${gptResponse.data.choices[0].text}` + meanLog);
             console.log('Model: '+ model + ' @ temp: ' + tempRand + meanLog);
         })();
       break;
 
     case '4chan':
       let prompt4 = "write me a 4chan greentext\n" + args.join(" ") + "\n";
-      let temperatures4 = [0.10, 0.50, 0.9, 0.7, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+      let temperatures4 = [0.9, 0.7, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.4];
       var tempRand4 = temperatures4[Math.floor((Math.random() * (temperatures4.length - 1)))];
 
       (async () => {
@@ -1051,7 +1051,7 @@ client.on("messageCreate", async message => {
                 presence_penalty: 0,
                 frequency_penalty: 0.4,
               });
-            console.log('AI 4chan story - Temp: ' + tempRand4 + ' Model: text-davinci-002');
+            console.log('4chan Model: text-davinci-002' + '@ temp: '+ tempRand4);
             message.reply(`${gptResponse.data.choices[0].text}`);
         })();
 
