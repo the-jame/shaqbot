@@ -2,7 +2,6 @@ let Discord = require("discord.js");
 
 const allIntents = new Discord.Intents(32767);
 const client = new Discord.Client({ intents: allIntents });
-const Sequelize = require('sequelize');
 
 require('dotenv').config();
 
@@ -13,13 +12,6 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-
-const sequelize = new Sequelize('database', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: false,
-    storage: 'database.sqlite',
-});
 
 let settings;
 let owner;
