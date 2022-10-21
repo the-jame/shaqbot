@@ -22,13 +22,9 @@ let wut3;
 let eyesleft;
 let huh;
 let realshit;
-let ignored;
 let anim = true;
-let scanAll = true;
-let boisTTS = true;
 let ballCommand;
 let ttsE = true;
-let irl = false;
 
 
 let pungent = '```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren\'t I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```';
@@ -242,8 +238,6 @@ client.on("messageCreate", async message => {
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(scanAll)
-  {
   let args2 = message.content.trim().split(/ +/g);
    if(args2[0] != settings.prefix){
     for (let a=0; a<args2.length; a++)
@@ -253,7 +247,6 @@ client.on("messageCreate", async message => {
      else if((args2[a].toLowerCase() == 'lin')) message.react(lin);
     }
    }
-  }
 
   if(message.content.indexOf(settings.prefix) !== 0) return;
 
@@ -893,7 +886,6 @@ client.on("messageCreate", async message => {
       if (message.author.id != owner) break;
       let commandD = args.join(" ");
       if (commandD == 'animation' || commandD == 'animate' || commandD == 'animated'){ anim=false; message.channel.send('Animation disabled.');}
-      if (commandD == 'scanall'){scanAll=false; message.channel.send('ScanAll disabled.');}
       if (commandD == 'tts'){ttsE = false; message.channel.send('tts is disabled');}
       break;
 
@@ -901,15 +893,13 @@ client.on("messageCreate", async message => {
       if (message.author.id != owner) break;
       let commandE = args.join (" ");
       if (commandE == 'animation' || commandE == 'animate' || commandE == 'animated'){anim=true; message.channel.send('Animation enabled.');}
-      if (commandE == 'scanall'){scanAll=true; message.channel.send('Scanall enabled.');}
       if (commandE == 'tts'){ttsE = true; message.channel.send('TTS is enabled.');}
       break;
 
     case 'status':
       let ttsStatus = ttsE;
-      let scanAllStatus = scanAll;
       let animStatus = anim;
-      message.channel.send(`Animation: ${animStatus}\nScan all msgs: ${scanAllStatus}\nTTS: ${ttsStatus}`);
+      message.channel.send(`Animation: ${animStatus}\nTTS: ${ttsStatus}`);
       break;
 
     case 'vid':
@@ -1133,7 +1123,7 @@ client.on("messageCreate", async message => {
 
 
     case 'whom':
-      irl = true;
+      var irl = true;
     case 'who':
       if(irl) {var subjects = subjectirl;}
       else if(!irl){ var subjects = subject;}
