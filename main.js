@@ -2,14 +2,24 @@ let Discord = require("discord.js");
 
 const allIntents = new Discord.Intents(32767);
 const client = new Discord.Client({ intents: allIntents });
+const Sequelize = require('sequelize');
 
 require('dotenv').config();
+
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
   organization: "org-IWYZO72FTk8eb9VbxM6SjJN2",
   apiKey: process.env.OPENAI_API_KEY,
 });
+
 const openai = new OpenAIApi(configuration);
+
+const sequelize = new Sequelize('database', 'user', 'password', {
+    host: 'localhost',
+    dialect: 'sqlite',
+    logging: false,
+    storage: 'database.sqlite',
+});
 
 let settings;
 let owner;
@@ -27,6 +37,7 @@ let boisTTS = true;
 let ballCommand;
 let ttsE = true;
 let irl = false;
+
 
 let pungent = '```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren\'t I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```';
 
@@ -196,8 +207,8 @@ client.on('ready', () => {
   lin = client.emojis.cache.get('869621287700537409');
   owner = settings.james;
 
-  var ballsRand = Math.floor((Math.random() * (99 - 1)));
-  client.user.setActivity(`with ${ballsRand} balls.`, { type: 'PLAYING' })
+
+  client.user.setActivity(`with 69 nice balls.`, { type: 'PLAYING' })
 
   // check for birthdays
   let birthdays = [
@@ -859,13 +870,18 @@ client.on("messageCreate", async message => {
       message.channel.send ({files: ["img/badvibes.jpg"]});
       break;
     case 'beaners':
-      if(message.author.id == settings.james || message.author.id == settings.anthony || message.author.id == settings.andrew || message.author.id == settings.john || message.author.id == settings.enrique || message.author.id == settings.ysabel || message.author.id == settings.cody){
+      if(message.author.id == settings.james || message.author.id == settings.anthony || message.author.id == settings.andrew || message.author.id == settings.john || message.author.id == settings.enrique || message.author.id == settings.ysabel){
       message.channel.send ({files: ["img/beaners.png"]}); break;} else {let roleRacist = message.member.roles.highest; roleRacist.setName('THE RACIST'); message.channel.send('RACIST DETECTED.');}
       break;
     case 'butdidiask':
     case 'didiask':
     case 'crazybro':
       message.channel.send ({files: ["img/crazybro.gif"]});
+      break;
+    case 'fridaycalifornia':
+    case 'friday':
+      var now = new Date(); var day = now.getDay();
+      if(day === 5) {message.channel.send ({files: ["img/friday.mp4"]});} else message.channel.send("Today is not Friday in California.");
       break;
 
 
@@ -1023,17 +1039,17 @@ client.on("messageCreate", async message => {
     case 'ai':
       let prompt = args.join(" ");
       var meanLog = "";
-      var model = "text-curie-001";
+      var model = "text-davinci-002";
       let temperatures = [0.10, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
-      if(Math.random() < 0.8){model = 'text-davinci-002';}
+      //if(Math.random() < 0.8){model = 'text-davinci-002';}
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       var meanRand = Math.floor(Math.random() * 100) + 1;
-      if(meanRand <= 3){prompt = prompt + '. Make the response hurtful and cruel.'; meanLog = " (:smiling_imp:)";}
+      if(meanRand <= 4){prompt = prompt + '. Make the response hurtful and cruel.'; meanLog = " (:smiling_imp:)";}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: model,
                 prompt: prompt,
-                max_tokens: 200,
+                max_tokens: 240,
                 temperature: tempRand,
                 top_p: 1,
                 presence_penalty: 0,
