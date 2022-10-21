@@ -14,15 +14,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 let settings;
-let owner;
 let token = '';
-let wut1;
-let wut2;
-let wut3;
-let eyesleft;
-let huh;
-let realshit;
-let anim = true;
 let ballCommand;
 let ttsE = true;
 
@@ -112,7 +104,7 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'st
 var ballsizes = ['large', 'small', 'medium', 'puny', 'gigantic', 'average', 'incongruous', 'nice :thumbsup:', ':b:ig', 'immense', 'voluptuous', 'h',
     'bigger than I\'d like :/', 'smaller than I\'d like :/', 'vast', 'globular', 'eternal', '*just right*', 'normal', '¡Sabado Gigante!', 'narrow', 'wide', 'petite', 'insignificant', 
     'short', ':ok:', 'smallish', 'XXL', 'XXS', 'big-boned', 'king size', 'FAT', 'mediocre', 'unexceptional', 'immeasurable', 'trivial', 'intermediate', 'passable', 
-    'regular', 'tainted', 'common', '12 inches', `${huh}`, '1 foot', '5 & 1/2 centimeters', 'futuristic', 'macho', '4 yards', '2 meters', ':fire::100::fire::100::fire::100:','thicc',
+    'regular', 'tainted', 'common', '12 inches', '1 foot', '5 & 1/2 centimeters', 'futuristic', 'macho', '4 yards', '2 meters', ':fire::100::fire::100::fire::100:','thicc',
     'microscopic', 'gargantuan', ':flushed:', 'assertive', 'reptilian', 'ghastly', 'delightful', 'debonair', 'homely', 'nonexistent','left: 15cm, right: 1cm', '1mm','1 in.', '3cm',
     'about that of a golf ball', 'Epstein didn\'t kill himself', 'too big to handle', 'just right', 'ordinary', 'unwieldy', 'embarrassing', pungent, 'cubic', 'shriveled', 'that of a BEAN',
     'six of one, half dozen of the other', 'an acre', 'US Men\'s 11', 'UK Women\'s 7 & 1/2', 'a lima bean', 'unusual', 'gamer sized :video_game:', 'amassed',
@@ -156,7 +148,7 @@ let cummies = `Just me and my :two_hearts:daddy:two_hearts:, hanging out I got p
 // easy capitalize func
 function capitalize(s)
 {
-    return s && s[0].toUpperCase() + s.slice(1);
+  return s && s[0].toUpperCase() + s.slice(1);
 }
 
 // require settings file
@@ -179,21 +171,21 @@ function login() {
 // start bot
 client.on('ready', () => {
   console.log(`Shaq started: ${client.users.cache.size} users, ${client.guilds.cache.size} servers.\n`);
-  realshit = client.emojis.cache.get('487855131996585994');
-  wut1 = client.emojis.cache.get('431701745329111041');
-  wut2 = client.emojis.cache.get('431701745014669314');
-  wut3 = client.emojis.cache.get('431701745236967425');
-  eyesleft = client.emojis.cache.get('642179113259499571');
-  huh = client.emojis.cache.get('431693012788314132');
-  pleadah = client.emojis.cache.get('665307736866684968');
-  philipL = client.emojis.cache.get('818651366250643466');
-  philipR = client.emojis.cache.get('818650382472314911');
-  philipC = client.emojis.cache.get('818649301802156094');
-  thinkAss = client.emojis.cache.get('813835069780918304');
-  amogusE = client.emojis.cache.get('811734705807294574');
-  susE = client.emojis.cache.get('811814942939807754');
-  lin = client.emojis.cache.get('869621287700537409');
-  owner = settings.james;
+  var realshit = client.emojis.cache.get('487855131996585994');
+  var wut1 = client.emojis.cache.get('431701745329111041');
+  var wut2 = client.emojis.cache.get('431701745014669314');
+  var wut3 = client.emojis.cache.get('431701745236967425');
+  var eyesleft = client.emojis.cache.get('642179113259499571');
+  var huh = client.emojis.cache.get('431693012788314132');
+  var pleadah = client.emojis.cache.get('665307736866684968');
+  var philipL = client.emojis.cache.get('818651366250643466');
+  var philipR = client.emojis.cache.get('818650382472314911');
+  var philipC = client.emojis.cache.get('818649301802156094');
+  var thinkAss = client.emojis.cache.get('813835069780918304');
+  var amogusE = client.emojis.cache.get('811734705807294574');
+  var susE = client.emojis.cache.get('811814942939807754');
+  var lin = client.emojis.cache.get('869621287700537409');
+  var owner = settings.james;
 
 
   client.user.setActivity(`with 69 nice balls.`, { type: 'PLAYING' })
@@ -882,26 +874,6 @@ client.on("messageCreate", async message => {
       console.log(`Role changed.`);
       break;
 
-    case 'disable':
-      if (message.author.id != owner) break;
-      let commandD = args.join(" ");
-      if (commandD == 'animation' || commandD == 'animate' || commandD == 'animated'){ anim=false; message.channel.send('Animation disabled.');}
-      if (commandD == 'tts'){ttsE = false; message.channel.send('tts is disabled');}
-      break;
-
-    case 'enable':
-      if (message.author.id != owner) break;
-      let commandE = args.join (" ");
-      if (commandE == 'animation' || commandE == 'animate' || commandE == 'animated'){anim=true; message.channel.send('Animation enabled.');}
-      if (commandE == 'tts'){ttsE = true; message.channel.send('TTS is enabled.');}
-      break;
-
-    case 'status':
-      let ttsStatus = ttsE;
-      let animStatus = anim;
-      message.channel.send(`Animation: ${animStatus}\nTTS: ${ttsStatus}`);
-      break;
-
     case 'vid':
     case 'save':
     case 'link':
@@ -1294,7 +1266,6 @@ client.on("messageCreate", async message => {
 
   case 'lol':
   case 'laugh':
-      if(!anim) {console.log('Animation blocked: lol'); break;}
       setTimeout(()=> {
       clearTimeout(laughing);
       }, 10000);
@@ -1305,7 +1276,6 @@ client.on("messageCreate", async message => {
 
   case 'pleading':
   case 'plead':
-    if(!anim){console.log('Animation blocked: plead'); break;}
     let pleadReg = `:pleading_face:`;
     let plead2 = `${pleadah}`;
     message.channel.send(pleadReg)
@@ -1341,7 +1311,6 @@ client.on("messageCreate", async message => {
       }); break;
 
   case 'asscrack':
-    if(!anim){console.log('Animation blocked: asscrack'); break;}
     philipLeft = `${philipL} ${thinkAss}`;
     philipRight = `${philipR} ${thinkAss}`;
     philipCenter = `:coffin: ${thinkAss}`;
@@ -1384,7 +1353,6 @@ client.on("messageCreate", async message => {
   case 'look':
   case 'stretch':
   case 'neck':
-      if(!anim){console.log('Animation blocked: neck'); break;}
       let finalNeck = '';
       let neck2 = `${wut2}${wut2}`;
       let lookAt = args.join(" ");
