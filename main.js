@@ -10,10 +10,20 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 
-let settings;
-let token = '';
-let ballCommand;
 let ttsE = true;
+let settings;
+let owner;
+let token = '';
+let wut1;
+let wut2;
+let wut3;
+let eyesleft;
+let huh;
+let realshit;
+let ignored;
+let ballCommand;
+let thinkAss;
+let irl = false;
 
 let pungent = '```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren\'t I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```';
 
@@ -34,6 +44,19 @@ var subjectirl = ['reeg', 'james', 'jimmy', 'tyra', 'liz', 'ton', 'cody', 'ysabe
 var erW = ["enemy", "weak foe", "strong foe", "monster", "dragon", "boss", "sentry", "group", "pack", "decoy", "undead", "soldier", "knight", "cavalier", "archer", "sniper", "mage", "ordnance", "monarch", "lord", "demi-human", "outsider", "giant", "horse", "dog", "wolf", "rat", "beast", "bird", "raptor", "snake", "crab", "prawn", "octopus", "bug", "scarab", "slug", "wraith", "skeleton", "monstrosity", "ill-omened creature", "Tarnished", "warrior", "swordfighter", "knight", "samurai", "sorcerer", "cleric", "sage", "merchant", "teacher", "master", "friend", "lover", "old dear", "old codger", "angel", "fat coinpurse", "pauper", "good sort", "wicked sort", "plump sort", "skinny sort", "lovable sort", "pathetic sort", "strange sort", "nimble sort", "laggardly sort", "invisible sort", "unfathomable sort", "giant sort", "sinner", "thief", "liar", "dastard", "traitor", "pair", "trio", "noble", "aristocrat", "hero", "champion", "monarch", "lord", "god", "item", "necessary item", "precious item", "something", "something incredible", "treasure chest", "corpse", "coffin", "trap", "armament", "shield", "bow", "projectile weapon", "armor", "talisman", "skill", "sorcery", "incantation", "map", "material", "flower", "grass", "tree", "fruit", "seed", "mushroom", "tear", "crystal", "butterfly", "bug", "dung", "grace", "door", "key", "ladder", "lever", "lift", "spiritspring", "sending gate", "stone astrolabe", "Birdseye Telescope", "message", "bloodstain", "Erdtree", "Elden Ring", "close-quarters battle", "ranged battle", "horseback battle", "luring out", "defeating one-by-one", "taking on all at once", "rushing in", "stealth", "mimicry", "confusion", "pursuit", "fleeing", "summoning", "circling around", "jumping off", "dashing through", "brief respite", "Actions	", "attacking", "jump attack", "running attack", "critical hit", "two-handing", "blocking", "parrying", "guard counter", "sorcery", "incantation", "skill", "summoning", "throwing", "healing", "running", "rolling", "backstepping", "jumping", "crouching", "target lock", "item crafting", "gesturing", "morning", "noon", "evening", "night", "clear sky", "overcast", "rain", "storm", "mist", "snow", "patrolling", "procession", "crowd", "surprise attack", "ambush", "pincer attack", "beating to a pulp", "battle", "reinforcements", "ritual", "explosion", "high spot", "defensible spot", "climbable spot", "bright spot", "dark spot", "open area", "cramped area", "hiding place", "sniping spot", "recon spot", "safety", "danger", "gorgeous view", "detour", "hidden path", "secret passage", "shortcut", "dead end", "looking away", "unnoticed", "out of stamina", "Places	", "high road", "checkpoint", "bridge", "castle", "fort", "city", "ruins", "church", "tower", "camp site", "house", "cemetery", "underground tomb", "tunnel", "cave", "evergaol", "great tree", "cellar", "surface", "underground", "forest", "river", "lake", "bog", "mountain", "valley", "cliff", "waterside", "nest", "hole", "east", "west", "south", "north", "ahead", "behind", "left", "right", "center", "up", "down", "edge", "head", "stomach", "back", "arms", "legs", "rump", "tail", "core", "fingers", "physical", "standard", "striking", "slashing", "piercing", "fire", "lightning", "magic", "holy", "poison", "toxic", "scarlet rot", "blood loss", "frost", "sleep", "madness", "death", "life", "Death", "light", "dark", "stars", "fire", "Order", "chaos", "joy", "wrath", "suffering", "sadness", "comfort", "bliss", "misfortune", "good fortune", "bad luck", "hope", "despair", "victory", "defeat", "research", "faith", "abundance", "rot", "loyalty", "injustice", "secret", "opportunity", "pickle", "clue", "friendship", "love", "bravery", "vigor", "fortitude", "confidence", "distracted", "unguarded", "introspection", "regret", "resignation", "futility", "on the brink", "betrayal", "revenge", "destruction", "recklessness", "calmness", "vigilance", "tranquility", "sound", "tears", "sleep", "depths", "dregs", "fear", "sacrifice", "ruin", "good luck", "look carefully", "listen carefully", "think carefully", "well done", "I did it!", "I've failed...", "here!", "not here!", "don't you dare!", "do it!", "I can't take this...", "don't think", "so lonely...", "here again...", "just getting started", "stay calm", "keep moving", "turn back", "give up", "don't give up", "help me...", "I don't believe it...", "too high up", "I want to go home...", "it's like a dream...", "seems familiar...", "beautiful...", "you don't have the right", "are you ready?"];
 var erP = [`{w} ahead`, `Likely {w}`, `If only I had a {w}`, `{w}, O {w}`,`Ahh, {w}`, `No {w} ahead`, `First off, {w}`, `Didn't expect {w}...`,`Behold, {w}!`,`{w}`,`{w} required ahead`,`Seek {w}`,`Visions of {w}...`,`Offer {w}`,`{w}!`,`Be wary of {w}`,`Still no {w}...`,`Could this be a {w}?`,`Praise the {w}`,`{w}?`,`Try {w}`, `Why is it always {w}?`, `Time for {w}`,`Let there be {w}`,`{w}...`];
 var erC = ["and then", "or", "but", "therefore", "in short", "except", "by the way", "so to speak", "all the more", ","];
+realshit = client.emojis.cache.get('487855131996585994');
+wut1 = client.emojis.cache.get('431701745329111041');
+wut2 = client.emojis.cache.get('431701745014669314');
+wut3 = client.emojis.cache.get('431701745236967425');
+eyesleft = client.emojis.cache.get('642179113259499571');
+huh = client.emojis.cache.get('431693012788314132');
+  var pleadah = client.emojis.cache.get('665307736866684968');
+thinkAss = client.emojis.cache.get('813835069780918304');
+  var amogusE = client.emojis.cache.get('811734705807294574');
+  var susE = client.emojis.cache.get('811814942939807754');
+  var lin = client.emojis.cache.get('869621287700537409');
+
+
 
 // what
 var things = ['poop', 'in n out double double', 'french fries', 'a coffee', 'hand lotion', 'nothing', 'alcohol', 
@@ -167,23 +190,10 @@ function login() {
 // start bot
 client.on('ready', () => {
   console.log(`Shaq started: ${client.users.cache.size} users, ${client.guilds.cache.size} servers.\n`);
-  var realshit = client.emojis.cache.get('487855131996585994');
-  var wut1 = client.emojis.cache.get('431701745329111041');
-  var wut2 = client.emojis.cache.get('431701745014669314');
-  var wut3 = client.emojis.cache.get('431701745236967425');
-  var eyesleft = client.emojis.cache.get('642179113259499571');
-  var huh = client.emojis.cache.get('431693012788314132');
-  var pleadah = client.emojis.cache.get('665307736866684968');
-  var philipL = client.emojis.cache.get('818651366250643466');
-  var philipR = client.emojis.cache.get('818650382472314911');
-  var philipC = client.emojis.cache.get('818649301802156094');
-  var thinkAss = client.emojis.cache.get('813835069780918304');
-  var amogusE = client.emojis.cache.get('811734705807294574');
-  var susE = client.emojis.cache.get('811814942939807754');
-  var lin = client.emojis.cache.get('869621287700537409');
+  philipL = client.emojis.cache.get('818651366250643466');
+  philipR = client.emojis.cache.get('818650382472314911');
+  philipC = client.emojis.cache.get('818649301802156094');
   var owner = settings.james;
-
-
   client.user.setActivity(`with 69 nice balls.`, { type: 'PLAYING' })
 
   // check for birthdays
@@ -198,7 +208,7 @@ client.on('ready', () => {
     ['9/1', settings.cody],
     ['10/4', settings.olm],
     ['10/23', settings.tyra],
-    ['10/26', settings.liz],
+    //['10/26', settings.liz],
     ['11/9', settings.jimmy]
   ];
 
