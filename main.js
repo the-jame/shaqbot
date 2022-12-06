@@ -188,10 +188,10 @@ client.on('ready', () => {
   wut1 = client.emojis.cache.get('431701745329111041');
   wut2 = client.emojis.cache.get('431701745014669314');
   wut3 = client.emojis.cache.get('431701745236967425');
-  tonno = client.emojis.cache.get('1049570576441810964');
-  tonyes = client.emojis.cache.get('1049570555206049852');
-  joseno = client.emojis.cache.get('1049570576441810964');
-  joseyes = client.emojis.cache.get('1049570555206049852');
+  tonno = client.emojis.cache.get('705327750340411412');
+  tonyes = client.emojis.cache.get('893707564301295686');
+  joseno = client.emojis.cache.get('682750972367601728');
+  joseyes = client.emojis.cache.get('1049570396824936448');
   philipL = client.emojis.cache.get('818651366250643466');
   philipR = client.emojis.cache.get('818650382472314911');
   philipC = client.emojis.cache.get('818649301802156094');
@@ -1380,7 +1380,7 @@ client.on("messageCreate", async message => {
         }, 3200)
       }); break;
 
-  case 'laugh':
+  case 'joseton':
     serious = `${tonno} ${joseno}`;
     pos1 = `${tonyes} ${joseno}`;
     pos2 = `${tonno} ${joseyes}`;
