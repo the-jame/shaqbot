@@ -45,17 +45,12 @@ var erW = ["enemy", "weak foe", "strong foe", "monster", "dragon", "boss", "sent
 var erP = [`{w} ahead`, `Likely {w}`, `If only I had a {w}`, `{w}, O {w}`,`Ahh, {w}`, `No {w} ahead`, `First off, {w}`, `Didn't expect {w}...`,`Behold, {w}!`,`{w}`,`{w} required ahead`,`Seek {w}`,`Visions of {w}...`,`Offer {w}`,`{w}!`,`Be wary of {w}`,`Still no {w}...`,`Could this be a {w}?`,`Praise the {w}`,`{w}?`,`Try {w}`, `Why is it always {w}?`, `Time for {w}`,`Let there be {w}`,`{w}...`];
 var erC = ["and then", "or", "but", "therefore", "in short", "except", "by the way", "so to speak", "all the more", ","];
 realshit = client.emojis.cache.get('487855131996585994');
-wut1 = client.emojis.cache.get('431701745329111041');
-wut2 = client.emojis.cache.get('431701745014669314');
-wut3 = client.emojis.cache.get('431701745236967425');
-eyesleft = client.emojis.cache.get('642179113259499571');
 huh = client.emojis.cache.get('431693012788314132');
+eyesleft = client.emojis.cache.get('642179113259499571');
   var pleadah = client.emojis.cache.get('665307736866684968');
-thinkAss = client.emojis.cache.get('813835069780918304');
   var amogusE = client.emojis.cache.get('811734705807294574');
   var susE = client.emojis.cache.get('811814942939807754');
   var lin = client.emojis.cache.get('869621287700537409');
-
 
 
 // what
@@ -190,9 +185,17 @@ function login() {
 // start bot
 client.on('ready', () => {
   console.log(`Shaq started: ${client.users.cache.size} users, ${client.guilds.cache.size} servers.\n`);
+  wut1 = client.emojis.cache.get('431701745329111041');
+  wut2 = client.emojis.cache.get('431701745014669314');
+  wut3 = client.emojis.cache.get('431701745236967425');
+  tonno = client.emojis.cache.get('1049570576441810964');
+  tonyes = client.emojis.cache.get('1049570555206049852');
+  joseno = client.emojis.cache.get('1049570576441810964');
+  joseyes = client.emojis.cache.get('1049570555206049852');
   philipL = client.emojis.cache.get('818651366250643466');
   philipR = client.emojis.cache.get('818650382472314911');
   philipC = client.emojis.cache.get('818649301802156094');
+  thinkAss = client.emojis.cache.get('813835069780918304');
   var owner = settings.james;
   client.user.setActivity(`with 69 nice balls.`, { type: 'PLAYING' })
 
@@ -208,7 +211,7 @@ client.on('ready', () => {
     ['9/1', settings.cody],
     ['10/4', settings.olm],
     ['10/23', settings.tyra],
-    //['10/26', settings.liz],
+    ['10/26', settings.liz],
     ['11/9', settings.jimmy]
   ];
 
@@ -241,8 +244,8 @@ client.on("messageCreate", async message => {
     for (let a=0; a<args2.length; a++)
     {
      if((args2[a].toLowerCase() == 'amogus'))message.react(amogusE);
-     else if((args2[a].toLowerCase() == 'sus')) message.react(susE);
-     else if((args2[a].toLowerCase() == 'lin')) message.react(lin);
+     else if((args2[a].toLowerCase() == 'sus')) message.react('<:sus-1:814706393184600086>');
+     else if((args2[a].toLowerCase() == 'lin')) message.react('<:linbite:869621287700537409>');
     }
    }
 
@@ -875,6 +878,19 @@ client.on("messageCreate", async message => {
     case 'childgun':
       message.channel.send ({files: ["img/kidgun2.jpg"]});
       break;
+    case 'eepy':
+    case 'whyheeepy':
+    case 'andwhyheeepy':
+    case 'whyeepy':
+      message.channel.send ({files: ["img/eepy.gif"]});
+      break;
+    case 'madness':
+      message.channel.send ({files: ["img/madness.png"]});
+      break;
+    case 'gootbye':
+    case 'starving':
+      message.channel.send ({files: ["img/gootbye.jpg"]});
+      break;
 
 
 // zzzzz endofmeme newest latest recent
@@ -1008,7 +1024,7 @@ client.on("messageCreate", async message => {
     case 'ai':
       let prompt = args.join(" ");
       var meanLog = "";
-      var model = "text-davinci-002";
+      var model = "text-davinci-003";
       let temperatures = [0.10, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
       //if(Math.random() < 0.8){model = 'text-davinci-002';}
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
@@ -1280,7 +1296,6 @@ client.on("messageCreate", async message => {
       break;
 
   case 'lol':
-  case 'laugh':
       setTimeout(()=> {
       clearTimeout(laughing);
       }, 10000);
@@ -1364,6 +1379,48 @@ client.on("messageCreate", async message => {
            msg.edit(philipCenter)
         }, 3200)
       }); break;
+
+  case 'laugh':
+    serious = `${tonno} ${joseno}`;
+    pos1 = `${tonyes} ${joseno}`;
+    pos2 = `${tonno} ${joseyes}`;
+    var pos3 = `${tonyes} ${joseyes}`;
+
+    message.channel.send(serious)
+      .then((msg) => {
+        setTimeout(function() {
+          msg.edit(pos1)
+        }, 1400);
+        setTimeout(function() {
+          msg.edit(pos3)
+        }, 1800);
+	setTimeout(function() {
+          msg.edit(pos2)
+        }, 1200);
+        setTimeout(function() {
+          msg.edit(pos3)
+        }, 1700);
+	setTimeout(function() {
+          msg.edit(serious)
+        }, 900);
+        setTimeout(function() {
+          msg.edit(pos1)
+        }, 1100);
+	setTimeout(function() {
+          msg.edit(pos3)
+        }, 1300);
+	setTimeout(function() {
+          msg.edit(pos2)
+        }, 1100);
+	setTimeout(function() {
+          msg.edit(pos3)
+        }, 1200);
+	    // final stage
+        setTimeout(function() {
+           msg.edit(serious)
+        }, 3200)
+      }); break;
+
 
   case 'look':
   case 'stretch':
