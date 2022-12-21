@@ -17,10 +17,7 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "sequelize": "^6.25.1",
-    "sqlite3": "^5.1.2",
-    "ytdl-core": "^3.2.2",
-    "ytpl": "^0.1.22",
-    "ytsearcher": "^1.2.3"
+    "sqlite3": "^5.1.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
