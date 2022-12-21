@@ -18,7 +18,6 @@ let wut1;
 let wut2;
 let wut3;
 let eyesleft;
-let huh;
 let realshit;
 let ignored;
 let ballCommand;
@@ -44,13 +43,8 @@ var subjectirl = ['reeg', 'james', 'jimmy', 'tyra', 'liz', 'ton', 'cody', 'ysabe
 var erW = ["enemy", "weak foe", "strong foe", "monster", "dragon", "boss", "sentry", "group", "pack", "decoy", "undead", "soldier", "knight", "cavalier", "archer", "sniper", "mage", "ordnance", "monarch", "lord", "demi-human", "outsider", "giant", "horse", "dog", "wolf", "rat", "beast", "bird", "raptor", "snake", "crab", "prawn", "octopus", "bug", "scarab", "slug", "wraith", "skeleton", "monstrosity", "ill-omened creature", "Tarnished", "warrior", "swordfighter", "knight", "samurai", "sorcerer", "cleric", "sage", "merchant", "teacher", "master", "friend", "lover", "old dear", "old codger", "angel", "fat coinpurse", "pauper", "good sort", "wicked sort", "plump sort", "skinny sort", "lovable sort", "pathetic sort", "strange sort", "nimble sort", "laggardly sort", "invisible sort", "unfathomable sort", "giant sort", "sinner", "thief", "liar", "dastard", "traitor", "pair", "trio", "noble", "aristocrat", "hero", "champion", "monarch", "lord", "god", "item", "necessary item", "precious item", "something", "something incredible", "treasure chest", "corpse", "coffin", "trap", "armament", "shield", "bow", "projectile weapon", "armor", "talisman", "skill", "sorcery", "incantation", "map", "material", "flower", "grass", "tree", "fruit", "seed", "mushroom", "tear", "crystal", "butterfly", "bug", "dung", "grace", "door", "key", "ladder", "lever", "lift", "spiritspring", "sending gate", "stone astrolabe", "Birdseye Telescope", "message", "bloodstain", "Erdtree", "Elden Ring", "close-quarters battle", "ranged battle", "horseback battle", "luring out", "defeating one-by-one", "taking on all at once", "rushing in", "stealth", "mimicry", "confusion", "pursuit", "fleeing", "summoning", "circling around", "jumping off", "dashing through", "brief respite", "Actions	", "attacking", "jump attack", "running attack", "critical hit", "two-handing", "blocking", "parrying", "guard counter", "sorcery", "incantation", "skill", "summoning", "throwing", "healing", "running", "rolling", "backstepping", "jumping", "crouching", "target lock", "item crafting", "gesturing", "morning", "noon", "evening", "night", "clear sky", "overcast", "rain", "storm", "mist", "snow", "patrolling", "procession", "crowd", "surprise attack", "ambush", "pincer attack", "beating to a pulp", "battle", "reinforcements", "ritual", "explosion", "high spot", "defensible spot", "climbable spot", "bright spot", "dark spot", "open area", "cramped area", "hiding place", "sniping spot", "recon spot", "safety", "danger", "gorgeous view", "detour", "hidden path", "secret passage", "shortcut", "dead end", "looking away", "unnoticed", "out of stamina", "Places	", "high road", "checkpoint", "bridge", "castle", "fort", "city", "ruins", "church", "tower", "camp site", "house", "cemetery", "underground tomb", "tunnel", "cave", "evergaol", "great tree", "cellar", "surface", "underground", "forest", "river", "lake", "bog", "mountain", "valley", "cliff", "waterside", "nest", "hole", "east", "west", "south", "north", "ahead", "behind", "left", "right", "center", "up", "down", "edge", "head", "stomach", "back", "arms", "legs", "rump", "tail", "core", "fingers", "physical", "standard", "striking", "slashing", "piercing", "fire", "lightning", "magic", "holy", "poison", "toxic", "scarlet rot", "blood loss", "frost", "sleep", "madness", "death", "life", "Death", "light", "dark", "stars", "fire", "Order", "chaos", "joy", "wrath", "suffering", "sadness", "comfort", "bliss", "misfortune", "good fortune", "bad luck", "hope", "despair", "victory", "defeat", "research", "faith", "abundance", "rot", "loyalty", "injustice", "secret", "opportunity", "pickle", "clue", "friendship", "love", "bravery", "vigor", "fortitude", "confidence", "distracted", "unguarded", "introspection", "regret", "resignation", "futility", "on the brink", "betrayal", "revenge", "destruction", "recklessness", "calmness", "vigilance", "tranquility", "sound", "tears", "sleep", "depths", "dregs", "fear", "sacrifice", "ruin", "good luck", "look carefully", "listen carefully", "think carefully", "well done", "I did it!", "I've failed...", "here!", "not here!", "don't you dare!", "do it!", "I can't take this...", "don't think", "so lonely...", "here again...", "just getting started", "stay calm", "keep moving", "turn back", "give up", "don't give up", "help me...", "I don't believe it...", "too high up", "I want to go home...", "it's like a dream...", "seems familiar...", "beautiful...", "you don't have the right", "are you ready?"];
 var erP = [`{w} ahead`, `Likely {w}`, `If only I had a {w}`, `{w}, O {w}`,`Ahh, {w}`, `No {w} ahead`, `First off, {w}`, `Didn't expect {w}...`,`Behold, {w}!`,`{w}`,`{w} required ahead`,`Seek {w}`,`Visions of {w}...`,`Offer {w}`,`{w}!`,`Be wary of {w}`,`Still no {w}...`,`Could this be a {w}?`,`Praise the {w}`,`{w}?`,`Try {w}`, `Why is it always {w}?`, `Time for {w}`,`Let there be {w}`,`{w}...`];
 var erC = ["and then", "or", "but", "therefore", "in short", "except", "by the way", "so to speak", "all the more", ","];
-realshit = client.emojis.cache.get('487855131996585994');
-huh = client.emojis.cache.get('431693012788314132');
+var lin = client.emojis.cache.get('869621287700537409');
 eyesleft = client.emojis.cache.get('642179113259499571');
-  var pleadah = client.emojis.cache.get('665307736866684968');
-  var amogusE = client.emojis.cache.get('811734705807294574');
-  var susE = client.emojis.cache.get('811814942939807754');
-  var lin = client.emojis.cache.get('869621287700537409');
 
 
 // what
@@ -169,7 +163,6 @@ function capitalize(s)
 try {
   settings = require('./settings.json');
 } catch (e) {
-  console.log(`a settings.json file has not been generated. ${e.stack}`);
   process.exit();
 }
 
@@ -178,7 +171,7 @@ function login() {
   if (settings.token) {
     client.login(settings.token);
   } else {
-    console.log('Error logging in: There may be an issue with your settings.json file');
+    console.log('Error logging in: There may be an issue with your settings file');
   }
 }
 
@@ -196,8 +189,9 @@ client.on('ready', () => {
   philipR = client.emojis.cache.get('818650382472314911');
   philipC = client.emojis.cache.get('818649301802156094');
   thinkAss = client.emojis.cache.get('813835069780918304');
+  pleadah = client.emojis.cache.get('665307736866684968');
   var owner = settings.james;
-  client.user.setActivity(`with 69 nice balls.`, { type: 'PLAYING' })
+  //client.user.setActivity(`with 69 nice balls.`, { type: 'PLAYING' })
 
   // check for birthdays
   let birthdays = [
@@ -233,25 +227,13 @@ client.on('ready', () => {
 
 client.on("messageCreate", async message => {
 
+  let pref = settings.prefix;
   if(message.author.bot) return;
+  if(message.content.indexOf(pref) !== 0) return;
   if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{}); console.log('Shitty pog sticker removed.');}
 
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
-  let args2 = message.content.trim().split(/ +/g);
-   if(args2[0] != settings.prefix){
-    for (let a=0; a<args2.length; a++)
-    {
-     if((args2[a].toLowerCase() == 'amogus'))message.react(amogusE);
-     else if((args2[a].toLowerCase() == 'sus')) message.react('<:sus-1:814706393184600086>');
-     else if((args2[a].toLowerCase() == 'lin')) message.react('<:linbite:869621287700537409>');
-    }
-   }
-
-  if(message.content.indexOf(settings.prefix) !== 0) return;
-
-  let pref = settings.prefix;
   const commandList = ['${pref}b', '${pref}ballsize','${pref}why','${pref}y','${pref}uu','${pref}uuu','${pref}howdy','${pref}8]'];
 
   function sayTTS(speak){
@@ -263,16 +245,12 @@ client.on("messageCreate", async message => {
 
   // begin commands, search for //(command) to find
   switch(command) {
-    case 'ms': if(message.author.id != owner){break;} message.channel.send(new Date().getTime() - message.createdTimestamp + " ms"); break;
 
     case 'memes':
     case 'memelist':
     case 'commands':
-    case 'pics':
-    case 'pictures':
     case 'commandlist':
-    case 'memelist':
-      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`boomer` - OK BOOMER\n`stfuboomer` - STFU boomer.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`brains` - more than 1% of our brains\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
+      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`brains` - more than 1% of our brains\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`islam2` - islam 2\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
       message.channel.send("`ask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`no2/pointno` - dr manhattan saying no\n`finally` - finally, anything\n`zany` - not me being goofy i-\n`shroom` - origin of shroom wojak\n`borntodie` - world is a fuck\n`sickos` - YES\n`sys` - shit yourself\n`notowned` - corn cob tweet\n`themoreyouknow`\n`coward` - grandpa coward\n`boomerfication` - progressing nice\n`old` - old\n`corb` - corn on the orb\n`bunt` - 3 girlfriends\n`society` - improve society somewhat\n`dislikedthat` - everyone disliked that\n`zamn` - zamn\n`johnker` - john joker laugh\n`datsmeyellin` - shaq yellin\n`bloodyfuckyou` - youtube video fuck you bloody\n`hillary` - hillary staring at a common kitchen\n`breastsimage` - food, water, breasts image\n`bigrobert` - big robert\n`fishe` - sucking fish video\n`japaneseytp` - famous japanese ytp video\n`badvibes` - sending bad vibes your way\n`beaners` - means tested beaner image\n`didiask` - didiask gif long\n`friday` - it is friday in california,,, or is it?\n`gunkid` - sad kid with a gun");
       break;
 
@@ -433,9 +411,6 @@ client.on("messageCreate", async message => {
     case 'moe':
       message.channel.send({files: ["img/moe.jpg"]});
       break;
-    case 'boomer':
-      message.channel.send({files: ["img/okboomer.png"]});
-      break;
     case 'blacked':
       message.channel.send({files: ["img/blacked.png"]});
       break;
@@ -482,9 +457,6 @@ client.on("messageCreate", async message => {
     case 'killed':
     case 'immediately':
       message.channel.send({files: ["img/immediatelykillyou.png"]});
-      break;
-    case 'stfuboomer':
-      message.channel.send({files: ["img/stfuboomer.jpg"]});
       break;
     case 'sickfuck':
     case 'ed':
@@ -891,6 +863,12 @@ client.on("messageCreate", async message => {
     case 'starving':
       message.channel.send ({files: ["img/gootbye.jpg"]});
       break;
+    case 'huh':
+    case 'huhwonderwhothatsfor':
+    case 'huhwonder':
+    case 'huhgarfield':
+      message.channel.send ({files: ["img/huhgarfield.png"]});
+      break;
 
 
 // zzzzz endofmeme newest latest recent
@@ -1022,6 +1000,7 @@ client.on("messageCreate", async message => {
 
     case 'complete':
     case 'ai':
+      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585"){await message.delete().catch(O_o=>{}); break;}
       let prompt = args.join(" ");
       var meanLog = "";
       var model = "text-davinci-003";
@@ -1166,7 +1145,7 @@ client.on("messageCreate", async message => {
     case 'did':
     case 'will':
       let eightball = ['It is certain.','As I see it, yes.',':thumbsup:', 'Sure.', 'I guess.', 'No way.', 'Cannot decide...','Possibly??','For the most part.',
-        'Kind of.','Certainly.','Certainly not.', 'HELL no.','Most likely.','It is decidedly so.',`${huh}`,'Without a doubt.',
+        'Kind of.','Certainly.','Certainly not.', 'HELL no.','Most likely.','It is decidedly so.','Without a doubt.',
         'Yes - DEFINITELY','You may rely on it.','Outlook is good.','Yes.','Signs point to yes.','Ask again later.',
         'Better not tell you now.','Concentrate and ask again.','Don\'t count on it.','My reply is no.','My sources say no.',
         'Outlook is not good.','Very doubtful.','Thank you Kanye, very cool!', 'Sometimes... (shhh)', 'Why not??', 'Absolutely not.', 'Yes. Now leave me alone.', 'Ehhhh', 'Surely!'];
@@ -1390,35 +1369,35 @@ client.on("messageCreate", async message => {
       .then((msg) => {
         setTimeout(function() {
           msg.edit(pos1)
-        }, 1400);
+        }, 400);
         setTimeout(function() {
           msg.edit(pos3)
-        }, 1800);
+        }, 1100);
 	setTimeout(function() {
           msg.edit(pos2)
-        }, 1200);
+        }, 1800);
         setTimeout(function() {
           msg.edit(pos3)
-        }, 1700);
+        }, 2300);
 	setTimeout(function() {
           msg.edit(serious)
-        }, 900);
+        }, 2800);
         setTimeout(function() {
           msg.edit(pos1)
-        }, 1100);
+        }, 1400);
 	setTimeout(function() {
           msg.edit(pos3)
-        }, 1300);
+        }, 3000);
 	setTimeout(function() {
           msg.edit(pos2)
         }, 1100);
 	setTimeout(function() {
           msg.edit(pos3)
-        }, 1200);
+        }, 1900);
 	    // final stage
         setTimeout(function() {
            msg.edit(serious)
-        }, 3200)
+        }, 3500)
       }); break;
 
 
