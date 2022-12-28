@@ -229,8 +229,8 @@ client.on("messageCreate", async message => {
 
   let pref = settings.prefix;
   if(message.author.bot) return;
+  if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{});}
   if(message.content.indexOf(pref) !== 0) return;
-  if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{}); console.log('Shitty pog sticker removed.');}
 
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
@@ -1031,7 +1031,7 @@ client.on("messageCreate", async message => {
 
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: "text-davinci-002",
+                model: "text-davinci-003",
                 prompt: prompt4,
                 max_tokens: 180,
                 temperature: tempRand4,
