@@ -1,7 +1,20 @@
 let Discord = require("discord.js");
-const allIntents = new Discord.Intents(32767);
-const client = new Discord.Client({ intents: allIntents });
+//const allIntents = new Discord.Intents(32767);
+//const client = new Discord.Client({ intents: allIntents });
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.GuildEmojisAndStickers,
+  ]
+});
+
 require('dotenv').config();
+
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
   organization: "org-IWYZO72FTk8eb9VbxM6SjJN2",
@@ -1013,7 +1026,7 @@ client.on("messageCreate", async message => {
             const gptResponse = await openai.createCompletion({
                 model: model,
                 prompt: prompt,
-                max_tokens: 240,
+                max_tokens: 200,
                 temperature: tempRand,
                 top_p: 1,
                 presence_penalty: 0,
