@@ -1442,19 +1442,33 @@ client.on("messageCreate", async message => {
   default: console.log(`Failed command: "${command}"`);
   }
 
-
 })
 
 client.on('messageReactionAdd', (reaction, user) => {
-  console.log('react seen');
   let msgR = reaction.message;
   // if reaction is on a user message
-  if (!msg.author.bot) return;
+  if (!msgR.author.bot) return;
 
   // if reaction is not desired emoji
-  if (reaction.emoji !== settings.advanceEmoji) return;
+  if (reaction.emoji.name !== settings.advanceEmoji) return;
+  let replyTo = "complete the following story: " + msgR.content;
 
-});
+  let model = "text-davinci-003";
+  let temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+  var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
+      (async () => {
+            const gptResponse = await openai.createCompletion({
+                model: model,
+                prompt: replyTo,
+                max_tokens: 220,
+                temperature: tempRand,
+                top_p: 1,
+                presence_penalty: 0,
+                frequency_penalty: 0.5,
+              });
+            msgR.reply(`${gptResponse.data.choices[0].text}`);
+            console.log('Continuation model: '+ model + ' @ temp: ' + tempRand);
+        })();
 
-
+})
 login();
