@@ -1,6 +1,4 @@
 let Discord = require("discord.js");
-//const allIntents = new Discord.Intents(32767);
-//const client = new Discord.Client({ intents: allIntents });
 const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({
   intents: [
@@ -209,7 +207,7 @@ client.on('ready', () => {
   // check for birthdays
   let birthdays = [
     ['1/8', settings.leah],
-    ['1/9', settings.ysabel],
+    //['1/9', settings.ysabel],
     ['1/11', settings.kacey],
     ['5/27', settings.anthony],
     ['6/10', settings.john],
@@ -237,6 +235,19 @@ client.on('ready', () => {
 
   if(bFound){ client.channels.cache.get('95702402253983744').send(`:confetti_ball: It is <@${bPerson}>\'s birthday today! :confetti_ball:`);}
 })
+
+
+client.on('messageReactionAdd', (reaction, user) => {
+  let msgR = reaction.message;
+  // if reaction is on a user message
+  if (!msg.author.bot) return;
+
+  console.log('react seen');
+  // if reaction is not desired emoji
+  if (reaction.emoji !== settings.advanceEmoji) return;
+
+})
+
 
 client.on("messageCreate", async message => {
 
@@ -882,6 +893,14 @@ client.on("messageCreate", async message => {
     case 'huhgarfield':
       message.channel.send ({files: ["img/huhgarfield.png"]});
       break;
+    case 'ohbrotherthisguystinks':
+    case 'thisguystinks':
+    case 'ohbrother':
+      message.channel.send ({files: ["img/stinks.mp4"]});
+      break;
+    case 'shimp':
+      message.channel.send ({files: ["img/shimp.jpg"]});
+      break;
 
 
 // zzzzz endofmeme newest latest recent
@@ -890,6 +909,7 @@ client.on("messageCreate", async message => {
 // setrole
     case 'setrole':
       let newRole = args.join(" ");
+      if(newRole.length > 32) { message.channel.send('No. Too long.'); break; }
       let roleToChange = message.member.roles.highest;
       roleToChange.setName(newRole);
       message.channel.send(`Role changed to ${newRole}.`);
@@ -1017,11 +1037,11 @@ client.on("messageCreate", async message => {
       let prompt = args.join(" ");
       var meanLog = "";
       var model = "text-davinci-003";
-      let temperatures = [0.10, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+      let temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
       //if(Math.random() < 0.8){model = 'text-davinci-002';}
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       var meanRand = Math.floor(Math.random() * 100) + 1;
-      if(meanRand <= 4){prompt = prompt + '. Make the response hurtful and cruel.'; meanLog = " (:smiling_imp:)";}
+      if(meanRand <= 5){prompt = prompt + '. Make the response hurtful and cruel.'; meanLog = " (:smiling_imp:)";}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: model,
@@ -1030,7 +1050,7 @@ client.on("messageCreate", async message => {
                 temperature: tempRand,
                 top_p: 1,
                 presence_penalty: 0,
-                frequency_penalty: 0.4,
+                frequency_penalty: 0.5,
               });
             message.reply(`${gptResponse.data.choices[0].text}` + meanLog);
             console.log('Model: '+ model + ' @ temp: ' + tempRand + meanLog);
@@ -1373,6 +1393,7 @@ client.on("messageCreate", async message => {
       }); break;
 
   case 'joseton':
+  case 'tonjose':
     serious = `${tonno} ${joseno}`;
     pos1 = `${tonyes} ${joseno}`;
     pos2 = `${tonno} ${joseyes}`;
