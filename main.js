@@ -237,18 +237,6 @@ client.on('ready', () => {
 })
 
 
-client.on('messageReactionAdd', (reaction, user) => {
-  let msgR = reaction.message;
-  // if reaction is on a user message
-  if (!msg.author.bot) return;
-
-  console.log('react seen');
-  // if reaction is not desired emoji
-  if (reaction.emoji !== settings.advanceEmoji) return;
-
-})
-
-
 client.on("messageCreate", async message => {
 
   let pref = settings.prefix;
@@ -1455,6 +1443,18 @@ client.on("messageCreate", async message => {
   }
 
 
+})
+
+client.on('messageReactionAdd', (reaction, user) => {
+  console.log('react seen');
+  let msgR = reaction.message;
+  // if reaction is on a user message
+  if (!msg.author.bot) return;
+
+  // if reaction is not desired emoji
+  if (reaction.emoji !== settings.advanceEmoji) return;
+
 });
+
 
 login();
