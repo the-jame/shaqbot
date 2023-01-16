@@ -658,6 +658,7 @@ client.on("messageCreate", async message => {
       break;
     case 'ask':
     case 'ohdidiask':
+    case 'asked':
       message.channel.send ({files: ["img/didiask.jpg"]});
       break;
     case 'hitdabricks':
@@ -1023,25 +1024,26 @@ client.on("messageCreate", async message => {
     case 'ai':
       if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585"){await message.delete().catch(O_o=>{}); break;}
       let prompt = args.join(" ");
-      var meanLog = "";
+      var randLog = "";
       var model = "text-davinci-003";
       let temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
       //if(Math.random() < 0.8){model = 'text-davinci-002';}
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
-      var meanRand = Math.floor(Math.random() * 100) + 1;
-      if(meanRand <= 5){prompt = prompt + '. Make the response hurtful and cruel.'; meanLog = " (:smiling_imp:)";}
+      var randMod = Math.floor(Math.random() * 100) + 1;
+      if(randMod <= 5){prompt = prompt + '. Make the response hurtful and cruel.'; randLog = " (:smiling_imp:)";}
+      if(randMod == 37 || randMod == 62){prompt = 'React as if I asked you something reprehensible.'; randLog = " (:unamused:)";}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: model,
                 prompt: prompt,
-                max_tokens: 200,
+                max_tokens: 180,
                 temperature: tempRand,
                 top_p: 1,
                 presence_penalty: 0,
                 frequency_penalty: 0.5,
               });
-            message.reply(`${gptResponse.data.choices[0].text}` + meanLog);
-            console.log('Model: '+ model + ' @ temp: ' + tempRand + meanLog);
+            message.reply(`${gptResponse.data.choices[0].text}` + randLog);
+            console.log('Model: '+ model + ' @ temp: ' + tempRand + randLog);
         })();
       break;
 
@@ -1447,12 +1449,12 @@ client.on("messageCreate", async message => {
 client.on('messageReactionAdd', (reaction, user) => {
   let msgR = reaction.message;
   // if reaction is on a user message
-  if (!msgR.author.bot) return;
+  if (msgR.author.id !== settings.shaqID) return;
 
   // if reaction is not desired emoji
   if (reaction.emoji.name !== settings.advanceEmoji) return;
   let replyTo = "complete the following story: " + msgR.content;
-
+console.log(msgR);
   let model = "text-davinci-003";
   let temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
   var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
