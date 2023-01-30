@@ -1027,16 +1027,17 @@ client.on("messageCreate", async message => {
     case 'ai':
       // drop if channel does not allow AI
       if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
+      var randLog = '';
       var dateAI = new Date();
       var dow = dateAI.getDay();
+      var meanRand = [2,10,4,3,2,0,5]; // AI responds rudely thsi % based on the day of week
       var meanDay = meanRand[dow];
       var prompt = args.join(" ");
       var temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.7, 0.9, 0.75, 1.0, 0.35];
-      var meanRand = [2,10,4,3,2,0,5]; // AI responds rudely thsi % based on the day of week
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       var randMod = Math.floor(Math.random() * 100) + 1;
-      if(randMod <= meanDay){prompt = prompt + '. Make the response hurtful and cruel.'; var randLog = " (:smiling_imp:)";}
-      if(randMod == 61){prompt = 'React as if I asked you something reprehensible.'; var randLog = " (:unamused:)";}
+      if(randMod <= meanDay){prompt = prompt + '. Make the response hurtful and cruel.'; randLog = " (:smiling_imp:)";}
+      if(randMod == 61){prompt = 'React as if I asked you something reprehensible.'; randLog = " (:unamused:)";}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: aiModel,
@@ -1048,7 +1049,7 @@ client.on("messageCreate", async message => {
                 frequency_penalty: 0.5,
               });
             message.reply(`${gptResponse.data.choices[0].text}` + randLog);
-            console.log('Model: '+ model + ' @ temp: ' + tempRand + randLog);
+            console.log('Model: '+ aiModel + ' @ temp: ' + tempRand + randLog);
         })();
       break;
 
@@ -1059,7 +1060,7 @@ client.on("messageCreate", async message => {
 
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: "text-davinci-003",
+                model: aiModel,
                 prompt: prompt4,
                 max_tokens: 180,
                 temperature: tempRand4,
