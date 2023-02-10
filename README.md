@@ -1,5 +1,5 @@
 
-# Discord Chat Bot for "Who Invented Beans"
+# Discord Chat Bot
 ***
 This is a simple bot made for my personal Discord server. Now with AI!
 
