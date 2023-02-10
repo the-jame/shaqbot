@@ -894,6 +894,16 @@ client.on("messageCreate", async message => {
     case 'kidding':
       message.channel.send ({files: ["https://tenor.com/view/squidward-kidding-just-gif-19756270"]});
       break;
+    case 'crouch':
+    case 'crouchin':
+    case 'crouching':
+    case 'crouchingontheoutside':
+    case 'shel':
+      message.channel.send ({files: ["img/crouch.jpg"]});
+      break;
+    case 'bigmac':
+      message.channel.send ({files: ["img/bigmac.png"]});
+      break;
 
 
 // zzzzz endofmeme newest latest recent
@@ -1042,7 +1052,7 @@ client.on("messageCreate", async message => {
             const gptResponse = await openai.createCompletion({
                 model: aiModel,
                 prompt: prompt,
-                max_tokens: 200,
+                max_tokens: 160,
                 temperature: tempRand,
                 top_p: 1,
                 presence_penalty: 0,
