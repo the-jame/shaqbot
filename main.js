@@ -902,7 +902,18 @@ client.on("messageCreate", async message => {
       message.channel.send ({files: ["img/crouch.jpg"]});
       break;
     case 'bigmac':
-      message.channel.send ({files: ["img/bigmac.png"]});
+      break;
+    case 'ontonothing':
+      message.channel.send ({files: ["img/cooking.jpg"]});
+      break;
+    case 'fuckin':
+    case 'fuckinourpussys':
+    case 'pussys':
+      message.channel.send ("https://twitter.com/HotMusicTakes/status/1206551803082559489");
+      break;
+    case 'romanorgy':
+    case 'orgy':
+      message.channel.send ({files: ["img/romanorgy.png"]});
       break;
 
 
@@ -912,7 +923,7 @@ client.on("messageCreate", async message => {
 // setrole
     case 'setrole':
       let newRole = args.join(" ");
-      if(newRole.length > 32) { message.channel.send('No. Too long.'); break; }
+      if(newRole.length > 40) { message.channel.send('No. Too long.'); break; }
       let roleToChange = message.member.roles.highest;
       roleToChange.setName(newRole);
       message.channel.send(`Role changed to ${newRole}.`);
@@ -1046,8 +1057,8 @@ client.on("messageCreate", async message => {
       var temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.7, 0.9, 0.75, 1.0, 0.35];
       var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       var randMod = Math.floor(Math.random() * 100) + 1;
-      if(randMod <= meanDay){prompt = prompt + '. Make the response hurtful and cruel.'; randLog = " (:smiling_imp:)";}
-      if(randMod == 61){prompt = 'React as if I asked you something reprehensible.'; randLog = " (:unamused:)";}
+      if(randMod <= meanDay){prompt = prompt + '. Make the response hurtful and cruel.'; randLog = " :smiling_imp:";}
+      if(randMod == 61){prompt = 'React as if I asked you something reprehensible.'; randLog = " :unamused:";}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: aiModel,
