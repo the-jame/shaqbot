@@ -19,7 +19,7 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-
+const randFile = require('select-random-file');
 
 let ttsE = true;
 let settings;
@@ -918,9 +918,17 @@ client.on("messageCreate", async message => {
       message.channel.send ({files: ["img/true.jpg"]});
       break;
 
-
 // zzzzz endofmeme newest latest recent
 
+    case 'random':
+    case 'react':
+    case 'meme':
+    case 'image':
+      const dir = '/home/pi/shaqbot/img/';
+      randFile(dir, (err, file) => {
+      message.channel.send ({files: [`img/${file}`]});
+      })
+      break;
 
 // setrole
     case 'setrole':
