@@ -1061,6 +1061,7 @@ client.on("messageCreate", async message => {
       var randLog = '';
       var dateAI = new Date();
       var dow = dateAI.getDay();
+      message.channel.sendTyping();
       var meanRand = [2,10,4,3,2,0,5]; // AI responds rudely thsi % based on the day of week
       var meanDay = meanRand[dow];
       var prompt = args.join(" ");
@@ -1073,22 +1074,26 @@ client.on("messageCreate", async message => {
             const gptResponse = await openai.createCompletion({
                 model: aiModel,
                 prompt: prompt,
-                max_tokens: 160,
+                max_tokens: 180,
                 temperature: tempRand,
                 top_p: 1,
                 presence_penalty: 0,
                 frequency_penalty: 0.5,
               });
-            message.reply(`${gptResponse.data.choices[0].text}` + randLog);
-            console.log('Model: '+ aiModel + ' @ temp: ' + tempRand + randLog);
+        //if(ttsE) { message.channel.send({ content: speak, tts: true });}
+        var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
+        message.reply({content: msgContent, flags: 12});
+        console.log('Model: '+ aiModel + ' @ temp: ' + tempRand + randLog);
         })();
       break;
 
     case 'invent':
       // drop if channel does not allow AI
       if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
+      message.channel.sendTyping();
       var randLog = '';
-      var prompt = 'In a few sentences, write a convincing pitch for a new product or idea called: ' + args.join(" ");
+      var prompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ");
+      if (Math.random() >=0.7) { prompt = prompt + ', but make the pitch really stupid and impractical.'; randLog = " :zany_face:";}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: aiModel,
@@ -1099,8 +1104,9 @@ client.on("messageCreate", async message => {
                 presence_penalty: 0,
                 frequency_penalty: 0.5,
               });
-            message.reply(`${gptResponse.data.choices[0].text}`);
-            console.log('Model: '+ aiModel + ' @ temp: 0.85 - invention');
+          var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
+          message.reply({content: msgContent, flags: 12});
+          console.log('Model: '+ aiModel + ' @ temp: 0.85 - invention' + randLog);
         })();
       break;
 
