@@ -256,6 +256,7 @@ client.on("messageCreate", async message => {
     return;
   }
 
+  message.channel.sendTyping();
 
   // begin commands, search for //(command) to find
   switch(command) {
@@ -924,6 +925,7 @@ client.on("messageCreate", async message => {
     case 'react':
     case 'meme':
     case 'image':
+    case 'img':
       const dir = '/home/pi/shaqbot/img/';
       randFile(dir, (err, file) => {
       message.channel.send ({files: [`img/${file}`]});
