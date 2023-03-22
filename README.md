@@ -5,8 +5,8 @@ This is a simple bot made for my personal Discord server. Now with AI!
 
 
 __The normal chat commands are:__
-* `ai <string>`: Bot will answer with ai(OpenAI Davinci-003
-* `ai <string>`: Bot will sales pitch an invention from the prompt(OpenAI Davinci-003)
+* `ai <string>`: Bot will answer with ai (OpenAI Davinci-003
+* `invent <string>`: Bot will sales pitch an invention from the prompt(OpenAI Davinci-003)
 * `say <string>`: Bot says the string in text-to-speech.
 * `roll <integer>`: Make the bot randomly roll from 1 to your number.
 * `8 <question>`: Bot will answer with an 8-ball style response.
