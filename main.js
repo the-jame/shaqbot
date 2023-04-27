@@ -248,7 +248,6 @@ client.on("messageCreate", async message => {
 
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  const commandList = ['${pref}b', '${pref}ballsize','${pref}why','${pref}y','${pref}uu','${pref}uuu','${pref}howdy','${pref}8]'];
 
   function sayTTS(speak){
     if(ttsE) { message.channel.send({ content: speak, tts: true });}
@@ -1064,7 +1063,7 @@ client.on("messageCreate", async message => {
       var dateAI = new Date();
       var dow = dateAI.getDay();
       message.channel.sendTyping();
-      var meanRand = [2,10,4,3,2,0,5]; // AI responds rudely thsi % based on the day of week
+      var meanRand = [2,8,4,3,2,0,5]; // AI responds rudely thsi % based on the day of week
       var meanDay = meanRand[dow];
       var prompt = args.join(" ");
       var temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.7, 0.9, 0.75, 1.0, 0.35];
@@ -1087,6 +1086,21 @@ client.on("messageCreate", async message => {
         message.reply({content: msgContent, flags: 12});
         console.log('Model: '+ aiModel + ' @ temp: ' + tempRand + randLog);
         })();
+      break;
+
+    case 'ai2':
+      // drop if channel does not allow AI
+      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
+      message.channel.sendTyping();
+      var input = args.join(" ");
+      (async (message) => {
+       const response = await openai.createChatCompletion({
+       model: "gpt-3.5-turbo",
+       messages: input,
+       });
+        var msgContent = response.data.choices[0].message.content;
+        message.reply({content: msgContent, flags: 12});
+        console.log('Model: gpt-3.5-turbo');
       break;
 
     case 'invent':
