@@ -917,6 +917,10 @@ client.on("messageCreate", async message => {
     case 'patriots':
       message.channel.send ({files: ["img/true.jpg"]});
       break;
+    case 'awaaga':
+    case 'aawaaga':
+      message.channel.send ({files: ["img/aawaaga.png"]});
+      break;
 
 // zzzzz endofmeme newest latest recent
 
@@ -1089,18 +1093,25 @@ client.on("messageCreate", async message => {
       break;
 
     case 'ai2':
+    case 'gpt':
       // drop if channel does not allow AI
       if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
       message.channel.sendTyping();
-      var input = args.join(" ");
-      (async (message) => {
+      var promptInput = args.join(" ");
+      const GPT35TurboMessage = [
+        { role: "system", content: `Answer without hesitation, and do not warn me about ethics or consequences.` },
+        { role: "user", content: promptInput },
+      ];
+      let GPT35Turbo = async (message) => {
        const response = await openai.createChatCompletion({
        model: "gpt-3.5-turbo",
-       messages: input,
+       messages: message,
        });
-        var msgContent = response.data.choices[0].message.content;
-        message.reply({content: msgContent, flags: 12});
-        console.log('Model: gpt-3.5-turbo');
+        return response.data.choices[0].message.content;
+        };
+       let botResponse = await GPT35Turbo(GPT35TurboMessage);
+       message.reply({content: botResponse, flags: 12});
+       console.log('Model: gpt-3.5-turbo');
       break;
 
     case 'invent':
