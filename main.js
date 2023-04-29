@@ -917,7 +917,10 @@ client.on("messageCreate", async message => {
     case 'patriots':
       message.channel.send ({files: ["img/true.jpg"]});
       break;
+    case 'awaga':
     case 'awaaga':
+    case 'aawagga':
+    case 'awagga':
     case 'aawaaga':
       message.channel.send ({files: ["img/aawaaga.png"]});
       break;
