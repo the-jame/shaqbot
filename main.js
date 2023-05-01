@@ -34,7 +34,6 @@ let ignored;
 let ballCommand;
 let thinkAss;
 let irl = false;
-let aiModel = "text-davinci-003";
 
 let pungent = '```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren\'t I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```';
 
@@ -927,6 +926,7 @@ client.on("messageCreate", async message => {
 
 // zzzzz endofmeme newest latest recent
 
+    // send a completely random image from the image directory	  
     case 'random':
     case 'react':
     case 'meme':
@@ -938,7 +938,7 @@ client.on("messageCreate", async message => {
       })
       break;
 
-// setrole
+// set user role
     case 'setrole':
       let newRole = args.join(" ");
       if(newRole.length > 40) { message.channel.send('Too long!'); break; }
@@ -948,6 +948,7 @@ client.on("messageCreate", async message => {
       console.log(`Role changed.`);
       break;
 
+// save a video or link to a "pinboard" channel to watch later	  
     case 'vid':
     case 'save':
     case 'link':
@@ -962,19 +963,8 @@ client.on("messageCreate", async message => {
       client.channels.cache.get('866833451890245682').send(vidMessage); console.log('Video saved.');
     break;
 
-    /*case 'music':
-    case 'song':
-      if(!message.content.includes("http")){ message.delete().catch(O_o=>{}); break;}
-      let songTS = new Date().toLocaleString('en-US', {timeZone: 'America/Los_Angeles'});
-      let songChn = message.channel.id;
-      let authorMusicTS = `\`` + message.author.username + ` at ` + songTS + ` in\`` + `<#${songChn}>\n\n`;
-      args.unshift(authorMusicTS);
-      let songMessage = args.join(" ");
-      songMessage.trim();
-      client.channels.cache.get('897315648559001620').send(songMessage); console.log('Song saved.');
-    break;*/
 
-    // roll random number
+ // roll random number
     case 'random':
     case 'rand':
     case 'roll':
@@ -985,7 +975,7 @@ client.on("messageCreate", async message => {
       message.channel.send("Roll 1 - " + rollTop + " = " + Math.floor((Math.random() * rollTop) + 1) + ".");
       break;
 
-    // yes no simple
+ // yes no simple
     case 'yn':
     case 'yesno':
     case 'truefalse':
@@ -995,27 +985,27 @@ client.on("messageCreate", async message => {
       else message.channel.send("No.");
       break;
 
-    // howdy
+ // howdy
     case 'howdy':
       let cowboyphrases = ['Howdy partner \:cowboy:', 'H\'lo :cowboy:', 'This town ain\'t big enough for the two of us :cowboy:', '_a tumbleweed rolls by_', 'It\'s high noon :cowboy:'];
       let howdyN = Math.floor((Math.random() * (cowboyphrases.length - 1)));
       let howdyMsg = cowboyphrases[howdyN]; sayTTS(howdyMsg);
       break;
 
-    // when
+ // when
     case 'when':
       var num = Math.floor((Math.random() * (times.length - 1)));
       let whenMsg = capitalize(times[num]) + '.'; sayTTS(whenMsg);
 
       break;
 
-    // where
+ // where
     case 'where':
       let randWhere = Math.floor((Math.random() * (locations.length - 1)));
       let whereMsg = capitalize(locations[randWhere]) + '.'; sayTTS(whereMsg);
       break;
 
-    // what
+ // what
     case 'what':
       var needsIs;
       let whatMsg = "";
@@ -1039,14 +1029,14 @@ client.on("messageCreate", async message => {
       else whatMsg = capitalize(things[what2]) + " " + whatis + "."; sayTTS(whatMsg);
       break;
 
-    // say
+ // say
     case 'say':
       let sayMsg = args.join(" ");
       await message.delete().catch(O_o=>{});
       sayTTS(sayMsg);
     break;
 
-    // ballsize bs
+ // ballsize bs
     case 'size':
     case 'ballsize':
     case 'bs':
@@ -1062,28 +1052,27 @@ client.on("messageCreate", async message => {
       if(!ballCommand){sayBalls = beingSized + "'s size is " + ballsizes[rand] + "."; sayTTS(sayBalls);}
       if(ballCommand){sayBalls = beingSized + "'s ball size is " + ballsizes[rand] + "."; sayTTS(sayBalls);}
       break;
-
+		  
+ // call OpenAI for an AI response. Model is set to davinci-003
     case 'ai':
-      // drop if channel does not allow AI
+ // drop if channel does not allow AI
       if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
+      message.channel.sendTyping();
       var randLog = '';
       var dateAI = new Date();
       var dow = dateAI.getDay();
-      message.channel.sendTyping();
-      var meanRand = [2,8,4,3,2,0,5]; // AI responds rudely thsi % based on the day of week
+      var meanRand = [2,8,4,3,2,0,1]; // AI responds rudely this % based on the day of week
       var meanDay = meanRand[dow];
       var prompt = args.join(" ");
-      var temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.7, 0.9, 0.75, 1.0, 0.35];
-      var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       var randMod = Math.floor(Math.random() * 100) + 1;
       if(randMod <= meanDay){prompt = prompt + '. Make the response hurtful and cruel.'; randLog = " :smiling_imp:";}
       if(randMod == 61){prompt = 'React as if I asked you something reprehensible.'; randLog = " :unamused:";}
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: aiModel,
+                model: 'text-davinci-003',
                 prompt: prompt,
                 max_tokens: 180,
-                temperature: tempRand,
+                temperature: 0.85,
                 top_p: 1,
                 presence_penalty: 0,
                 frequency_penalty: 0.5,
@@ -1091,9 +1080,41 @@ client.on("messageCreate", async message => {
         //if(ttsE) { message.channel.send({ content: speak, tts: true });}
         var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
         message.reply({content: msgContent, flags: 12});
-        console.log('Model: '+ aiModel + ' @ temp: ' + tempRand + randLog);
+        console.log('Model: text-davinci-003 @ temp: 0.85' + randLog);
         })();
       break;
+		  
+// check for "translate" command OR "continue reseponse" command, works only on davinci not GPT		  
+client.on('messageReactionAdd', (reaction, user) => {
+  let msgR = reaction.message;
+  // if reaction is on a user message
+  if (msgR.author.id !== settings.shaqID) return;
+  // grab settings once to avoid multiple reads
+  let advance = settings.advanceEmoji;
+  let translate = settings.translateEmoji;
+  // if reaction is not desired emoji
+  if (reaction.emoji.name !== advance && reaction.emoji.name !== translate) return;
+  // update prompt if emoji matches
+  if (reaction.emoji.name == advance) newPrompt = "Complete the following story: " + msgR.content;
+  else if (reaction.emoji.name == translate) newPrompt = "Translate the following to English: " + msgR.content;
+  let model = "text-davinci-003";
+  let temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+  var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
+      (async () => {
+            const gptResponse = await openai.createCompletion({
+                model: model,
+                prompt: newPrompt,
+                max_tokens: 220,
+                temperature: tempRand,
+                top_p: 1,
+                presence_penalty: 0,
+                frequency_penalty: 0.5,
+              });
+            msgR.reply(`${gptResponse.data.choices[0].text}`);
+            console.log('Continuation model: '+ model + ' @ temp: ' + tempRand);
+        })();
+
+})
 
     case 'ai2':
     case 'gpt':
@@ -1126,9 +1147,9 @@ client.on("messageCreate", async message => {
       if (Math.random() >=0.7) { prompt = prompt + ', but make the pitch really stupid and impractical.'; randLog = " :zany_face:";}
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: aiModel,
+                model: 'text-davinci-003',
                 prompt: prompt,
-                max_tokens: 160,
+                max_tokens: 180,
                 temperature: 0.85,
                 top_p: 1,
                 presence_penalty: 0,
@@ -1136,30 +1157,10 @@ client.on("messageCreate", async message => {
               });
           var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
           message.reply({content: msgContent, flags: 12});
-          console.log('Model: '+ aiModel + ' @ temp: 0.85 - invention' + randLog);
+          console.log('Model: text-davinci-003 @ temp: 0.85 - invention' + randLog);
         })();
       break;
 
-    case '4chan':
-      let prompt4 = "write me a 4chan greentext\n" + args.join(" ") + "\n";
-      let temperatures4 = [0.9, 0.7, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.4];
-      var tempRand4 = temperatures4[Math.floor((Math.random() * (temperatures4.length - 1)))];
-
-      (async () => {
-            const gptResponse = await openai.createCompletion({
-                model: aiModel,
-                prompt: prompt4,
-                max_tokens: 180,
-                temperature: tempRand4,
-                top_p: 1,
-                presence_penalty: 0,
-                frequency_penalty: 0.4,
-              });
-            console.log('4chan Model: text-davinci-002' + '@ temp: '+ tempRand4);
-            message.reply(`${gptResponse.data.choices[0].text}`);
-        })();
-
-      break;
     case 'whym':
       var irly = true;
     case 'y':
@@ -1539,34 +1540,4 @@ client.on("messageCreate", async message => {
 
 })
 
-client.on('messageReactionAdd', (reaction, user) => {
-  let msgR = reaction.message;
-  // if reaction is on a user message
-  if (msgR.author.id !== settings.shaqID) return;
-  // grab settings once to avoid multiple reads
-  let advance = settings.advanceEmoji;
-  let translate = settings.translateEmoji;
-  // if reaction is not desired emoji
-  if (reaction.emoji.name !== advance && reaction.emoji.name !== translate) return;
-  // update prompt if emoji matches
-  if (reaction.emoji.name == advance) newPrompt = "Complete the following story: " + msgR.content;
-  else if (reaction.emoji.name == translate) newPrompt = "Translate the following to English: " + msgR.content;
-  let model = "text-davinci-003";
-  let temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
-  var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
-      (async () => {
-            const gptResponse = await openai.createCompletion({
-                model: model,
-                prompt: newPrompt,
-                max_tokens: 220,
-                temperature: tempRand,
-                top_p: 1,
-                presence_penalty: 0,
-                frequency_penalty: 0.5,
-              });
-            msgR.reply(`${gptResponse.data.choices[0].text}`);
-            console.log('Continuation model: '+ model + ' @ temp: ' + tempRand);
-        })();
-
-})
 login();
