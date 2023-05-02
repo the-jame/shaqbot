@@ -1264,7 +1264,6 @@ client.on("messageCreate", async message => {
       break;
 
     // uuu uu u
-    case 'uuuuuuuuuuuu':
     case 'uuuuuuuuuuu':
     case 'uuuuuuuuuu':
     case 'uuuuuuuuu':
@@ -1301,40 +1300,29 @@ client.on("messageCreate", async message => {
       switch(pinged){
 
           case 'jim':
-          case 'jimmy':
-          case 'jambi':
-          case 'jimb':
-          case 'jimbi':
-          case 'sunder': toPing = settings.jimmy; break;
+          case 'jimmy': toPing = settings.jimmy; break;
 
-          case 'jam':
           case 'james':
           case 'jame':
           case 'thejame': toPing = settings.james; break;
 
           case 'enrique':
-          case 'reegie':
           case 'reeg': toPing = settings.enrique; break;
 
           case 'cody':
-          case 'chin':
           case 'xhinon': toPing = settings.cody; break;
 
           case 'ton':
-          case 'anthony':
-          case 'mug': toPing = settings.anthony; break;
+          case 'anthony': toPing = settings.anthony; break;
 
           case 'brett':
           case 'kitty':
           case 'kittykatt': toPing = settings.brett; break;
 
           case 'liz':
-          case 'lizz':
-          case 'lizzz':
           case 'elizabeth': toPing = settings.liz; break;
 
-          case 'tyra':
-          case 'moomoo': toPing = settings.tyra; break;
+          case 'tyra': toPing = settings.tyra; break;
 
           case 'john': toPing = settings.john; break;
 
