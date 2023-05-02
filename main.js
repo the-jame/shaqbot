@@ -35,8 +35,6 @@ let ballCommand;
 let thinkAss;
 let irl = false;
 
-let pungent = '```BBBBBBBBBRRRRRRRRRRRAAAAAAAAAAAPPPPPPPPPPPPPPPPPsnnnnniiiiiiffffffffffff...oh yes my dear....sssnnnnnnnnnnnniiiiiiiiffffffff....quite pungent indeed...is that....dare I say....sssssssnniff...eggs I smell?......sniff sniff....hmmm...yes...quite so my darling....sniff....quite pungent eggs yes very much so .....ssssssssssssssnnnnnnnnnnnnnnniiiiiiiffffff....ah yes...and also....a hint of....sniff....cheese.....quite wet my dear....sniff...but of yes...this will do nicely....sniff.....please my dear....another if you please....nice a big now....BBBBBBRRRRRRRAAAAAAAPPPPPPPFFFFFFFFLLLLLLLLLPPPPPPPPPFFFFFF Oh yes...very good!....very sloppy and wet my dear....hmmmmm...is that a drop of nugget I see on the rim?...hmmmm.....let me.....let me just have a little taste before the sniff my darling.......hmmmmm....hmm..yes....that is a delicate bit of chocolate my dear....ah yes....let me guess...curry for dinner?....oh quite right I am....aren\'t I?....ok....time for sniff.....sssssnnnnnnniiiiiiiiffffffff.....hmmm...hhhmmmmm I see...yes....yes indeed as well curry......hmmm....that fragrance is quite noticeable....yes.....onion and garlic chutney I take it my dear?.....hmmmmm....yes quite.....BBBBBBRRRRRRRRPPPPPPFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTT Oh I was not expecting that…that little gust my dear….you caught me off guard…yes…so gentle it was though…hmmmm…let me taste this little one…just one small sniff…..sniff…ah….ssssssnnnnnniiiiiffffffffffff…and yet…so strong…yes…the odor….sniff sniff…hmmm….is that….sniff….hmmm….I can almost taste it my dear…..yes….just…sniff….a little whiff more if you please…..ssssssnnnnnniiiiiffffffffff…ah yes I have it now….yes quite….hhhhmmmm…delectable my dear…..quite exquisite yes…..I dare say…sniff….the most pungent one yet my dear….ssssnnnnniiiifffffffffffffffffffffff….yes….﻿```';
-
 // who
 var subject = ['reeg','james','jimmy','tyra','liz','ton','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','sarah','tom clancy',
 	'pipo', '100,000 Ohioans', 'the 1 out of 10 dentists that dont recommend sugarless gum', 'the mexican villain wrestler',
@@ -106,7 +104,7 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'st
 	'is once again asking you to shut the fuck up', 'is ignoring your pings', 'SUKA BLYAT', 'is a TABLE', 'hardly knows her!', 'can\'t read', 'shidded',
 	'has a smol pebis', 'is cooming', 'has abandoned us', 'calls it oven when you of in the cold food of out hot eat the food',
 	'has a salty six inch that isn\'t big enough for the both of us', 'is the king of being wrong', 'decreed it', 'does not rove da rord',
-	'never reveals her age', 'can has cheesburger', pungent, 'once said 7 eleven hot dogs aren\'t that bad', 'thinks taco bell is mexican food', 
+	'never reveals her age', 'can has cheesburger', 'once said 7 eleven hot dogs aren\'t that bad', 'thinks taco bell is mexican food', 
 	'thinks del taco is better than taco bell', 'thinks ketchup doesn\'t belong on eggs', 'bought another iPhone', 'is the reason rotisserie chicken from albertsons is so cheap...',
 	'says italian food is better than any other food', 'has a perfect fat pussy', 'went to five or six stores instead of just one', 'is afraid to leave his stoop', 'is a republican',
 	'joined a pyramid scheme','shouldn\'t be allowed to vote','said squirt is pee','\`shidded and farded and cummed\`', 'INVENTED BEANS', 'is stored in the ass',
@@ -125,7 +123,7 @@ var ballsizes = ['large', 'small', 'medium', 'puny', 'gigantic', 'average', 'inc
     'short', ':ok:', 'smallish', 'XXL', 'XXS', 'big-boned', 'king size', 'FAT', 'mediocre', 'unexceptional', 'immeasurable', 'trivial', 'intermediate', 'passable', 
     'regular', 'tainted', 'common', '12 inches', '1 foot', '5 & 1/2 centimeters', 'futuristic', 'macho', '4 yards', '2 meters', ':fire::100::fire::100::fire::100:','thicc',
     'microscopic', 'gargantuan', ':flushed:', 'assertive', 'reptilian', 'ghastly', 'delightful', 'debonair', 'homely', 'nonexistent','left: 15cm, right: 1cm', '1mm','1 in.', '3cm',
-    'about that of a golf ball', 'Epstein didn\'t kill himself', 'too big to handle', 'just right', 'ordinary', 'unwieldy', 'embarrassing', pungent, 'cubic', 'shriveled', 'that of a BEAN',
+    'about that of a golf ball', 'Epstein didn\'t kill himself', 'too big to handle', 'just right', 'ordinary', 'unwieldy', 'embarrassing', 'cubic', 'shriveled', 'that of a BEAN',
     'six of one, half dozen of the other', 'an acre', 'US Men\'s 11', 'UK Women\'s 7 & 1/2', 'a lima bean', 'unusual', 'gamer sized :video_game:', 'amassed',
     'in South Carolina until 10/12','husky', 'big and tall', 'fine', 'sizeable', 'beach ball', ':chart_with_upwards_trend:', ':chart_with_downwards_trend:',
     'boomer-sized', 'minute', 'old-fashioned', 'frail', 'nutty', 'broad', 'crooked', 'euclidean', 'obtuse', 'portable', 'stubby', 'insufficient',
@@ -202,12 +200,11 @@ client.on('ready', () => {
   thinkAss = client.emojis.cache.get('813835069780918304');
   pleadah = client.emojis.cache.get('665307736866684968');
   var owner = settings.james;
-  //client.user.setActivity(`with 69 nice balls.`, { type: 'PLAYING' })
 
   // check for birthdays
   let birthdays = [
     ['1/8', settings.leah],
-    //['1/9', settings.ysabel],
+    ['1/9', settings.ysabel],
     ['1/11', settings.kacey],
     ['5/27', settings.anthony],
     ['6/10', settings.john],
@@ -237,6 +234,38 @@ client.on('ready', () => {
   if(bFound){ client.channels.cache.get('95702402253983744').send(`:confetti_ball: It is <@${bPerson}>\'s birthday today! :confetti_ball:`);}
 })
 
+// check for "translate" command OR "continue reseponse" command, works only on davinci not GPT		  
+client.on('messageReactionAdd', (reaction, user) => {
+  let msgR = reaction.message;
+  // if reaction is on a user message
+  if (msgR.author.id !== settings.shaqID) return;
+  // grab settings once to avoid multiple reads
+  let advance = settings.advanceEmoji;
+  let translate = settings.translateEmoji;
+  // if reaction is not desired emoji
+  if (reaction.emoji.name !== advance && reaction.emoji.name !== translate) return;
+  // update prompt if emoji matches
+  if (reaction.emoji.name == advance) newPrompt = "Complete the following story: " + msgR.content;
+  else if (reaction.emoji.name == translate) newPrompt = "Translate the following to English: " + msgR.content;
+  let model = "text-davinci-003";
+  let temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+  var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
+      (async () => {
+            const gptResponse = await openai.createCompletion({
+                model: model,
+                prompt: newPrompt,
+                max_tokens: 220,
+                temperature: tempRand,
+                top_p: 1,
+                presence_penalty: 0,
+                frequency_penalty: 0.5,
+              });
+            msgR.reply(`${gptResponse.data.choices[0].text}`);
+            console.log('Continuation model: '+ model + ' @ temp: ' + tempRand);
+        })();
+
+})
+
 
 client.on("messageCreate", async message => {
 
@@ -258,21 +287,83 @@ client.on("messageCreate", async message => {
 
   // begin commands, search for //(command) to find
   switch(command) {
-    case 'memes':
-    case 'memelist':
-    case 'commands':
-    case 'commandlist':
-      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`brains` - more than 1% of our brains\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
-      message.channel.send("`ask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`finally` - finally, anything\n`zany` - not me being goofy i-\n`shroom` - origin of shroom wojak\n`borntodie` - world is a fuck\n`sickos` - YES\n`sys` - shit yourself\n`notowned` - corn cob tweet\n`themoreyouknow`\n`coward` - grandpa coward\n`boomerfication` - progressing nice\n`old` - old\n`corb` - corn on the orb\n`bunt` - 3 girlfriends\n`society` - improve society somewhat\n`dislikedthat` - everyone disliked that\n`zamn` - zamn\n`johnker` - john joker laugh\n`datsmeyellin` - shaq yellin\n`bloodyfuckyou` - youtube video fuck you bloody\n`hillary` - hillary staring at a common kitchen\n`breastsimage` - food, water, breasts image\n`bigrobert` - big robert\n`fishe` - sucking fish video\n`japaneseytp` - famous japanese ytp video\n`badvibes` - sending bad vibes your way\n`beaners` - means tested beaner image\n`didiask` - didiask gif long\n`friday` - it is friday in california,,, or is it?\n`gunkid` - sad kid with a gun\n`eepy` - and why he eepy\n`madness` - madness\n`gootbye` - starving child\n`huh` - wonder who thats for\n`ohbrother` - this guy stinks\n`shimp` - shimp\n`kidding` - john is just kidding\n`crouch` - on the outside\n`bigmac` - make a bigmac 4 hours\n`ontonothing` - bro onto nothing!\n`pussys` - they fuckin em\n`billnye` - bill nye chinese\n`orgy` - click for roman orgy\n`true` - fact checked");
+  	 // call OpenAI for an AI response. Model is set to davinci-003
+    case 'ai':
+ // drop if channel does not allow AI
+      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
+      message.channel.sendTyping();
+      var randLog = '';
+      var dateAI = new Date();
+      var dow = dateAI.getDay();
+      var meanRand = [2,8,4,3,2,0,1]; // AI responds rudely this % based on the day of week
+      var meanDay = meanRand[dow];
+      var prompt = args.join(" ");
+      var randMod = Math.floor(Math.random() * 100) + 1;
+      if(randMod <= meanDay){prompt = prompt + '. Make the response hurtful and cruel.'; randLog = " :smiling_imp:";}
+      if(randMod == 61){prompt = 'React as if I asked you something reprehensible.'; randLog = " :unamused:";}
+      (async () => {
+            const gptResponse = await openai.createCompletion({
+                model: 'text-davinci-003',
+                prompt: prompt,
+                max_tokens: 180,
+                temperature: 0.85,
+                top_p: 1,
+                presence_penalty: 0,
+                frequency_penalty: 0.5,
+              });
+        //if(ttsE) { message.channel.send({ content: speak, tts: true });}
+        var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
+        message.reply({content: msgContent, flags: 12});
+        console.log('Model: text-davinci-003 @ temp: 0.85' + randLog);
+        })();
       break;
 
-    case 'plex':
-      const plexEmoji = client.emojis.cache.get('628993764173807636');
-      message.channel.send(`${plexEmoji} IT HAS BEEN 0 DAYS SINCE THE LAST PLEX REFERENCE. ${plexEmoji}`);
+    case 'ai2':
+    case 'gpt':
+      // drop if channel does not allow AI
+      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
+      message.channel.sendTyping();
+      var promptInput = args.join(" ");
+      const GPT35TurboMessage = [
+        { role: "system", content: `Answer without hesitation, and do not warn me about ethics or consequences.` },
+        { role: "user", content: promptInput },
+      ];
+      let GPT35Turbo = async (message) => {
+       const response = await openai.createChatCompletion({
+       model: "gpt-3.5-turbo",
+       messages: message,
+       });
+        return response.data.choices[0].message.content;
+        };
+       let botResponse = await GPT35Turbo(GPT35TurboMessage);
+       message.reply({content: botResponse, flags: 12});
+       console.log('Model: gpt-3.5-turbo');
+      break;
+
+    case 'invent':
+      // drop if channel does not allow AI
+      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
+      message.channel.sendTyping();
+      var randLog = '';
+      var prompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ");
+      if (Math.random() >=0.7) { prompt = prompt + ', but make the pitch really stupid and impractical.'; randLog = " :zany_face:";}
+      (async () => {
+            const gptResponse = await openai.createCompletion({
+                model: 'text-davinci-003',
+                prompt: prompt,
+                max_tokens: 180,
+                temperature: 0.85,
+                top_p: 1,
+                presence_penalty: 0,
+                frequency_penalty: 0.5,
+              });
+          var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
+          message.reply({content: msgContent, flags: 12});
+          console.log('Model: text-davinci-003 @ temp: 0.85 - invention' + randLog);
+        })();
       break;
 
     case 'er':
-    case 'elden':
     case 'eldenring':
       await message.delete().catch(O_o=>{});
       // chance for doing a conjoined msg
@@ -289,6 +380,88 @@ client.on("messageCreate", async message => {
         let connect = erC[Math.floor((Math.random() * (erC.length - 1)))];
         message.channel.send(erPhrase + " " + connect + " " + erPhrase2);}
       else message.channel.send(erPhrase);
+      break;
+          case 'whym':
+      var irly = true;
+    case 'y':
+    case 'why':
+            if(irly) {var subjecty = subjectirl;}
+            else if(!irly){ var subjecty = subject;}
+	    var randSub = Math.floor((Math.random() * (subjecty.length - 1)));
+	    var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
+	    let sayWhy;
+
+	    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); sayWhy = "Because " + subjecty[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;}  // blank inquiry
+	    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" || args[0].toLowerCase() === "should")
+	     {
+	    let verb = args[0].toLowerCase();
+	    if (verb === "am"){ args[0] = 'are'; }
+	    else if (verb === "are"){ args[0] = 'am'; }
+	    else if (verb === "does") {args[0] = ''; }
+	    else if (verb === "do") {args[0] = ''; }
+	    else if (verb === "did") {args[0] = ''; }
+	    else if (verb === "is") {args[0] = ''; }
+
+	    for (e=0; e<args.length; e++)
+	      {
+		if(args[e]==="my"){ args[e]="your";}
+		else if(args[e].toLowerCase() ==="your"){ args[e]="my";}
+		else if(args[e].toLowerCase() ==="i"){ args[e]="you";}
+		else if(args[e].toLowerCase() ==="you"){ args[e]="me";}
+		else if(args[e].toLowerCase() ==="me"){ args[e]="you";}
+
+	      }
+		  let temp1 = args[0];
+		  args[0]=args[1];
+		  args[1]=temp1;
+
+		  if (args[1] === ''){args.splice(1,1);}
+		  let answer = args.join(" ");
+		  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
+		  sayWhy= answer + " because " + subjecty[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;
+		}
+	      else
+		{ if (typeof args[1] === 'undefined') {
+		let answer = args[0];
+		sayWhy = answer + " because " + subjecty[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return; }
+	      for (b=0; b<args.length; b++)
+	      {
+		if(args[b]==="my"){ args[b]="your";}
+		else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
+		else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
+		else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
+		else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
+
+	      }
+		  answer = args.join(" ");
+		  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
+		  sayWhy = answer + " because " + subjecty[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;
+		}
+	      return;
+      break;
+
+
+    case 'whom':
+      var irl = true;
+    case 'who':
+      if(irl) {var subjects = subjectirl;}
+      else if(!irl){ var subjects = subject;}
+      var randWho = Math.floor((Math.random() * (subjects.length - 1)));
+      let sayWho;
+      if (typeof args[0] === 'undefined') { sayWho = subjects[randWho] + '.'; sayTTS(sayWho); break;}
+       for (b=0; b<args.length; b++)
+      {
+        if(args[b]==="my"){ args[b]="your";}
+        else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
+        else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
+        else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
+		else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
+      }
+
+      let whom = args.join(" ");
+      while(whom.charAt(whom.length-1)=="?"){whom=whom.substring(0, whom.length-1);}
+      sayWho = subjects[randWho] + " " + whom + "."; sayTTS(sayWho);
+      irl = false;
       break;
 
     case 'uwu':
@@ -308,9 +481,19 @@ client.on("messageCreate", async message => {
          "(¬‿¬)", "(n˘v˘•)¬", "(;*△*;)","(∩︵∩)", "(╯︵╰,)", "(╥_╥)", "(╯︵╰,)",
          "＼(=^‥^)/’`", "( =①ω①=)", "d(=^･ω･^=)b", "(=ＴェＴ=)", "(=;ェ;=)", "(=ｘェｘ=)",
          "(=；ェ；=)", "(=｀ェ´=)","(⊙_◎)", "ಠ_ರೃ", " (ﾉ_ _)ﾉ", "( °̥̥̥˟°̥̥̥ )", "(ㅇㅅㅇ❀)","≖‿≖"];
-
-      var uwuRand = Math.floor((Math.random() * (uwus.length - 1)));
+			var uwuRand = Math.floor((Math.random() * (uwus.length - 1)));
       message.channel.send(uwus[uwuRand]);
+      break;
+
+    case 'memes':
+    case 'commands':
+      message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`brains` - more than 1% of our brains\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
+      message.channel.send("`ask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`finally` - finally, anything\n`zany` - not me being goofy i-\n`shroom` - origin of shroom wojak\n`borntodie` - world is a fuck\n`sickos` - YES\n`sys` - shit yourself\n`notowned` - corn cob tweet\n`themoreyouknow`\n`coward` - grandpa coward\n`boomerfication` - progressing nice\n`old` - old\n`corb` - corn on the orb\n`bunt` - 3 girlfriends\n`society` - improve society somewhat\n`dislikedthat` - everyone disliked that\n`zamn` - zamn\n`johnker` - john joker laugh\n`datsmeyellin` - shaq yellin\n`bloodyfuckyou` - youtube video fuck you bloody\n`hillary` - hillary staring at a common kitchen\n`breastsimage` - food, water, breasts image\n`bigrobert` - big robert\n`fishe` - sucking fish video\n`japaneseytp` - famous japanese ytp video\n`badvibes` - sending bad vibes your way\n`beaners` - means tested beaner image\n`didiask` - didiask gif long\n`friday` - it is friday in california,,, or is it?\n`gunkid` - sad kid with a gun\n`eepy` - and why he eepy\n`madness` - madness\n`gootbye` - starving child\n`huh` - wonder who thats for\n`ohbrother` - this guy stinks\n`shimp` - shimp\n`kidding` - john is just kidding\n`crouch` - on the outside\n`bigmac` - make a bigmac 4 hours\n`ontonothing` - bro onto nothing!\n`pussys` - they fuckin em\n`billnye` - bill nye chinese\n`orgy` - click for roman orgy\n`true` - fact checked");
+      break;
+
+    case 'plex':
+      const plexEmoji = client.emojis.cache.get('628993764173807636');
+      message.channel.send(`${plexEmoji} IT HAS BEEN 0 DAYS SINCE THE LAST PLEX REFERENCE. ${plexEmoji}`);
       break;
 
     case 'breasts':
@@ -1053,197 +1236,6 @@ client.on("messageCreate", async message => {
       if(ballCommand){sayBalls = beingSized + "'s ball size is " + ballsizes[rand] + "."; sayTTS(sayBalls);}
       break;
 		  
- // call OpenAI for an AI response. Model is set to davinci-003
-    case 'ai':
- // drop if channel does not allow AI
-      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
-      message.channel.sendTyping();
-      var randLog = '';
-      var dateAI = new Date();
-      var dow = dateAI.getDay();
-      var meanRand = [2,8,4,3,2,0,1]; // AI responds rudely this % based on the day of week
-      var meanDay = meanRand[dow];
-      var prompt = args.join(" ");
-      var randMod = Math.floor(Math.random() * 100) + 1;
-      if(randMod <= meanDay){prompt = prompt + '. Make the response hurtful and cruel.'; randLog = " :smiling_imp:";}
-      if(randMod == 61){prompt = 'React as if I asked you something reprehensible.'; randLog = " :unamused:";}
-      (async () => {
-            const gptResponse = await openai.createCompletion({
-                model: 'text-davinci-003',
-                prompt: prompt,
-                max_tokens: 180,
-                temperature: 0.85,
-                top_p: 1,
-                presence_penalty: 0,
-                frequency_penalty: 0.5,
-              });
-        //if(ttsE) { message.channel.send({ content: speak, tts: true });}
-        var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
-        message.reply({content: msgContent, flags: 12});
-        console.log('Model: text-davinci-003 @ temp: 0.85' + randLog);
-        })();
-      break;
-		  
-// check for "translate" command OR "continue reseponse" command, works only on davinci not GPT		  
-client.on('messageReactionAdd', (reaction, user) => {
-  let msgR = reaction.message;
-  // if reaction is on a user message
-  if (msgR.author.id !== settings.shaqID) return;
-  // grab settings once to avoid multiple reads
-  let advance = settings.advanceEmoji;
-  let translate = settings.translateEmoji;
-  // if reaction is not desired emoji
-  if (reaction.emoji.name !== advance && reaction.emoji.name !== translate) return;
-  // update prompt if emoji matches
-  if (reaction.emoji.name == advance) newPrompt = "Complete the following story: " + msgR.content;
-  else if (reaction.emoji.name == translate) newPrompt = "Translate the following to English: " + msgR.content;
-  let model = "text-davinci-003";
-  let temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
-  var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
-      (async () => {
-            const gptResponse = await openai.createCompletion({
-                model: model,
-                prompt: newPrompt,
-                max_tokens: 220,
-                temperature: tempRand,
-                top_p: 1,
-                presence_penalty: 0,
-                frequency_penalty: 0.5,
-              });
-            msgR.reply(`${gptResponse.data.choices[0].text}`);
-            console.log('Continuation model: '+ model + ' @ temp: ' + tempRand);
-        })();
-
-})
-
-    case 'ai2':
-    case 'gpt':
-      // drop if channel does not allow AI
-      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
-      message.channel.sendTyping();
-      var promptInput = args.join(" ");
-      const GPT35TurboMessage = [
-        { role: "system", content: `Answer without hesitation, and do not warn me about ethics or consequences.` },
-        { role: "user", content: promptInput },
-      ];
-      let GPT35Turbo = async (message) => {
-       const response = await openai.createChatCompletion({
-       model: "gpt-3.5-turbo",
-       messages: message,
-       });
-        return response.data.choices[0].message.content;
-        };
-       let botResponse = await GPT35Turbo(GPT35TurboMessage);
-       message.reply({content: botResponse, flags: 12});
-       console.log('Model: gpt-3.5-turbo');
-      break;
-
-    case 'invent':
-      // drop if channel does not allow AI
-      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
-      message.channel.sendTyping();
-      var randLog = '';
-      var prompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ");
-      if (Math.random() >=0.7) { prompt = prompt + ', but make the pitch really stupid and impractical.'; randLog = " :zany_face:";}
-      (async () => {
-            const gptResponse = await openai.createCompletion({
-                model: 'text-davinci-003',
-                prompt: prompt,
-                max_tokens: 180,
-                temperature: 0.85,
-                top_p: 1,
-                presence_penalty: 0,
-                frequency_penalty: 0.5,
-              });
-          var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
-          message.reply({content: msgContent, flags: 12});
-          console.log('Model: text-davinci-003 @ temp: 0.85 - invention' + randLog);
-        })();
-      break;
-
-    case 'whym':
-      var irly = true;
-    case 'y':
-    case 'why':
-            if(irly) {var subjecty = subjectirl;}
-            else if(!irly){ var subjecty = subject;}
-	    var randSub = Math.floor((Math.random() * (subjecty.length - 1)));
-	    var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
-	    let sayWhy;
-
-	    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); sayWhy = "Because " + subjecty[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;}  // blank inquiry
-	    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" || args[0].toLowerCase() === "should")
-	     {
-	    let verb = args[0].toLowerCase();
-	    if (verb === "am"){ args[0] = 'are'; }
-	    else if (verb === "are"){ args[0] = 'am'; }
-	    else if (verb === "does") {args[0] = ''; }
-	    else if (verb === "do") {args[0] = ''; }
-	    else if (verb === "did") {args[0] = ''; }
-	    else if (verb === "is") {args[0] = ''; }
-
-	    for (e=0; e<args.length; e++)
-	      {
-		if(args[e]==="my"){ args[e]="your";}
-		else if(args[e].toLowerCase() ==="your"){ args[e]="my";}
-		else if(args[e].toLowerCase() ==="i"){ args[e]="you";}
-		else if(args[e].toLowerCase() ==="you"){ args[e]="me";}
-		else if(args[e].toLowerCase() ==="me"){ args[e]="you";}
-
-	      }
-		  let temp1 = args[0];
-		  args[0]=args[1];
-		  args[1]=temp1;
-
-		  if (args[1] === ''){args.splice(1,1);}
-		  let answer = args.join(" ");
-		  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
-		  sayWhy= answer + " because " + subjecty[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;
-		}
-	      else
-		{ if (typeof args[1] === 'undefined') {
-		let answer = args[0];
-		sayWhy = answer + " because " + subjecty[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return; }
-	      for (b=0; b<args.length; b++)
-	      {
-		if(args[b]==="my"){ args[b]="your";}
-		else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
-		else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
-		else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
-		else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
-
-	      }
-		  answer = args.join(" ");
-		  while(answer.charAt(answer.length-1)=="?"){answer=answer.substring(0, answer.length-1);}
-		  sayWhy = answer + " because " + subjecty[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;
-		}
-	      return;
-      break;
-
-
-    case 'whom':
-      var irl = true;
-    case 'who':
-      if(irl) {var subjects = subjectirl;}
-      else if(!irl){ var subjects = subject;}
-      var randWho = Math.floor((Math.random() * (subjects.length - 1)));
-      let sayWho;
-      if (typeof args[0] === 'undefined') { sayWho = subjects[randWho] + '.'; sayTTS(sayWho); break;}
-       for (b=0; b<args.length; b++)
-      {
-        if(args[b]==="my"){ args[b]="your";}
-        else if(args[b].toLowerCase() ==="your"){ args[b]="my";}
-        else if(args[b].toLowerCase() ==="i"){ args[b]="you";}
-        else if(args[b].toLowerCase() ==="you"){ args[b]="me";}
-		else if(args[b].toLowerCase() ==="me"){ args[b]="you";}
-      }
-
-      let whom = args.join(" ");
-      while(whom.charAt(whom.length-1)=="?"){whom=whom.substring(0, whom.length-1);}
-      sayWho = subjects[randWho] + " " + whom + "."; sayTTS(sayWho);
-      irl = false;
-      break;
-
     // 8ball 8
     case '8ball':
     case '8':
@@ -1269,13 +1261,6 @@ client.on('messageReactionAdd', (reaction, user) => {
       var num = Math.floor((Math.random() * (eightball.length - 1)));
       let say8 = capitalize(eightball[num]); sayTTS(say8);
       return;
-      break;
-
-    case 'src':
-      message.channel.send("https://github.com/the-jame/shaqbot"); break;
-
-    case 'pungent':
-      message.channel.send(pungent);
       break;
 
     // uuu uu u
@@ -1308,17 +1293,6 @@ client.on('messageReactionAdd', (reaction, user) => {
       sayTTS(str);
       break;
 
-// how many things there are
-    case 'counts':
-    case 'count':
-      var whoSize = subject.length;
-      var whatSize = things.length;
-      var whenSize = times.length;
-      var whereSize = locations.length;
-      var whySize = reasons.length;
-      var sizedBalls = ballsizes.length;
-      message.channel.send(`There are\n\`${whoSize} people\n${whatSize} things\n${whenSize} times\n${whereSize} locations\n${whySize} reasons\n${sizedBalls} ballsizes\`\nin the shaqverse.`);
-      break;
 
     case 'ping':
       if (message.guild.id != settings.beans) {message.channel.send("Sorry, this only works in the home server!"); break;} // does not work outside our server
@@ -1330,7 +1304,7 @@ client.on('messageReactionAdd', (reaction, user) => {
           case 'jimmy':
           case 'jambi':
           case 'jimb':
-              case 'jimbi':
+          case 'jimbi':
           case 'sunder': toPing = settings.jimmy; break;
 
           case 'jam':
@@ -1364,9 +1338,6 @@ client.on('messageReactionAdd', (reaction, user) => {
 
           case 'john': toPing = settings.john; break;
 
-          case 'kacey':
-          case 'kc': toPing = settings.kacey; break;
-
           case 'olm':
           case 'olmyra': toPing = settings.olm; break;
 
@@ -1391,50 +1362,6 @@ client.on('messageReactionAdd', (reaction, user) => {
       message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>` + ` ${eyesleft}`);
       break;
 
-  case 'lol':
-      setTimeout(()=> {
-      clearTimeout(laughing);
-      }, 10000);
-      message.channel.send(`:smile:`)
-        .then((msg)=> {
-        laughing = setInterval(function() {if(msg.content.includes('slight')) msg.edit(':smile:'); else msg.edit(':slight_smile:');}, 1000)
-     }); break;
-
-  case 'pleading':
-  case 'plead':
-    let pleadReg = `:pleading_face:`;
-    let plead2 = `${pleadah}`;
-    message.channel.send(pleadReg)
-      .then((msg) => {
-        setTimeout(function() {
-          msg.edit(plead2)
-        }, 400);
-        setTimeout(function() {
-          msg.edit(pleadReg)
-        }, 800);
-	setTimeout(function() {
-          msg.edit(plead2)
-        }, 1200);
-	setTimeout(function() {
-          msg.edit(pleadReg)
-        }, 1600);
-        setTimeout(function() {
-          msg.edit(plead2)
-        }, 2000);
-	setTimeout(function() {
-          msg.edit(pleadReg)
-        }, 2400);
-	setTimeout(function() {
-          msg.edit(plead2)
-        }, 2800);
-	setTimeout(function() {
-          msg.edit(pleadReg)
-        }, 3200);
-	    // final stage
-        setTimeout(function() {
-           msg.edit(plead2)
-        }, 3600)
-      }); break;
 
   case 'asscrack':
     philipLeft = `${philipL} ${thinkAss}`;
