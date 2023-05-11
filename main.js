@@ -354,9 +354,10 @@ client.on("messageCreate", async message => {
       // drop if channel does not allow AI
       if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
       message.channel.sendTyping();
-      var randLog = '';
+      var randLog = ':zany_face:';
+      var sillyInv = false;
       var prompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ");
-      if (Math.random() >=0.7) { prompt = prompt + ', but make the pitch really stupid and impractical.'; randLog = " :zany_face:";}
+      if (Math.random() >=0.7) { prompt = prompt + ', but make the pitch really stupid and impractical.'; sillyInv = true;}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: 'text-davinci-003',
@@ -367,9 +368,9 @@ client.on("messageCreate", async message => {
                 presence_penalty: 0,
                 frequency_penalty: 0.5,
               });
-          var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
+          if(sillyInv) { var msgContent = `${gptResponse.data.choices[0].text}` + randLog; console.log('Model: text-davinci-003 @ temp: 0.85 - invention' + randLog);}
+          if(!sillyInv) { var msgContent = `${gptResponse.data.choices[0].text}`; console.log('Model: text-davinci-003 @ temp: 0.85 - invention');}
           message.reply({content: msgContent, flags: 12});
-          console.log('Model: text-davinci-003 @ temp: 0.85 - invention' + randLog);
         })();
       break;
 
@@ -1115,6 +1116,11 @@ client.on("messageCreate", async message => {
     case 'awagga':
     case 'aawaaga':
       message.channel.send ({files: ["img/aawaaga.png"]});
+      break;
+    case 'bogos':
+    case 'binted':
+    case 'bogosbinted':
+      message.channel.send ({files: ["img/bogos.jpg"]});
       break;
 
 // zzzzz endofmeme newest latest recent
