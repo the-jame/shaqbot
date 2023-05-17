@@ -1088,6 +1088,8 @@ client.on("messageCreate", async message => {
     case 'bigmac':
       break;
     case 'ontonothing':
+    case 'uptonothing':
+    case 'wholethimcook':
       message.channel.send ({files: ["img/cooking.jpg"]});
       break;
     case 'fuckin':
@@ -1121,6 +1123,9 @@ client.on("messageCreate", async message => {
     case 'binted':
     case 'bogosbinted':
       message.channel.send ({files: ["img/bogos.jpg"]});
+      break;
+    case 'peanits':
+      message.channel.send ({files: ["img/peanits.jpg"]});
       break;
 
 // zzzzz endofmeme newest latest recent
