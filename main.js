@@ -15,9 +15,10 @@ require('dotenv').config();
 
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
-  organization: 'org-IWYZO72FTk8eb9VbxM6SjJN2',
+  organization: process.env.ORGANIZATION,
   apiKey: process.env.OPENAI_API_KEY,
 });
+
 const openai = new OpenAIApi(configuration);
 const randFile = require('select-random-file');
 
@@ -212,7 +213,7 @@ client.on('ready', () => {
     ['5/27', settings.anthony],
     ['6/10', settings.john],
     ['7/14', settings.james],
-    ['8/2', settings.enrique],
+    //['8/2', settings.enrique],
     ['9/1', settings.cody],
     ['10/4', settings.olm],
     ['10/23', settings.tyra],
@@ -286,8 +287,9 @@ client.on("messageCreate", async message => {
     else if(!ttsE) { message.channel.send({ content: speak, tts: false });}
     return;
   }
-  await sleep(250);
+  await sleep(150);
   message.channel.sendTyping();
+  await sleep(300);
 
   // begin commands, search for //(command) to find
   switch(command) {
@@ -401,7 +403,7 @@ client.on("messageCreate", async message => {
 
     case 'er':
     case 'eldenring':
-      await message.delete().catch(O_o=>{});
+      //await message.delete().catch(O_o=>{});
       // chance for doing a conjoined msg
       var c = Math.random();
       let erWord = erW[Math.floor((Math.random() * (erW.length - 1)))];
@@ -1132,12 +1134,6 @@ client.on("messageCreate", async message => {
     case 'orgy':
       message.channel.send ({files: ["img/romanorgy.png"]});
       break;
-    case 'true':
-    case 'factcheck':
-    case 'factchecked':
-    case 'patriots':
-      message.channel.send ({files: ["img/true.jpg"]});
-      break;
     case 'awaga':
     case 'awaaga':
     case 'aawagga':
@@ -1157,6 +1153,9 @@ client.on("messageCreate", async message => {
     case 'mods':
     case 'hep':
       message.channel.send ({files: ["img/jice.png"]});
+      break;
+    case 'letskillhim':
+      message.channel.send ({files: ["img/letskillhim.jpg"]});
       break;
 
 // zzzzz endofmeme newest latest recent
