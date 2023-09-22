@@ -52,7 +52,7 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','ysabel','leah','kitty'
 	'shigeru miyamoto', 'your unwashed ass', 'She Who Squirts', 'He Who Cums', 'Liz\'s cat', 'Beemo', 'the British', 'bisexuals', 'papi', 'a bloody fucker', 'an actual chimp',
 	'shawty', 'I', 'Ronald Reagan', 'Nicolas Cage', 'Queen Elizabeth', 'Nickelback', 'Keanu Reeves', 'Democrats', 'Republicans', 'donald johnald tronald', 'donald john president', 'the fall guy', 'Disney Pixar\'s Cars™️ Pope Pinion IV', 'mexican shinji ikari',
 	'kacey', 'olm', 'olmyra', 'chris', 'jed sheeran', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'the crow', 'the nine', 'the traveler', 'variks', 'an actual nigerian prince trying to give you money','donny jr', 'ana bray', 'mara sov', 'xur', 'ada-1', 'oryx', 'a single dreg', 'uncle roger', 'god', 'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'socialists', 'nazis', 'communists', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'chandler', 'the shit stain in your underwear', 'a crusty sock', 'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker', 'Todd Howard', 'amogus', 'sus guy', 'jim halpert', 'popcat', 'some dumb binch', 'the CEO of Robinhood', 'AOC', 'ted cruz', 'j cole', 'elmer fudd', 'a cum stain', 'the inventor of Worms the video game', 'justin timberlake', 'the area man', 'a rando', 'that one friend who never interacts in discord', 'the pogchamp guy', 'some chud on parler', 'an idiot who got banned from twitter', 'mark zuckerberg\'s lizard offspring', 'prince philip', 'prince philip (in dust form)', 'your best friend', 'the guy', 'robert downey jr', 'morgan freeman', 'a friendly neighborhood cat', 'a birb', 'some ducklings', 'the person reading this', 'abby shapiro', 'a gamer gril', 'a butterfly, floating peacefully', 'Hasbulla', 'the taliban', 'that one guy with an eyepatch', 'chet','brad', 'steven crowder', 'the vitamin D council', 'the fish oil triumvirate', 'egg demon', 'computer woman', 'big elephant man' ];
-var subjectirl = ['reeg', 'james', 'jimmy', 'tyra', 'liz', 'ton', 'cody', 'ysabel', 'leah', 'kitty', 'john', 'kacey', 'olm'];
+var subjectirl = ['reeg', 'james', 'jimmy', 'tyra', 'liz', 'ton', 'cody', 'ysabel', 'leah', 'kitty', 'j', 'olm', 'adri'];
 
 var erW = ["enemy", "weak foe", "strong foe", "monster", "dragon", "boss", "sentry", "group", "pack", "decoy", "undead", "soldier", "knight", "cavalier", "archer", "sniper", "mage", "ordnance", "monarch", "lord", "demi-human", "outsider", "giant", "horse", "dog", "wolf", "rat", "beast", "bird", "raptor", "snake", "crab", "prawn", "octopus", "bug", "scarab", "slug", "wraith", "skeleton", "monstrosity", "ill-omened creature", "Tarnished", "warrior", "swordfighter", "knight", "samurai", "sorcerer", "cleric", "sage", "merchant", "teacher", "master", "friend", "lover", "old dear", "old codger", "angel", "fat coinpurse", "pauper", "good sort", "wicked sort", "plump sort", "skinny sort", "lovable sort", "pathetic sort", "strange sort", "nimble sort", "laggardly sort", "invisible sort", "unfathomable sort", "giant sort", "sinner", "thief", "liar", "dastard", "traitor", "pair", "trio", "noble", "aristocrat", "hero", "champion", "monarch", "lord", "god", "item", "necessary item", "precious item", "something", "something incredible", "treasure chest", "corpse", "coffin", "trap", "armament", "shield", "bow", "projectile weapon", "armor", "talisman", "skill", "sorcery", "incantation", "map", "material", "flower", "grass", "tree", "fruit", "seed", "mushroom", "tear", "crystal", "butterfly", "bug", "dung", "grace", "door", "key", "ladder", "lever", "lift", "spiritspring", "sending gate", "stone astrolabe", "Birdseye Telescope", "message", "bloodstain", "Erdtree", "Elden Ring", "close-quarters battle", "ranged battle", "horseback battle", "luring out", "defeating one-by-one", "taking on all at once", "rushing in", "stealth", "mimicry", "confusion", "pursuit", "fleeing", "summoning", "circling around", "jumping off", "dashing through", "brief respite", "Actions	", "attacking", "jump attack", "running attack", "critical hit", "two-handing", "blocking", "parrying", "guard counter", "sorcery", "incantation", "skill", "summoning", "throwing", "healing", "running", "rolling", "backstepping", "jumping", "crouching", "target lock", "item crafting", "gesturing", "morning", "noon", "evening", "night", "clear sky", "overcast", "rain", "storm", "mist", "snow", "patrolling", "procession", "crowd", "surprise attack", "ambush", "pincer attack", "beating to a pulp", "battle", "reinforcements", "ritual", "explosion", "high spot", "defensible spot", "climbable spot", "bright spot", "dark spot", "open area", "cramped area", "hiding place", "sniping spot", "recon spot", "safety", "danger", "gorgeous view", "detour", "hidden path", "secret passage", "shortcut", "dead end", "looking away", "unnoticed", "out of stamina", "Places	", "high road", "checkpoint", "bridge", "castle", "fort", "city", "ruins", "church", "tower", "camp site", "house", "cemetery", "underground tomb", "tunnel", "cave", "evergaol", "great tree", "cellar", "surface", "underground", "forest", "river", "lake", "bog", "mountain", "valley", "cliff", "waterside", "nest", "hole", "east", "west", "south", "north", "ahead", "behind", "left", "right", "center", "up", "down", "edge", "head", "stomach", "back", "arms", "legs", "rump", "tail", "core", "fingers", "physical", "standard", "striking", "slashing", "piercing", "fire", "lightning", "magic", "holy", "poison", "toxic", "scarlet rot", "blood loss", "frost", "sleep", "madness", "death", "life", "Death", "light", "dark", "stars", "fire", "Order", "chaos", "joy", "wrath", "suffering", "sadness", "comfort", "bliss", "misfortune", "good fortune", "bad luck", "hope", "despair", "victory", "defeat", "research", "faith", "abundance", "rot", "loyalty", "injustice", "secret", "opportunity", "pickle", "clue", "friendship", "love", "bravery", "vigor", "fortitude", "confidence", "distracted", "unguarded", "introspection", "regret", "resignation", "futility", "on the brink", "betrayal", "revenge", "destruction", "recklessness", "calmness", "vigilance", "tranquility", "sound", "tears", "sleep", "depths", "dregs", "fear", "sacrifice", "ruin", "good luck", "look carefully", "listen carefully", "think carefully", "well done", "I did it!", "I've failed...", "here!", "not here!", "don't you dare!", "do it!", "I can't take this...", "don't think", "so lonely...", "here again...", "just getting started", "stay calm", "keep moving", "turn back", "give up", "don't give up", "help me...", "I don't believe it...", "too high up", "I want to go home...", "it's like a dream...", "seems familiar...", "beautiful...", "you don't have the right", "are you ready?"];
 var erP = [`{w} ahead`, `Likely {w}`, `If only I had a {w}`, `{w}, O {w}`,`Ahh, {w}`, `No {w} ahead`, `First off, {w}`, `Didn't expect {w}...`,`Behold, {w}!`,`{w}`,`{w} required ahead`,`Seek {w}`,`Visions of {w}...`,`Offer {w}`,`{w}!`,`Be wary of {w}`,`Still no {w}...`,`Could this be a {w}?`,`Praise the {w}`,`{w}?`,`Try {w}`, `Why is it always {w}?`, `Time for {w}`,`Let there be {w}`,`{w}...`];
@@ -213,7 +213,7 @@ client.on('ready', () => {
     ['5/27', settings.anthony],
     ['6/10', settings.john],
     ['7/14', settings.james],
-    //['8/2', settings.enrique],
+    ['8/2', settings.enrique],
     ['9/1', settings.cody],
     ['10/4', settings.olm],
     ['10/23', settings.tyra],
@@ -236,7 +236,7 @@ client.on('ready', () => {
   if (birthdays[i][0] == today){ bFound = true; bPerson = birthdays[i][1]; break;}
   }
 
-  if(bFound){ client.channels.cache.get('95702402253983744').send(`:confetti_ball: It is <@${bPerson}>\'s birthday today! :confetti_ball:`);}
+  if(bFound){client.channels.cache.get("95702402253983744").send(`:confetti_ball: It is <@${bPerson}>\'s birthday today! :confetti_ball:`);}
 })
 
 // check for "translate" command OR "continue reseponse" command, works only on davinci not GPT		  
@@ -311,9 +311,9 @@ client.on("messageCreate", async message => {
       if(randMod == 61){prompt = 'React as if I asked you something reprehensible.'; randLog = " :unamused:";}
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: 'text-davinci-003',
+                model: 'gpt-3.5-turbo-instruct',
                 prompt: prompt,
-                max_tokens: 180,
+                max_tokens: 350,
                 temperature: 0.85,
                 top_p: 1,
                 presence_penalty: 0,
@@ -322,7 +322,7 @@ client.on("messageCreate", async message => {
         //if(ttsE) { message.channel.send({ content: speak, tts: true });}
         var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
         message.reply({content: msgContent, flags: 12});
-        console.log('Model: text-davinci-003 @ temp: 0.85' + randLog);
+        console.log('Model: gpt-3.5-turbo-instruct @ temp: 0.85' + randLog);
         })();
       break;
 
@@ -1156,6 +1156,13 @@ client.on("messageCreate", async message => {
       break;
     case 'letskillhim':
       message.channel.send ({files: ["img/letskillhim.jpg"]});
+      break;
+    case 'leopard':
+    case 'leopards':
+      message.channel.send ({files: ["img/leopards.png"]});
+      break;
+    case 'grill':
+      message.channel.send ({files: ["img/grill.jpg"]});
       break;
 
 // zzzzz endofmeme newest latest recent
