@@ -222,6 +222,12 @@ client.on('ready', () => {
     ['11/9', settings.jimmy]
   ];
 
+  const catDir = '/home/pi/shaqbot/cats/';
+  randFile(catDir, (err, file) => {
+  client.channels.cache.get("533020942830403585").send({files: [`cats/${file}`]});
+  })
+
+
   //log current date
   const dateObj = new Date();
   var dow = dateObj.getDay();
@@ -305,7 +311,7 @@ client.on("messageCreate", async message => {
       var dow = dateAI.getDay();
       var meanRand = [2,8,4,3,2,0,1]; // AI responds rudely this % based on the day of week
       var meanDay = meanRand[dow];
-      var prompt = args.join(" "); prompt = prompt + ". Answer clearly but be concise!";
+      var prompt = args.join(" "); prompt = prompt + ". Your answer should be clear and complete, but concise.";
       var randMod = Math.floor(Math.random() * 100) + 1;
       if(randMod <= meanDay){prompt = prompt + '. Make the response hurtful and cruel.'; randLog = " :smiling_imp:";}
       if(randMod == 61){prompt = 'React as if I asked you something reprehensible.'; randLog = " :unamused:";}
@@ -325,6 +331,7 @@ client.on("messageCreate", async message => {
         console.log('Model: gpt-3.5-turbo-instruct @ temp: 0.85' + randLog);
         })();
       break;
+
 
     case 'gptxxxx':
       // drop if channel does not allow AI
@@ -367,7 +374,7 @@ client.on("messageCreate", async message => {
       ];
       let GPT4 = async (message) => {
        const response4 = await openai.createChatCompletion({
-       model: "gpt-4",
+       model: "gpt-4-1106-preview",
        messages: message,
        });
         return response4.data.choices[0].message.content;
@@ -1169,9 +1176,14 @@ client.on("messageCreate", async message => {
     case 'ruthkanda':
       message.channel.send ({files: ["img/ruthkanda.png"]});
       break;
-    case 'ruthkanda':
+    case 'parm':
       message.channel.send ({files: ["img/parm.jpg"]});
       break;
+    case 'spanish':
+    case 'cocinerodesushi':
+      message.channel.send ({files: ["img/spanish.wav"]});
+      break;
+
 
 // zzzzz endofmeme newest latest recent
 
