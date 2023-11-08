@@ -5,12 +5,12 @@ Simple, spaghetti code bot made for my Discord server. Now with OpenAI (Davinci-
 
 
 __The normal chat commands are:__
-* `ai <string>`: Bot will answer with ai (OpenAI Davinci-003)
-* `gpt <string>`: Bot will answer with ai (OpenAI GPT-3.5-turbo)
-* `invent <string>`: Bot will sales pitch an invention from the prompt(OpenAI Davinci-003)
-* `say <string>`: Bot says the string in text-to-speech and deletes your command.
-* `roll <integer>`: Make the bot randomly roll from 1 to the number you enter.
-* `8 <question>`: Bot will answer with an 8-ball style response.
+* `ai <string>`: Bot will answer with ai (OpenAI GPT3.5-instruct)
+* `gpt <string>`: Bot will answer with ai (OpenAI GPT-4-turbo)
+* `invent <string>`: Bot will sales pitch an invention from the prompt(OpenAI GPT3.5-instruct)
+* `say <string>`: Bot says the string in text-to-speech and deletes your input so the bot appears to say it.
+* `roll <integer>`: Make the bot randomly roll from 1 to the number you enter. e.g. =roll 100 rolls 1-100
+* `8 <question>`: Bot will answer with a classic 8-ball style response.
 * `er`: Bot will say a randomly-generated Elden Ring style message.
 
 __More chat commands:__
@@ -19,7 +19,6 @@ __More chat commands:__
 * `whatis <question>`: Bot tells you what the thing you asked is [hard coded responses in large array].
 * `ballsize|bs <string>`: Bot will tell you the ballsize of the string in question [hard coded responses in large array].
 * `image` OR `meme` OR `random`: Respond with a random image from the database of meme responses.
-* `memes`: List all image commands with description of responses. (50+)
  
 
 ***

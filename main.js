@@ -203,6 +203,7 @@ client.on('ready', () => {
   philipC = client.emojis.cache.get('818649301802156094');
   thinkAss = client.emojis.cache.get('813835069780918304');
   pleadah = client.emojis.cache.get('665307736866684968');
+  bongocat = client.emojis.cache.get('665308266691297304');
   var owner = settings.james;
 
   // check for birthdays
@@ -221,10 +222,11 @@ client.on('ready', () => {
     ['7/17', settings.adri],
     ['11/9', settings.jimmy]
   ];
+    philipLeft = `${philipL} ${thinkAss}`;
 
   const catDir = '/home/pi/shaqbot/cats/';
   randFile(catDir, (err, file) => {
-  client.channels.cache.get("533020942830403585").send({files: [`cats/${file}`]});
+  client.channels.cache.get("533020942830403585").send({ content: `Good morning Beans! Today's cat of the day is... ${bongocat}`, files: [`cats/${file}`]});
   })
 
 
