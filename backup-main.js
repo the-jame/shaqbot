@@ -1,18 +1,13 @@
 let Discord = require("discord.js");
-const { Client, Partials, GatewayIntentBits } = require('discord.js');
-const client = new Client(
-{ intents: [
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+  intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.MessageContent,
-    GatewayIntentBits.DirectMessages,
     GatewayIntentBits.GuildMessageReactions,
-    GatewayIntentBits.GuildEmojisAndStickers
-  ],
- partials: [
-    Partials.Message,
-    Partials.Channel
+    GatewayIntentBits.GuildEmojisAndStickers,
   ]
 });
 
@@ -24,13 +19,7 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const configuration2 = new Configuration({
-  organization: process.env.ORGANIZATION2,
-  apiKey: process.env.OPENAI_API_KEY2,
-});
-
 const openai = new OpenAIApi(configuration);
-const openai2 = new OpenAIApi(configuration2);
 const randFile = require('select-random-file');
 
 let ttsE = true;
@@ -225,13 +214,13 @@ client.on('ready', () => {
     ['5/27', settings.anthony],
     ['6/10', settings.john],
     ['7/14', settings.james],
-    ['7/17', settings.adri],
     ['8/2', settings.enrique],
     ['9/1', settings.cody],
     ['10/4', settings.olm],
     ['10/23', settings.tyra],
     ['10/26', settings.liz],
-    ['11/8', settings.jimmy]
+    ['7/17', settings.adri],
+    ['11/9', settings.jimmy]
   ];
     philipLeft = `${philipL} ${thinkAss}`;
 
@@ -296,30 +285,6 @@ client.on("messageCreate", async message => {
   let pref = settings.prefix;
   if(message.author.bot) return;
   if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{});}
-
-// respond to DM functionality
-  if(message.channel.type === 1){
-  if(message.author.id != '95702308515487744' && message.author.id != '95739846949076992' && message.author.id != '132273868495781888' && message.author.id != '114467443040190468' && message.author.id != '95765022705188864' && message.author.id != '135988645579587584' && message.author.id != '96492725406281728'){ console.log("invalid DM user"); return; }
-    message.channel.sendTyping();
-    const dmContent = message.content;
-    var sysMsgSTD = `You are a helpful assistant. Provide clear and thorough answers, but be concise.`
-    const GPTDMMessage = [
-       { role: "system", content: sysMsgSTD },
-       { role: "user", content: dmContent },
-     ];
-    let GPTDM = async (message) => {
-     const response4 = await openai2.createChatCompletion({
-     model: 'gpt-4-1106-preview',
-     messages: message,
-     });
-      return response4.data.choices[0].message.content;
-      };
-
-     let botDMResponse = await GPTDM(GPTDMMessage);
-     if(botDMResponse.length > 1901) { botDMResponse = botDMResponse.substring(0, 1900);}
-     message.channel.send({content: botDMResponse, flags: 12});
-  }
-
   if(message.content.indexOf(pref) !== 0) return;
 
   const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
@@ -418,7 +383,7 @@ client.on("messageCreate", async message => {
         };
 
        let botResponse4 = await GPT4(GPT4Message);
-       if(botResponse4.length > 1900) { botResponse4 = botResponse4.substring(0, 1900);}
+       if(botResponse4.length > 1500) { botResponse4 = botResponse4.substring(0, 1500);}
        message.reply({content: botResponse4, flags: 12});
        console.log(`Model: gpt-4`);
       break;
