@@ -749,7 +749,7 @@ client.on("messageCreate", async message => {
     case 'ishouldbuy':
     case 'fascist':
     case 'fascistslob':
-      message.channel.send({files: ["img/buygun.png"]});
+      message.channel.send({files: ["img/gun.png"]});
       break;
     case 'snoopwho':
       message.channel.send({files: ["img/snoopwho.gif"]});
