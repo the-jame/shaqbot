@@ -1234,6 +1234,10 @@ client.on("messageCreate", async message => {
     case 'moldmario':
       message.channel.send ({files: ["img/mold.png"]});
       break;
+    case 'hawaiian':
+    case 'hawaiianbread':
+      message.channel.send ({files: ["img/hawaiian.png"]});
+      break;
 
 
 // zzzzz endofmeme newest latest recent
