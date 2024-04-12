@@ -217,7 +217,7 @@ client.on('ready', () => {
   let birthdays = [
     ['1/8', settings.leah],
     ['1/9', settings.ysabel],
-    //['1/11', settings.kacey],
+    ['1/11', settings.kacey],
     ['5/27', settings.anthony],
     ['6/10', settings.john],
     ['7/14', settings.james],
