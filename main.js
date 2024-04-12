@@ -305,7 +305,7 @@ client.on("messageCreate", async message => {
      ];
     let GPTDM = async (message) => {
      const response4 = await openai.createChatCompletion({
-     model: 'gpt-4-0125-preview',
+     model: 'gpt-4-turbo',
      messages: message,
      });
       return response4.data.choices[0].message.content;
@@ -363,18 +363,6 @@ client.on("messageCreate", async message => {
         })();
       break;
 
-    case 'gai':
-      //async function run() {
-      //  const gPrompt = args.join(" ");
-      //  const gResult = await gModel.generateContent(gPrompt);
-      //  const response = await gResult.response;
-      //  const gText = response.text();
-      //  message.reply({content: gText, flags: 12});
-      //  console.log('Model: gemini-pro');
-      //}
-      //run();
-      break;
-
     case 'got':
         message.reply({content: 'It\'s =gpt, dumbass...', flags: 12});
     case 'gpt':
@@ -390,7 +378,7 @@ client.on("messageCreate", async message => {
       ];
       let GPT4 = async (message) => {
        const response4 = await openai.createChatCompletion({
-       model: "gpt-4-0125-preview",
+       model: "gpt-4-turbo",
        messages: message,
        });
         return response4.data.choices[0].message.content;
@@ -1445,65 +1433,6 @@ client.on("messageCreate", async message => {
       }
       sayTTS(str);
       break;
-
-
-    case 'ping':
-      if (message.guild.id != settings.beans) {message.channel.send("Sorry, this only works in the home server!"); break;} // does not work outside our server
-      let toPing = '';
-      let pinged = args[0].toLowerCase();
-      switch(pinged){
-
-          case 'jim':
-          case 'jimmy': toPing = settings.jimmy; break;
-
-          case 'james':
-          case 'jame':
-          case 'thejame': toPing = settings.james; break;
-
-          case 'enrique':
-          case 'reeg': toPing = settings.enrique; break;
-
-          case 'cody':
-          case 'xhinon': toPing = settings.cody; break;
-
-          case 'ton':
-          case 'anthony': toPing = settings.anthony; break;
-
-          case 'brett':
-          case 'kitty':
-          case 'kittykatt': toPing = settings.brett; break;
-
-          case 'liz':
-          case 'elizabeth': toPing = settings.liz; break;
-
-          case 'tyra': toPing = settings.tyra; break;
-
-          case 'john': toPing = settings.john; break;
-
-          case 'olm':
-          case 'olmyra': toPing = settings.olm; break;
-
-          case 'ysabel':
-          case 'ysa': toPing = settings.ysabel; break;
-
-          case 'men': toPing = settings.men; break;
-
-          default: toPing = "invalid"; break;
-            }
-
-      if (toPing === "invalid") {message.channel.send("No user by that name."); break;}
-      let neck = `${wut2}`;
-      let wholeNeck = '';
-
-      let neckLen = Math.floor((Math.random() * (32)));
-      for (i=0; i<neckLen; i++)
-      {
-        wholeNeck += neck;
-      }
-
-      message.channel.send(`${wut1}${wholeNeck}${wut3}` + `<@${toPing}>` + ` ${eyesleft}`);
-      break;
-
 
   case 'asscrack':
     philipLeft = `${philipL} ${thinkAss}`;
