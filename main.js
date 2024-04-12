@@ -24,13 +24,7 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const configuration2 = new Configuration({
-  organization: process.env.ORGANIZATION2,
-  apiKey: process.env.OPENAI_API_KEY2,
-});
-
 const openai = new OpenAIApi(configuration);
-const openai2 = new OpenAIApi(configuration2);
 const randFile = require('select-random-file');
 
 let ttsE = true;
@@ -46,6 +40,8 @@ let ignored;
 let ballCommand;
 let thinkAss;
 let irl = false;
+let emojiTarget;
+let emojiToUse;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -235,10 +231,10 @@ client.on('ready', () => {
   ];
     philipLeft = `${philipL} ${thinkAss}`;
 
-  const catDir = '/home/pi/shaqbot/cats/';
-  randFile(catDir, (err, file) => {
-  client.channels.cache.get("533020942830403585").send({ content: `Good morning Beans! Today's cat of the day is... ${bongocat}`, files: [`cats/${file}`]});
-  })
+  //const catDir = '/home/pi/shaqbot/cats/';
+  //randFile(catDir, (err, file) => {
+  //client.channels.cache.get("533020942830403585").send({ content: `Good morning Beans! Today's cat of the day is... ${bongocat}`, files: [`cats/${file}`]});
+  //})
 
 
   //log current date
@@ -295,6 +291,7 @@ client.on("messageCreate", async message => {
   let pref = settings.prefix;
   if(message.author.bot) return;
   if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{});}
+  if(message.author.id == emojiTarget) message.react(emojiToUse);
 
 // respond to DM functionality
   if(message.channel.type === 1){
@@ -307,8 +304,8 @@ client.on("messageCreate", async message => {
        { role: "user", content: dmContent },
      ];
     let GPTDM = async (message) => {
-     const response4 = await openai2.createChatCompletion({
-     model: 'gpt-4-1106-preview',
+     const response4 = await openai.createChatCompletion({
+     model: 'gpt-4-0125-preview',
      messages: message,
      });
       return response4.data.choices[0].message.content;
@@ -340,7 +337,7 @@ client.on("messageCreate", async message => {
       message.reply({content: 'It\'s =ai, idiot...', flags: 12});
       case 'ai':
  // drop if channel does not allow AI
-      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
+      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031" || message.channel.id == "1099822225923788880"){await message.delete().catch(O_o=>{}); break;}
       message.channel.sendTyping();
       var randLog = '';
       var dateAI = new Date();
@@ -393,7 +390,7 @@ client.on("messageCreate", async message => {
       ];
       let GPT4 = async (message) => {
        const response4 = await openai.createChatCompletion({
-       model: "gpt-4-1106-preview",
+       model: "gpt-4-0125-preview",
        messages: message,
        });
         return response4.data.choices[0].message.content;
@@ -411,11 +408,11 @@ client.on("messageCreate", async message => {
       message.channel.sendTyping();
       var randLog = ':zany_face:';
       var sillyInv = false;
-      var prompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ");
+      var prompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ")+ ' make sure to add a slogan at the end too.';
       if (Math.random() >=0.7) { prompt = prompt + ', but make the pitch really stupid and impractical.'; sillyInv = true;}
       (async () => {
             const gptResponse = await openai.createCompletion({
-                model: 'text-davinci-003',
+                model: 'gpt-3.5-turbo-instruct',
                 prompt: prompt,
                 max_tokens: 180,
                 temperature: 0.85,
@@ -1238,6 +1235,30 @@ client.on("messageCreate", async message => {
     case 'hawaiianbread':
       message.channel.send ({files: ["img/hawaiian.png"]});
       break;
+    case 'blessyou':
+    case 'blessyous':
+    case 'giacomo':
+      message.channel.send ({files: ["img/blessyou.png"]});
+      break;
+    case 'playanddraw':
+    case 'playdraw':
+    case 'idgaf':
+      message.channel.send ({files: ["img/playdraw.jpeg"]});
+      break;
+    case 'rubben':
+    case 'yellowleg':
+      message.channel.send ({files: ["img/yellowleg.png"]});
+      break;
+    case 'leaning':
+    case 'interrogation':
+      message.channel.send ({files: ["img/leaning.jpg"]});
+      break;
+    case 'react':
+      if(message.author.id != '95702308515487744') { break; }
+      emojiToUse = args[0];
+      args.shift();
+      emojiTarget = args.join(" ");
+      break;
 
 
 // zzzzz endofmeme newest latest recent
@@ -1411,7 +1432,7 @@ client.on("messageCreate", async message => {
 
       let syllables = ['euxeux', 'bu', 'lemlemlem', 'lumlumlum', 'lem', 'lum', 'huehue', 'hue', 'h', 'hhhhhhhhhh', 'eak', 'oom',
         'shaq', 'aqaqaq', 'urts', 'nts', 'anus', 'buenos', 'cumb', 'cummie', 'euxeux', 'ahhhhhnnnnnnnn','unnnnnnnnn', 'yeff', 'hhhuuu',
-        'rrrrrrrr', 'uuu','arf','euf','aeeeb', 'ffff', 'uuu', 'uhhh', 'aaaa', 'eeeee', 'iiii', 'oooo', 'v', 'huuuuuuuuuuuuu', 'y', 'ahu', 'abib', 'ebbebb', 'horf', 'nuts', 'speuxch', 'lum', 'uhh', 'nunnnn','papa','fathhhhhhhhhh', 'asiiiduuu', 'elulux', 'iwueyad', 'blublublub','uhnnnn', 'azzz', 'cum', 'crud', 'piss', 'udfhasdf', 'asvcx'];
+        'rrrrrrrr', 'gleep', 'gimp', 'geu', 'gor', 'du','bff','lsing','glo','prim', 'uuu','arf','euf','aeeeb', 'ffff', 'uuu', 'uhhh', 'aaaa', 'eeeee', 'iiii', 'oooo', 'v', 'huuuuuuuuuuuuu', 'y', 'ahu', 'abib', 'ebbebb', 'horf', 'nuts', 'speuxch', 'lum', 'uhh', 'nunnnn','papa','fathhhhhhhhhh', 'asiiiduuu', 'elulux', 'iwueyad', 'blublublub','uhnnnn', 'azzz', 'cum', 'crud', 'piss', 'udfhasdf', 'asvcx'];
 
       let words = ['Posichichayones ', 'from ', 'sucky ', 'keer ', 'keer him ', 'Legolas ', 'jerk me once ', 'jerk me twice ', 'compadre ',
         'papa ', 'daddy ', 'prease ','shame on you '];
