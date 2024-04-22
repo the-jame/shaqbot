@@ -1,7 +1,7 @@
 
 # Discord Chat Bot
 ***
-Simple, spaghetti code bot made for my Discord server. Now with OpenAI (Davinci-003 & GPT-3.5-Turbo)!
+Simple, spaghetti code bot made for my Discord server. Now with OpenAI (GPT-4-Turbo & GPT-3.5-Turbo)!
 
 
 __The normal chat commands are:__
