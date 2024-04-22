@@ -27,6 +27,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 const randFile = require('select-random-file');
 
+let poop = "stinky";
 let ttsE = true;
 let settings;
 let owner;
