@@ -312,7 +312,7 @@ client.on("messageCreate", async message => {
       };
 
      let botDMResponse = await GPTDM(GPTDMMessage);
-     if(botDMResponse.length > 1901) { botDMResponse = botDMResponse.substring(0, 1900);}
+     if(botDMResponse.length > 1951) { botDMResponse = botDMResponse.substring(0, 1950);}
      message.channel.send({content: botDMResponse, flags: 12});
   }
 
@@ -358,6 +358,7 @@ client.on("messageCreate", async message => {
                 frequency_penalty: 0.5,
               });
         var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
+        if (msgContent.length > 1950){ msgContent = msgContent.substring(0,1950);}
         message.reply({content: msgContent, flags: 12});
         console.log('Model: gpt-3.5-turbo-instruct @ temp: 0.85' + randLog);
         })();
@@ -385,7 +386,7 @@ client.on("messageCreate", async message => {
         };
 
        let botResponse4 = await GPT4(GPT4Message);
-       if(botResponse4.length > 1900) { botResponse4 = botResponse4.substring(0, 1900);}
+       if(botResponse4.length > 1950) { botResponse4 = botResponse4.substring(0, 1950);}
        message.reply({content: botResponse4, flags: 12});
        console.log(`Model: gpt-4`);
       break;
@@ -1257,7 +1258,7 @@ client.on("messageCreate", async message => {
     case 'meme':
     case 'image':
     case 'img':
-      const dir = '/home/pi/shaqbot/img/';
+      const dir = '/home/ubuntu/shaqbot/img/';
       randFile(dir, (err, file) => {
       message.channel.send ({files: [`img/${file}`]});
       })
@@ -1360,6 +1361,23 @@ client.on("messageCreate", async message => {
       await message.delete().catch(O_o=>{});
       sayTTS(sayMsg);
     break;
+
+ // mock
+    case 'mock':
+      let mockResult = '';
+      let mockMsg = args.join(" ");
+      mockMsg = mockMsg.toLowerCase();
+      for (let k=0;k<mockMsg.length;k++){
+        const mChar = mockMsg[k];
+        if (/[a-zA-Z]/.test(mChar)) {
+          mockResult += Math.random() < 0.5 ? mChar.toUpperCase() : mChar;
+        } else {
+          mockResult += mChar;
+          }
+      }
+      sayTTS(mockResult);
+    break;
+
 
  // ballsize bs
     case 'size':
