@@ -1,5 +1,5 @@
 let Discord = require("discord.js");
-const { Client, Partials, GatewayIntentBits } = require('discord.js');
+const { Client, Partials, GatewayIntentBits, AttachmentBuilder } = require('discord.js');
 const client = new Client(
 { intents: [
     GatewayIntentBits.Guilds,
@@ -46,6 +46,8 @@ let emojiToUse;
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+const spongeMocking = new AttachmentBuilder('img/mockingbob.jpg');
 
 // who
 var subject = ['reeg','james','jimmy','tyra','liz','ton','ysabel','leah','kitty','john madden','the cake','my ass','your ass','your mom','Joe Biden','sarah','tom clancy',
@@ -1375,7 +1377,7 @@ client.on("messageCreate", async message => {
           mockResult += mChar;
           }
       }
-      sayTTS(mockResult);
+    message.channel.send({content: mockResult, files: [spongeMocking]});
     break;
 
 
