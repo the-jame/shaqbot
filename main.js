@@ -1371,7 +1371,7 @@ client.on("messageCreate", async message => {
       mockMsg = mockMsg.toLowerCase();
       for (let k=0;k<mockMsg.length;k++){
         const mChar = mockMsg[k];
-        if (/[a-zA-Z]/.test(mChar)) {
+        if (/\p{L}/u.test(mChar)) {
           mockResult += Math.random() < 0.5 ? mChar.toUpperCase() : mChar;
         } else {
           mockResult += mChar;
