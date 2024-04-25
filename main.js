@@ -42,6 +42,8 @@ let thinkAss;
 let irl = false;
 let emojiTarget;
 let emojiToUse;
+let command = '';
+let args = '';
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -318,10 +320,14 @@ client.on("messageCreate", async message => {
      message.channel.send({content: botDMResponse, flags: 12});
   }
 
-  if(message.content.indexOf(pref) !== 0) return;
-
-  const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
+  if(Math.random() < 0.004) {
+    command = "mock";  args = message.content.trim().split(/ +/g);
+  }
+  else if(message.content.indexOf(pref) == 0){
+    args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
+    command = args.shift().toLowerCase();
+  }
+  else return;
 
   function sayTTS(speak){
     if(ttsE) { message.channel.send({ content: speak, tts: true });}
