@@ -248,6 +248,10 @@ client.on('ready', () => {
   var day = dateObj.getUTCDate();
   today = month + "/" + day;
 
+  if(dow == 5){
+    client.channels.cache.get("95702402253983744").send({files: ["img/friday.mp4"]});
+  }
+
   //find birthday
   var bFound = false;
   var bPerson = "";
@@ -1087,7 +1091,7 @@ client.on("messageCreate", async message => {
     case 'fridaycalifornia':
     case 'friday':
       var now = new Date(); var day = now.getDay();
-      if(day === 5) {message.channel.send ({files: ["img/friday.mp4"]});} else message.channel.send("Today is not Friday in California.");
+      if(day == 5) {message.channel.send ({files: ["img/friday.mp4"]});} else message.channel.send("Today is not Friday in California.");
       break;
     case 'kidgun':
     case 'gunkid':
@@ -1497,7 +1501,7 @@ client.on("messageCreate", async message => {
 	    // final stage
         setTimeout(function() {
            msg.edit(philipCenter)
-        }, 3200)
+        }, 2600)
       }); break;
 
   case 'joseton':
