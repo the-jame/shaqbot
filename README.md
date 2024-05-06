@@ -18,21 +18,4 @@ __More chat commands:__
 * `why <question>(optional)`: Bot says why something happened by making up an answer using a random proper noun and "reason" [hard coded responses in large array].
 * `whatis <question>`: Bot tells you what the thing you asked is [hard coded responses in large array].
 * `ballsize|bs <string>`: Bot will tell you the ballsize of the string in question [hard coded responses in large array].
-* `image` OR `meme` OR `random`: Respond with a random image from the database of meme responses.
- 
-
-***
-# Installation
-***
-* `npm install`
-* `cp sample-settings.json settings.json && nano settings.json` fill in your token.
-* `node main.js` to run.
-
-# Options & Config.
-***
-
-## Basic variables.
-| Option | Type | Description | Location |
-| --- | --- | --- | --- |
-| token | String | Your discord bot token. | settings.json |
-| botPrefix | String | The prefix of the bot. Defaults to "=". | settings.json + main.js [54] |
+* `meme` OR `random`: Respond with a random image from the database of meme responses.

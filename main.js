@@ -324,7 +324,7 @@ client.on("messageCreate", async message => {
      message.channel.send({content: botDMResponse, flags: 12});
   }
 
-  if(Math.random() < 0.0015) {
+  if(Math.random() < 0.002) {
     command = "mock";  args = message.content.trim().split(/ +/g);
   }
   else if(message.content.indexOf(pref) == 0){
