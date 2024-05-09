@@ -103,7 +103,7 @@ var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in hal
 var locations = ['the Grand Canyon', 'a sex dungeon',  'my sex dungeon', 'the moon', 'the Epstein island', 'a gulag', 'Big Ben', 'Ireland', 'the bottom of the Atlantic Ocean', 'Ohio', 'Deep Stone Crypt', 'a Garfield comic',
 	'Mystery Flesh Pit National Park, Texas', 'Hell', 'Heaven', 'Purgatory', 'Limbo (The outer border of Hell, not the game)', 'Limbo (The game, not the outer border of Hell)', 'de_dust2', '2Fort', 'gm_construct',
 	'Taco Bell:tm:', 'Mcdonalds:tm:', 'a strip club', 'my basement', 'a basement', 'a haunted house', 'my arms', 'my arms, bridal style', 'the Piss Drawer:tm:', 'Northern Undead Asylum', 'Anor Londo', 'Firelink Shrine',
-	'the cum sock', 'Lavender Town', 'Yharnam', 'Blood Gulch', 'Brazil', 'the alley behind Tescos', 'Gondor','the New California Republic', 'the New California Republic', 'Kekistan', 'Shangri-La', 'Wakanda', 'Duckburg', 'Mos Eisley', 'Castle Rock',
+	'the cum sock', 'Lavender Town', 'Yharnam', 'Blood Gulch', 'Brazil', 'the alley behind Tesco', 'Gondor','the New California Republic', 'the New California Republic', 'Kekistan', 'Shangri-La', 'Wakanda', 'Duckburg', 'Mos Eisley', 'Castle Rock',
 	'City 17', 'Night City', 'Raccoon City', 'Skyrim', 'Jame\'s bedroom', 'the toilet', 'the cum hamper', 'the piss drawer', 'my rectum', 'your ear', '6 feet underground', 'under AOC\'s feet', 'Atlantis', 'among the trees', 'North Korea',
 	'screaming from within the vomit coffin', 'within Shaq\'s intercranial space', 'flailing endlessly through innumerable, spontaneous cycles of death and rebirth', 'within the fibers of Mario\'s mustache',
         'the bathroom at work', 'the trough urinal at the baseball stadium', 'ronald reagan\'s grave'];
