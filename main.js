@@ -334,21 +334,22 @@ client.on("messageCreate", async message => {
   }
   else return;
 
+
   function sayTTS(speak){
     if(ttsE) { message.channel.send({ content: speak, tts: true });}
     else if(!ttsE) { message.channel.send({ content: speak, tts: false });}
     return;
   }
 
-  await sleep(150);
   message.channel.sendTyping();
 
   // begin commands, search for //(command) to find
   switch(command) {
-  	 // call OpenAI for an AI response. Model is set to davinci-003
+
       case 'so':
       message.reply({content: 'It\'s =ai, idiot...', flags: 12});
       case 'ai':
+      await sleep(150);
  // drop if channel does not allow AI
       if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031" || message.channel.id == "1099822225923788880"){await message.delete().catch(O_o=>{}); break;}
       message.channel.sendTyping();
@@ -451,6 +452,7 @@ client.on("messageCreate", async message => {
 
     case 'y':
     case 'why':
+            await sleep(150);
             if(irly) {var subjecty = subjectirl;}
             else if(!irly){ var subjecty = subject;}
 	    var randSub = Math.floor((Math.random() * (subjecty.length - 1)));
@@ -510,6 +512,7 @@ client.on("messageCreate", async message => {
     case 'whom':
       var irl = true;
     case 'who':
+      await sleep(150);
       if(irl) {var subjects = subjectirl;}
       else if(!irl){ var subjects = subject;}
       var randWho = Math.floor((Math.random() * (subjects.length - 1)));
@@ -1272,6 +1275,7 @@ client.on("messageCreate", async message => {
     case 'meme':
     case 'image':
     case 'img':
+      await sleep(150);
       const dir = '/home/ubuntu/shaqbot/img/';
       randFile(dir, (err, file) => {
       message.channel.send ({files: [`img/${file}`]});
