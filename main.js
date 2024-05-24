@@ -282,13 +282,22 @@ client.on("messageCreate", async message => {
 
   let pref = settings.prefix;
   if(message.author.bot) return;
-  if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{});}
-  if(message.author.id == emojiTarget) message.react(emojiToUse);
-
+	
+  const validUserIds = [
+  '95702308515487744',
+  '95739846949076992',
+  '132273868495781888',
+  '114467443040190468',
+  '95765022705188864',
+  '135988645579587584',
+  '96492725406281728'
+];
 // respond to DM functionality
-  if(message.channel.type === 1){
-  if(message.author.id != '95702308515487744' && message.author.id != '95739846949076992' && message.author.id != '132273868495781888' && message.author.id != '114467443040190468' && message.author.id != '95765022705188864' && message.author.id != '135988645579587584' && message.author.id != '96492725406281728'){ console.log("invalid DM user"); return; }
-    
+  if(message.channel.type === 1){ if (!validUserIds.includes(message.author.id)) {
+      console.log("invalid DM user");
+      return;
+    }}
+  
     message.channel.sendTyping();
     const dmContent = message.content;
     var sysMsgSTD = `You are a helpful assistant. Provide clear and thorough answers, but be concise.`
@@ -298,7 +307,7 @@ client.on("messageCreate", async message => {
      ];
     let GPTDM = async (message) => {
      const response4 = await openai.createChatCompletion({
-     model: 'gpt-4-turbo',
+     model: 'gpt-4o',
      messages: message,
      });
       return response4.data.choices[0].message.content;
@@ -309,7 +318,7 @@ client.on("messageCreate", async message => {
      message.channel.send({content: botDMResponse, flags: 12});
   }
 
-  if(Math.random() < 0.0006667) {
+  if(Math.random() < 0.0005) {
     command = "mock";  args = message.content.trim().split(/ +/g);
   }
   else if(message.content.indexOf(pref) == 0){
@@ -323,8 +332,6 @@ client.on("messageCreate", async message => {
   // begin commands, search for //(command) to find
   switch(command) {
 
-      case 'so':
-      message.reply({content: 'It\'s =ai, idiot...', flags: 12});
       case 'ai':
       await sleep(150);
  // drop if channel does not allow AI
