@@ -27,23 +27,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 const randFile = require('select-random-file');
 
-let ttsE = true;
-let settings;
-let owner;
-let token = '';
-let wut1;
-let wut2;
-let wut3;
-let eyesleft;
-let realshit;
-let ignored;
-let ballCommand;
-let thinkAss;
-let irl = false;
-let emojiTarget;
-let emojiToUse;
-let command = '';
-let args = '';
+let ttsE = true, settings, owner, token = '', wut1, wut2, wut3, eyesleft, realshit, ignored, ballCommand, thinkAss, irl = false, emojiTarget, emojiToUse, command = '', args = '';
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -334,13 +318,6 @@ client.on("messageCreate", async message => {
   }
   else return;
 
-
-  function sayTTS(speak){
-    if(ttsE) { message.channel.send({ content: speak, tts: true });}
-    else if(!ttsE) { message.channel.send({ content: speak, tts: false });}
-    return;
-  }
-
   message.channel.sendTyping();
 
   // begin commands, search for //(command) to find
@@ -431,6 +408,7 @@ client.on("messageCreate", async message => {
 
     case 'er':
     case 'eldenring':
+      await sleep(150);
       //await message.delete().catch(O_o=>{});
       // chance for doing a conjoined msg
       var c = Math.random();
@@ -459,7 +437,7 @@ client.on("messageCreate", async message => {
 	    var randRsn = Math.floor((Math.random() * (reasons.length - 1)));
 	    let sayWhy;
 
-	    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); sayWhy = "Because " + subjecty[randSub] + " " + reasons[randRsn] + "."; sayTTS(sayWhy); return;}  // blank inquiry
+	    if(typeof args[0] === 'undefined') {let inquiry = args.join(" "); sayWhy = "Because " + subjecty[randSub] + " " + reasons[randRsn] + "."; message.reply(sayWhy); return;}  // blank inquiry
 	    else if(args[0].toLowerCase() === "are" || args[0].toLowerCase() === "is" || args[0].toLowerCase() === "am" || args[0].toLowerCase() === "was" || args[0].toLowerCase()  === "has" ||  args[0].toLowerCase() === "did" || args[0].toLowerCase() === "does" || args[0].toLowerCase() === "do" || args[0].toLowerCase() === "have" || args[0].toLowerCase() === "should")
 	     {
 	    let verb = args[0].toLowerCase();
@@ -860,7 +838,7 @@ client.on("messageCreate", async message => {
       break;
     case 'oven':
       let ovenMessage='why do they call it oven when you of in the cold food of out hot eat the food';
-      sayTTS(ovenMessage);
+      message.reply(ovenMessage);
       break;
     case 'mormon':
     case 'mormonism':
@@ -1324,6 +1302,7 @@ client.on("messageCreate", async message => {
     case 'yesno':
     case 'truefalse':
     case '2':
+      await sleep(150);
       var randYN = Math.random() < 0.5;
       if(randYN) message.channel.send("Yes.");
       else message.channel.send("No.");
@@ -1377,7 +1356,7 @@ client.on("messageCreate", async message => {
     case 'say':
       let sayMsg = args.join(" ");
       await message.delete().catch(O_o=>{});
-      sayTTS(sayMsg);
+      message.channel.send(sayMsg);
     break;
 
  // mock
@@ -1467,7 +1446,7 @@ client.on("messageCreate", async message => {
         let pick = Math.floor((Math.random() * (syllables.length - 1)));
         str+=(syllables[pick]);
       }
-      sayTTS(str);
+      message.reply(str);
       break;
 
   case 'asscrack':
