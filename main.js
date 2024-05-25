@@ -280,24 +280,15 @@ client.on('messageReactionAdd', (reaction, user) => {
 
 client.on("messageCreate", async message => {
 
-  let pref = settings.prefix;
-  if(message.author.bot) return;
-	
-  const validUserIds = [
-  '95702308515487744',
-  '95739846949076992',
-  '132273868495781888',
-  '114467443040190468',
-  '95765022705188864',
-  '135988645579587584',
-  '96492725406281728'
-];
-// respond to DM functionality
-  if(message.channel.type === 1){ if (!validUserIds.includes(message.author.id)) {
-      console.log("invalid DM user");
-      return;
-    }}
-  
+    let pref = settings.prefix;
+    if(message.author.bot) return;
+    if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{});}
+    if(message.author.id == emojiTarget) message.react(emojiToUse);
+
+  // respond to DM functionality
+    if(message.channel.type === 1){
+    if(message.author.id != '95702308515487744' && message.author.id != '95739846949076992' && message.author.id != '132273868495781888' && message.author.id != '114467443040190468' && message.author.id != '95765022705188864' && message.author.id != '135988645579587584' && message.author.id != '96492725406281728'){ console.log("invalid DM user"); return; }
+
     message.channel.sendTyping();
     const dmContent = message.content;
     var sysMsgSTD = `You are a helpful assistant. Provide clear and thorough answers, but be concise.`
