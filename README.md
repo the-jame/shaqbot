@@ -1,12 +1,12 @@
 
 # Discord Chat Bot
 ***
-Simple, spaghetti code bot made for my Discord server. Now with OpenAI (GPT-4-Turbo & GPT-3.5-Turbo)!
+Simple, spaghetti code bot made for my Discord server. Now with OpenAI (GPT-4o & GPT-3.5-Turbo)!
 
 
 __The normal chat commands are:__
 * `ai <string>`: Bot will answer with ai (OpenAI GPT3.5-instruct)
-* `gpt <string>`: Bot will answer with ai (OpenAI GPT-4-turbo)
+* `gpt <string>`: Bot will answer with ai - smarter but not as funny (OpenAI GPT-4o)
 * `invent <string>`: Bot will sales pitch an invention from the prompt(OpenAI GPT3.5-instruct)
 * `say <string>`: Bot says the string in text-to-speech and deletes your input so the bot appears to say it.
 * `roll <integer>`: Make the bot randomly roll from 1 to the number you enter. e.g. =roll 100 rolls 1-100

@@ -309,7 +309,7 @@ client.on("messageCreate", async message => {
      message.channel.send({content: botDMResponse, flags: 12});
   }
 
-  if(Math.random() < 0.0005) {
+  if(Math.random() < 0.0002) {
     command = "mock";  args = message.content.trim().split(/ +/g);
   }
   else if(message.content.indexOf(pref) == 0){
@@ -1235,11 +1235,11 @@ client.on("messageCreate", async message => {
     case 'interrogation':
       message.channel.send ({files: ["img/leaning.jpg"]});
       break;
-    case 'react':
-      if(message.author.id != '95702308515487744') { break; }
-      emojiToUse = args[0];
-      args.shift();
-      emojiTarget = args.join(" ");
+    case 'boingboing':
+      message.channel.send ({files: ["img/boingboing.png"]});
+      break;
+    case '1984':
+      message.channel.send ({files: ["img/1984.png"]});
       break;
 
 
