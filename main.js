@@ -386,8 +386,8 @@ client.on("messageCreate", async message => {
       message.channel.sendTyping();
       var randLog = ':zany_face:';
       var sillyInv = false;
-      var prompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ")+ ' make sure to add a slogan at the end too.';
-      if (Math.random() >=0.7) { prompt = prompt + ', but make the pitch really stupid and impractical.'; sillyInv = true;}
+      var prompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ")+ '. Add a slogan or catchphrase at the end.';
+      if (Math.random() >=0.9) { prompt = prompt + ', but make the pitch really stupid and impractical.'; sillyInv = true;}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: 'gpt-3.5-turbo-instruct',
@@ -691,6 +691,9 @@ client.on("messageCreate", async message => {
       break;
     case 'consequences':
       message.channel.send("https://youtu.be/FSt1ptsOjL0");
+      break;
+    case 'unhaired':
+      message.channel.send("https://x.com/InternetHippo/status/1366883416705101824");
       break;
     case 'doubt':
       message.channel.send({files: ["img/doubt.png"]});
@@ -1211,6 +1214,8 @@ client.on("messageCreate", async message => {
       message.channel.send ({files: ["img/wineguy.png"]});
       break;
     case 'moldmario':
+    case 'spreadmyspore':
+    case 'mold':
       message.channel.send ({files: ["img/mold.png"]});
       break;
     case 'hawaiian':
@@ -1240,6 +1245,31 @@ client.on("messageCreate", async message => {
       break;
     case '1984':
       message.channel.send ({files: ["img/1984.png"]});
+      break;
+    case 'spider':
+    case 'rotating':
+      message.channel.send ({files: ["img/spider.png"]});
+      break;
+    case 'covid':
+    case 'pawg':
+      message.channel.send ({files: ["img/covid.png"]});
+      break;
+    case 'weewee':
+      message.channel.send ({files: ["img/weewee.png"]});
+      break;
+    case 'fatladies':
+      message.channel.send ({files: ["img/kojimafat.jpg"]});
+      break;
+    case 'whitebaby':
+      message.channel.send ({files: ["img/whitebaby.png"]});
+      break;
+    case 'zorldo':
+    case 'princesszorldo':
+      message.channel.send ({files: ["img/zorldo.png"]});
+      break;
+    case 'petercoin':
+    case 'nonbinarypetercoin':
+      message.channel.send ({files: ["img/petercoin.png"]});
       break;
 
 
@@ -1288,11 +1318,12 @@ client.on("messageCreate", async message => {
     case 'random':
     case 'rand':
     case 'roll':
-      let input = args.join(" ");
+      let input = 100;
+      if(!isNaN(args[0])){input = args[0]; args.shift();}
       let rollTop = 0;
-      if(isNaN(input)){ message.delete().catch(O_o=>{}); break;}
-      rollTop = parseInt(args[0]);
-      message.channel.send("Roll 1 - " + rollTop + " = " + Math.floor((Math.random() * rollTop) + 1) + ".");
+      let rollMsg = args.join(" ");
+      rollTop = parseInt(input);
+      message.channel.send("Roll 1 - " + rollTop + " = " + Math.floor((Math.random() * rollTop) + 1) + " " + rollMsg + ".");
       break;
 
  // yes no simple
