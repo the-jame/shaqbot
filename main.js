@@ -250,17 +250,19 @@ client.on('ready', () => {
 client.on('messageReactionAdd', (reaction, user) => {
   let msgR = reaction.message;
   // if reaction is on a user message
-  if (msgR.author.id !== settings.shaqID) return;
+  //if (msgR.author.id !== settings.shaqID) return;
   // grab settings once to avoid multiple reads
   let advance = settings.advanceEmoji;
   let translate = settings.translateEmoji;
+  let redo = settings.redoEmoji;
   // if reaction is not desired emoji
-  if (reaction.emoji.name !== advance && reaction.emoji.name !== translate) return;
+  if (reaction.emoji.name !== advance && reaction.emoji.name !== translate && reaction.emoji.name !== redo) return;
   // update prompt if emoji matches
   if (reaction.emoji.name == advance) newPrompt = "Complete the following story: " + msgR.content;
   else if (reaction.emoji.name == translate) newPrompt = "Translate the following to English: " + msgR.content;
+  else if (reaction.emoji.name == redo && msgR.content.startsWith('=ai')) newPrompt = msgR.content.slice(3) + '. your answer should be clear and concise, but complete.';
   let model = "gpt-3.5-turbo-instruct";
-  let temperatures = [0.9, 0.8, 0.50, 0.9, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 1.0, 0.35];
+  let temperatures = [0.9, 0.8, 0.50, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 0.4];
   var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
       (async () => {
             const gptResponse = await openai.createCompletion({
@@ -298,7 +300,7 @@ client.on("messageCreate", async message => {
      ];
     let GPTDM = async (message) => {
      const response4 = await openai.createChatCompletion({
-     model: 'gpt-4o',
+     model: 'gpt-4o-mini',
      messages: message,
      });
       return response4.data.choices[0].message.content;
@@ -368,7 +370,7 @@ client.on("messageCreate", async message => {
       ];
       let GPT4 = async (message) => {
        const response4 = await openai.createChatCompletion({
-       model: "gpt-4o",
+       model: "gpt-4o-mini",
        messages: message,
        });
         return response4.data.choices[0].message.content;
@@ -534,7 +536,7 @@ client.on("messageCreate", async message => {
     case 'memes':
     case 'commands':
       //message.channel.send("> Meme responses:\n`Corn`!\n`breasts` - King of Breasts\n`isthatshaq` - Is that Shaq?\n`beans` - Who invented beans??\n`blacked` - on Xmas day?\n`burrito[mug]` - Put Your Burrito In A Mug\n`yallmindifi` - praise the lord?\n`quean` - BEAN QUEAN\n`thinkin` - About Thos Beans\n`consequences` - There. Will. Be. CONSEQUENCES!\n`killed` - This action will kill you immediately.\n`joker` - Dance\n`smoljoker` - Smol joker.\n`doubt` - Doubt\n`head` - i just want some head\n`chicken` - $5 Rotisserie Chicken Albertson's\n`uwu` - UwU\n`brains` - more than 1% of our brains\n`deletethis` - Delete this nephew.\n`discusting` - I have kids on here.\n`bitches` - bitches.... help\n`ganghaps` - ganghaps...\n`drums` - time for the Christmas drums\n`guysdied` - the guys have died.\n`oof` - oof size\n`damn` - Damn.\n`lahabra` - la habra 300 bowl is\n`shouldi` - should i jack off\n`helper` - hamburger helper\n`thinkabout` - much to think about\n`1993` - eat hot chip and lie\n`sickfuck` - Ed you SICK FUCK\n`moe` - moe\n`ben` - ben affleck smoking\n`lfg` - LETS FUCKING GOOO\n`thiskills` - This kills the man\n`squidward` - squidward disappointed\n`milkape` - milkape\n`onions` - la habra 300 bowl onions\n`lisa` - lisa cryptic email\n`sork` - who will like to sork my dick\n`no|idontthinkiwill` - No, I dont think I will\n`robert` - robert flushed\n`eggs` - james eggs\n`patrickchains` - patrick in chains\n`islamic` - i am islamic i do not care\n`fatnuts` - remember my balls\n`thenperish` - jame perish\n`trash` - trash cowboy\n`david` - david can't argue\n`wishthatwereme` - god i wish that were me\n`linus` - linus shit eating grin\n`godiwishthatwerelinus` - linus wishing it were him\n`joe` - mighty joe young in tree\n`milk` - the milk testing man\n`humor` - is that an attempt at humor?\n`tim` - tim allen carl marx\n`tommy` - needy drinky\n`suckdry` - when she keeps suckin");
-      //message.channel.send("`ask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`finally` - finally, anything\n`zany` - not me being goofy i-\n`shroom` - origin of shroom wojak\n`borntodie` - world is a fuck\n`sickos` - YES\n`sys` - shit yourself\n`notowned` - corn cob tweet\n`themoreyouknow`\n`coward` - grandpa coward\n`boomerfication` - progressing nice\n`old` - old\n`corb` - corn on the orb\n`bunt` - 3 girlfriends\n`society` - improve society somewhat\n`dislikedthat` - everyone disliked that\n`zamn` - zamn\n`johnker` - john joker laugh\n`datsmeyellin` - shaq yellin\n`bloodyfuckyou` - youtube video fuck you bloody\n`hillary` - hillary staring at a common kitchen\n`breastsimage` - food, water, breasts image\n`bigrobert` - big robert\n`fishe` - sucking fish video\n`japaneseytp` - famous japanese ytp video\n`badvibes` - sending bad vibes your way\n`beaners` - means tested beaner image\n`didiask` - didiask gif long\n`friday` - it is friday in california,,, or is it?\n`gunkid` - sad kid with a gun\n`eepy` - and why he eepy\n`madness` - madness\n`gootbye` - starving child\n`huh` - wonder who thats for\n`ohbrother` - this guy stinks\n`shimp` - shimp\n`kidding` - john is just kidding\n`crouch` - on the outside\n`bigmac` - make a bigmac 4 hours\n`ontonothing` - bro onto nothing!\n`pussys` - they fuckin em\n`billnye` - bill nye chinese\n`orgy` - click for roman orgy\n`true` - fact checked");
+      //message.channel.send("`ask` - oh... did i ask?\n`hitdabricks` - just leave!\n`jeb` - Jeb wins all 538\n`fred` - fred i love lucy\n`eels` - eels\n`bussy` - it can squirt\n`living` - i have never enjoyed living in the world\n`cheam` - cheam creems\n`jose` - jose staring at you\n`doit` - palpatine do it\n`peanut` - heehoo peanut monke\n`monkey` - did not mean to post that monke\n`icecream` - snowflakes why is ice cream mean\n`misogyny` -  your misogyny is showing\n`finally` - finally, anything\n`zany` - not me being goofy i-\n`shroom` - origin of shroom wojak\n`borntodie` - world is a fuck\n`sickos` - YES\n`sys` - shit yourself\n`notowned` - corn cob tweet\n`themoreyouknow`\n`coward` - grandpa coward\n`old` - old\n`corb` - corn on the orb\n`bunt` - 3 girlfriends\n`society` - improve society somewhat\n`dislikedthat` - everyone disliked that\n`zamn` - zamn\n`johnker` - john joker laugh\n`datsmeyellin` - shaq yellin\n`bloodyfuckyou` - youtube video fuck you bloody\n`hillary` - hillary staring at a common kitchen\n`breastsimage` - food, water, breasts image\n`bigrobert` - big robert\n`fishe` - sucking fish video\n`japaneseytp` - famous japanese ytp video\n`badvibes` - sending bad vibes your way\n`beaners` - means tested beaner image\n`didiask` - didiask gif long\n`friday` - it is friday in california,,, or is it?\n`gunkid` - sad kid with a gun\n`eepy` - and why he eepy\n`madness` - madness\n`gootbye` - starving child\n`huh` - wonder who thats for\n`ohbrother` - this guy stinks\n`shimp` - shimp\n`kidding` - john is just kidding\n`crouch` - on the outside\n`bigmac` - make a bigmac 4 hours\n`ontonothing` - bro onto nothing!\n`pussys` - they fuckin em\n`billnye` - bill nye chinese\n`orgy` - click for roman orgy\n`true` - fact checked");
       break;
 
     case 'plex':
@@ -997,9 +999,6 @@ client.on("messageCreate", async message => {
     case 'coward':
       message.channel.send ({files: ["img/coward.jpg"]});
       break;
-    case 'boomerfication':
-      message.channel.send ('https://twitter.com/disco_socialist/status/1454064237798518790?s=21');
-      break;
     case 'old':
       message.channel.send ({files: ["img/old.jpg"]});
       break;
@@ -1216,6 +1215,7 @@ client.on("messageCreate", async message => {
     case 'moldmario':
     case 'spreadmyspore':
     case 'mold':
+    case 'spore':
       message.channel.send ({files: ["img/mold.png"]});
       break;
     case 'hawaiian':
@@ -1271,7 +1271,43 @@ client.on("messageCreate", async message => {
     case 'nonbinarypetercoin':
       message.channel.send ({files: ["img/petercoin.png"]});
       break;
-
+    case 'die':
+    case 'yodadie':
+      message.channel.send ({files: ["img/yodadie.jpg"]});
+      break;
+    case 'bigbiden':
+      message.channel.send ({files: ["img/bigbiden.webp"]});
+      break;
+    case 'office':
+    case 'corporate':
+      message.channel.send ({files: ["img/gleeprate.png"]});
+      break;
+    case 'tongoblin':
+    case 'smalllittlegoblin':
+      message.channel.send ({files: ["img/goblin_ballad.mp3"]});
+      break;
+    case 'wario':
+    case 'wariodies':
+    case 'wariocarcrash':
+    case 'wariodiesincarcrash':
+    case 'wariodiesinacarcrash':
+      message.channel.send ({files: ["img/wariocarcrashedsheeran.mp3"]});
+      break;
+    case 'barter':
+    case 'trade':
+      message.channel.send ({files: ["img/peasant.png"]});
+      break;
+    case 'funy':
+      message.channel.send ({files: ["img/funy.png"]});
+      break;
+    case 'code':
+      message.channel.send ("<https://github.com/the-jame/shaqbot>");
+      break;
+    case 'drugs':
+    case 'thatswhyibroughttwo':
+    case 'andme':
+      message.channel.send ({files: ["img/drugs.png"]});
+      break;
 
 // zzzzz endofmeme newest latest recent
 
