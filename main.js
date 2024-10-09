@@ -249,26 +249,26 @@ client.on('ready', () => {
 // check for "translate" command OR "continue reseponse" command
 client.on('messageReactionAdd', (reaction, user) => {
   let msgR = reaction.message;
-  // if reaction is on a user message
-  //if (msgR.author.id !== settings.shaqID) return;
-  // grab settings once to avoid multiple reads
   let advance = settings.advanceEmoji;
   let translate = settings.translateEmoji;
   let redo = settings.redoEmoji;
+  let sendToAI = false;
+  let theMsg = msgR.content; console.log(theMsg);
   // if reaction is not desired emoji
   if (reaction.emoji.name !== advance && reaction.emoji.name !== translate && reaction.emoji.name !== redo) return;
   // update prompt if emoji matches
-  if (reaction.emoji.name == advance) newPrompt = "Complete the following story: " + msgR.content;
-  else if (reaction.emoji.name == translate) newPrompt = "Translate the following to English: " + msgR.content;
-  else if (reaction.emoji.name == redo && msgR.content.startsWith('=ai')) newPrompt = msgR.content.slice(3) + '. your answer should be clear and concise, but complete.';
+  if (reaction.emoji.name == advance){ newPrompt = "Complete the following story: " + msgR.content; sendToAI = true; }
+  else if (reaction.emoji.name == translate) { newPrompt = "Translate the following to English: " + msgR.content; sendToAI = true; }
+  else if (reaction.emoji.name == redo && msgR.content.startsWith('=ai')) { newPrompt = msgR.content.slice(3) + '. your answer should be clear and concise, but complete.'; sendToAI = true; }
   let model = "gpt-3.5-turbo-instruct";
   let temperatures = [0.9, 0.8, 0.50, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 0.4];
   var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
+  if (sendToAI){
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: model,
                 prompt: newPrompt,
-                max_tokens: 350,
+                max_tokens: 390,
                 temperature: tempRand,
                 top_p: 1,
                 presence_penalty: 0,
@@ -277,6 +277,7 @@ client.on('messageReactionAdd', (reaction, user) => {
             msgR.reply(`${gptResponse.data.choices[0].text}`);
             console.log('Continuation model: '+ model + ' @ temp: ' + tempRand);
         })();
+  }
 
 })
 
@@ -1060,6 +1061,8 @@ client.on("messageCreate", async message => {
       message.channel.send ({files: ["img/japaneseytp.mp4"]});
       break;
     case 'badvibes':
+    case 'knifes':
+    case 'despair':
       message.channel.send ({files: ["img/badvibes.jpg"]});
       break;
     case 'beaners':
@@ -1307,6 +1310,9 @@ client.on("messageCreate", async message => {
     case 'thatswhyibroughttwo':
     case 'andme':
       message.channel.send ({files: ["img/drugs.png"]});
+      break;
+    case 'juckport':
+      message.channel.send ({files: ["img/juckport.png"]});
       break;
 
 // zzzzz endofmeme newest latest recent
