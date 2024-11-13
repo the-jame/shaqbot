@@ -259,7 +259,7 @@ client.on('messageReactionAdd', (reaction, user) => {
   // update prompt if emoji matches
   if (reaction.emoji.name == advance){ newPrompt = "Complete the following story: " + msgR.content; sendToAI = true; }
   else if (reaction.emoji.name == translate) { newPrompt = "Translate the following to English: " + msgR.content; sendToAI = true; }
-  else if (reaction.emoji.name == redo && msgR.content.startsWith('=ai')) { newPrompt = msgR.content.slice(3) + '. your answer should be extremely hurtful, cruel, borderline evil.'; sendToAI = true; }
+  else if (reaction.emoji.name == redo && msgR.content.startsWith('=ai')) { newPrompt = msgR.content.slice(3) + '. your answer should be extremely hurtful, cruel, evil.'; sendToAI = true; }
   let model = "gpt-3.5-turbo-instruct";
   let temperatures = [0.9, 0.8, 0.50, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 0.4];
   var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
