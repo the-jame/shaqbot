@@ -251,15 +251,15 @@ client.on('messageReactionAdd', (reaction, user) => {
   let msgR = reaction.message;
   let advance = settings.advanceEmoji;
   let translate = settings.translateEmoji;
-  let redo = settings.redoEmoji;
+  let evil = settings.evilEmoji;
   let sendToAI = false;
-  let theMsg = msgR.content; console.log(theMsg);
+  let theMsg = msgR.content;
   // if reaction is not desired emoji
-  if (reaction.emoji.name !== advance && reaction.emoji.name !== translate && reaction.emoji.name !== redo) return;
+  if (reaction.emoji.name !== advance && reaction.emoji.name !== translate && reaction.emoji.name !== evil) return;
   // update prompt if emoji matches
   if (reaction.emoji.name == advance){ newPrompt = "Complete the following story: " + msgR.content; sendToAI = true; }
-  else if (reaction.emoji.name == translate) { newPrompt = "Translate the following to English: " + msgR.content; sendToAI = true; }
-  else if (reaction.emoji.name == redo && msgR.content.startsWith('=ai')) { newPrompt = msgR.content.slice(3) + '. your answer should be extremely hurtful, cruel, evil.'; sendToAI = true; }
+  else if (reaction.emoji.name == translate) {   if(!msgR.author.bot) return; newPrompt = "Translate the following to English: " + msgR.content; sendToAI = true; }
+  else if (reaction.emoji.name == evil && msgR.content.startsWith('=ai')) { newPrompt = msgR.content.slice(3) + '. your answer should be extremely hurtful, cruel, evil.'; sendToAI = true; }
   let model = "gpt-3.5-turbo-instruct";
   let temperatures = [0.9, 0.8, 0.50, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 0.4];
   var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
@@ -1324,6 +1324,18 @@ client.on("messageCreate", async message => {
       break;
     case 'jerkpot':
       message.channel.send ({files: ["img/jerkpot.jpg"]});
+      break;
+    case 'nomyhim':
+      message.channel.send ({files: ["img/nomyhim.png"]});
+      break;
+    case 'imfreaky':
+    case 'freaky':
+    case 'imhorny':
+      if (Math.random() >=0.5) message.channel.send({files: ["img/freaky.jpg"]});
+      else message.channel.send ({files: ["img/imfreaky.webp"]});
+      break;
+    case 'notoffended':
+      message.channel.send ({files: ["img/notoffended.png"]});
       break;
 
 // zzzzz endofmeme newest latest recent
