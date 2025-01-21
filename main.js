@@ -53,7 +53,8 @@ var subject = ['reeg','james','jimmy','tyra','liz','ton','ysabel','leah','john m
 	'that one friend who never interacts in discord', 'the pogchamp guy', 'some chud on parler', 'an idiot who got banned from twitter', 'mark zuckerberg\'s lizard offspring', 'prince philip', 'prince philip (in dust form)', 'your best friend', 'the guy',
 	'robert downey jr', 'morgan freeman', 'a friendly neighborhood cat', 'a birb', 'some ducklings', 'the person reading this', 'abby shapiro', 'a gamer gril', 'a butterfly, floating peacefully', 'Hasbulla', 'the taliban', 'that one guy with an eyepatch',
 	'chet','brad', 'steven crowder', 'the vitamin D council', 'the fish oil triumvirate', 'egg demon', 'computer woman', 'big elephant man', 'that one guy that shot the ceo', 'that one healthcare ceo', 'obamna', 'jesus h christ', 'sonic the hedgehog', 'a pube',
-	'glimpmo', 'diddy', 'the rothschilds', 'luigi', 'the salami lid (it dont fit)'];
+	'glimpmo', 'diddy', 'the rothschilds', 'luigi', 'the salami lid (it dont fit)', 'smoog yoa', 'wrinkled yoa', 'Darnell Ultra'];
+
 var subjectirl = ['reeg', 'james', 'jimmy', 'kacey', 'tyra', 'liz', 'ton', 'cody', 'ysabel', 'leah', 'j', 'olm', 'adri'];
 
 var erW = ["enemy", "weak foe", "strong foe", "monster", "dragon", "boss", "sentry", "group", "pack", "decoy", "undead", "soldier", "knight", "cavalier", "archer", "sniper", "mage", "ordnance", "monarch", "lord", "demi-human", "outsider", "giant", "horse", "dog", "wolf", "rat", "beast", "bird", "raptor", "snake", "crab", "prawn", "octopus", "bug", "scarab", "slug", "wraith", "skeleton", "monstrosity", "ill-omened creature", "Tarnished", "warrior", "swordfighter", "knight", "samurai", "sorcerer", "cleric", "sage", "merchant", "teacher", "master", "friend", "lover", "old dear", "old codger", "angel", "fat coinpurse", "pauper", "good sort", "wicked sort", "plump sort", "skinny sort", "lovable sort", "pathetic sort", "strange sort", "nimble sort", "laggardly sort", "invisible sort", "unfathomable sort", "giant sort", "sinner", "thief", "liar", "dastard", "traitor", "pair", "trio", "noble", "aristocrat", "hero", "champion", "monarch", "lord", "god", "item", "necessary item", "precious item", "something", "something incredible", "treasure chest", "corpse", "coffin", "trap", "armament", "shield", "bow", "projectile weapon", "armor", "talisman", "skill", "sorcery", "incantation", "map", "material", "flower", "grass", "tree", "fruit", "seed", "mushroom", "tear", "crystal", "butterfly", "bug", "dung", "grace", "door", "key", "ladder", "lever", "lift", "spiritspring", "sending gate", "stone astrolabe", "Birdseye Telescope", "message", "bloodstain", "Erdtree", "Elden Ring", "close-quarters battle", "ranged battle", "horseback battle", "luring out", "defeating one-by-one", "taking on all at once", "rushing in", "stealth", "mimicry", "confusion", "pursuit", "fleeing", "summoning", "circling around", "jumping off", "dashing through", "brief respite", "Actions	", "attacking", "jump attack", "running attack", "critical hit", "two-handing", "blocking", "parrying", "guard counter", "sorcery", "incantation", "skill", "summoning", "throwing", "healing", "running", "rolling", "backstepping", "jumping", "crouching", "target lock", "item crafting", "gesturing", "morning", "noon", "evening", "night", "clear sky", "overcast", "rain", "storm", "mist", "snow", "patrolling", "procession", "crowd", "surprise attack", "ambush", "pincer attack", "beating to a pulp", "battle", "reinforcements", "ritual", "explosion", "high spot", "defensible spot", "climbable spot", "bright spot", "dark spot", "open area", "cramped area", "hiding place", "sniping spot", "recon spot", "safety", "danger", "gorgeous view", "detour", "hidden path", "secret passage", "shortcut", "dead end", "looking away", "unnoticed", "out of stamina", "Places	", "high road", "checkpoint", "bridge", "castle", "fort", "city", "ruins", "church", "tower", "camp site", "house", "cemetery", "underground tomb", "tunnel", "cave", "evergaol", "great tree", "cellar", "surface", "underground", "forest", "river", "lake", "bog", "mountain", "valley", "cliff", "waterside", "nest", "hole", "east", "west", "south", "north", "ahead", "behind", "left", "right", "center", "up", "down", "edge", "head", "stomach", "back", "arms", "legs", "rump", "tail", "core", "fingers", "physical", "standard", "striking", "slashing", "piercing", "fire", "lightning", "magic", "holy", "poison", "toxic", "scarlet rot", "blood loss", "frost", "sleep", "madness", "death", "life", "Death", "light", "dark", "stars", "fire", "Order", "chaos", "joy", "wrath", "suffering", "sadness", "comfort", "bliss", "misfortune", "good fortune", "bad luck", "hope", "despair", "victory", "defeat", "research", "faith", "abundance", "rot", "loyalty", "injustice", "secret", "opportunity", "pickle", "clue", "friendship", "love", "bravery", "vigor", "fortitude", "confidence", "distracted", "unguarded", "introspection", "regret", "resignation", "futility", "on the brink", "betrayal", "revenge", "destruction", "recklessness", "calmness", "vigilance", "tranquility", "sound", "tears", "sleep", "depths", "dregs", "fear", "sacrifice", "ruin", "good luck", "look carefully", "listen carefully", "think carefully", "well done", "I did it!", "I've failed...", "here!", "not here!", "don't you dare!", "do it!", "I can't take this...", "don't think", "so lonely...", "here again...", "just getting started", "stay calm", "keep moving", "turn back", "give up", "don't give up", "help me...", "I don't believe it...", "too high up", "I want to go home...", "it's like a dream...", "seems familiar...", "beautiful...", "you don't have the right", "are you ready?"];
@@ -74,7 +75,7 @@ var things = ['poop', 'in n out double double', 'french fries', 'a coffee', 'han
 	      'a rock', 'a boulder', 'bees', 'hot sauce', 'scotch tape', 'a breathmint', 'a facemask', 'a half eaten bar of chapstick', 'some scrap metal', 'a used condom', 
               'a trashbag full of cum', 'a rusty bicycle', 'blood', 'tears of the natives', 'a crusty keyboard', 'a half eaten burrito', 'a mug of cold coffee', 
               'a job offer', 'nasal spray', 'a bidet that shoots milk', 'an old toothbrush', 'a pen that ran out of ink', 
-              'tupperware full of moldy leftovers', 'a white flag', 'fake news', 'the failed coup attempt perpetrated by fascist Drumpf supporters on the United States capitol on Jan 6, 2021',
+              'tupperware full of moldy leftovers', 'a white flag', 'fake news', 'the failed coup attempt perpetrated by fascist Trump supporters on the United States capitol on Jan 6, 2021',
               'Microsoft Outlook 2013', 'lifesavers gummies', 'a kit kat bar', 'a newborn chimp', 'an adult boar', 'a dead cockroach', 'a horny dog', 'The Beast',
               'a succulent that you overwatered', 'a shard of glass', 'a honeycomb', 'a half eaten sandwich', 'the worst, most disgusting, carnal fantasy you\'ve ever had',
 	      'a shit you definitely should have wiped', 'a shit you wish you didn\'t wipe', 'a protein bar that is well past the expiration date', 'a pair of shit-stained underwear',
@@ -92,7 +93,7 @@ var times = ['right now', 'right this second :gun:', 'in a few minutes', 'in hal
      'when bernie sanders is elected', 'when you fucking do something about it yourself', 'when the imposter stops being sus', 'at twelve bong', 'when half life 3 comes out', 'yesterday', 'before you were born',
      'last tuesday', 'when daft punk breaks up... oh', 'whenever that franz dude got shot', 'at dinner time', 'when yandere simulator comes out', 'When Bungie goes bankrupt', 'when Papa Biden gives me the stimmy wimmy uwu',
      'when James embraces the void', 'when the void calls me back', 'when Duman brings me the wine', 'whe Johoise brings me the wine', 'when the people revolt', 'the heat death of my anus', 'the heat death of your anus',
-     'at the beginning of the mass ejaculation event (tbd)', 'in the middle of the mass ejaculation event', 'at the end of the mass ejaculation event', 'in 34 minutes and 19 seconds', 'at around tree fiddy', 'when ICP discovers how magnets work', 'when your shit smells like roses', 'when we are all vaccinated', 'when drumpf dies while taking a shit', 'in 3 days', 'in 7 weeks', 'in 2 months', 'in 5 years', 'one year from today this very minute', 'when i discover who the FUCK invented beans', 'when i die', 'in a little bit...', 'i am not sure, really', 'eventually', 'shortly, just wait!', 'never..', 'when you least expect it..', 'when you admit you have a problem', 'when they admit they have a problem', 'while you are sleeping', 'next time you fart', 'immediately', 'when you get off your ASS', '2 years from yesterday', 'next week', 'next sunday at 11am', 'next wednesday at 4:19pm', 'tomorrow morning'];
+     'at the beginning of the mass ejaculation event (tbd)', 'in the middle of the mass ejaculation event', 'at the end of the mass ejaculation event', 'in 34 minutes and 19 seconds', 'at around tree fiddy', 'when ICP discovers how magnets work', 'when your shit smells like roses', 'when we are all vaccinated', 'when Trump dies while choking on a clump of shit and hair', 'in 3 days', 'in 7 weeks', 'in 2 months', 'in 5 years', 'one year from today this very minute', 'when i discover who the FUCK invented beans', 'when i die', 'in a little bit...', 'i am not sure, really', 'eventually', 'shortly, just wait!', 'never..', 'when you least expect it..', 'when you admit you have a problem', 'when they admit they have a problem', 'while you are sleeping', 'next time you fart', 'immediately', 'when you get off your ASS', '2 years from yesterday', 'next week', 'next sunday at 11am', 'next wednesday at 4:19pm', 'tomorrow morning'];
 
 // where
 var locations = ['the Grand Canyon', 'a sex dungeon',  'my sex dungeon', 'the moon', 'the Epstein island', 'a gulag', 'Big Ben', 'Ireland', 'the bottom of the Atlantic Ocean', 'Ohio', 'Deep Stone Crypt', 'a Garfield comic',
@@ -139,7 +140,7 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'st
 	'is le epic redditor extraordinaire mlady', 'eats kool aid pickles', 'denies the holocaust', 'is the imposter', 'is lookin pretty sus ngl', 'is amogus', 'has night vision',
 	'isn\'t allowed to fart', 'will NOT be coming back to this establishment','spilled the cum jar','cannot be arsed to care', 'is a serial killer', 'is stinky',
 	'is your real dad', 'is cursed to edge for eternity', 'is blasting rope', 'just blasted rope', 'shidded they pant and underwear also', 'cried when henry kissinger died',
-	'love scat porn', 'is secretly a Rothschild'];
+	'love scat porn', 'is secretly a Rothschild', 'is freaky, they\'re horny', 'lost the salami lid', 'isn\'t here'];
 
 var ballsizes = ['large', 'small', 'medium', 'puny', 'gigantic', 'average', 'incongruous', 'nice :thumbsup:', ':b:ig', 'immense', 'voluptuous', 'h',
     'bigger than I\'d like :/', 'smaller than I\'d like :/', 'vast', 'globular', 'eternal', '*just right*', 'normal', '¡Sabado Gigante!', 'narrow', 'wide', 'petite', 'insignificant', 
@@ -266,7 +267,7 @@ client.on('ready', () => {
   if (birthdays[i][0] == today){ bFound = true; bPerson = birthdays[i][1]; break;}
   }
 
-  if(bFound){client.channels.cache.get("95702402253983744").send(`:confetti_ball: It is <@${bPerson}>\'s REAL birthday today! :confetti_ball:`);}
+  if(bFound){client.channels.cache.get("95702402253983744").send(`:confetti_ball: It is <@${bPerson}>\'s birthday today! :confetti_ball:`);}
 })
 
 // check for "translate" command OR "continue reseponse" command
@@ -1148,8 +1149,6 @@ client.on("messageCreate", async message => {
     case 'shel':
       message.channel.send ({files: ["img/crouch.jpg"]});
       break;
-    case 'bigmac':
-      break;
     case 'ontonothing':
     case 'uptonothing':
     case 'wholethimcook':
@@ -1333,6 +1332,9 @@ client.on("messageCreate", async message => {
     case 'code':
       message.channel.send ("<https://github.com/the-jame/shaqbot>");
       break;
+    case 'paywall':
+      message.channel.send ("https://discord.com/channels/95702402253983744/1099822225923788880/1237085549148246036");
+      break;
     case 'drugs':
     case 'thatswhyibroughttwo':
     case 'andme':
@@ -1359,6 +1361,10 @@ client.on("messageCreate", async message => {
       break;
     case 'notoffended':
       message.channel.send ({files: ["img/notoffended.png"]});
+      break;
+    case 'bigmac':
+    case 'burger':
+      message.channel.send ({files: ["img/bigmac.png"]});
       break;
 
 // zzzzz endofmeme newest latest recent
