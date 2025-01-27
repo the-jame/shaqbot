@@ -275,69 +275,75 @@ client.on('ready', () => {
 })
 
 // check for "translate" command OR "continue reseponse" command
-client.on('messageReactionAdd', (reaction, user) => {
-  let msgR = reaction.message;
-  let advance = settings.advanceEmoji;
-  let translate = settings.translateEmoji;
-  let evil = settings.evilEmoji;
-  let sendToAI = false;
-  let theMsg = msgR.content;
-  // if reaction is not desired emoji
-  if (reaction.emoji.name !== advance && reaction.emoji.name !== translate && reaction.emoji.name !== evil) return;
-  // update prompt if emoji matches
-  if (reaction.emoji.name == advance){ newPrompt = "Complete the following story: " + msgR.content; sendToAI = true; }
-  else if (reaction.emoji.name == translate) {   if(!msgR.author.bot) return; newPrompt = "Translate the following to English: " + msgR.content; sendToAI = true; }
-  else if (reaction.emoji.name == evil && msgR.content.startsWith('=ai')) { newPrompt = msgR.content.slice(3) + '. your answer should be extremely hurtful, cruel, evil.'; sendToAI = true; }
-  let model = "gpt-3.5-turbo-instruct";
-  let temperatures = [0.9, 0.8, 0.50, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 0.4];
-  var tempRand = temperatures[Math.floor((Math.random() * (temperatures.length - 1)))];
-  if (sendToAI){
-      (async () => {
-            const gptResponse = await openai.createCompletion({
-                model: model,
-                prompt: newPrompt,
-                max_tokens: 390,
-                temperature: tempRand,
-                top_p: 1,
-                presence_penalty: 0,
-                frequency_penalty: 0.5,
-              });
-            msgR.reply(`${gptResponse.data.choices[0].text}`);
-            console.log('Continuation model: '+ model + ' @ temp: ' + tempRand);
-        })();
+client.on('messageReactionAdd', async (reaction, user) => {
+  const msgR = reaction.message;
+  const { advanceEmoji, translateEmoji, evilEmoji } = settings;
+  const { content } = msgR;
+
+  // Check if the reaction is one of the desired emojis
+  if (
+    reaction.emoji.name !== advanceEmoji &&
+    reaction.emoji.name !== translateEmoji &&
+    reaction.emoji.name !== evilEmoji
+  ) {
+    return;
   }
 
-})
+  let newPrompt;
+  let sendToAI = false;
 
-client.on("messageCreate", async message => {
+  // Update prompt based on the reaction emoji
+  if (reaction.emoji.name === advanceEmoji) {
+    newPrompt = "Complete the following story: " + content;
+    sendToAI = true;
+  } else if (reaction.emoji.name === translateEmoji) {
+    if (!msgR.author.bot) return; // Only translate bot messages
+    newPrompt = "Translate the following to English: " + content;
+    sendToAI = true;
+  } else if (reaction.emoji.name === evilEmoji && content.startsWith('=ai')) {
+    newPrompt = content.slice(3) + ". Your answer should be extremely hurtful, sarcastic, and offensive.";
+    sendToAI = true;
+  }
 
-    let pref = settings.prefix;
-    if(message.author.bot) return;
-    if(message.stickers.has('818597355619483688')){ await message.delete().catch(O_o=>{});}
-    if(message.author.id == emojiTarget) message.react(emojiToUse);
+  // Define the model and temperature settings
+  const model = "gpt-3.5-turbo"; // Updated to use the chat-based model
+  const temperatures = [0.9, 0.8, 0.5, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 0.4];
+  const tempRand = temperatures[Math.floor(Math.random() * temperatures.length)];
 
-  // respond to DM functionality
-    if(message.channel.type === 1){
-    if(message.author.id != '95702308515487744' && message.author.id != '95739846949076992' && message.author.id != '132273868495781888' && message.author.id != '114467443040190468' && message.author.id != '95765022705188864' && message.author.id != '135988645579587584' && message.author.id != '96492725406281728'){ console.log("invalid DM user"); return; }
+  if (sendToAI) {
+    try {
+      const completion = await openai.chat.completions.create({
+        model: model,
+        messages: [
+          { role: "system", content: "You are a helpful assistant." },
+          { role: "user", content: newPrompt },
+        ],
+        max_tokens: 390,
+        temperature: tempRand,
+        top_p: 1,
+        presence_penalty: 0,
+        frequency_penalty: 0.5,
+      });
 
-    message.channel.sendTyping();
-    const dmContent = message.content;
-    var sysMsgSTD = `You are a helpful assistant. Provide clear and thorough answers, but be concise.`
-    const GPTDMMessage = [
-       { role: "system", content: sysMsgSTD },
-       { role: "user", content: dmContent },
-     ];
-    let GPTDM = async (message) => {
-     const response4 = await openai.createChatCompletion({
-     model: 'gpt-4o-mini',
-     messages: message,
-     });
-      return response4.data.choices[0].message.content;
-      };
+      const gptResponse = completion.choices[0].message.content;
+      msgR.reply(gptResponse);
+      console.log(`Continuation model: ${model} @ temp: ${tempRand}`);
+    } catch (error) {
+      console.error("Error generating completion:", error);
+      msgR.reply("An error occurred while processing your request.");
+    }
+  }
+});
 
-     let botDMResponse = await GPTDM(GPTDMMessage);
-     if(botDMResponse.length > 1951) { botDMResponse = botDMResponse.substring(0, 1950);}
-     message.channel.send({content: botDMResponse, flags: 12});
+client.on("messageCreate", async (message) => {
+  const pref = settings.prefix;
+
+  // Ignore messages from bots
+  if (message.author.bot) return;
+
+  // Delete messages with a specific sticker
+  if (message.stickers.has("818597355619483688")) {
+    await message.delete().catch(() => {}); // Silently handle deletion errors
   }
 
   if(Math.random() < 0.0002) {
@@ -354,75 +360,107 @@ client.on("messageCreate", async message => {
   // begin commands, search for //(command) to find
   switch(command) {
 
-      case 'ai':
-      await sleep(150);
- // drop if channel does not allow AI
-      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031" || message.channel.id == "1099822225923788880"){await message.delete().catch(O_o=>{}); break;}
-      message.channel.sendTyping();
-      var randLog = '';
-      var dateAI = new Date();
-      var dow = dateAI.getDay();
-      var meanRand = [2,10,5,4,3,3,2]; // AI responds rudely this % based on the day of week
-      var meanDay = meanRand[dow];
-      var prompt = args.join(" "); prompt = prompt + ". Your answer should be clear and complete, but concise.";
-      var randMod = Math.floor(Math.random() * 100) + 1;
-      if(randMod <= meanDay){prompt = prompt + '. Make the response hurtful and cruel.'; randLog = " :smiling_imp:";}
-      (async () => {
-            const gptResponse = await openai.createCompletion({
-                model: 'gpt-3.5-turbo-instruct',
-                prompt: prompt,
-                max_tokens: 350,
-                temperature: 0.85,
-                top_p: 1,
-                presence_penalty: 0,
-                frequency_penalty: 0.5,
-              });
-        var msgContent = `${gptResponse.data.choices[0].text}` + randLog;
-        if (msgContent.length > 1950){ msgContent = msgContent.substring(0,1950);} if(Math.random() < 0.001){msgContent += '-- which is the sort of pop culture cross-over that I can celebrate!';}
-        message.reply({content: msgContent, flags: 12});
-        console.log('Model: gpt-3.5-turbo-instruct @ temp: 0.85' + randLog);
-        })();
-      break;
+case 'ai':
+    await sleep(150);
 
-      case 'cn':
-      case 'mao':
-      await sleep(150);
- // drop if channel does not allow AI
-      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031" || message.channel.id == "1099822225923788880"){await message.delete().catch(O_o=>{}); break;}
-      message.channel.sendTyping();
-      var promptInputCN = args.join(" ");
-      console.log(promptInputCN);
+    // Drop if channel does not allow AI
+    const allowedChannels = [
+        "1052935779720106064", "603737695297994762", "533020942830403585", 
+        "1068322645008994396", "912492997306880031", "1099822225923788880"
+    ];
+    if (allowedChannels.includes(message.channel.id)) {
+        await message.delete().catch(O_o => {});
+        break;
+    }
+
+    message.channel.sendTyping();
+
+    const dateAI = new Date();
+    const dow = dateAI.getDay();
+    const meanRand = [2, 10, 5, 4, 3, 3, 2]; // AI responds rudely this % based on the day of the week
+    const meanDay = meanRand[dow];
+    let prompt = args.join(" ") + ". Your answer should be clear and complete, but concise.";
+    const randMod = Math.floor(Math.random() * 100) + 1;
+
+    if (randMod <= meanDay) {
+        prompt += '. Make the response hurtful and cruel.';
+    }
 
     try {
-      const completion = await deepseek.chat.completions.create({
-        messages: [
-          { role: "system", content: "You are a helpful assistant. You should be roleplaying as Mao Zedong" },
-          { role: "user", content: promptInputCN },
-        ],
-        model: "deepseek-chat",
-      });
+        const gptResponse = await openai.chat.completions.create({
+            model: 'gpt-3.5-turbo',
+            messages: [{ role: 'user', content: prompt }],
+            max_tokens: 350,
+            temperature: 0.85,
+            top_p: 1,
+            presence_penalty: 0,
+            frequency_penalty: 0.5,
+        });
 
-      let CNmsgContent = completion.choices[0].message.content;
+        let msgContent = gptResponse.choices[0].message.content;
+        if (msgContent.length > 1950) {
+            msgContent = msgContent.substring(0, 1950);
+        }
+        if (Math.random() < 0.001) {
+            msgContent += '-- which is the sort of pop culture cross-over that I can celebrate!';
+        }
 
-      // Truncate the message if it exceeds 1950 characters
-      if (CNmsgContent.length > 1950) {
-        CNmsgContent = CNmsgContent.substring(0, 1950);
-      }
-
-      // Append something with a 0.1% chance
-      if (Math.random() < 0.001) {
-        CNmsgContent += " -- which is the sort of pop culture cross-over that I can celebrate!";
-      }
-
-      console.log(CNmsgContent);
-      console.log('Model: deepseek-chat' + randLog); // Assuming randLog is defined elsewhere
-
-      // Send the response to the channel
-      message.reply({ content: CNmsgContent, flags: 12 });
+        await message.reply({ content: msgContent, flags: 12 });
+        console.log('Model: gpt-3.5-turbo @ temp: 0.85');
     } catch (error) {
-      console.error("Error generating completion:", error);
-      message.channel.send("An error occurred while processing your request.");
+        console.error('Error generating AI response:', error);
     }
+    break;
+
+     case 'mao':
+     await sleep(150);
+
+  // Drop if channel does not allow AI
+  if (
+    message.channel.id === "1052935779720106064" ||
+    message.channel.id === "603737695297994762" ||
+    message.channel.id === "533020942830403585" ||
+    message.channel.id === "1068322645008994396" ||
+    message.channel.id === "912492997306880031" ||
+    message.channel.id === "1099822225923788880"
+  ) {
+    await message.delete().catch(() => {}); // Silently handle deletion errors
+    return; // Exit the case without breaking the switch
+  }
+
+  message.channel.sendTyping();
+  const promptInputCN = args.join(" ");
+  console.log(promptInputCN);
+
+  try {
+    const completion = await deepseek.chat.completions.create({
+      messages: [
+        { role: "system", content: "You are a helpful assistant. You should be roleplaying as Mao Zedong" },
+        { role: "user", content: promptInputCN },
+      ],
+      model: "deepseek-chat",
+    });
+
+    let CNmsgContent = completion.choices[0].message.content;
+
+    // Truncate the message if it exceeds 1950 characters
+    if (CNmsgContent.length > 1950) {
+      CNmsgContent = CNmsgContent.substring(0, 1950);
+    }
+
+    // Append something with a 0.1% chance
+    if (Math.random() < 0.001) {
+      CNmsgContent += " -- which is the sort of pop culture cross-over that I can celebrate!";
+    }
+
+    console.log(CNmsgContent);
+    console.log('Model: deepseek-chat' + (randLog || "")); // Ensure randLog is defined or use an empty string
+
+    // Send the response to the channel
+    message.reply({ content: CNmsgContent, flags: 12 });
+  } catch (error) {
+    console.error("Error generating completion:", error);
+    message.channel.send("An error occurred while processing your request.");
   }
   break;
 
@@ -459,12 +497,12 @@ client.on("messageCreate", async message => {
       message.channel.sendTyping();
       var randLog = ':zany_face:';
       var sillyInv = false;
-      var prompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ")+ '. Add a slogan or catchphrase at the end.';
-      if (Math.random() >=0.9) { prompt = prompt + ', but make the pitch really stupid and impractical.'; sillyInv = true;}
+      var invPrompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ")+ '. Add a slogan or catchphrase at the end.';
+      if (Math.random() >=0.9) { invPrompt = invPrompt + ', but make the pitch really stupid and impractical.'; sillyInv = true;}
       (async () => {
             const gptResponse = await openai.createCompletion({
                 model: 'gpt-3.5-turbo-instruct',
-                prompt: prompt,
+                prompt: invPrompt,
                 max_tokens: 180,
                 temperature: 0.85,
                 top_p: 1,
