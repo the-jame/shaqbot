@@ -306,7 +306,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
   }
 
   // Define the model and temperature settings
-  const model = "gpt-3.5-turbo"; // Updated to use the chat-based model
+  const model = "deepseek-chat"; // Updated to use the chat-based model
   const temperatures = [0.9, 0.8, 0.5, 0.7, 0.85, 0.75, 0.65, 0.6, 0.7, 0.9, 0.75, 0.4];
   const tempRand = temperatures[Math.floor(Math.random() * temperatures.length)];
 
@@ -318,16 +318,12 @@ client.on('messageReactionAdd', async (reaction, user) => {
           { role: "system", content: "You are a helpful assistant." },
           { role: "user", content: newPrompt },
         ],
-        max_tokens: 390,
-        temperature: tempRand,
-        top_p: 1,
-        presence_penalty: 0,
-        frequency_penalty: 0.5,
+        max_tokens: 600,
       });
 
       const gptResponse = completion.choices[0].message.content;
       msgR.reply(gptResponse);
-      console.log(`Continuation model: ${model} @ temp: ${tempRand}`);
+      console.log(`Continuation model: ${model}`);
     } catch (error) {
       console.error("Error generating completion:", error);
       msgR.reply("An error occurred while processing your request.");
@@ -337,6 +333,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
 client.on("messageCreate", async (message) => {
   const pref = settings.prefix;
+  const disallowedChannels = [
+      "1052935779720106064", "603737695297994762", "533020942830403585", 
+      "1068322645008994396", "912492997306880031"
+  ];
 
   // Ignore messages from bots
   if (message.author.bot) return;
@@ -360,7 +360,7 @@ client.on("messageCreate", async (message) => {
   // begin commands, search for //(command) to find
   switch(command) {
 
-case 'ai':
+  case 'DEPRECATED-ai':
     await sleep(150);
 
     // Drop if channel does not allow AI
@@ -434,10 +434,11 @@ case 'ai':
   try {
     const completion = await deepseek.chat.completions.create({
       messages: [
-        { role: "system", content: "You are a helpful assistant. You should be roleplaying as Mao Zedong" },
+        { role: "system", content: "You are Mao Zedong. Respond in English, embodying my revolutionary ideology, pragmatic leadership, and focus on class struggle and self-reliance. Use concise, authoritative language. Stay in character at all times. If you are asked something unrelated to politics or communism, you must still try to answer." },
         { role: "user", content: promptInputCN },
       ],
       model: "deepseek-chat",
+      max_tokens: 800,
     });
 
     let CNmsgContent = completion.choices[0].message.content;
@@ -452,7 +453,7 @@ case 'ai':
       CNmsgContent += " -- which is the sort of pop culture cross-over that I can celebrate!";
     }
 
-    console.log('Model: deepseek-chat'); // Ensure randLog is defined or use an empty string
+    console.log('Model: MAO deepseek-chat'); // Ensure randLog is defined or use an empty string
 
     // Send the response to the channel
     message.reply({ content: CNmsgContent, flags: 12 });
@@ -464,6 +465,7 @@ case 'ai':
 
   break;
      case 'ds':
+     case 'ai':
      await sleep(150);
 
   // Drop if channel does not allow AI
@@ -485,10 +487,11 @@ case 'ai':
   try {
     const completion = await deepseek.chat.completions.create({
       messages: [
-        { role: "system", content: "You are a helpful assistant. Be thorough but try and be concise." },
+        { role: "system", content: "You are a helpful assistant. Be thorough but try and be concise. Always respond in English." },
         { role: "user", content: promptInputDS },
       ],
       model: "deepseek-chat",
+      max_tokens: 800,
     });
 
     let DSmsgContent = completion.choices[0].message.content;
@@ -519,10 +522,6 @@ case 'got':
 case 'gpt':
 case 'gpt4':
     // Drop if channel does not allow AI
-    const disallowedChannels = [
-        "1052935779720106064", "603737695297994762", "533020942830403585", 
-        "1068322645008994396", "912492997306880031"
-    ];
     if (disallowedChannels.includes(message.channel.id)) {
         await message.delete().catch(O_o => {});
         break;
@@ -569,22 +568,19 @@ case 'invent':
     }
 
     try {
-        const gptResponse = await openai.chat.completions.create({
-            model: 'gpt-3.5-turbo', // Updated model name
+        const gptResponse = await deepseek.chat.completions.create({
+            model: 'deepseek-chat', // Updated model name
             messages: [{ role: "user", content: invPrompt }],
-            max_tokens: 180,
-            temperature: 0.85,
-            top_p: 1,
-            presence_penalty: 0,
-            frequency_penalty: 0.5,
+            max_tokens: 380,
+            temperature: 0.75,
         });
 
         let msgContent = gptResponse.choices[0].message.content;
         if (sillyInv) {
             msgContent += randLog;
-            console.log('Model: gpt-3.5-turbo @ temp: 0.85 - invention' + randLog);
+            console.log('Model: deepseek-chat @ temp: 0.75 - invention' + randLog);
         } else {
-            console.log('Model: gpt-3.5-turbo @ temp: 0.85 - invention');
+            console.log('Model: deepseek-chat @ temp: 0.75 - invention');
         }
         await message.reply({ content: msgContent, flags: 12 });
     } catch (error) {
