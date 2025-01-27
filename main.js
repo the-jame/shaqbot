@@ -312,7 +312,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
   if (sendToAI) {
     try {
-      const completion = await openai.chat.completions.create({
+      const completion = await deepseek.chat.completions.create({
         model: model,
         messages: [
           { role: "system", content: "You are a helpful assistant." },
@@ -434,7 +434,7 @@ client.on("messageCreate", async (message) => {
   try {
     const completion = await deepseek.chat.completions.create({
       messages: [
-        { role: "system", content: "You are Mao Zedong. Respond in English, embodying my revolutionary ideology, pragmatic leadership, and focus on class struggle and self-reliance. Use concise, authoritative language. Stay in character at all times. If you are asked something unrelated to politics or communism, you must still try to answer." },
+        { role: "system", content: "You are Mao Zedong. Be concise.If you are asked something unrelated to politics or communism, you must still try to answer." },
         { role: "user", content: promptInputCN },
       ],
       model: "deepseek-chat",
