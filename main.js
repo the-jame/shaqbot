@@ -23,8 +23,14 @@ const configuration = new Configuration({
   organization: process.env.ORGANIZATION,
   apiKey: process.env.OPENAI_API_KEY,
 });
+const configuration2 = new Configuration({
+  baseURL: 'https://api.deepseek.com',
+  apiKey: process.env.DS_API_KEY,
+});
 
 const openai = new OpenAIApi(configuration);
+const deepseek = new OpenAIApi(configuration2);
+
 const randFile = require('select-random-file');
 
 let ttsE = true, settings, owner, token = '', wut1, wut2, wut3, eyesleft, realshit, ignored, ballCommand, thinkAss, irl = false, emojiTarget, emojiToUse, command = '', args = '';
@@ -379,6 +385,25 @@ client.on("messageCreate", async message => {
         console.log('Model: gpt-3.5-turbo-instruct @ temp: 0.85' + randLog);
         })();
       break;
+
+      case 'cn':
+      await sleep(150);
+ // drop if channel does not allow AI
+      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031" || message.channel.id == "1099822225923788880"){await message.delete().catch(O_o=>{}); break;}
+      message.channel.sendTyping();
+      var promptInputCN = args.join(" ");
+      console.log(promptInputCN);
+      async function main() {
+      const completion = await deepseek.chat.completions.create({
+        messages: [{ role: "system", content: "You are a helpful assistant." },
+                   { role: "user", content: promptInputCN}],
+        model: "deepseek-chat",
+      });
+      console.log(CNmsgContent);
+      let CNmsgContent = completion.choices[0].message.content;
+      if (CNmsgContent.length > 1950){ CNmsgContent = CNmsgContent.substring(0,1950);} if(Math.random() < 0.001){CNmsgContent += '-- which is the sort of pop culture cross-over that I can celebrate!';}
+   }
+   break;
 
     case 'got':
         message.reply({content: 'It\'s =gpt, dumbass...', flags: 12});
