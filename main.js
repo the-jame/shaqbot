@@ -464,56 +464,85 @@ case 'ai':
   }
   break;
 
-    case 'got':
-        message.reply({content: 'It\'s =gpt, dumbass...', flags: 12});
-    case 'gpt':
-    case 'gpt4':
-      // drop if channel does not allow AI
-      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
-      message.channel.sendTyping();
-      var promptInput4 = args.join(" ");
-      var sysMsgSTD = `You are a helpful assistant. Provide clear and thorough answers, but be concise.`
-      const GPT4Message = [
+case 'got':
+    message.reply({ content: 'It\'s =gpt, dumbass...', flags: 12 });
+    // Fallthrough to 'gpt' or 'gpt4' intentionally
+case 'gpt':
+case 'gpt4':
+    // Drop if channel does not allow AI
+    const disallowedChannels = [
+        "1052935779720106064", "603737695297994762", "533020942830403585", 
+        "1068322645008994396", "912492997306880031"
+    ];
+    if (disallowedChannels.includes(message.channel.id)) {
+        await message.delete().catch(O_o => {});
+        break;
+    }
+
+    message.channel.sendTyping();
+    const promptInput4 = args.join(" ");
+    const sysMsgSTD = `You are a helpful assistant. Provide clear and thorough answers, but be concise.`;
+    const GPT4Message = [
         { role: "system", content: sysMsgSTD },
         { role: "user", content: promptInput4 },
-      ];
-      let GPT4 = async (message) => {
-       const response4 = await openai.createChatCompletion({
-       model: "gpt-4o-mini",
-       messages: message,
-       });
-        return response4.data.choices[0].message.content;
-        };
+    ];
 
-       let botResponse4 = await GPT4(GPT4Message);
-       if(botResponse4.length > 1950) { botResponse4 = botResponse4.substring(0, 1950);}
-       message.reply({content: botResponse4, flags: 12});
-       console.log(`Model: gpt-4`);
-      break;
+    try {
+        const response4 = await openai.chat.completions.create({
+            model: "gpt-4o-mini",
+            messages: GPT4Message,
+        });
 
-    case 'invent':
-      // drop if channel does not allow AI
-      if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031"){await message.delete().catch(O_o=>{}); break;}
-      message.channel.sendTyping();
-      var randLog = ':zany_face:';
-      var sillyInv = false;
-      var invPrompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ")+ '. Add a slogan or catchphrase at the end.';
-      if (Math.random() >=0.9) { invPrompt = invPrompt + ', but make the pitch really stupid and impractical.'; sillyInv = true;}
-      (async () => {
-            const gptResponse = await openai.createCompletion({
-                model: 'gpt-3.5-turbo-instruct',
-                prompt: invPrompt,
-                max_tokens: 180,
-                temperature: 0.85,
-                top_p: 1,
-                presence_penalty: 0,
-                frequency_penalty: 0.5,
-              });
-          if(sillyInv) { var msgContent = `${gptResponse.data.choices[0].text}` + randLog; console.log('Model: text-davinci-003 @ temp: 0.85 - invention' + randLog);}
-          if(!sillyInv) { var msgContent = `${gptResponse.data.choices[0].text}`; console.log('Model: text-davinci-003 @ temp: 0.85 - invention');}
-          message.reply({content: msgContent, flags: 12});
-        })();
-      break;
+        let botResponse4 = response4.choices[0].message.content;
+        if (botResponse4.length > 1950) {
+            botResponse4 = botResponse4.substring(0, 1950);
+        }
+        await message.reply({ content: botResponse4, flags: 12 });
+        console.log(`Model: gpt-4`);
+    } catch (error) {
+        console.error('Error generating GPT-4 response:', error);
+    }
+    break;
+case 'invent':
+    // Drop if channel does not allow AI
+    if (disallowedChannels.includes(message.channel.id)) {
+        await message.delete().catch(O_o => {});
+        break;
+    }
+
+    message.channel.sendTyping();
+    let randLog = ':zany_face:';
+    let sillyInv = false;
+    let invPrompt = 'In a few sentences, write a pitch for a new product or idea called: ' + args.join(" ") + '. Add a slogan or catchphrase at the end.';
+    if (Math.random() >= 0.9) {
+        invPrompt += ', but make the pitch really stupid and impractical.';
+        sillyInv = true;
+    }
+
+    try {
+        const gptResponse = await openai.chat.completions.create({
+            model: 'gpt-3.5-turbo', // Updated model name
+            messages: [{ role: "user", content: invPrompt }],
+            max_tokens: 180,
+            temperature: 0.85,
+            top_p: 1,
+            presence_penalty: 0,
+            frequency_penalty: 0.5,
+        });
+
+        let msgContent = gptResponse.choices[0].message.content;
+        if (sillyInv) {
+            msgContent += randLog;
+            console.log('Model: gpt-3.5-turbo @ temp: 0.85 - invention' + randLog);
+        } else {
+            console.log('Model: gpt-3.5-turbo @ temp: 0.85 - invention');
+        }
+        await message.reply({ content: msgContent, flags: 12 });
+    } catch (error) {
+        console.error('Error generating invention response:', error);
+    }
+    break;
+
 
     case 'er':
     case 'eldenring':
