@@ -454,7 +454,7 @@ case 'ai':
     }
 
     console.log(CNmsgContent);
-    console.log('Model: deepseek-chat' + (randLog || "")); // Ensure randLog is defined or use an empty string
+    console.log('Model: deepseek-chat'); // Ensure randLog is defined or use an empty string
 
     // Send the response to the channel
     message.reply({ content: CNmsgContent, flags: 12 });
