@@ -103,7 +103,7 @@
     "nth-check": "^2.0.1",
     "object-assign": "^4.1.1",
     "once": "^1.4.0",
-    "openai": "^3.3.0",
+    "openai": "^4.80.1",
     "p-map": "^4.0.0",
     "parse5": "^6.0.1",
     "parse5-htmlparser2-tree-adapter": "^6.0.1",

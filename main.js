@@ -1,4 +1,5 @@
 let Discord = require("discord.js");
+const { OpenAI } = require("openai");
 const { Client, Partials, GatewayIntentBits, AttachmentBuilder } = require('discord.js');
 const client = new Client(
 { intents: [
@@ -18,18 +19,15 @@ const client = new Client(
 
 require('dotenv').config();
 
-const { Configuration, OpenAIApi } = require("openai");
-const configuration = new Configuration({
+const openai = new OpenAI({
   organization: process.env.ORGANIZATION,
   apiKey: process.env.OPENAI_API_KEY,
 });
-const configuration2 = new Configuration({
+
+const deepseek = new OpenAI({
   baseURL: 'https://api.deepseek.com',
   apiKey: process.env.DS_API_KEY,
 });
-
-const openai = new OpenAIApi(configuration);
-const deepseek = new OpenAIApi(configuration2);
 
 const randFile = require('select-random-file');
 
@@ -387,23 +385,46 @@ client.on("messageCreate", async message => {
       break;
 
       case 'cn':
+      case 'mao':
       await sleep(150);
  // drop if channel does not allow AI
       if (message.channel.id == "1052935779720106064" || message.channel.id == "603737695297994762" || message.channel.id == "533020942830403585" || message.channel.id == "1068322645008994396" || message.channel.id == "912492997306880031" || message.channel.id == "1099822225923788880"){await message.delete().catch(O_o=>{}); break;}
       message.channel.sendTyping();
       var promptInputCN = args.join(" ");
       console.log(promptInputCN);
-      async function main() {
+
+    try {
       const completion = await deepseek.chat.completions.create({
-        messages: [{ role: "system", content: "You are a helpful assistant." },
-                   { role: "user", content: promptInputCN}],
+        messages: [
+          { role: "system", content: "You are a helpful assistant. You should be roleplaying as Mao Zedong" },
+          { role: "user", content: promptInputCN },
+        ],
         model: "deepseek-chat",
       });
-      console.log(CNmsgContent);
+
       let CNmsgContent = completion.choices[0].message.content;
-      if (CNmsgContent.length > 1950){ CNmsgContent = CNmsgContent.substring(0,1950);} if(Math.random() < 0.001){CNmsgContent += '-- which is the sort of pop culture cross-over that I can celebrate!';}
-   }
-   break;
+
+      // Truncate the message if it exceeds 1950 characters
+      if (CNmsgContent.length > 1950) {
+        CNmsgContent = CNmsgContent.substring(0, 1950);
+      }
+
+      // Append something with a 0.1% chance
+      if (Math.random() < 0.001) {
+        CNmsgContent += " -- which is the sort of pop culture cross-over that I can celebrate!";
+      }
+
+      console.log(CNmsgContent);
+      console.log('Model: deepseek-chat' + randLog); // Assuming randLog is defined elsewhere
+
+      // Send the response to the channel
+      message.reply({ content: CNmsgContent, flags: 12 });
+    } catch (error) {
+      console.error("Error generating completion:", error);
+      message.channel.send("An error occurred while processing your request.");
+    }
+  }
+  break;
 
     case 'got':
         message.reply({content: 'It\'s =gpt, dumbass...', flags: 12});
