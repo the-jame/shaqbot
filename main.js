@@ -430,7 +430,6 @@ case 'ai':
 
   message.channel.sendTyping();
   const promptInputCN = args.join(" ");
-  console.log(promptInputCN);
 
   try {
     const completion = await deepseek.chat.completions.create({
@@ -453,11 +452,61 @@ case 'ai':
       CNmsgContent += " -- which is the sort of pop culture cross-over that I can celebrate!";
     }
 
-    console.log(CNmsgContent);
     console.log('Model: deepseek-chat'); // Ensure randLog is defined or use an empty string
 
     // Send the response to the channel
     message.reply({ content: CNmsgContent, flags: 12 });
+  } catch (error) {
+    console.error("Error generating completion:", error);
+    message.channel.send("An error occurred while processing your request.");
+  }
+
+
+  break;
+     case 'ds':
+     await sleep(150);
+
+  // Drop if channel does not allow AI
+  if (
+    message.channel.id === "1052935779720106064" ||
+    message.channel.id === "603737695297994762" ||
+    message.channel.id === "533020942830403585" ||
+    message.channel.id === "1068322645008994396" ||
+    message.channel.id === "912492997306880031" ||
+    message.channel.id === "1099822225923788880"
+  ) {
+    await message.delete().catch(() => {}); // Silently handle deletion errors
+    return; // Exit the case without breaking the switch
+  }
+
+  message.channel.sendTyping();
+  const promptInputDS = args.join(" ");
+
+  try {
+    const completion = await deepseek.chat.completions.create({
+      messages: [
+        { role: "system", content: "You are a helpful assistant. Be thorough but try and be concise." },
+        { role: "user", content: promptInputDS },
+      ],
+      model: "deepseek-chat",
+    });
+
+    let DSmsgContent = completion.choices[0].message.content;
+
+    // Truncate the message if it exceeds 1950 characters
+    if (DSmsgContent.length > 1950) {
+      DSmsgContent = DSmsgContent.substring(0, 1950);
+    }
+
+    // Append something with a 0.1% chance
+    if (Math.random() < 0.001) {
+      DSmsgContent += " -- which is the sort of pop culture cross-over that I can celebrate!";
+    }
+
+    console.log('Model: deepseek-chat'); // Ensure randLog is defined or use an empty string
+
+    // Send the response to the channel
+    message.reply({ content: DSmsgContent, flags: 12 });
   } catch (error) {
     console.error("Error generating completion:", error);
     message.channel.send("An error occurred while processing your request.");
