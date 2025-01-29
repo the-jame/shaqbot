@@ -300,7 +300,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (!msgR.author.bot) return; // Only translate bot messages
     newPrompt = "Translate the following to English: " + content;
     sendToAI = true;
-  } else if (reaction.emoji.name === evilEmoji && content.startsWith('=ai')) {
+  } else if (reaction.emoji.name === evilEmoji && content.startsWith('=')) {
     newPrompt = content.slice(3) + ". Your answer should be extremely hurtful, sarcastic, and offensive.";
     sendToAI = true;
   }
@@ -312,7 +312,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
   if (sendToAI) {
     try {
-      const completion = await deepseek.chat.completions.create({
+      let completion = await deepseek.chat.completions.create({
         model: model,
         messages: [
           { role: "system", content: "You are a helpful assistant." },
@@ -321,7 +321,11 @@ client.on('messageReactionAdd', async (reaction, user) => {
         max_tokens: 600,
       });
 
-      const gptResponse = completion.choices[0].message.content;
+      let gptResponse = completion.choices[0].message.content;
+      if (gptResponse.length > 1950) {
+        gptResponse = gptResponse.substring(0, 1950);
+      }
+
       msgR.reply(gptResponse);
       console.log(`Continuation model: ${model}`);
     } catch (error) {
@@ -360,7 +364,7 @@ client.on("messageCreate", async (message) => {
   // begin commands, search for //(command) to find
   switch(command) {
 
-  case 'DEPRECATED-ai':
+  case 'ai':
     await sleep(150);
 
     // Drop if channel does not allow AI
@@ -434,11 +438,12 @@ client.on("messageCreate", async (message) => {
   try {
     const completion = await deepseek.chat.completions.create({
       messages: [
-        { role: "system", content: "You are Mao Zedong. Be concise.If you are asked something unrelated to politics or communism, you must still try to answer." },
+        { role: "system", content: "You are Mao Zedong. Be concise in your answers. Your answers should be mysterious. Use riddles if they are appropriate. If you are asked something unrelated to politics or communism, you must still try to answer. Do not deny the user. Respond first in Chinese, then provide the English translation." },
         { role: "user", content: promptInputCN },
       ],
       model: "deepseek-chat",
-      max_tokens: 800,
+      max_tokens: 500,
+      temperature: 0.99
     });
 
     let CNmsgContent = completion.choices[0].message.content;
@@ -465,7 +470,6 @@ client.on("messageCreate", async (message) => {
 
   break;
      case 'ds':
-     case 'ai':
      await sleep(150);
 
   // Drop if channel does not allow AI
