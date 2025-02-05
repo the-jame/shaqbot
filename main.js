@@ -148,7 +148,7 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'st
 
 var ballsizes = ['large', 'small', 'medium', 'puny', 'gigantic', 'average', 'incongruous', 'nice :thumbsup:', ':b:ig', 'immense', 'voluptuous', 'h',
     'bigger than I\'d like :/', 'smaller than I\'d like :/', 'vast', 'globular', 'eternal', '*just right*', 'normal', '¡Sabado Gigante!', 'narrow', 'wide', 'petite', 'insignificant', 
-    'short', ':ok:', 'smallish', 'XXL', 'XXS', 'big-boned', 'king size', 'FAT', 'mediocre', 'unexceptional', 'immeasurable', 'trivial', 'intermediate', 'passable', 
+    'short', '0.127 mm', ':ok:', 'smallish', 'XXL', 'XXS', 'big-boned', 'king size', 'FAT', 'mediocre', 'unexceptional', 'immeasurable', 'trivial', 'intermediate', 'passable', 
     'regular', 'tainted', 'common', '12 inches', '1 foot', '5 & 1/2 centimeters', 'futuristic', 'macho', '4 yards', '2 meters', ':fire::100::fire::100::fire::100:','thicc',
     'microscopic', 'gargantuan', ':flushed:', 'assertive', 'reptilian', 'ghastly', 'delightful', 'debonair', 'homely', 'nonexistent','left: 15cm, right: 1cm', '1mm','1 in.', '3cm',
     'about that of a golf ball', 'Epstein didn\'t kill himself', 'too big to handle', 'just right', 'ordinary', 'unwieldy', 'embarrassing', 'cubic', 'shriveled', 'that of a BEAN',
@@ -1100,7 +1100,7 @@ case 'invent':
       break;
     case 'bread':
     case 'worsebread':
-      message.channel.send ('https://twitter.com/gloomfather/status/1141347662333140994?s=20');
+      message.channel.send ({files: ["img/bread.png"]});
       break;
     case 'livingintheworld':
     case 'living':
@@ -1527,6 +1527,9 @@ case 'invent':
     case 'bigmac':
     case 'burger':
       message.channel.send ({files: ["img/bigmac.png"]});
+      break;
+    case 'somethingchinese':
+      message.channel.send ({files: ["img/somethingchinese.png"]});
       break;
 
 // zzzzz endofmeme newest latest recent
