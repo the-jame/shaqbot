@@ -40,24 +40,24 @@ function sleep(ms) {
 const spongeMocking = new AttachmentBuilder('img/mockingbob.jpg');
 
 // who
-var subject = ['reeg','james','jimmy','tyra','liz','ton','ysabel','leah','john madden','the cake','my ass','your ass','your mom','Joe Biden','sarah','tom clancy',
-	'pipo', '100,000 Ohioans', 'the 1 out of 10 dentists that dont recommend sugarless gum', 'the mexican villain wrestler',
-	'trump', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend','Hasbulla',
-	'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fieri', 'george bush', 'Tom Nook', 'your sam',  'God', 'Satan', 'John Freeman', 'jeff tutorials',
-	'johoise', 'duman', 'a cromulent unfuckcrustable', 'the fuckcrustables', 'The Tainted One', 'Mr. Imlay', 'Mrs. Matsuyama', 'Jeb Bush', 'cody', 'a sentient cum sock', 'cool guy',
-	'the spy watching your zoom meeting', 'bilbo baggins', 'a sentient cum sock', 'an obama drone', 'al qaeda', 'melania trump', 'michelle obama', 'deadmau5', 'your boss',
-	'slenderman', 'joseph smith', 'the mormon church', 'the pope', 'bill burr', 'lady gaga', 'your neighbor', 'your dad\'s best friend that you called "uncle" as a child', 'your real parents',
-	'colonel sanders', 'bernie sanders', 'the reanimated corpse of steve jobs', 'eminem', 'la habra 300 bowl', 'elon musk', 'anne frank', 'marshall pope',
-	'shigeru miyamoto', 'your unwashed ass', 'She Who Squirts', 'He Who Cums', 'Liz\'s cat', 'Beemo', 'the British', 'bisexuals', 'papi', 'a bloody fucker', 'an actual chimp',
-	'shawty', 'I', 'Ronald Reagan', 'Nicolas Cage', 'Queen Elizabeth', 'Nickelback', 'Keanu Reeves', 'Democrats', 'Republicans', 'donald johnald tronald', 'donald john president', 'the fall guy', 'Disney Pixar\'s Cars™️ Pope Pinion IV', 'mexican shinji ikari',
-	'olm', 'olmyra', 'chris', 'jed sheeran', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'an actual nigerian prince trying to give you money','donny jr', 'mara sov', 'xur', 'uncle roger', 'god',
-	'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'socialists', 'nazis', 'communists', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'chandler', 'the shit stain in your underwear', 'a crusty sock',
-	'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker',
-	'Todd Howard', 'amogus', 'sus guy', 'jim halpert', 'popcat', 'some dumb binch', 'the CEO of Robinhood', 'AOC', 'ted cruz', 'j cole', 'elmer fudd', 'a cum stain', 'the inventor of Worms the video game', 'justin timberlake', 'the area man', 'a rando',
-	'that one friend who never interacts in discord', 'the pogchamp guy', 'some chud on parler', 'an idiot who got banned from twitter', 'mark zuckerberg\'s lizard offspring', 'prince philip', 'prince philip (in dust form)', 'your best friend', 'the guy',
-	'robert downey jr', 'morgan freeman', 'a friendly neighborhood cat', 'a birb', 'some ducklings', 'the person reading this', 'abby shapiro', 'a gamer gril', 'a butterfly, floating peacefully', 'Hasbulla', 'the taliban', 'that one guy with an eyepatch',
-	'chet','brad', 'steven crowder', 'the vitamin D council', 'the fish oil triumvirate', 'egg demon', 'computer woman', 'big elephant man', 'that one guy that shot the ceo', 'that one healthcare ceo', 'obamna', 'jesus h christ', 'sonic the hedgehog', 'a pube',
-	'glimpmo', 'diddy', 'the rothschilds', 'luigi', 'the salami lid (it dont fit)', 'smoog yoa', 'wrinkled yoa', 'Darnell Ultra'];
+var subject = ['reeg', 'james', 'jimmy', 'tyra', 'liz', 'ton', 'ysabel', 'leah', 'john madden', 'the cake', 'my ass', 'your ass', 'your mom', 'Joe Biden', 'sarah', 'tom clancy',
+    'pipo', '100,000 Ohioans', 'the 1 out of 10 dentists that dont recommend sugarless gum', 'the mexican villain wrestler',
+    'trump', 'dumbo\'s rubbery elephant schlong', 'my favorite inflation porn artist', 'my big tiddy anime waifu', 'daddy', 'our bean quean', 'long horse', 'the skinwalker you think is your closest friend', 'Hasbulla',
+    'a fully sentient tomato who can feel pain\, but cannot scream', 'guy fieri', 'george bush', 'Tom Nook', 'your sam', 'God', 'Satan', 'John Freeman', 'jeff tutorials',
+    'johoise', 'duman', 'a cromulent unfuckcrustable', 'the fuckcrustables', 'The Tainted One', 'Mr. Imlay', 'Mrs. Matsuyama', 'Jeb Bush', 'cody', 'a sentient cum sock', 'cool guy',
+    'the spy watching your zoom meeting', 'bilbo baggins', 'a sentient cum sock', 'an obama drone', 'al qaeda', 'melania trump', 'michelle obama', 'deadmau5', 'your boss',
+    'slenderman', 'joseph smith', 'the mormon church', 'the pope', 'bill burr', 'lady gaga', 'your neighbor', 'your dad\'s best friend that you called "uncle" as a child', 'your real parents',
+    'colonel sanders', 'bernie sanders', 'the reanimated corpse of steve jobs', 'eminem', 'la habra 300 bowl', 'elon musk', 'anne frank', 'marshall pope',
+    'shigeru miyamoto', 'your unwashed ass', 'She Who Squirts', 'He Who Cums', 'Liz\'s cat', 'Beemo', 'the British', 'bisexuals', 'papi', 'a bloody fucker', 'an actual chimp',
+    'shawty', 'I', 'Ronald Reagan', 'Nicolas Cage', 'Queen Elizabeth', 'Nickelback', 'Keanu Reeves', 'Democrats', 'Republicans', 'donald johnald tronald', 'donald john president', 'the fall guy', 'Disney Pixar\'s Cars™️ Pope Pinion IV', 'mexican shinji ikari',
+    'olm', 'olmyra', 'chris', 'jed sheeran', 'nick', 'zach', 'zavala', 'ikora', 'cayde', 'banshee-44', 'tess everis', 'hawthorne', 'calus', 'osiris', 'an actual nigerian prince trying to give you money', 'donny jr', 'mara sov', 'xur', 'uncle roger', 'god',
+    'your bitchy aunt', 'your qanon uncle', 'Q himself', 'froggy chair', 'socialists', 'nazis', 'communists', 'John Bungie', 'Big Oil', 'Big Pharma', 'ross from friends', 'patrick star', 'squidward', 'chandler', 'the shit stain in your underwear', 'a crusty sock',
+    'a cockroach', 'seinfeld', 'the bean quean', 'the far left', 'the far right', 'centrists', 'ben shapiro', 'jordan peterson', 'hillary clinton', 'osama bin laden', 'the mailman', 'hamburger helper', 'a used condom', 'rotisserie chicken', 'your lazy coworker',
+    'Todd Howard', 'amogus', 'sus guy', 'jim halpert', 'popcat', 'some dumb binch', 'the CEO of Robinhood', 'AOC', 'ted cruz', 'j cole', 'elmer fudd', 'a cum stain', 'the inventor of Worms the video game', 'justin timberlake', 'the area man', 'a rando',
+    'that one friend who never interacts in discord', 'the pogchamp guy', 'some chud on parler', 'an idiot who got banned from twitter', 'mark zuckerberg\'s lizard offspring', 'prince philip', 'prince philip (in dust form)', 'your best friend', 'the guy',
+    'robert downey jr', 'morgan freeman', 'a friendly neighborhood cat', 'a birb', 'some ducklings', 'the person reading this', 'abby shapiro', 'a gamer gril', 'a butterfly, floating peacefully', 'Hasbulla', 'the taliban', 'that one guy with an eyepatch',
+    'chet', 'brad', 'steven crowder', 'the vitamin D council', 'the fish oil triumvirate', 'egg demon', 'computer woman', 'big elephant man', 'that one guy that shot the ceo', 'that one healthcare ceo', 'obamna', 'jesus h christ', 'sonic the hedgehog', 'a pube',
+    'glimpmo', 'diddy', 'the rothschilds', 'luigi', 'the salami lid (it dont fit)', 'smoog yoa', 'wrinkled yoa', 'Darnell Ultra', 'Choe Biden', 'the grink', 'God and Jesus', 'Mr. Beast', 'Mr. Breast', 'The Band \'Trapt\' known for their Hit Single \'Headstrong\'', '18 inch bruh', 'Non-binary Peter Coin'];
 
 var subjectirl = ['reeg', 'james', 'jimmy', 'kacey', 'tyra', 'liz', 'ton', 'cody', 'ysabel', 'leah', 'j', 'olm', 'adri'];
 
@@ -144,7 +144,7 @@ var reasons = ['said the earth is flat', 'has a girthy balloon shlong', 'h', 'st
 	'is le epic redditor extraordinaire mlady', 'eats kool aid pickles', 'denies the holocaust', 'is the imposter', 'is lookin pretty sus ngl', 'is amogus', 'has night vision',
 	'isn\'t allowed to fart', 'will NOT be coming back to this establishment','spilled the cum jar','cannot be arsed to care', 'is a serial killer', 'is stinky',
 	'is your real dad', 'is cursed to edge for eternity', 'is blasting rope', 'just blasted rope', 'shidded they pant and underwear also', 'cried when henry kissinger died',
-	'love scat porn', 'is secretly a Rothschild', 'is freaky, they\'re horny', 'lost the salami lid', 'isn\'t here'];
+    'love scat porn', 'is secretly a Rothschild', 'is freaky, they\'re horny', 'lost the salami lid', 'isn\'t here', 'I KNOW they ate a cheese', 'is off the drankies', 'has a Brian Griffin tattoo', 'something chinese happened'];
 
 var ballsizes = ['large', 'small', 'medium', 'puny', 'gigantic', 'average', 'incongruous', 'nice :thumbsup:', ':b:ig', 'immense', 'voluptuous', 'h',
     'bigger than I\'d like :/', 'smaller than I\'d like :/', 'vast', 'globular', 'eternal', '*just right*', 'normal', '¡Sabado Gigante!', 'narrow', 'wide', 'petite', 'insignificant', 
