@@ -512,7 +512,7 @@ client.on("messageCreate", async (message) => {
       message.channel.send({ content: secondPart, flags: 12 });
     }
     else {
-      message.reply({ content: DMmsgContent, flags: 12});
+      message.reply({ content: DSmsgContent, flags: 12});
     }
 
     // Append something with a 0.1% chance
@@ -1555,6 +1555,12 @@ case 'invent':
     case 'refrigerators':
     case 'refrigerator':
       message.channel.send ("https://www.youtube.com/watch?v=TiC8pig6PGE");
+      break;
+    case 'clint':
+      message.channel.send ({files: ["img/clint.jpg"]});
+      break;
+    case 'norris':
+      message.channel.send ({files: ["img/norris.webp"]});
       break;
 
 // zzzzz endofmeme newest latest recent
