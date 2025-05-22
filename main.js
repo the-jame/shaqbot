@@ -4013,6 +4013,15 @@ client.on("messageCreate", async (message) => {
     case "fuckyes":
       message.channel.send({ files: ["img/fuckyes.webp"] });
       break;
+    case "smoogyoa":
+    case "smoog":
+    case "yoa":
+      message.channel.send({ files: ["img/smoogyoa.jpg"] });
+      break;
+    case "frogsoutside":
+    case "frogs":
+      message.channel.send({ files: ["img/frogs.jpg"] });
+      break;
 
     // zzzzz endofmeme newest latest recent
 
@@ -4089,7 +4098,7 @@ client.on("messageCreate", async (message) => {
       let rollMsg = args.join(" ");
       rollTop = parseInt(input);
       message.channel.send(
-        "Roll 1 - " +
+        "Roll 1 to " +
           rollTop +
           " = " +
           Math.floor(Math.random() * rollTop + 1) +
