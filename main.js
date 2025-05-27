@@ -2427,7 +2427,7 @@ client.on("ready", () => {
   let birthdays = [
     ["1/8", settings.leah],
     ["1/9", settings.ysabel],
-    ["3/27", "Wesley (babby Liz)"],
+    ["1/10", "Wesley (babby Liz)"],
     ["1/11", settings.kacey],
     ["3/27", "Eleanor (babby Green)"],
     ["5/27", settings.anthony],
