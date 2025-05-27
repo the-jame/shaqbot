@@ -2436,6 +2436,7 @@ client.on("ready", () => {
     ["7/17", settings.adriana],
     ["8/2", settings.enrique],
     ["9/1", settings.cody],
+    ["9/11", settings.sarah],
     ["10/4", settings.olm],
     ["10/23", settings.tyra],
     ["10/26", settings.liz],
