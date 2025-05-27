@@ -2427,7 +2427,9 @@ client.on("ready", () => {
   let birthdays = [
     ["1/8", settings.leah],
     ["1/9", settings.ysabel],
+    ["3/27", "Wesley (babby Liz)"],
     ["1/11", settings.kacey],
+    ["3/27", "Eleanor (babby Green)"],
     ["5/27", settings.anthony],
     ["6/10", settings.j],
     ["7/14", settings.james],
@@ -2437,8 +2439,7 @@ client.on("ready", () => {
     ["10/4", settings.olm],
     ["10/23", settings.tyra],
     ["10/26", settings.liz],
-    ["11/9", settings.jimmy],
-    ["3/27", "Eleanor (babby Green)"],
+    ["11/9", settings.jimmy]
   ];
   philipLeft = `${philipL} ${thinkAss}`;
 
