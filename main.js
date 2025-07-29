@@ -4342,6 +4342,9 @@ client.on("messageCreate", async (message) => {
     case "madatsomeone":
       message.channel.send({ files: ["img/theguy.jpg"] });
       break;
+    case "shmedium":
+      message.channel.send({ files: ["img/shmedium.webp"] });
+      break;
     case "me":
     case "me?":
     case "guypointingathimself":
