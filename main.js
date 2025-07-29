@@ -4342,6 +4342,12 @@ client.on("messageCreate", async (message) => {
     case "madatsomeone":
       message.channel.send({ files: ["img/theguy.jpg"] });
       break;
+    case "me":
+    case "me?":
+    case "guypointingathimself":
+    case "pointingatself":
+      message.channel.send({ files: ["img/guypointingathimself.jpg"] });
+      break;
 
     // zzzzz endofmeme newest latest recent
 
