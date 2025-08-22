@@ -2,4 +2,5 @@
 settings.json
 back.js
 main2.js
-
+cats/
+package-lock.json
