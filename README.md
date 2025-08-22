@@ -1,11 +1,11 @@
 
 # Discord Chat Bot
 ***
-Simple, spaghetti code bot made for my Discord server. Now with Deepseek & OpenAI (deepseek-chat & GPT 4.1 nano)!
+Simple, spaghetti code bot made for my Discord server. Now with Deepseek & OpenAI (deepseek-chat & GPT 5 nano)!
 
 
 __The normal chat commands (bot trigger is "=") are:__
-* `ai <string>`: Bot will answer with ai (OpenAI GPT 4.1 nano)
+* `ai <string>`: Bot will answer with ai (OpenAI GPT 5 nano)
 * `ds <string>`: Bot will answer with ai - smarter but takes longer (deepseek-chat)
 * `invent <string>`: Bot will sales pitch an invention from the prompt (deepseek-chat)
 * `say <string>`: Bot says the string in text-to-speech and deletes your input so the bot appears to say it.
