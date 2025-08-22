@@ -4355,6 +4355,10 @@ client.on("messageCreate", async (message) => {
     case "p0wns":
       message.channel.send({ files: ["img/taint.png"] });
       break;
+    case "cosigned":
+    case "realshityoujustsaid":
+      message.channel.send({ files: ["img/cosigned.jpg"] });
+      break;
 
     // zzzzz endofmeme newest latest recent
 
