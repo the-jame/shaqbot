@@ -1,5 +1,5 @@
 let Discord = require("discord.js");
-const { GoogleGenAI } = require("@google/genai");
+const { GoogleGenAI , Modality } = require("@google/genai");
 const { OpenAI } = require("openai");
 const {
   Client,
@@ -26,6 +26,10 @@ const openai = new OpenAI({
   organization: process.env.ORGANIZATION,
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+const ai = new GoogleGenAI({
+  api_key: process.env.GEMINI_API_KEY
+  });
 
 const deepseek = new OpenAI({
   baseURL: "https://api.deepseek.com",
@@ -2765,6 +2769,16 @@ client.on("ready", () => {
       .get("95702402253983744")
       .send({ files: ["img/friday.mp4"] });
   }
+  else {
+      let dir = "/home/ubuntu/shaqbot/img/";
+        client.channels.cache
+        .get("95702402253983744")
+        .send({ files: ["img/friday.mp4"] });
+      randFile(dir, (err, file) => {
+        message.channel.send({ files: [`img/${file}`] });
+      });
+  }
+
 
   //find birthday
   var bFound = false;
@@ -3083,8 +3097,6 @@ client.on("messageCreate", async (message) => {
 
 async function generateAndSendImage(message) {
   try {
-    const ai = new GoogleGenAI({});
-
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-image-preview",
       contents: promptImage,
@@ -4494,8 +4506,8 @@ async function generateAndSendImage(message) {
     case "2":
       await sleep(100);
       var randYN = Math.random() < 0.5;
-      if (randYN) message.channel.send("Yes.");
-      else message.channel.send("No.");
+      if (randYN) message.reply("Yes.");
+      else message.reply("No.");
       break;
 
     // howdy
