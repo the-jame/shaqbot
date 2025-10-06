@@ -2770,13 +2770,15 @@ client.on("ready", () => {
       .send({ files: ["img/friday.mp4"] });
   }
   else {
-      let dir = "/home/ubuntu/shaqbot/img/";
+    let dir = "/home/ubuntu/shaqbot/img/";
+    randFile(dir, (err, file) => {
         client.channels.cache
-        .get("95702402253983744")
-        .send({ files: ["img/friday.mp4"] });
-      randFile(dir, (err, file) => {
-        message.channel.send({ files: [`img/${file}`] });
-      });
+            .get("95702402253983744")
+            .send({ 
+              content: "Today's meme is...",
+              files: [`img/${file}`] 
+            });
+    });
   }
 
 
