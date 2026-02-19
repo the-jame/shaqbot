@@ -26,10 +26,6 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const ai = new GoogleGenAI({
-  api_key: process.env.GEMINI_API_KEY
-  });
-
 const deepseek = new OpenAI({
   baseURL: "https://api.deepseek.com",
   apiKey: process.env.DS_API_KEY,
