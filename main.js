@@ -219,15 +219,21 @@ client.on("messageCreate", async (message) => {
 
     case "who":
     case "whom":
-      let whoPool = irl ? subjectirl : subject;
+      let whoPool = (command === "whom") ? subjectirl : (irl ? subjectirl : subject);
       let chosenWho = whoPool[Math.floor(Math.random() * whoPool.length)];
+      
       if (args.length > 0) {
         // Pronoun swap logic
         let query = args.map(w => {
-            if(w==="my") return "your"; if(w==="your") return "my";
-            if(w==="i") return "you"; if(w==="you") return "me"; if(w==="me") return "you";
+            let word = w.toLowerCase();
+            if(word === "my") return "your"; 
+            if(word === "your") return "my";
+            if(word === "i") return "you"; 
+            if(word === "you") return "me"; 
+            if(word === "me") return "you";
             return w;
         }).join(" ").replace("?", "");
+        
         message.reply(`${chosenWho} ${query}.`);
       } else {
         message.reply(`${chosenWho}.`);
@@ -236,22 +242,32 @@ client.on("messageCreate", async (message) => {
 
     case "why":
     case "y":
+    case "whym":
       let reason = reasons[Math.floor(Math.random() * reasons.length)];
       let thing = things[Math.floor(Math.random() * things.length)];
-      let poolY = irl ? subjectirl : subject;
+    
+      let poolY = (command === "whym") ? subjectirl : (irl ? subjectirl : subject);
       let subjY = poolY[Math.floor(Math.random() * poolY.length)];
       
       if (args.length === 0) {
           message.reply(`Because ${subjY} ${reason}.`);
       } else {
-          // Complex pronoun swap logic (simplified for readability but functionally identical)
+          // Pronoun swap logic
           let query = args.map(w => {
-            if(w==="my") return "your"; if(w==="your") return "my";
-            if(w==="i") return "you"; if(w==="you") return "me"; if(w==="me") return "you";
+            let word = w.toLowerCase();
+            if(word === "my") return "your"; 
+            if(word === "your") return "my";
+            if(word === "i") return "you"; 
+            if(word === "you") return "me"; 
+            if(word === "me") return "you";
             return w;
           }).join(" ").replace("?", "");
+
           // Handle "is/are" swap if first word
-          if(["is","are","am","do","does"].includes(args[0].toLowerCase())) query = args.slice(1).join(" "); 
+          if(["is","are","am","do","does"].includes(args[0].toLowerCase())) {
+            query = args.slice(1).join(" "); 
+          }
+
           message.reply(`${query} because ${subjY} ${reason}.`);
       }
       break;
