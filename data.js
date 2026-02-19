@@ -1,6 +1,4 @@
 module.exports = {
-  // 1. Copy everything from: var subject = [ ... ]
-  // Change "var subject =" to "subject:"
   subject: [
   "reeg",
   "james",
@@ -321,7 +319,6 @@ module.exports = {
   "hugh jackman"
   ],
 
-  // 2. Change "var subjectirl =" to "subjectirl:"
   subjectirl: [
   "reeg",
   "james",
@@ -338,7 +335,6 @@ module.exports = {
   "adriana"
   ],
 
-  // 3. Change "var erW =" to "erW:"
   erW: [
   "enemy",
   "weak foe",
@@ -712,7 +708,6 @@ module.exports = {
   "are you ready?"
   ],
 
-  // 4. Change "var erP =" to "erP:"
   erP: [
   `{w} ahead`,
   `Likely {w}`,
@@ -741,7 +736,6 @@ module.exports = {
   `{w}...`
   ],
 
-  // 5. Change "var erC =" to "erC:"
   erC: [
   "and then",
   "or",
@@ -755,7 +749,6 @@ module.exports = {
   ","
   ],
 
-  // 6. Change "var things =" to "things:"
   things: [
   "poop",
   "in n out double double",
@@ -897,7 +890,6 @@ module.exports = {
   "a nice pen"
   ],
 
-  // 7. Change "var times =" to "times:"
   times: [
   "right now",
   "right this second :gun:",
@@ -1085,7 +1077,6 @@ module.exports = {
   "when you forgive yourself"
   ],
 
-  // 8. Change "var locations =" to "locations:"
   locations: [
   "the Grand Canyon",
   "a sex dungeon",
@@ -1259,7 +1250,6 @@ module.exports = {
   "the elder scrolls' tamriel"
   ],
 
-  // 9. Change "var reasons =" to "reasons:"
   reasons: [
   "said the earth is flat",
   "has a girthy balloon shlong",
@@ -1468,7 +1458,6 @@ module.exports = {
   "something chinese happened"
   ],
 
-  // 10. Change "var ballsizes =" to "ballsizes:"
   ballsizes: [
   "large",
   "small",
@@ -1591,7 +1580,6 @@ module.exports = {
   "poignant"
   ],
 
-  // 11. Change "var allEmoji =" to "allEmoji:"
   allEmoji: [
   "🅰️",
   "🅱️",
