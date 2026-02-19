@@ -21,9 +21,6 @@ const client = new Client({
 
 require("dotenv").config();
 
-const data = require('./data.js');
-const { subject, subjectirl, erW, erP, erC, things, times, locations, reasons, ballsizes, allEmoji, wtf, cummies } = data;
-
 const openai = new OpenAI({
   organization: process.env.ORGANIZATION,
   apiKey: process.env.OPENAI_API_KEY,
