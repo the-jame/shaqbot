@@ -1,0 +1,11 @@
+{
+"token": "YOUR_DISCORD_TOKEN_HERE",
+"prefix": "=",
+"YTAPI": "YOUR_YOUTUBE_API_KEY_HERE",
+"shaqID": "USER_ID_HERE",
+"advanceEmoji": "⏩",
+"translateEmoji": "🗣️",
+"evilEmoji": "😈",
+"james": "USER_ID_HERE",
+"jimmy": "USER_ID_HERE"
+}
