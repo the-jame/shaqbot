@@ -1,9 +1,8 @@
 # Shaqbot
-Simple, spaghetti code bot made for my Discord server. Now powered by DeepSeek & OpenAI (GPT-5 Nano).
+Simple, spaghetti code bot made for my Discord server. With DeepSeek & OpenAI (GPT-5 Nano).
 
 ## Features
-- **Triple AI Core**: Logic for OpenAI (GPT-5 Nano) and DeepSeek (deepseek-chat).
-- **Mean AI Logic**: AI personality changes based on the day of the week (higher chance of being rude on certain days).
+- **LLM Integration**: Logic for OpenAI (GPT-5 Nano) and DeepSeek (deepseek-chat).
 - **Hardcoded Subjects**: Huge internal arrays for generating millions of unique "Who/Why/What" responses.
 - **Media Engine**: A massive library of triggered images and randomized meme selection.
 - **Auto-Moderation**: Automatically deletes specific stickers and restricts AI to allowed channels.
@@ -33,7 +32,7 @@ nano settings.json
 ---
 
 ## Commands & Usage
-The trigger is `=`.
+The trigger is `=`. This can be changed in the settings.
 
 ### AI Commands
 | Command | Description |
