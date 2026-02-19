@@ -146,6 +146,24 @@ client.on("messageCreate", async (message) => {
   // Disallowed Channels for AI
   const disallowedChannels = ["1052935779720106064", "603737695297994762", "533020942830403585", "1068322645008994396", "912492997306880031"];
 
+    if (/^u+$/.test(command)) {
+    const syl = [
+      "eu", "xeu", "bu", "lem", "lum", "hue", "shaq", "anus", "cumb", "yeff",
+      "glurp", "gleep", "mlem", "crunt", "smeg", "bloop",
+      "clonk", "quorp", "flerg", "jink", "twonk", "glump", "hurg"
+    ];
+    
+    let uuuStr = "";
+    // Double the command length (1u = 2 syllables, 2u = 4 syllables, etc.)
+    const totalSyllables = command.length * 2;
+    
+    for (let i = 0; i < totalSyllables; i++) {
+      uuuStr += syl[Math.floor(Math.random() * syl.length)];
+    }
+    
+    return message.reply(uuuStr);
+  }
+  
   switch (command) {
     case "ai":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
@@ -336,13 +354,6 @@ client.on("messageCreate", async (message) => {
       let eightball = ["It is certain.", "As I see it, yes.", ":thumbsup:", "Sure.", "No way.", "Cannot decide...", "HELL no.", "Ask again later."]; 
       // (Truncated list for brevity, logic remains)
       message.reply(eightball[Math.floor(Math.random() * eightball.length)]);
-      break;
-
-    case "uuu":
-      let syl = ["eu", "xeu", "bu", "lem", "lum", "hue", "shaq", "anus", "cumb", "yeff"];
-      let uuuStr = "";
-      for (let i = 0; i < 5; i++) uuuStr += syl[Math.floor(Math.random() * syl.length)];
-      message.reply(uuuStr);
       break;
 
     case "asscrack":
