@@ -1,5 +1,4 @@
 let Discord = require("discord.js");
-const { GoogleGenAI , Modality } = require("@google/genai");
 const { OpenAI } = require("openai");
 const {
   Client,
