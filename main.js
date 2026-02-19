@@ -285,6 +285,19 @@ client.on("messageCreate", async (message) => {
       let mockMsg = args.join(" ").toLowerCase().split("").map((c, i) => Math.random() < 0.5 ? c.toUpperCase() : c).join("");
       message.channel.send({ content: mockMsg, files: [spongeMocking] });
       break;
+      
+    case "howdy":
+      let cowboyphrases = [
+        "Howdy partner :cowboy:",
+        "H'lo :cowboy:",
+        "This town ain't big enough for the two of us :cowboy:",
+        "_a tumbleweed rolls by_",
+        "It's high noon :cowboy:",
+      ];
+      let howdyN = Math.floor(Math.random() * (cowboyphrases.length - 1));
+      let howdyMsg = cowboyphrases[howdyN];
+      message.reply(howdyMsg);
+      break;
 
     case "size":
     case "ballsize":
