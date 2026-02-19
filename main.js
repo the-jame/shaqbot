@@ -3175,7 +3175,7 @@ async function generateAndSendImage(message) {
       let invPrompt =
         "In a few sentences, write a pitch for a new product or idea called: " +
         args.join(" ") +
-        ". Add a slogan or catchphrase at the end.";
+        ". If the topic is silly, lean into it fully seriously. If it's sexual, lean into the sex theme, etc.  Add a slogan or catchphrase at the end.";
       if (Math.random() >= 0.9) {
         invPrompt += ", but make the pitch really stupid and impractical.";
         sillyInv = true;
@@ -4176,9 +4176,6 @@ async function generateAndSendImage(message) {
     case "ruthkanda":
       message.channel.send({ files: ["img/ruthkanda.png"] });
       break;
-    case "parm":
-      message.channel.send({ files: ["img/parm.jpg"] });
-      break;
     case "spanish":
     case "cocinerodesushi":
       message.channel.send({ files: ["img/spanish.wav"] });
@@ -4423,6 +4420,18 @@ async function generateAndSendImage(message) {
       break;
     case "spooky":
       message.channel.send({ files: ["img/spooky.webp"] });
+      break;
+    case "hegotup":
+      message.channel.send({ files: ["img/hegotup.webp"] });
+      break;
+    case "parm":
+    case "parmesan":
+    case "parmigiano":
+    case "parmagiano":
+    case "reggiano":
+    case "aged":
+    case "greg":
+      message.channel.send({ files: ["img/parm.jpg"] });
       break;
 
     // zzzzz endofmeme newest latest recent
