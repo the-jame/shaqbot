@@ -149,8 +149,8 @@ client.on("messageCreate", async (message) => {
     if (/^u+$/.test(command)) {
     const syl = [
       "eu", "xeu", "bu", "lem", "lum", "hue", "shaq", "anus", "cumb", "yeff",
-      "glurp", "gleep", "mlem", "crunt", "smeg", "bloop",
-      "clonk", "quorp", "flerg", "jink", "twonk", "glump", "hurg"
+      "glurp", "gleep", "mlem", "crunt", "smeg", "bloop", "sork", "creen",
+      "clonk", "quorp", "flerg", "jink", "twonk", "glump", "hurg", "dorf"
     ];
     
     let uuuStr = "";
