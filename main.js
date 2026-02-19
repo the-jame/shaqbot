@@ -154,27 +154,16 @@ client.on("messageCreate", async (message) => {
     ];
     
     let uuuStr = "";
-    // Safety cap: Limit to 1000 syllables max so we don't crash the server's RAM
-    const totalSyllables = Math.min(command.length * 2, 1000);
+    const totalSyllables = command.length * 2;
     
     for (let i = 0; i < totalSyllables; i++) {
       uuuStr += syl[Math.floor(Math.random() * syl.length)];
+      // Stop generating if we've already hit the Discord character limit
+      if (uuuStr.length >= 2000) break;
     }
     
-    // DISCORD LIMIT FIX: Split into 2000-character chunks
-    if (uuuStr.length > 2000) {
-      // Send the first chunk as a reply
-      await message.reply(uuuStr.substring(0, 2000));
-      
-      // Send any remaining characters as follow-up messages
-      for (let i = 2000; i < uuuStr.length; i += 2000) {
-        await message.channel.send(uuuStr.substring(i, i + 2000));
-      }
-    } else {
-      // If it's small, just reply normally
-      message.reply(uuuStr);
-    }
-    return;
+    // Hard cap at 2000 characters and send one reply
+    return message.reply(uuuStr.substring(0, 2000));
   }
   
   switch (command) {
