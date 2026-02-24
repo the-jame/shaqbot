@@ -79,7 +79,7 @@ client.on("ready", () => {
     if (dow == 5) { // Friday
       targetChannel.send({ files: ["img/friday.mp4"] });
     } else {
-      const dir = "/home/ubuntu/shaqbot/img/";
+      const dir = "/home/james/shaqbot/img/";
       randFile(dir, (err, file) => {
         if (!err) targetChannel.send({ content: "The meme of the day is...", files: [`img/${file}`] });
       });
@@ -372,21 +372,45 @@ client.on("messageCreate", async (message) => {
 
     case "look":
     case "neck":
-      let neckMsg = await message.channel.send(`${wut1}${wut2}${wut3} ${args.join(" ")}`);
-      let necks = wut2;
-      let interval = setInterval(() => {
-        necks += wut2;
-        neckMsg.edit(`${wut1}${necks}${wut3} ${args.join(" ")}`);
-      }, 1200);
-      setTimeout(() => clearInterval(interval), 15000);
-      break;
+      // Start with one of each as strings
+      let necks = wut2.toString();
+      let neckMsg = await message.channel.send(`${wut1}${necks}${wut3} ${args.join(" ")}`);
       
+      let count = 0;
+      let interval = setInterval(() => {
+        // Add another neck segment
+        necks += wut2.toString();
+        neckMsg.edit(`${wut1}${necks}${wut3} ${args.join(" ")}`).catch(() => clearInterval(interval));
+        
+        count++;
+        // Stop after 10 segments or 15 seconds so we don't get rate-limited
+        if (count >= 10) clearInterval(interval);
+      }, 800);
+
+      setTimeout(() => clearInterval(interval), 12000);
+      break;
     // --- MEDIA COMMANDS (The Big List) ---
     case "plex":
       const plexEmoji = client.emojis.cache.get("628993764173807636");
       message.channel.send(
         `${plexEmoji} IT HAS BEEN 0 DAYS SINCE THE LAST PLEX REFERENCE. ${plexEmoji}`
       );
+      break;
+
+    case "random":
+    case "react":
+    case "meme":
+      // Using the full absolute path as in your original script
+      const imgDir = "/home/james/shaqbot/img/";
+
+      randFile(imgDir, (err, file) => {
+        if (err) return console.log(err);
+
+        // Send the file from the relative path for the message attachment
+        message.channel.send({
+          files: [`img/${file}`]
+        }).catch(err => console.log("Failed to send meme:", err));
+      });
       break;
 
     case "breasts":
@@ -832,7 +856,7 @@ client.on("messageCreate", async (message) => {
       message.channel.send({ files: ["img/worldfuck.png"] });
       break;
     case "sickos":
-      let sickoDir = "/home/ubuntu/shaqbot/sickos/";
+      let sickoDir = "/home/james/shaqbot/sickos/";
           randFile(sickoDir, (err, file) => {
             message.channel.send({ files: [`sickos/${file}`] });
           });
@@ -1309,6 +1333,10 @@ client.on("messageCreate", async (message) => {
     case "aged":
     case "greg":
       message.channel.send({ files: ["img/parm.jpg"] });
+      break;
+    case "stew":
+    case "blindingstew":
+      message.channel.send({ files: ["img/1dayblindingstew.png"] });
       break;
 
     // zzzzz endofmeme newest latest recent
