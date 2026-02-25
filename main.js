@@ -79,7 +79,7 @@ client.on("ready", () => {
     if (dow == 5) { // Friday
       targetChannel.send({ files: ["img/friday.mp4"] });
     } else {
-      const dir = "/home/james/shaqbot/img/";
+      const dir = "/home/james/bots/shaqbot/img/";
       randFile(dir, (err, file) => {
         if (!err) targetChannel.send({ content: "The meme of the day is...", files: [`img/${file}`] });
       });
@@ -98,15 +98,24 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
   const { advanceEmoji, translateEmoji, evilEmoji } = settings;
   const content = reaction.message.content;
-  let newPrompt = "", sendToAI = false;
+  let newPrompt = "", sendToAI = false, useTTS = false;
 
   if (reaction.emoji.name === advanceEmoji) {
     newPrompt = "Complete the following story: " + content;
     sendToAI = true;
-  } else if (reaction.emoji.name === translateEmoji) {
-    newPrompt = "Translate the following to English: " + content;
+  } 
+  else if (reaction.emoji.name === translateEmoji) {
+    // New logic: Check if English -> Random -> English. If not English -> English.
+    newPrompt = `You are an expert translator. 
+    Analyze the following text: "${content}"
+    1. If the text is already in English: Translate it into a random non-English language, then translate that result back into English. 
+    2. If the text is NOT in English: Simply translate it directly into English.
+    Provide ONLY the final English text as your response.`;
+    
     sendToAI = true;
-  } else if (reaction.emoji.name === evilEmoji && content.startsWith("=")) {
+    useTTS = false; // Flag to enable Text-to-Speech for this specific command
+  } 
+  else if (reaction.emoji.name === evilEmoji && content.startsWith("=")) {
     newPrompt = content.slice(3) + ". Your answer should be extremely hurtful, sarcastic, and offensive.";
     sendToAI = true;
   }
@@ -115,15 +124,26 @@ client.on("messageReactionAdd", async (reaction, user) => {
     try {
       const completion = await deepseek.chat.completions.create({
         model: "deepseek-chat",
-        messages: [{ role: "system", content: "You are a helpful assistant." }, { role: "user", content: newPrompt }],
+        messages: [
+          { role: "system", content: "You are a helpful assistant." }, 
+          { role: "user", content: newPrompt }
+        ],
       });
+
       let response = completion.choices[0].message.content;
       if (response.length > 1950) response = response.substring(0, 1950);
-      reaction.message.reply(response);
-    } catch (e) { console.error(e); }
+
+      // We pass the tts option based on whether it was the translate command
+      reaction.message.reply({
+        content: response,
+        tts: useTTS 
+      });
+
+    } catch (e) { 
+      console.error(e); 
+    }
   }
 });
-
 // --- MESSAGE CREATE HANDLER ---
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
@@ -401,7 +421,7 @@ client.on("messageCreate", async (message) => {
     case "react":
     case "meme":
       // Using the full absolute path as in your original script
-      const imgDir = "/home/james/shaqbot/img/";
+      const imgDir = "/home/james/bots/shaqbot/img/";
 
       randFile(imgDir, (err, file) => {
         if (err) return console.log(err);
@@ -856,7 +876,7 @@ client.on("messageCreate", async (message) => {
       message.channel.send({ files: ["img/worldfuck.png"] });
       break;
     case "sickos":
-      let sickoDir = "/home/james/shaqbot/sickos/";
+      let sickoDir = "/home/james/bots/shaqbot/sickos/";
           randFile(sickoDir, (err, file) => {
             message.channel.send({ files: [`sickos/${file}`] });
           });
