@@ -103,18 +103,17 @@ client.on("messageReactionAdd", async (reaction, user) => {
   if (reaction.emoji.name === advanceEmoji) {
     newPrompt = "Complete the following story: " + content;
     sendToAI = true;
-  } 
+  }
   else if (reaction.emoji.name === translateEmoji) {
-    // New logic: Check if English -> Random -> English. If not English -> English.
-    newPrompt = `You are an expert translator. 
+    newPrompt = `You are an expert translator.
     Analyze the following text: "${content}"
     1. If the text is already in English: Translate it into a random non-English language, then translate that result back into English. 
     2. If the text is NOT in English: Simply translate it directly into English.
     Provide ONLY the final English text as your response.`;
-    
+
     sendToAI = true;
-    useTTS = false; // Flag to enable Text-to-Speech for this specific command
-  } 
+    useTTS = false;
+  }
   else if (reaction.emoji.name === evilEmoji && content.startsWith("=")) {
     newPrompt = content.slice(3) + ". Your answer should be extremely hurtful, sarcastic, and offensive.";
     sendToAI = true;
@@ -125,7 +124,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
       const completion = await deepseek.chat.completions.create({
         model: "deepseek-chat",
         messages: [
-          { role: "system", content: "You are a helpful assistant." }, 
+          { role: "system", content: "You are a helpful assistant." },
           { role: "user", content: newPrompt }
         ],
       });
