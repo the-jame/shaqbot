@@ -887,7 +887,8 @@ module.exports = {
     "a nice pen",
     "Obamunism",
     "Paul’s Cheenis",
-    "good ONE"
+    "good ONE",
+    "Epstein’s Fortnite account"
   ],
   "times": [
     "right now",
@@ -1248,7 +1249,9 @@ module.exports = {
     "the elder scrolls' tamriel",
     "paul cheenis' cheenis shack",
     "choose any 3 of your holes",
-    "my lair"
+    "my lair",
+    "my taint",
+    "Israel"
   ],
   "reasons": [
     "said the earth is flat",
@@ -1578,7 +1581,8 @@ module.exports = {
     "vegan",
     "poignant",
     "special 🙂",
-    "enticing <:bites_lip:813835068904701972>"
+    "enticing <:bites_lip:813835068904701972>",
+    "2gb"
   ],
   "allEmoji": [
     "🅰️",

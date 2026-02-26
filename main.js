@@ -201,7 +201,6 @@ client.on("messageCreate", async (message) => {
         "when": "times", "time": "times",
         "why": "reasons", "reason": "reasons",
         "ball": "ballsizes", "size": "ballsizes",
-        "emoji": "allEmoji"
       };
 
       const userInput = args[0]?.toLowerCase();
@@ -236,6 +235,56 @@ client.on("messageCreate", async (message) => {
           return message.reply("Failed to save to the file.");
         }
         message.reply(`Added **${newItem}** to the **${listName}** list.`);
+      });
+      break;
+
+    case "remove":
+    case "del":
+    case "delete":
+      if (message.author.id !== owner) return message.reply("Only dad can delete stuff.");
+
+      const delAliasMap = {
+        "who": "subject", "person": "subject", "subject": "subject",
+        "irl": "subjectirl", "whoirl": "subjectirl",
+        "thing": "things", "what": "things", "things": "things", "stuff": "things",
+        "where": "locations", "location": "locations", "place": "locations",
+        "when": "times", "time": "times",
+        "why": "reasons", "reason": "reasons",
+        "ball": "ballsizes", "size": "ballsizes",
+      };
+
+      const delUserInput = args[0]?.toLowerCase();
+      const delListName = delAliasMap[delUserInput];
+      let itemToDelete = args.slice(1).join(" ").trim();
+
+      if (!delListName || !itemToDelete) {
+        return message.reply("Usage: `=remove [list] [item]`\nExample: `=remove who Alexander Hamilton`.");
+      }
+
+      if (delListName === "reasons") {
+        itemToDelete = itemToDelete.replace(/^because\s+/i, "");
+      }
+
+      // Find the index of the item (case-insensitive)
+      const itemIndex = data[delListName].findIndex(
+        item => item.toLowerCase() === itemToDelete.toLowerCase()
+      );
+
+      if (itemIndex === -1) {
+        return message.reply(`I couldn't find **${itemToDelete}** in the **${delListName}** list.`);
+      }
+
+      // 1. Remove from memory
+      const removedItem = data[delListName].splice(itemIndex, 1);
+
+      // 2. Save to file
+      const delUpdatedData = `module.exports = ${JSON.stringify(data, null, 2)};`;
+      fs.writeFile("./data.js", delUpdatedData, (err) => {
+        if (err) {
+          console.error(err);
+          return message.reply("Removed from memory, but failed to save to file.");
+        }
+        message.reply(`Deleted **${removedItem}** from the **${delListName}** list.`);
       });
       break;
 
