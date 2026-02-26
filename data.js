@@ -902,7 +902,8 @@ module.exports = {
     "shit from a butt",
     "poop from an ass",
     "a single poop from two asses",
-    "piss"
+    "piss",
+    "file.data"
   ],
   "times": [
     "right now",
@@ -1090,7 +1091,8 @@ module.exports = {
     "when asses learn to wipe themselves",
     "when you forgive yourself",
     "when the clock strokes its shit its got lotion on its shit it's horny as fuuuuck",
-    "lunch time"
+    "lunch time",
+    "when the penne explodes"
   ],
   "locations": [
     "the Grand Canyon",
