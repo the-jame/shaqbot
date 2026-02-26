@@ -365,7 +365,7 @@ client.on("messageCreate", async (message) => {
 
         filePath.on("finish", () => {
           filePath.close();
-          message.reply(`added **${finalFileName}** to img pool.`);
+          message.reply(`Added **${finalFileName}** to the image pool.`);
         });
 
         filePath.on("error", (err) => {
@@ -1552,9 +1552,28 @@ client.on("messageCreate", async (message) => {
     case "blindingstew":
       message.channel.send({ files: ["img/1dayblindingstew.png"] });
       break;
+    default:
+      try {
+        const imgFolder = path.join(__dirname, "img");
+        const files = fs.readdirSync(imgFolder);
 
+        // Look for a file where the name (ignoring extension) matches the command
+        const match = files.find(f => {
+          // Get filename without extension (e.g., "bigmac.png" -> "bigmac")
+          const nameOnly = path.parse(f).name.toLowerCase();
+          return nameOnly === command.toLowerCase();
+        });
+
+        if (match) {
+          message.channel.send({
+            files: [path.join("img", match)]
+          }).catch(err => console.error("Failed to send image:", err));
+        }
+      } catch (e) {
+        console.error("Catch-all error:", e);
+      }
+      break;
     // zzzzz endofmeme newest latest recent
-    
   }
 });
 
