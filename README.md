@@ -43,7 +43,7 @@ Modify the bot's internal vocabulary and image lists without restarting code.
 | --- | --- |
 | `=add <list> <text>` | Adds an item to a specific list. <br> **Lists:** `who`, `irl`, `thing`, `where`, `when`, `why`, `size`. <br> *Ex: `=add who Alexander Hamilton`* |
 | `=remove <list> <text>` | Removes an item from a list. Aliases: `=del`, `=delete`. |
-| `=count [list]` | Shows how many items are in a list (or a summary of all lists if left blank). |
+| `=count <list>` | Shows how many items are in a list (or a summary of all lists if left blank). |
 | `=img <name>` | **(Attach an image)** Saves the attached image (or linked URL) to the bot. <br> You can then summon it by typing `=<name>`. |
 
 ### 🤖 AI & Reactions
