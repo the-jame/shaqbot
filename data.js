@@ -318,7 +318,8 @@ module.exports = {
     "the flash",
     "hugh jackman",
     "paul cheenis",
-    "crunt"
+    "crunt",
+    "John, Paul, George, and Ringo"
   ],
   "subjectirl": [
     "reeg",
@@ -888,7 +889,8 @@ module.exports = {
     "Obamunism",
     "Paul’s Cheenis",
     "good ONE",
-    "Epstein’s Fortnite account"
+    "Epstein’s Fortnite account",
+    "goth boots"
   ],
   "times": [
     "right now",

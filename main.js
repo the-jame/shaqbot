@@ -288,6 +288,37 @@ client.on("messageCreate", async (message) => {
       });
       break;
 
+    case "count":
+      const countMap = {
+        "who": "subject", "person": "subject", "subject": "subject", "people": "subject",
+        "irl": "subjectirl", "whoirl": "subjectirl",
+        "thing": "things", "things": "things", "stuff": "things",
+        "where": "locations", "location": "locations", "place": "locations",
+        "when": "times", "time": "times", "times": "times",
+        "why": "reasons", "whys":"reasons", "reason": "reasons",
+        "ball": "ballsizes","sizes": "ballsizes", "size": "ballsizes",
+      };
+
+      const countInput = args[0]?.toLowerCase();
+
+      // If they specified a list (e.g., "=count who")
+      if (countInput && countMap[countInput]) {
+        const listName = countMap[countInput];
+        const num = data[listName].length;
+        return message.reply(`There are **${num}** items in the **${listName}** list.`);
+      }
+
+      // If they just typed "=count", show a summary of everything
+      let summary = "**Current Database Counts:**\n";
+      summary += `**Who:** ${data.subject.length}\n`;
+      summary += `**Things:** ${data.things.length}\n`;
+      summary += `**Places:** ${data.locations.length}\n`;
+      summary += `**Times:** ${data.times.length}\n`;
+      summary += `**Reasons:** ${data.reasons.length}\n`;
+      summary += `**Sizes:** ${data.ballsizes.length}\n`;
+
+      message.reply(summary);
+      break;
 
     case "ai":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
