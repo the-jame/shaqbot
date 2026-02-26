@@ -1,17 +1,18 @@
 const { Client, Partials, GatewayIntentBits, AttachmentBuilder } = require("discord.js");
 const { OpenAI } = require("openai");
 const randFile = require("select-random-file");
+const fs = require("fs");
+
 require("dotenv").config();
 
 // --- DATA IMPORT ---
 const data = require("./data.js");
-const { 
-  subject, subjectirl, erW, erP, erC, things, 
-  times, locations, reasons, ballsizes, 
-  allEmoji, wtf, cummies 
+const {
+  subject, subjectirl, erW, erP, erC, things,
+  times, locations, reasons, ballsizes,
+  allEmoji, wtf, cummies
 } = data;
 
-// --- CLIENT SETUP ---
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers,
@@ -32,6 +33,7 @@ const spongeMocking = new AttachmentBuilder("img/mockingbob.jpg");
 
 function sleep(ms) { return new Promise((resolve) => setTimeout(resolve, ms)); }
 function capitalize(s) { return s && s[0].toUpperCase() + s.slice(1); }
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
 // Load Settings
 try {
@@ -44,7 +46,7 @@ try {
 // --- READY EVENT (Meme of the Day & Birthdays) ---
 client.on("ready", () => {
   console.log(`Shaq started: ${client.users.cache.size} users, ${client.guilds.cache.size} servers.`);
-  
+
   // Load Emojis
   wut1 = client.emojis.cache.get("431701745329111041");
   wut2 = client.emojis.cache.get("431701745014669314");
@@ -57,7 +59,7 @@ client.on("ready", () => {
   philipR = client.emojis.cache.get("818650382472314911");
   philipC = client.emojis.cache.get("818649301802156094");
   thinkAss = client.emojis.cache.get("813835069780918304");
-  
+
   owner = settings.james;
 
   // Birthday Check
@@ -171,25 +173,73 @@ client.on("messageCreate", async (message) => {
       "glurp", "gleep", "mlem", "crunt", "smeg", "bloop", "sork", "creen",
       "clonk", "quorp", "flerg", "jink", "twonk", "glump", "hurg", "dorf"
     ];
-    
+
     let uuuStr = "";
     const totalSyllables = command.length * 2;
-    
+
     for (let i = 0; i < totalSyllables; i++) {
       uuuStr += syl[Math.floor(Math.random() * syl.length)];
       // Stop generating if we've already hit the Discord character limit
       if (uuuStr.length >= 2000) break;
     }
-    
+
     // Hard cap at 2000 characters and send one reply
     return message.reply(uuuStr.substring(0, 2000));
   }
-  
+
   switch (command) {
+
+    case "add":
+      //if (message.author.id !== owner) return message.reply("You're not my dad!");
+
+      const aliasMap = {
+        // User Input : Actual Key in data.js
+        "who": "subject", "person": "subject", "subject": "subject",
+        "irl": "subjectirl", "whoirl": "subjectirl",
+        "thing": "things", "what": "things", "things": "things", "stuff": "things",
+        "where": "locations", "location": "locations", "place": "locations",
+        "when": "times", "time": "times",
+        "why": "reasons", "reason": "reasons",
+        "ball": "ballsizes", "size": "ballsizes",
+        "emoji": "allEmoji"
+      };
+
+      const userInput = args[0]?.toLowerCase();
+      const listName = aliasMap[userInput];
+      const newItem = args.slice(1).join(" ").trim();
+
+      if (!listName || !newItem) {
+        return message.reply("Usage: `=add [who/thing/place/irl/size] [item]`");
+      }
+
+      // 1. Safety check: make sure the list exists and is an array
+      if (!Array.isArray(data[listName])) {
+        return message.reply(`I can't add to **${listName}** because it's not a list!`);
+      }
+
+      // 2. Duplicate Check
+      const exists = data[listName].some(item => item.toLowerCase() === newItem.toLowerCase());
+      if (exists) return message.reply(`**${newItem}** is already in that list.`);
+
+      // 3. Update Memory
+      data[listName].push(newItem);
+
+      // 4. Update File (Permanent Save)
+      const updatedData = `module.exports = ${JSON.stringify(data, null, 2)};`;
+      fs.writeFile("./data.js", updatedData, (err) => {
+        if (err) {
+          console.error(err);
+          return message.reply("Failed to save to the file.");
+        }
+        message.reply(`Added **${newItem}** to the **${listName}** list.`);
+      });
+      break;
+
+
     case "ai":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
       message.channel.sendTyping();
-      
+
       const dow = new Date().getDay();
       const meanRand = [2, 10, 5, 4, 3, 3, 2];
       let prompt = args.join(" ") + ". Your answer should be clear and complete, but concise.";
@@ -259,20 +309,20 @@ client.on("messageCreate", async (message) => {
     case "who":
     case "whom":
       let whoPool = (command === "whom") ? subjectirl : (irl ? subjectirl : subject);
-      let chosenWho = whoPool[Math.floor(Math.random() * whoPool.length)];
-      
+      let chosenWho = pick(whoPool);
+
       if (args.length > 0) {
         // Pronoun swap logic
         let query = args.map(w => {
             let word = w.toLowerCase();
-            if(word === "my") return "your"; 
+            if(word === "my") return "your";
             if(word === "your") return "my";
-            if(word === "i") return "you"; 
-            if(word === "you") return "me"; 
+            if(word === "i") return "you";
+            if(word === "you") return "me";
             if(word === "me") return "you";
             return w;
         }).join(" ").replace("?", "");
-        
+
         message.reply(`${chosenWho} ${query}.`);
       } else {
         message.reply(`${chosenWho}.`);
@@ -282,12 +332,12 @@ client.on("messageCreate", async (message) => {
     case "why":
     case "y":
     case "whym":
-      let reason = reasons[Math.floor(Math.random() * reasons.length)];
-      let thing = things[Math.floor(Math.random() * things.length)];
-    
+      let reason = pick(reasons);
+      let thing = pick(things);
+
       let poolY = (command === "whym") ? subjectirl : (irl ? subjectirl : subject);
       let subjY = poolY[Math.floor(Math.random() * poolY.length)];
-      
+
       if (args.length === 0) {
           message.reply(`Because ${subjY} ${reason}.`);
       } else {
@@ -312,7 +362,7 @@ client.on("messageCreate", async (message) => {
       break;
 
     case "when":
-      message.reply(capitalize(times[Math.floor(Math.random() * times.length)]) + ".");
+      message.reply(capitalize(pick(times)) + ".");
       break;
 
     case "where":
@@ -340,7 +390,7 @@ client.on("messageCreate", async (message) => {
       let mockMsg = args.join(" ").toLowerCase().split("").map((c, i) => Math.random() < 0.5 ? c.toUpperCase() : c).join("");
       message.channel.send({ content: mockMsg, files: [spongeMocking] });
       break;
-      
+
     case "howdy":
       let cowboyphrases = [
         "Howdy partner :cowboy:",
@@ -362,8 +412,8 @@ client.on("messageCreate", async (message) => {
       // Specific logic for "my", "shaq", etc
       if (!args[0] || args[0].toLowerCase() === "my") targetName = "Your";
       else if (args[0].toLowerCase() === "your" || args[0].toLowerCase().includes("shaq")) targetName = "My";
-      
-      let randSize = ballsizes[Math.floor(Math.random() * ballsizes.length)];
+
+      let randSize = pick(ballsizes);
       message.reply(`${targetName}${targetName.endsWith('s') ? "'" : "'s"} ${ballCommand ? "ball " : ""}size is ${randSize}.`);
       break;
 
@@ -372,6 +422,8 @@ client.on("messageCreate", async (message) => {
     case "is":
     case "can":
     case "should":
+    case "are":
+    case "will":
       let eightball = ["It is certain.", "As I see it, yes.", ":thumbsup:", "Sure.", "No way.", "Cannot decide...", "HELL no.", "Ask again later."]; 
       // (Truncated list for brevity, logic remains)
       message.reply(eightball[Math.floor(Math.random() * eightball.length)]);
@@ -394,7 +446,7 @@ client.on("messageCreate", async (message) => {
       // Start with one of each as strings
       let necks = wut2.toString();
       let neckMsg = await message.channel.send(`${wut1}${necks}${wut3} ${args.join(" ")}`);
-      
+
       let count = 0;
       let interval = setInterval(() => {
         // Add another neck segment
