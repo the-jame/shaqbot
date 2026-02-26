@@ -212,6 +212,10 @@ client.on("messageCreate", async (message) => {
         return message.reply("Usage: `=add [who/thing/place/irl/size] [item]`");
       }
 
+      if (listName === "reasons") {
+        newItem = newItem.replace(/^because\s+/i, "");
+      }
+
       // 1. Safety check: make sure the list exists and is an array
       if (!Array.isArray(data[listName])) {
         return message.reply(`I can't add to **${listName}** because it's not a list!`);

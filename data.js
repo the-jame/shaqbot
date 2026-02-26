@@ -885,7 +885,9 @@ module.exports = {
     "pork juice",
     "crust",
     "a nice pen",
-    "Obamunism"
+    "Obamunism",
+    "Paul’s Cheenis",
+    "good ONE"
   ],
   "times": [
     "right now",
@@ -1243,7 +1245,10 @@ module.exports = {
     "the batcave",
     "the death star",
     "the citadel (half-life)",
-    "the elder scrolls' tamriel"
+    "the elder scrolls' tamriel",
+    "paul cheenis' cheenis shack",
+    "choose any 3 of your holes",
+    "my lair"
   ],
   "reasons": [
     "said the earth is flat",
