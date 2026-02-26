@@ -319,7 +319,12 @@ module.exports = {
     "hugh jackman",
     "paul cheenis",
     "crunt",
-    "John, Paul, George, and Ringo"
+    "John, Paul, George, and Ringo",
+    "mold mario",
+    "clavicular",
+    "Chupapi Munyanyo",
+    "chinese bill nye",
+    "Mike Jones"
   ],
   "subjectirl": [
     "reeg",
@@ -890,7 +895,14 @@ module.exports = {
     "Paul’s Cheenis",
     "good ONE",
     "Epstein’s Fortnite account",
-    "goth boots"
+    "goth boots",
+    "coffee",
+    "chia seeds",
+    "some nice tea with honey",
+    "shit from a butt",
+    "poop from an ass",
+    "a single poop from two asses",
+    "piss"
   ],
   "times": [
     "right now",
@@ -1076,7 +1088,9 @@ module.exports = {
     "when the first meme becomes sentient",
     "at the exact second nostalgia dies",
     "when asses learn to wipe themselves",
-    "when you forgive yourself"
+    "when you forgive yourself",
+    "when the clock strokes its shit its got lotion on its shit it's horny as fuuuuck",
+    "lunch time"
   ],
   "locations": [
     "the Grand Canyon",
@@ -1253,7 +1267,9 @@ module.exports = {
     "choose any 3 of your holes",
     "my lair",
     "my taint",
-    "Israel"
+    "Israel",
+    "Cedar Rapids",
+    "toilet"
   ],
   "reasons": [
     "said the earth is flat",
@@ -1460,7 +1476,20 @@ module.exports = {
     "I KNOW they ate a cheese",
     "is off the drankies",
     "has a Brian Griffin tattoo",
-    "something chinese happened"
+    "something chinese happened",
+    "needs to spread their spore",
+    "got caught looksmaxxing",
+    "they fucking love peanut butter",
+    "they fucking love science! 🤪",
+    "of WOKE",
+    "allah willed it to be so",
+    "i'm spooky",
+    "HEEEELP!! HELP MEE!!!! THIS IS NOT A JOKE HELP!!!!!",
+    "I’m freaky!",
+    "I’m freaky! I'm horny!",
+    "is shit thumping and pisspilling",
+    "losing subscriber!",
+    "sun downing in the club"
   ],
   "ballsizes": [
     "large",
@@ -1584,7 +1613,14 @@ module.exports = {
     "poignant",
     "special 🙂",
     "enticing <:bites_lip:813835068904701972>",
-    "2gb"
+    "2gb",
+    "freaky",
+    "creepy",
+    "wet",
+    "the size of the smallest in n out yellow chili youve ever seen",
+    "wimpy",
+    "potato-like",
+    "confused"
   ],
   "allEmoji": [
     "🅰️",

@@ -1,6 +1,8 @@
 const { Client, Partials, GatewayIntentBits, AttachmentBuilder } = require("discord.js");
 const { OpenAI } = require("openai");
 const randFile = require("select-random-file");
+const https = require("https");
+const path = require("path");
 const fs = require("fs");
 
 require("dotenv").config();
@@ -190,7 +192,6 @@ client.on("messageCreate", async (message) => {
   switch (command) {
 
     case "add":
-      //if (message.author.id !== owner) return message.reply("You're not my dad!");
 
       const aliasMap = {
         // User Input : Actual Key in data.js
@@ -205,10 +206,10 @@ client.on("messageCreate", async (message) => {
 
       const userInput = args[0]?.toLowerCase();
       const listName = aliasMap[userInput];
-      const newItem = args.slice(1).join(" ").trim();
+      let newItem = args.slice(1).join(" ").trim();
 
       if (!listName || !newItem) {
-        return message.reply("Usage: `=add [who/thing/place/irl/size] [item]`");
+        return message.reply("Usage: `=add [who/what/when/where/why/size] [input]`");
       }
 
       if (listName === "reasons") {
@@ -234,7 +235,8 @@ client.on("messageCreate", async (message) => {
           console.error(err);
           return message.reply("Failed to save to the file.");
         }
-        message.reply(`Added **${newItem}** to the **${listName}** list.`);
+        //message.reply(`Added **${newItem}** to the **${listName}** list.`);
+        message.react('✅').catch(err => console.error("Couldn't react:", err));
       });
       break;
 
@@ -258,7 +260,7 @@ client.on("messageCreate", async (message) => {
       let itemToDelete = args.slice(1).join(" ").trim();
 
       if (!delListName || !itemToDelete) {
-        return message.reply("Usage: `=remove [list] [item]`\nExample: `=remove who Alexander Hamilton`.");
+        return message.reply("Usage: `=remove [list] [input]`\nExample: `=remove who Alexander Hamilton`.");
       }
 
       if (delListName === "reasons") {
@@ -284,7 +286,8 @@ client.on("messageCreate", async (message) => {
           console.error(err);
           return message.reply("Removed from memory, but failed to save to file.");
         }
-        message.reply(`Deleted **${removedItem}** from the **${delListName}** list.`);
+        //message.reply(`Deleted **${removedItem}** from the **${delListName}** list.`);
+        message.react('✅').catch(err => console.error("Couldn't react:", err));
       });
       break;
 
@@ -319,6 +322,64 @@ client.on("messageCreate", async (message) => {
 
       message.reply(summary);
       break;
+
+//image wip
+    case "image":
+    case "img":
+      if (message.author.id !== owner) return message.reply("Only dad can add memes.");
+
+      // 1. Get the custom name from the message text
+      // We'll replace spaces with underscores to keep filenames clean
+      const customName = args.filter(a => !a.startsWith("http")).join("_");
+      
+      if (!customName) {
+        return message.reply("You must provide a custom name! Usage: `=add image [name]`");
+      }
+
+      // 2. Find the Image URL
+      let imageURL = message.attachments.first()?.url;
+      if (!imageURL && args.find(a => a.startsWith("http"))) {
+        imageURL = args.find(a => a.startsWith("http"));
+      }
+
+      if (!imageURL) return message.reply("Attach an image or paste a link!");
+
+      // 3. Download and Detect Extension
+      https.get(imageURL, (res) => {
+        // Map the "Content-Type" to a file extension
+        const contentType = res.headers['content-type']; // e.g. "image/png"
+        let ext = "";
+
+        if (contentType === 'image/jpeg') ext = '.jpg';
+        else if (contentType === 'image/png') ext = '.png';
+        else if (contentType === 'image/gif') ext = '.gif';
+        else if (contentType === 'image/webp') ext = '.webp';
+        else {
+            // Fallback: try to guess from the URL if header is weird
+            ext = path.extname(imageURL.split('?')[0]) || '.jpg';
+        }
+
+        const finalFileName = customName + ext;
+        const savePath = path.join(__dirname, "img", finalFileName);
+
+        const filePath = fs.createWriteStream(savePath);
+        res.pipe(filePath);
+
+        filePath.on("finish", () => {
+          filePath.close();
+          message.react('✅');
+        });
+
+        filePath.on("error", (err) => {
+          console.error(err);
+          message.reply("File system error.");
+        });
+      }).on("error", (err) => {
+        console.error(err);
+        message.reply("Couldn't reach the image.");
+      });
+      break;
+
 
     case "ai":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
