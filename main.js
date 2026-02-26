@@ -235,15 +235,14 @@ client.on("messageCreate", async (message) => {
           console.error(err);
           return message.reply("Failed to save to the file.");
         }
-        //message.reply(`Added **${newItem}** to the **${listName}** list.`);
-        message.react('✅').catch(err => console.error("Couldn't react:", err));
+        message.reply(`Added **${newItem}** to the **${listName}** list.`);
+        //message.react('✅').catch(err => console.error("Couldn't react:", err));
       });
       break;
 
     case "remove":
     case "del":
     case "delete":
-      if (message.author.id !== owner) return message.reply("Only dad can delete stuff.");
 
       const delAliasMap = {
         "who": "subject", "person": "subject", "subject": "subject",
@@ -286,8 +285,8 @@ client.on("messageCreate", async (message) => {
           console.error(err);
           return message.reply("Removed from memory, but failed to save to file.");
         }
-        //message.reply(`Deleted **${removedItem}** from the **${delListName}** list.`);
-        message.react('✅').catch(err => console.error("Couldn't react:", err));
+        message.reply(`Deleted **${removedItem}** from the **${delListName}** list.`);
+        //message.react('✅').catch(err => console.error("Couldn't react:", err));
       });
       break;
 
@@ -323,15 +322,14 @@ client.on("messageCreate", async (message) => {
       message.reply(summary);
       break;
 
-//image wip
     case "image":
     case "img":
-      if (message.author.id !== owner) return message.reply("Only dad can add memes.");
+      //if (message.author.id !== owner) return message.reply("Only dad can add memes.");
 
       // 1. Get the custom name from the message text
       // We'll replace spaces with underscores to keep filenames clean
       const customName = args.filter(a => !a.startsWith("http")).join("_");
-      
+
       if (!customName) {
         return message.reply("You must provide a custom name! Usage: `=add image [name]`");
       }
@@ -367,7 +365,7 @@ client.on("messageCreate", async (message) => {
 
         filePath.on("finish", () => {
           filePath.close();
-          message.react('✅');
+          message.reply(`added **${finalFileName}** to img pool.`);
         });
 
         filePath.on("error", (err) => {
