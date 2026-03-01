@@ -324,7 +324,14 @@ module.exports = {
     "clavicular",
     "Chupapi Munyanyo",
     "chinese bill nye",
-    "Mike Jones"
+    "Mike Jones",
+    "el jugador",
+    "tim robinson",
+    "richard dawkins",
+    "a duck sized horse",
+    "a horse sized duck",
+    "gleepdorf",
+    "the Dutch"
   ],
   "subjectirl": [
     "reeg",
@@ -903,7 +910,9 @@ module.exports = {
     "poop from an ass",
     "a single poop from two asses",
     "piss",
-    "file.data"
+    "file.data",
+    "stinky cheese",
+    "the 10 minute chinese youtube poop"
   ],
   "times": [
     "right now",
@@ -1491,7 +1500,10 @@ module.exports = {
     "I’m freaky! I'm horny!",
     "is shit thumping and pisspilling",
     "losing subscriber!",
-    "sun downing in the club"
+    "sun downing in the club",
+    "you're a geek",
+    "went rotten an hour ago",
+    "are putting a hole in their house"
   ],
   "ballsizes": [
     "large",

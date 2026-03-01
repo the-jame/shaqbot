@@ -324,15 +324,28 @@ client.on("messageCreate", async (message) => {
 
     case "image":
     case "img":
-      //if (message.author.id !== owner) return message.reply("Only dad can add memes.");
-
       // 1. Get the custom name from the message text
-      // We'll replace spaces with underscores to keep filenames clean
-      const customName = args.filter(a => !a.startsWith("http")).join("_");
+      // Force lowercase so we don't end up with "Dog.png" and "dog.png" conflicts
+      const customName = args.filter(a => !a.startsWith("http")).join("_").toLowerCase();
 
       if (!customName) {
         return message.reply("You must provide a custom name! Usage: `=add image [name]`");
       }
+
+      // --- NEW: CHECK IF FILE EXISTS ---
+      const checkDir = path.join(__dirname, "img");
+
+      // Read all files in the directory
+      const existingFiles = fs.readdirSync(checkDir);
+
+      // Check if any file has the same name (ignoring extension)
+      // e.g. if 'dog.png' exists, we cannot save 'dog.jpg'
+      const conflict = existingFiles.find(file => path.parse(file).name.toLowerCase() === customName);
+
+      if (conflict) {
+        return message.reply(`A file named **${customName}** already exists (${conflict}). Please choose a different name.`);
+      }
+      // ---------------------------------
 
       // 2. Find the Image URL
       let imageURL = message.attachments.first()?.url;
@@ -344,8 +357,7 @@ client.on("messageCreate", async (message) => {
 
       // 3. Download and Detect Extension
       https.get(imageURL, (res) => {
-        // Map the "Content-Type" to a file extension
-        const contentType = res.headers['content-type']; // e.g. "image/png"
+        const contentType = res.headers['content-type']; 
         let ext = "";
 
         if (contentType === 'image/jpeg') ext = '.jpg';
@@ -353,7 +365,6 @@ client.on("messageCreate", async (message) => {
         else if (contentType === 'image/gif') ext = '.gif';
         else if (contentType === 'image/webp') ext = '.webp';
         else {
-            // Fallback: try to guess from the URL if header is weird
             ext = path.extname(imageURL.split('?')[0]) || '.jpg';
         }
 
@@ -365,7 +376,7 @@ client.on("messageCreate", async (message) => {
 
         filePath.on("finish", () => {
           filePath.close();
-          message.reply(`Added **${finalFileName}** to the image pool.`);
+          message.reply(`Added **${finalFileName}** to the image pool. usage: \`=${customName}\``);
         });
 
         filePath.on("error", (err) => {
@@ -377,7 +388,6 @@ client.on("messageCreate", async (message) => {
         message.reply("Couldn't reach the image.");
       });
       break;
-
 
     case "ai":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
@@ -444,9 +454,19 @@ client.on("messageCreate", async (message) => {
 
     case "er":
     case "eldenring":
-      let erMsg = erP[Math.floor(Math.random() * erP.length)].replace("{w}", erW[Math.floor(Math.random() * erW.length)]);
-      if (Math.random() < 0.25) erMsg += ` ${erC[Math.floor(Math.random() * erC.length)]} ${erW[Math.floor(Math.random() * erW.length)].replace("{w}", erW[Math.floor(Math.random() * erW.length)])}`; // Fixed nested replace logic
-      message.channel.send(`***${erMsg}***`);
+      var c = Math.random();
+      let erWord = erW[Math.floor(Math.random() * (erW.length - 1))];
+      let erPhrase = erP[Math.floor(Math.random() * (erP.length - 1))];
+      erPhrase = erPhrase.replace("{w}", erWord);
+      erPhrase = erPhrase.replace("{w}", erWord);
+      if (c < 0.25) {
+        let erPhrase2 = erP[Math.floor(Math.random() * (erP.length - 1))];
+        erWord = erW[Math.floor(Math.random() * (erW.length - 1))];
+        erPhrase2 = erPhrase2.replace("{w}", erWord);
+        erPhrase2 = erPhrase2.replace("{w}", erWord);
+        let connect = erC[Math.floor(Math.random() * (erC.length - 1))];
+        message.channel.send(erPhrase + " " + connect + " " + erPhrase2);
+      } else message.channel.send(erPhrase);
       break;
 
     case "who":
@@ -1152,7 +1172,7 @@ client.on("messageCreate", async (message) => {
       break;
     case "japaneseytp":
     case "contac":
-      message.channel.send({ files: ["img/japaneseytp.mp4"] });
+      message.channel.send({ files: ["img/japaneseytp_25mb.mp4"] });
       break;
     case "badvibes":
     case "knifes":
