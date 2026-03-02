@@ -1,5 +1,5 @@
 module.exports = {
-  "subject": [
+  "people": [
     "reeg",
     "james",
     "jimmy",
@@ -331,9 +331,10 @@ module.exports = {
     "a duck sized horse",
     "a horse sized duck",
     "gleepdorf",
-    "the Dutch"
+    "the Dutch",
+    "crumbster"
   ],
-  "subjectirl": [
+  "peopleirl": [
     "reeg",
     "james",
     "jimmy",
@@ -1503,9 +1504,10 @@ module.exports = {
     "sun downing in the club",
     "you're a geek",
     "went rotten an hour ago",
-    "are putting a hole in their house"
+    "are putting a hole in their house",
+    "i FUCK the fish"
   ],
-  "ballsizes": [
+  "sizes": [
     "large",
     "small",
     "medium",
@@ -1634,7 +1636,8 @@ module.exports = {
     "the size of the smallest in n out yellow chili youve ever seen",
     "wimpy",
     "potato-like",
-    "confused"
+    "confused",
+    "abrasive"
   ],
   "allEmoji": [
     "🅰️",

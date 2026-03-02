@@ -10,8 +10,8 @@ require("dotenv").config();
 // --- DATA IMPORT ---
 const data = require("./data.js");
 const {
-  subject, subjectirl, erW, erP, erC, things,
-  times, locations, reasons, ballsizes,
+  people, peopleirl, erW, erP, erC, things,
+  times, locations, reasons, sizes,
   allEmoji, wtf, cummies
 } = data;
 
@@ -195,13 +195,13 @@ client.on("messageCreate", async (message) => {
 
       const aliasMap = {
         // User Input : Actual Key in data.js
-        "who": "subject", "person": "subject", "subject": "subject",
-        "irl": "subjectirl", "whoirl": "subjectirl",
+        "who": "people", "person": "people", "subject": "people",
+        "irl": "peopleirl", "whoirl": "peopleirl",
         "thing": "things", "what": "things", "things": "things", "stuff": "things",
         "where": "locations", "location": "locations", "place": "locations",
         "when": "times", "time": "times",
         "why": "reasons", "reason": "reasons",
-        "ball": "ballsizes", "size": "ballsizes",
+        "ballsize": "sizes", "size": "sizes",
       };
 
       const userInput = args[0]?.toLowerCase();
@@ -245,13 +245,13 @@ client.on("messageCreate", async (message) => {
     case "delete":
 
       const delAliasMap = {
-        "who": "subject", "person": "subject", "subject": "subject",
-        "irl": "subjectirl", "whoirl": "subjectirl",
+        "who": "people", "person": "people", "subject": "people",
+        "irl": "peopleirl", "whoirl": "peopleirl",
         "thing": "things", "what": "things", "things": "things", "stuff": "things",
         "where": "locations", "location": "locations", "place": "locations",
         "when": "times", "time": "times",
         "why": "reasons", "reason": "reasons",
-        "ball": "ballsizes", "size": "ballsizes",
+        "ballsize": "sizes", "size": "sizes",
       };
 
       const delUserInput = args[0]?.toLowerCase();
@@ -292,13 +292,13 @@ client.on("messageCreate", async (message) => {
 
     case "count":
       const countMap = {
-        "who": "subject", "person": "subject", "subject": "subject", "people": "subject",
-        "irl": "subjectirl", "whoirl": "subjectirl",
+        "who": "people", "person": "people", "subject": "people", "people": "people",
+        "irl": "peopleirl", "whoirl": "peopleirl",
         "thing": "things", "things": "things", "stuff": "things",
         "where": "locations", "location": "locations", "place": "locations",
         "when": "times", "time": "times", "times": "times",
         "why": "reasons", "whys":"reasons", "reason": "reasons",
-        "ball": "ballsizes","sizes": "ballsizes", "size": "ballsizes",
+        "ball": "sizes","sizes": "sizes", "size": "sizes",
       };
 
       const countInput = args[0]?.toLowerCase();
@@ -312,12 +312,12 @@ client.on("messageCreate", async (message) => {
 
       // If they just typed "=count", show a summary of everything
       let summary = "**Current Database Counts:**\n";
-      summary += `**Who:** ${data.subject.length}\n`;
+      summary += `**Who:** ${data.people.length}\n`;
       summary += `**Things:** ${data.things.length}\n`;
       summary += `**Places:** ${data.locations.length}\n`;
       summary += `**Times:** ${data.times.length}\n`;
       summary += `**Reasons:** ${data.reasons.length}\n`;
-      summary += `**Sizes:** ${data.ballsizes.length}\n`;
+      summary += `**Sizes:** ${data.sizes.length}\n`;
 
       message.reply(summary);
       break;
@@ -471,7 +471,7 @@ client.on("messageCreate", async (message) => {
 
     case "who":
     case "whom":
-      let whoPool = (command === "whom") ? subjectirl : (irl ? subjectirl : subject);
+      let whoPool = (command === "whom") ? peopleirl : (irl ? peopleirl : people);
       let chosenWho = pick(whoPool);
 
       if (args.length > 0) {
@@ -498,7 +498,7 @@ client.on("messageCreate", async (message) => {
       let reason = pick(reasons);
       let thing = pick(things);
 
-      let poolY = (command === "whym") ? subjectirl : (irl ? subjectirl : subject);
+      let poolY = (command === "whym") ? peopleirl : (irl ? peopleirl : people);
       let subjY = poolY[Math.floor(Math.random() * poolY.length)];
 
       if (args.length === 0) {
@@ -576,7 +576,7 @@ client.on("messageCreate", async (message) => {
       if (!args[0] || args[0].toLowerCase() === "my") targetName = "Your";
       else if (args[0].toLowerCase() === "your" || args[0].toLowerCase().includes("shaq")) targetName = "My";
 
-      let randSize = pick(ballsizes);
+      let randSize = pick(sizes);
       message.reply(`${targetName}${targetName.endsWith('s') ? "'" : "'s"} ${ballCommand ? "ball " : ""}size is ${randSize}.`);
       break;
 
