@@ -389,6 +389,13 @@ client.on("messageCreate", async (message) => {
       });
       break;
 
+    case "yn":
+      await sleep(50);
+      var randYN = Math.random() < 0.5;
+      if (randYN) message.reply("Yes.");
+      else message.reply("No.");
+      break;
+
     case "ai":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
       message.channel.sendTyping();
@@ -571,14 +578,25 @@ client.on("messageCreate", async (message) => {
     case "ballsize":
     case "bs":
       ballCommand = (command !== "size"); // True if ballsize, False if size
-      let targetName = args[0] ? args.join(" ") : "Your";
-      // Specific logic for "my", "shaq", etc
-      if (!args[0] || args[0].toLowerCase() === "my") targetName = "Your";
-      else if (args[0].toLowerCase() === "your" || args[0].toLowerCase().includes("shaq")) targetName = "My";
+      
+      // Determine target name based on first arg only
+      let targetName = "Your";
+      if (args[0]) {
+        const firstArg = args[0].toLowerCase();
+        if (firstArg === "my") {
+          targetName = "Your";
+        } else if (firstArg === "your" || firstArg.includes("shaq")) {
+          targetName = "My";
+        } else {
+          targetName = args.join(" "); // Use full string only if it's a custom name
+        }
+      }
 
       let randSize = pick(sizes);
-      message.reply(`${targetName}${targetName.endsWith('s') ? "'" : "'s"} ${ballCommand ? "ball " : ""}size is ${randSize}.`);
+      let possessive = (targetName === "Your" || targetName === "My") ? "" : (targetName.endsWith('s') ? "'" : "'s");
+      message.reply(`${targetName}${possessive} ${ballCommand ? "ball " : ""}size is ${randSize}.`);
       break;
+
 
     case "8ball":
     case "8":
@@ -1172,7 +1190,7 @@ client.on("messageCreate", async (message) => {
       break;
     case "japaneseytp":
     case "contac":
-      message.channel.send({ files: ["img/japaneseytp_25mb.mp4"] });
+      message.channel.send({ files: ["img/japaneseytp_10mb.mp4"] });
       break;
     case "badvibes":
     case "knifes":
@@ -1593,7 +1611,6 @@ client.on("messageCreate", async (message) => {
         console.error("Catch-all error:", e);
       }
       break;
-    // zzzzz endofmeme newest latest recent
   }
 });
 

@@ -169,7 +169,6 @@ module.exports = {
     "a rando",
     "that one friend who never interacts in discord",
     "the pogchamp guy",
-    "some chud on parler",
     "an idiot who got banned from twitter",
     "mark zuckerberg's lizard offspring",
     "prince philip",
@@ -332,7 +331,12 @@ module.exports = {
     "a horse sized duck",
     "gleepdorf",
     "the Dutch",
-    "crumbster"
+    "crumbster",
+    "moldmario",
+    "Jeff Crump",
+    "Peam (the girl)",
+    "the baby from eraser head",
+    "jimbo"
   ],
   "peopleirl": [
     "reeg",
@@ -913,7 +917,10 @@ module.exports = {
     "piss",
     "file.data",
     "stinky cheese",
-    "the 10 minute chinese youtube poop"
+    "the 10 minute chinese youtube poop",
+    "100 beers in 1 month",
+    "a fiery cum explosion",
+    "a pipe made from the hollowed out corpse of the baby from eraserhead"
   ],
   "times": [
     "right now",
@@ -1505,7 +1512,12 @@ module.exports = {
     "you're a geek",
     "went rotten an hour ago",
     "are putting a hole in their house",
-    "i FUCK the fish"
+    "i FUCK the fish",
+    "only drank 99 beers in a month",
+    "the Bible tells me so",
+    "that's how mafia works",
+    "got their teeth lasered clean off",
+    "couldn’t maintain an erection, but he could cum"
   ],
   "sizes": [
     "large",
@@ -1637,7 +1649,9 @@ module.exports = {
     "wimpy",
     "potato-like",
     "confused",
-    "abrasive"
+    "abrasive",
+    "awesome",
+    "grapefruit"
   ],
   "allEmoji": [
     "🅰️",
