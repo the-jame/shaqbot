@@ -577,24 +577,28 @@ client.on("messageCreate", async (message) => {
     case "size":
     case "ballsize":
     case "bs":
-      ballCommand = (command !== "size"); // True if ballsize, False if size
-      
-      // Determine target name based on first arg only
+      ballCommand = (command !== "size");
+
       let targetName = "Your";
+      let restOfArgs = args.slice(1).join(" ");
+
       if (args[0]) {
         const firstArg = args[0].toLowerCase();
         if (firstArg === "my") {
           targetName = "Your";
         } else if (firstArg === "your" || firstArg.includes("shaq")) {
           targetName = "My";
+          restOfArgs = args.slice(1).join(" ");
         } else {
-          targetName = args.join(" "); // Use full string only if it's a custom name
+          targetName = args.join(" ");
+          restOfArgs = "";
         }
       }
 
       let randSize = pick(sizes);
-      let possessive = (targetName === "Your" || targetName === "My") ? "" : (targetName.endsWith('s') ? "'" : "'s");
-      message.reply(`${targetName}${possessive} ${ballCommand ? "ball " : ""}size is ${randSize}.`);
+      let fullName = restOfArgs ? `${targetName} ${restOfArgs}` : targetName;
+      let possessive = (targetName === "Your" || targetName === "My") ? "'s" : (fullName.endsWith('s') ? "'" : "'s");
+      message.reply(`${fullName}${possessive} ${ballCommand ? "ball " : ""}size is ${randSize}.`);
       break;
 
 
