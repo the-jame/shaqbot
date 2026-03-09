@@ -396,6 +396,29 @@ client.on("messageCreate", async (message) => {
       else message.reply("No.");
       break;
 
+    // roll random number
+    case "random":
+    case "rand":
+    case "roll":
+      let input = 100;
+      if (!isNaN(args[0])) {
+        input = args[0];
+        args.shift();
+      }
+      let rollTop = 0;
+      let rollMsg = args.join(" ");
+      rollTop = parseInt(input);
+      message.channel.send(
+        "Roll 1 to " +
+          rollTop +
+          " = " +
+          Math.floor(Math.random() * rollTop + 1) +
+          " " +
+          rollMsg +
+          "."
+      );
+      break;
+
     case "ai":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
       message.channel.sendTyping();
@@ -472,8 +495,8 @@ client.on("messageCreate", async (message) => {
         erPhrase2 = erPhrase2.replace("{w}", erWord);
         erPhrase2 = erPhrase2.replace("{w}", erWord);
         let connect = erC[Math.floor(Math.random() * (erC.length - 1))];
-        message.channel.send(erPhrase + " " + connect + " " + erPhrase2);
-      } else message.channel.send(erPhrase);
+        message.channel.send("***" + erPhrase + " " + connect + " " + erPhrase2 + "***");
+      } else message.channel.send("***" + erPhrase + "***");
       break;
 
     case "who":

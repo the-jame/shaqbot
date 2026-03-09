@@ -920,7 +920,9 @@ module.exports = {
     "the 10 minute chinese youtube poop",
     "100 beers in 1 month",
     "a fiery cum explosion",
-    "a pipe made from the hollowed out corpse of the baby from eraserhead"
+    "a pipe made from the hollowed out corpse of the baby from eraserhead",
+    "gentleman's relish",
+    "zygote zest"
   ],
   "times": [
     "right now",
