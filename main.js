@@ -155,7 +155,7 @@ client.on("messageCreate", async (message) => {
   const linkRegex = /https?:\/\/(?:bsky\.app\/profile\/[^\/]+\/post\/[^\/\s]+|(?:twitter|x)\.com\/\w+\/status\/\d+)/;
   const match = message.content.match(linkRegex);
   if (match) {
-    const fixed = match[0].replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "vxtwitter.com");
+    const fixed = match[0].replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "stupidpenisx.com");
     const extra = message.content.replace(match[0], "").trim();
     const quote = extra ? `\n> ${extra.replace(/\n/g, "\n> ")}` : "";
     await message.delete().catch(e=>e);
