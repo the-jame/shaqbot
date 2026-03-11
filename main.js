@@ -151,13 +151,14 @@ client.on("messageReactionAdd", async (reaction, user) => {
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
-// Bluesky Link Fixer
-  const bskyMatch = message.content.match(/^(https:\/\/bsky\.app\/profile\/[^\/]+\/post\/[^\/\s]+)(.*)/s);
-  if (bskyMatch) {
-    const [, link, extra] = bskyMatch;
-    const fixed = link.replace("bsky.app", "fxbsky.app");
-    const quote = extra.trim() ? `\n> ${extra.trim().replace(/\n/g, "\n> ")}` : "";
-    await message.delete().catch(() => {});
+// Link Fixer
+  const linkRegex = /https?:\/\/(?:bsky\.app\/profile\/[^\/]+\/post\/[^\/\s]+|(?:twitter|x)\.com\/\w+\/status\/\d+)/;
+  const match = message.content.match(linkRegex);
+  if (match) {
+    const fixed = match[0].replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "vxtwitter.com");
+    const extra = message.content.replace(match[0], "").trim();
+    const quote = extra ? `\n> ${extra.replace(/\n/g, "\n> ")}` : "";
+    await message.delete().catch(e=>e);
     return message.channel.send(`**${message.author.username}**: ${fixed}${quote}`);
   }
   
