@@ -152,17 +152,20 @@ client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
 // Link Fixer
-  const linkRegex = /https?:\/\/(?:bsky\.app\/profile\/[^\/]+\/post\/[^\/\s]+|(?:twitter|x)\.com\/\w+\/status\/\d+)/;
+  const linkRegex = /https?:\/\/(?:bsky\.app\/profile\/[^\/]+\/post\/[^\/\s]+|(?:twitter|x)\.com\/\w+\/status\/\d+)\S*/;
   const match = message.content.match(linkRegex);
   if (match) {
-    const fixed = match[0].replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "vxtwitter.com");
+    const cleanLink = match[0].split('?')[0]; // Trims tracking parameters
+    const fixed = cleanLink.replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "stupidpenisx.com");
     const extra = message.content.replace(match[0], "").trim();
     const quote = extra ? `\n> ${extra.replace(/\n/g, "\n> ")}` : "";
-    const name = message.member?.displayName || message.author.username;
+    const name = message.member?.displayName || message.author.displayName || message.author.username;
+
     await message.delete().catch(e=>e);
     return message.channel.send(`**${name}**: ${fixed}${quote}`);
   }
-  
+
+
   // Auto-Delete Sticker
   if (message.stickers.has("818597355619483688")) return message.delete().catch(() => {});
 
