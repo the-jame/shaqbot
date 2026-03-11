@@ -474,10 +474,10 @@ client.on("messageCreate", async (message) => {
     case "invent":
       if (disallowedChannels.includes(message.channel.id)) return message.delete().catch(()=>{});
       message.channel.sendTyping();
-      let invPrompt = "Pitch a product: " + args.join(" ");
-      if (Math.random() >= 0.9) invPrompt += ", but make it stupid and impractical.";
+      let invPrompt = "Pitch a product in a few sentences, and conclude with a new line, and a bolded 'slogan' or catchphrase, surround it with double asterisks. In your response do not include anythiing like 'ok here is my pitch' just start with the response. This is the product: : " + args.join(" ");
+      if (Math.random() >= 0.9) invPrompt += ", but make it very goofy, stupid and impractical.";
       try {
-        const resp = await deepseek.chat.completions.create({ model: "deepseek-chat", messages: [{ role: "user", content: invPrompt }], temperature: 1.6 });
+        const resp = await deepseek.chat.completions.create({ model: "deepseek-chat", messages: [{ role: "user", content: invPrompt }], temperature: 1.6, max_tokens: 200 });
         message.reply(resp.choices[0].message.content);
       } catch (e) { console.error(e); }
       break;

@@ -336,7 +336,12 @@ module.exports = {
     "Jeff Crump",
     "Peam (the girl)",
     "the baby from eraser head",
-    "jimbo"
+    "jimbo",
+    "Tommy",
+    "B*rnie",
+    "Shit the Shatman",
+    "the Pee Wench",
+    "a podcaster"
   ],
   "peopleirl": [
     "reeg",
@@ -819,7 +824,6 @@ module.exports = {
     "a facemask",
     "a half eaten bar of chapstick",
     "some scrap metal",
-    "a used condom",
     "a trashbag full of cum",
     "a rusty bicycle",
     "blood",
@@ -917,12 +921,21 @@ module.exports = {
     "piss",
     "file.data",
     "stinky cheese",
-    "the 10 minute chinese youtube poop",
     "100 beers in 1 month",
     "a fiery cum explosion",
     "a pipe made from the hollowed out corpse of the baby from eraserhead",
     "gentleman's relish",
-    "zygote zest"
+    "zygote zest",
+    "generational brown no wipe any%",
+    "a street cat",
+    "a mangy dog",
+    "the 10 minute japanese youtube poop",
+    "a double chili cheeseburger",
+    "way too big nuts",
+    "my fat nuts on discord",
+    "Nicki Minaj's cousin's friend's swollen nuts (vaccine injury)",
+    "haunted moon",
+    "the legend of the penis"
   ],
   "times": [
     "right now",
@@ -1111,7 +1124,9 @@ module.exports = {
     "when you forgive yourself",
     "when the clock strokes its shit its got lotion on its shit it's horny as fuuuuck",
     "lunch time",
-    "when the penne explodes"
+    "when the penne explodes",
+    "when gleep is added to the dictionary",
+    "when your nuts go back to normal size"
   ],
   "locations": [
     "the Grand Canyon",
@@ -1519,7 +1534,19 @@ module.exports = {
     "the Bible tells me so",
     "that's how mafia works",
     "got their teeth lasered clean off",
-    "couldn’t maintain an erection, but he could cum"
+    "couldn’t maintain an erection, but he could cum",
+    "clown event still possible",
+    "needs... tickling",
+    "is getting killed and sucked off later",
+    "ordered cheap shoes off Ebay",
+    "they died in a tragic self-suck attempt gone wrong",
+    "dropped a generational brown in the ralph's bathroom",
+    "they **succ**eeded in a glorious self-suck attempt and should be commended",
+    "nuts way too big",
+    "couldn't decide which toilet to use so they shat their pants",
+    "shat their pants",
+    "pissed in their socks",
+    "moon's haunted"
   ],
   "sizes": [
     "large",
@@ -1653,7 +1680,8 @@ module.exports = {
     "confused",
     "abrasive",
     "awesome",
-    "grapefruit"
+    "grapefruit",
+    "n't what matters. its what's inside them that counts"
   ],
   "allEmoji": [
     "🅰️",
