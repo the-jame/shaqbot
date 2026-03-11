@@ -151,6 +151,16 @@ client.on("messageReactionAdd", async (reaction, user) => {
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
+// Bluesky Link Fixer
+  const bskyMatch = message.content.match(/^(https:\/\/bsky\.app\/profile\/[^\/]+\/post\/[^\/\s]+)(.*)/s);
+  if (bskyMatch) {
+    const [, link, extra] = bskyMatch;
+    const fixed = link.replace("bsky.app", "fxbsky.app");
+    const quote = extra.trim() ? `\n> ${extra.trim().replace(/\n/g, "\n> ")}` : "";
+    await message.delete().catch(() => {});
+    return message.channel.send(`**${message.author.username}**: ${fixed}${quote}`);
+  }
+  
   // Auto-Delete Sticker
   if (message.stickers.has("818597355619483688")) return message.delete().catch(() => {});
 
