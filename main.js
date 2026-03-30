@@ -12,7 +12,7 @@ const data = require("./data.js");
 const {
   people, peopleirl, erW, erP, erC, things,
   times, locations, reasons, sizes,
-  allEmoji, wtf, cummies
+  allEmoji, wtf, cummies, syllables
 } = data;
 
 const client = new Client({
@@ -184,25 +184,19 @@ client.on("messageCreate", async (message) => {
   // Disallowed Channels for AI
   const disallowedChannels = ["1052935779720106064", "603737695297994762", "533020942830403585", "1068322645008994396", "912492997306880031"];
 
-    if (/^u+$/.test(command)) {
-    const syl = [
-      "eu", "xeu", "bu", "lem", "lum", "hue", "shaq", "anus", "cumb", "yeff", "bort", "dort", "toe", "geep", "doop",
-      "glurp", "gleep", "mlem", "crunt", "smeg", "bloop", "sork", "creen", "grelp", "spug", "grench", "soop", "linp",
-      "clonk", "quorp", "flerg", "jink", "twonk", "glump", "hurg", "dorf", "sorp", "gorp", "lump", "dink"
-    ];
-
+  if (/^u+$/.test(command)) {
     let uuuStr = "";
+    // Pull the list from data.js
+    const syllableList = data.syllables; 
     const totalSyllables = command.length * 2;
 
     for (let i = 0; i < totalSyllables; i++) {
-      uuuStr += syl[Math.floor(Math.random() * syl.length)];
-      // Stop generating if we've already hit the Discord character limit
+      uuuStr += syllableList[Math.floor(Math.random() * syllableList.length)];
       if (uuuStr.length >= 2000) break;
     }
-
-    // Hard cap at 2000 characters and send one reply
     return message.reply(uuuStr.substring(0, 2000));
   }
+
 
   switch (command) {
 
@@ -216,7 +210,7 @@ client.on("messageCreate", async (message) => {
         "where": "locations", "location": "locations", "place": "locations",
         "when": "times", "time": "times",
         "why": "reasons", "reason": "reasons",
-        "ballsize": "sizes", "size": "sizes",
+        "ballsize": "sizes", "size": "sizes", "u": "syllables"
       };
 
       const userInput = args[0]?.toLowerCase();
@@ -266,7 +260,7 @@ client.on("messageCreate", async (message) => {
         "where": "locations", "location": "locations", "place": "locations",
         "when": "times", "time": "times",
         "why": "reasons", "reason": "reasons",
-        "ballsize": "sizes", "size": "sizes",
+        "ballsize": "sizes", "size": "sizes", "u": "syllables"
       };
 
       const delUserInput = args[0]?.toLowerCase();
@@ -313,7 +307,7 @@ client.on("messageCreate", async (message) => {
         "where": "locations", "location": "locations", "place": "locations",
         "when": "times", "time": "times", "times": "times",
         "why": "reasons", "whys":"reasons", "reason": "reasons",
-        "ball": "sizes","sizes": "sizes", "size": "sizes",
+        "ball": "sizes","sizes": "sizes", "size": "sizes", "u": "syllables"
       };
 
       const countInput = args[0]?.toLowerCase();
