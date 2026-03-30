@@ -186,9 +186,9 @@ client.on("messageCreate", async (message) => {
 
     if (/^u+$/.test(command)) {
     const syl = [
-      "eu", "xeu", "bu", "lem", "lum", "hue", "shaq", "anus", "cumb", "yeff",
-      "glurp", "gleep", "mlem", "crunt", "smeg", "bloop", "sork", "creen",
-      "clonk", "quorp", "flerg", "jink", "twonk", "glump", "hurg", "dorf"
+      "eu", "xeu", "bu", "lem", "lum", "hue", "shaq", "anus", "cumb", "yeff", "bort", "dort", "toe", "geep", "doop",
+      "glurp", "gleep", "mlem", "crunt", "smeg", "bloop", "sork", "creen", "grelp", "spug", "grench", "soop", "linp",
+      "clonk", "quorp", "flerg", "jink", "twonk", "glump", "hurg", "dorf", "sorp", "gorp", "lump", "dink"
     ];
 
     let uuuStr = "";
@@ -642,11 +642,26 @@ client.on("messageCreate", async (message) => {
 
     case "8ball":
     case "8":
+    case "do":
+    case "does":
+    case "did":
     case "is":
-    case "can":
-    case "should":
     case "are":
+    case "was":
+    case "were":
+    case "am":
+    case "has":
+    case "have":
+    case "had":
     case "will":
+    case "would":
+    case "can":
+    case "could":
+    case "shall":
+    case "should":
+    case "may":
+    case "might":
+    case "must":
       let eightball = ["It is certain.", "As I see it, yes.", ":thumbsup:", "Sure.", "No way.", "Cannot decide...", "HELL no.", "Ask again later."]; 
       // (Truncated list for brevity, logic remains)
       message.reply(eightball[Math.floor(Math.random() * eightball.length)]);

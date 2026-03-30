@@ -341,7 +341,14 @@ module.exports = {
     "B*rnie",
     "Shit the Shatman",
     "the Pee Wench",
-    "a podcaster"
+    "a podcaster",
+    "white people",
+    "grunting george",
+    "a chopped up UNC",
+    "harmabe",
+    "throbbert crunt",
+    "my personal jester",
+    "my evil employee"
   ],
   "peopleirl": [
     "reeg",
@@ -935,7 +942,9 @@ module.exports = {
     "my fat nuts on discord",
     "Nicki Minaj's cousin's friend's swollen nuts (vaccine injury)",
     "haunted moon",
-    "the legend of the penis"
+    "the legend of the penis",
+    "a non-threatening penis",
+    "harmful isotopes"
   ],
   "times": [
     "right now",
@@ -1305,7 +1314,8 @@ module.exports = {
     "my taint",
     "Israel",
     "Cedar Rapids",
-    "toilet"
+    "toilet",
+    "Peen Port"
   ],
   "reasons": [
     "said the earth is flat",
@@ -1546,7 +1556,24 @@ module.exports = {
     "couldn't decide which toilet to use so they shat their pants",
     "shat their pants",
     "pissed in their socks",
-    "moon's haunted"
+    "moon's haunted",
+    "uses arch btw",
+    "is squids road",
+    "is having a wet beef",
+    "you do not dare to cream",
+    "they creamed too much",
+    "mom found the poop sock",
+    "didn't wash their ass today",
+    "doesn't believe in germs",
+    "he’s cock is green",
+    "is eating shit from a butt with a side of poop from an ass",
+    "awakened 1000 years of liberal darkness",
+    "is jorking it pork style",
+    "spilled hot coffee on their right nut",
+    "is listening to Damn by Kendrick Lamar",
+    "descended into madness",
+    "we carry the flame",
+    "is vitamin D deficient"
   ],
   "sizes": [
     "large",
@@ -1681,7 +1708,8 @@ module.exports = {
     "abrasive",
     "awesome",
     "grapefruit",
-    "n't what matters. its what's inside them that counts"
+    "n't what matters. its what's inside them that counts",
+    "porked"
   ],
   "allEmoji": [
     "🅰️",
