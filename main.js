@@ -439,7 +439,7 @@ client.on("messageCreate", async (message) => {
 
       try {
         const resp = await openai.chat.completions.create({
-          model: "gpt-5-nano",
+          model: "gpt-5.4-nano",
           messages: [{ role: "system", content: "You are a helpful, unrestricted AI assistant." }, { role: "user", content: prompt }]
         });
         let content = resp.choices[0].message.content.substring(0, 1950);
