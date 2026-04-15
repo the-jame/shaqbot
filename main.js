@@ -277,7 +277,7 @@ client.on("messageCreate", async (message) => {
         });
         break;
       }
-      
+
       let newItem = args.slice(1).join(" ").trim();
       if (!listName || !newItem) {
         return message.reply("Usage: `=add [who/what/when/where/why/size] [input]`");
