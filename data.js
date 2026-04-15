@@ -353,7 +353,10 @@ module.exports = {
     "the Green Goblin",
     "the Greener Goblin",
     "Art Garfunkle",
-    "the skinwalker in this server"
+    "the skinwalker in this server",
+    "your local neighborhood crackhead",
+    "the down-and-out who needs a fat bitch",
+    "big chungus"
   ],
   "peopleirl": [
     "reeg",
@@ -1584,7 +1587,8 @@ module.exports = {
     "is vitamin D deficient",
     "BROKE his pussy",
     "got they MEAT ROCKED UP",
-    "smokin a skinny winny"
+    "smokin a skinny winny",
+    "HIT THE JUCKPORT 1 TRILLION $"
   ],
   "sizes": [
     "large",
@@ -2826,6 +2830,22 @@ module.exports = {
     "trig",
     "ronk",
     "borg",
-    "fart"
+    "fart",
+    "goo",
+    "chud",
+    "zab",
+    "zom",
+    "zub",
+    "jun",
+    "jor",
+    "jer",
+    "pul",
+    "pow",
+    "gum",
+    "cum",
+    "pee",
+    "piss",
+    "shit",
+    "butt"
   ]
 };

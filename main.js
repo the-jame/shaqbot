@@ -187,14 +187,19 @@ client.on("messageCreate", async (message) => {
   if (/^u+$/.test(command)) {
     let uuuStr = "";
     // Pull the list from data.js
-    const syllableList = data.syllables; 
+    const syllableList = data.syllables;
     const totalSyllables = command.length * 2;
 
     for (let i = 0; i < totalSyllables; i++) {
       uuuStr += syllableList[Math.floor(Math.random() * syllableList.length)];
       if (uuuStr.length >= 2000) break;
     }
-    return message.reply(uuuStr.substring(0, 2000));
+
+    // message.channel.send sends a message to the channel without tagging the user as a reply
+    return message.channel.send({
+      content: uuuStr.substring(0, 2000),
+      tts: true
+    });
   }
 
 
