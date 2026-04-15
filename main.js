@@ -215,13 +215,70 @@ client.on("messageCreate", async (message) => {
         "where": "locations", "location": "locations", "place": "locations",
         "when": "times", "time": "times",
         "why": "reasons", "reason": "reasons",
-        "ballsize": "sizes", "size": "sizes", "u": "syllables"
+        "ballsize": "sizes", "size": "sizes", "u": "syllables",
+        "img": "image", "image": "image", "meme": "image"
       };
 
       const userInput = args[0]?.toLowerCase();
       const listName = aliasMap[userInput];
-      let newItem = args.slice(1).join(" ").trim();
 
+            if (listName === "image") {
+        // Join name parts and replace spaces with underscores
+        const nameParts = args.slice(1).filter(a => !a.startsWith("http"));
+        const customName = nameParts.join("_").toLowerCase();
+
+        if (!customName) {
+          return message.reply("You must provide a custom name! Usage: `=add [img/meme] [name]`");
+        }
+
+        const checkDir = path.join(__dirname, "img");
+        const existingFiles = fs.readdirSync(checkDir);
+        const conflict = existingFiles.find(file => path.parse(file).name.toLowerCase() === customName);
+
+        if (conflict) {
+          return message.reply(`A file named **${customName}** already exists (${conflict}). Please choose a different name.`);
+        }
+
+        let imageURL = message.attachments.first()?.url;
+        if (!imageURL && args.slice(1).find(a => a.startsWith("http"))) {
+          imageURL = args.slice(1).find(a => a.startsWith("http"));
+        }
+
+        if (!imageURL) return message.reply("Attach an image or paste a link!");
+
+        https.get(imageURL, (res) => {
+          const contentType = res.headers['content-type']; 
+          let ext = "";
+          if (contentType === 'image/jpeg') ext = '.jpg';
+          else if (contentType === 'image/png') ext = '.png';
+          else if (contentType === 'image/gif') ext = '.gif';
+          else if (contentType === 'image/webp') ext = '.webp';
+          else {
+              ext = path.extname(imageURL.split('?')[0]) || '.jpg';
+          }
+
+          const finalFileName = customName + ext;
+          const savePath = path.join(__dirname, "img", finalFileName);
+          const filePath = fs.createWriteStream(savePath);
+          res.pipe(filePath);
+
+          filePath.on("finish", () => {
+            filePath.close();
+            message.reply(`Added **${finalFileName}** to the image pool. Usage: \`=${customName}\``);
+          });
+
+          filePath.on("error", (err) => {
+            console.error(err);
+            message.reply("File system error.");
+          });
+        }).on("error", (err) => {
+          console.error(err);
+          message.reply("Couldn't reach the image.");
+        });
+        break;
+      }
+      
+      let newItem = args.slice(1).join(" ").trim();
       if (!listName || !newItem) {
         return message.reply("Usage: `=add [who/what/when/where/why/size] [input]`");
       }
@@ -334,73 +391,6 @@ client.on("messageCreate", async (message) => {
       summary += `**Sizes:** ${data.sizes.length}\n`;
 
       message.reply(summary);
-      break;
-
-    case "image":
-    case "img":
-      // 1. Get the custom name from the message text
-      // Force lowercase so we don't end up with "Dog.png" and "dog.png" conflicts
-      const customName = args.filter(a => !a.startsWith("http")).join("_").toLowerCase();
-
-      if (!customName) {
-        return message.reply("You must provide a custom name! Usage: `=add image [name]`");
-      }
-
-      // --- NEW: CHECK IF FILE EXISTS ---
-      const checkDir = path.join(__dirname, "img");
-
-      // Read all files in the directory
-      const existingFiles = fs.readdirSync(checkDir);
-
-      // Check if any file has the same name (ignoring extension)
-      // e.g. if 'dog.png' exists, we cannot save 'dog.jpg'
-      const conflict = existingFiles.find(file => path.parse(file).name.toLowerCase() === customName);
-
-      if (conflict) {
-        return message.reply(`A file named **${customName}** already exists (${conflict}). Please choose a different name.`);
-      }
-      // ---------------------------------
-
-      // 2. Find the Image URL
-      let imageURL = message.attachments.first()?.url;
-      if (!imageURL && args.find(a => a.startsWith("http"))) {
-        imageURL = args.find(a => a.startsWith("http"));
-      }
-
-      if (!imageURL) return message.reply("Attach an image or paste a link!");
-
-      // 3. Download and Detect Extension
-      https.get(imageURL, (res) => {
-        const contentType = res.headers['content-type']; 
-        let ext = "";
-
-        if (contentType === 'image/jpeg') ext = '.jpg';
-        else if (contentType === 'image/png') ext = '.png';
-        else if (contentType === 'image/gif') ext = '.gif';
-        else if (contentType === 'image/webp') ext = '.webp';
-        else {
-            ext = path.extname(imageURL.split('?')[0]) || '.jpg';
-        }
-
-        const finalFileName = customName + ext;
-        const savePath = path.join(__dirname, "img", finalFileName);
-
-        const filePath = fs.createWriteStream(savePath);
-        res.pipe(filePath);
-
-        filePath.on("finish", () => {
-          filePath.close();
-          message.reply(`Added **${finalFileName}** to the image pool. usage: \`=${customName}\``);
-        });
-
-        filePath.on("error", (err) => {
-          console.error(err);
-          message.reply("File system error.");
-        });
-      }).on("error", (err) => {
-        console.error(err);
-        message.reply("Couldn't reach the image.");
-      });
       break;
 
     case "yn":
