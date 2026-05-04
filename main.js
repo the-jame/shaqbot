@@ -109,24 +109,45 @@ client.on("messageReactionAdd", async (reaction, user) => {
     sendToAI = true;
   }
   else if (reaction.emoji.name === translateEmoji) {
-    newPrompt = `You are an expert translator.
-    Analyze the following text: "${content}"
-    1. If the text is already in English: Translate it into a random non-English language, then translate that result back into English. 
-    2. If the text is NOT in English: Simply translate it directly into English.
-    Provide ONLY the final English text as your response.`;
+    try {
+      // STEP 1: Translate to Uzbek (Very different logic)
+      // We tell it to be a "Broken Bot" to stop it from being too helpful/accurate.
+      const stepOnePrompt = "You are a broken translation robot. Translate the following text into Uzbek. " +
+        "Use only literal, word-for-word dictionary meanings and do not fix the grammar:\n\"" + content + "\"";
 
-    sendToAI = true;
-    useTTS = false;
+      const stepOneCompletion = await deepseek.chat.completions.create({
+        model: "deepseek-v4-flash",
+        messages: [
+          { role: "system", content: "You are a broken translation engine that provides literal, nonsensical results." },
+          { role: "user", content: stepOnePrompt }
+        ],
+      });
+
+      const intermediateTranslation = stepOneCompletion.choices[0].message.content;
+
+      // STEP 2: Translate back to English, but force it to keep the "broken" style
+      newPrompt = "You are a broken translation robot. Translate the following Uzbek text back into English. " +
+        "DO NOT fix the grammar. DO NOT make it make sense. If it sounds like gibberish, keep it as gibberish. " +
+        "Provide ONLY the English result:\n" +
+        "\"" + intermediateTranslation + "\"";
+
+      sendToAI = true;
+      useTTS = false;
+    } catch (e) {
+      console.error("Error during the unhinged translation step:", e);
+      return;
+    }
   }
   else if (reaction.emoji.name === evilEmoji && content.startsWith("=")) {
     newPrompt = content.slice(3) + ". Your answer should be extremely hurtful, sarcastic, and offensive.";
     sendToAI = true;
   }
 
+  // STEP 4: The final AI call (this handles advance, evil, AND the final translation step)
   if (sendToAI) {
     try {
       const completion = await deepseek.chat.completions.create({
-        model: "deepseek-chat",
+        model: "deepseek-v4-flash",
         messages: [
           { role: "system", content: "You are a helpful assistant." },
           { role: "user", content: newPrompt }
@@ -136,20 +157,23 @@ client.on("messageReactionAdd", async (reaction, user) => {
       let response = completion.choices[0].message.content;
       if (response.length > 1950) response = response.substring(0, 1950);
 
-      // We pass the tts option based on whether it was the translate command
       reaction.message.reply({
         content: response,
-        tts: useTTS 
+        tts: useTTS
       });
 
-    } catch (e) { 
-      console.error(e); 
+    } catch (e) {
+      console.error(e);
     }
   }
 });
+
+
 // --- MESSAGE CREATE HANDLER ---
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
+
+
 
 // Link Fixer
   const linkRegex = /https?:\/\/(?:bsky\.app\/profile\/[^\/]+\/post\/[^\/\s]+|(?:twitter|x)\.com\/\w+\/status\/\d+)\S*/;
@@ -205,6 +229,15 @@ client.on("messageCreate", async (message) => {
 
   switch (command) {
 
+// setrole
+    case 'setrole':
+      let newRole = args.join(" ");
+      let roleToChange = message.member.roles.highest;
+      roleToChange.setName(newRole);
+      message.channel.send(`Role changed to ${newRole}.`);
+      console.log(`Role changed.`);
+      break;
+
     case "add":
 
       const aliasMap = {
@@ -213,7 +246,7 @@ client.on("messageCreate", async (message) => {
         "irl": "peopleirl", "whoirl": "peopleirl",
         "thing": "things", "what": "things", "things": "things", "stuff": "things",
         "where": "locations", "location": "locations", "place": "locations",
-        "when": "times", "time": "times",
+        "when": "times", "time": "times", "syllable": "syllables",
         "why": "reasons", "reason": "reasons",
         "ballsize": "sizes", "size": "sizes", "u": "syllables",
         "img": "image", "image": "image", "meme": "image"
@@ -321,7 +354,7 @@ client.on("messageCreate", async (message) => {
         "thing": "things", "what": "things", "things": "things", "stuff": "things",
         "where": "locations", "location": "locations", "place": "locations",
         "when": "times", "time": "times",
-        "why": "reasons", "reason": "reasons",
+        "why": "reasons", "reason": "reasons", "syllable": "syllables",
         "ballsize": "sizes", "size": "sizes", "u": "syllables"
       };
 
@@ -394,10 +427,14 @@ client.on("messageCreate", async (message) => {
       break;
 
     case "yn":
-      await sleep(50);
-      var randYN = Math.random() < 0.5;
-      if (randYN) message.reply("Yes.");
-      else message.reply("No.");
+      const rand = Math.random();
+      if (rand < 0.49) {
+        message.reply("Yes.");
+      } else if (rand < 0.98) {
+        message.reply("No.");
+      } else {
+        message.reply({ files: ["img/maybe.gif"] });
+      }
       break;
 
     // roll random number
@@ -448,7 +485,7 @@ client.on("messageCreate", async (message) => {
       message.channel.sendTyping();
       try {
         const resp = await deepseek.chat.completions.create({
-          model: "deepseek-chat",
+          model: "deepseek-v4-flash",
           messages: [{ role: "system", content: "You are a helpful assistant. DO NOT CENSOR." }, { role: "user", content: args.join(" ") }],
           temperature: 1.4
         });
@@ -467,7 +504,7 @@ client.on("messageCreate", async (message) => {
       message.channel.sendTyping();
       try {
         const resp = await deepseek.chat.completions.create({
-          model: "deepseek-chat",
+          model: "deepseek-v4-flash",
           messages: [{ role: "system", content: "You are Mao Zedong. Answer in riddles, first in Chinese, then English." }, { role: "user", content: args.join(" ") }],
           temperature: 1.5
         });
@@ -481,7 +518,7 @@ client.on("messageCreate", async (message) => {
       let invPrompt = "Pitch a product in a few sentences, and conclude with a new line, and a bolded 'slogan' or catchphrase, surround it with double asterisks. In your response do not include anythiing like 'ok here is my pitch' just start with the response. This is the product: : " + args.join(" ");
       if (Math.random() >= 0.9) invPrompt += ", but make it very goofy, stupid and impractical.";
       try {
-        const resp = await deepseek.chat.completions.create({ model: "deepseek-chat", messages: [{ role: "user", content: invPrompt }], temperature: 1.6, max_tokens: 200 });
+        const resp = await deepseek.chat.completions.create({ model: "deepseek-v4-flash", messages: [{ role: "user", content: invPrompt }], temperature: 1.6, max_tokens: 200 });
         message.reply(resp.choices[0].message.content);
       } catch (e) { console.error(e); }
       break;

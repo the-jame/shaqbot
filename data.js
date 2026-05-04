@@ -356,7 +356,11 @@ module.exports = {
     "the skinwalker in this server",
     "your local neighborhood crackhead",
     "the down-and-out who needs a fat bitch",
-    "big chungus"
+    "big chungus",
+    "Bastard people",
+    "The Bitch",
+    "a wench",
+    "a feckless fool"
   ],
   "peopleirl": [
     "reeg",
@@ -955,7 +959,8 @@ module.exports = {
     "harmful isotopes",
     "cheenis",
     "a handful of doinks",
-    "a used condom"
+    "a used condom",
+    "Pablo Escobar's heard of 80 feral hippos"
   ],
   "times": [
     "right now",
@@ -1588,7 +1593,13 @@ module.exports = {
     "BROKE his pussy",
     "got they MEAT ROCKED UP",
     "smokin a skinny winny",
-    "HIT THE JUCKPORT 1 TRILLION $"
+    "HIT THE JUCKPORT 1 TRILLION $",
+    "bloody fuck you bloody!",
+    "is a boomer that got mogged by my youthful stride",
+    "was touched by pestilence",
+    "detached her pussy",
+    "these frenzied codgers are jacking off—and they're jacking off hard",
+    "I'm in no hurry!"
   ],
   "sizes": [
     "large",
@@ -2846,6 +2857,8 @@ module.exports = {
     "pee",
     "piss",
     "shit",
-    "butt"
+    "butt",
+    "sprat",
+    "pomp"
   ]
 };
