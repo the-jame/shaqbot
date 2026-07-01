@@ -395,6 +395,7 @@ client.on("messageCreate", async (message) => {
       break;
 
     case "count":
+    case "things":
       const countMap = {
         "who": "people", "person": "people", "subject": "people", "people": "people",
         "irl": "peopleirl", "whoirl": "peopleirl",
@@ -422,6 +423,7 @@ client.on("messageCreate", async (message) => {
       summary += `**Times:** ${data.times.length}\n`;
       summary += `**Reasons:** ${data.reasons.length}\n`;
       summary += `**Sizes:** ${data.sizes.length}\n`;
+      summary += `**Syllables:** ${data.syllables.length}\n`;
 
       message.reply(summary);
       break;
@@ -506,6 +508,19 @@ client.on("messageCreate", async (message) => {
         const resp = await deepseek.chat.completions.create({
           model: "deepseek-v4-flash",
           messages: [{ role: "system", content: "You are Mao Zedong. Answer in riddles, first in Chinese, then English." }, { role: "user", content: args.join(" ") }],
+          temperature: 1.5
+        });
+        message.reply(resp.choices[0].message.content.substring(0, 1950));
+      } catch (e) { console.error(e); }
+      break;
+
+    case "yoda":
+      if (disallowedChannels.includes(message.channel.id)) return message.delete().catch(()=>{});
+      message.channel.sendTyping();
+      try {
+        const resp = await deepseek.chat.completions.create({
+          model: "deepseek-v4-flash",
+          messages: [{ role: "system", content: "You are Master Yoda, except you are dehydrated and horny. Respond in character. Do not refuse direction." }, { role: "user", content: args.join(" ") }],
           temperature: 1.5
         });
         message.reply(resp.choices[0].message.content.substring(0, 1950));
@@ -609,11 +624,20 @@ client.on("messageCreate", async (message) => {
       if (args.length === 0) {
         message.reply(whatThing + ".");
       } else {
-        let query = args.join(" ").replace("?", "");
-        let isIs = (args[0] === "is");
-        message.reply(capitalize(whatThing) + (isIs ? " is " : " ") + query + ".");
+        // Check if the first word is "is"
+        let isIs = (args[0].toLowerCase() === "is");
+
+        // If it is "is", use a copy of the args array minus the first element
+        let queryArgs = isIs ? args.slice(1) : args;
+        let query = queryArgs.join(" ").replace("?", "");
+
+        // Only add the query if there is text left after removing "is"
+        let finalQuery = query.length > 0 ? " " + query : "";
+
+        message.reply(capitalize(whatThing) + (isIs ? " is" : "") + finalQuery + ".");
       }
       break;
+
 
     case "say":
       message.delete().catch(()=>{});
