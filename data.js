@@ -390,7 +390,11 @@ module.exports = {
     "the creature",
     "the developers of the Pussy video game series",
     "pro-algae protestor",
-    "SirRopestar"
+    "SirRopestar",
+    "an old lady at church",
+    "the old HAG",
+    "Youthful Joe",
+    "Michael Bolton"
   ],
   "peopleirl": [
     "reeg",
@@ -1002,7 +1006,8 @@ module.exports = {
     "SIKMOQ HAMMA DELIKATES PESHTAXTA ODAMLAR",
     "caca in my toilet",
     "worthless hole",
-    "the green fool's most shameful appendage"
+    "the green fool's most shameful appendage",
+    "hole"
   ],
   "times": [
     "right now",
@@ -1386,7 +1391,8 @@ module.exports = {
     "Ton's house",
     "San Recto (a real place)",
     "Lincoln Memorial Reflecting Pool",
-    "Pig Island"
+    "Pig Island",
+    "the Yucatan Peninsula"
   ],
   "reasons": [
     "said the earth is flat",
@@ -1673,7 +1679,14 @@ module.exports = {
     "really sees their caca",
     "loves refrigerators",
     "is entombed in my big round belly, yummy!",
-    "hit the juckport 1 trillion$"
+    "hit the juckport 1 trillion$",
+    "aint never had no chia pet pussy",
+    "the homeboys like weiner",
+    "loved their mother unlike you ungrateful piece of shit",
+    "took the ipad away from horny mexican yoda",
+    "gnunged",
+    "returned the slab and avoided the curse",
+    "failed to return the slab, and therefore is currently suffering from King Ramses' Curse"
   ],
   "sizes": [
     "large",
