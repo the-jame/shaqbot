@@ -618,6 +618,11 @@ client.on("messageCreate", async (message) => {
       message.reply(capitalize(locations[Math.floor(Math.random() * locations.length)]) + ".");
       break;
 
+    case "how":
+      let howThing = things[Math.floor(Math.random() * things.length)];
+      message.reply("with " + howThing + ".");
+      break;
+      
     case "what":
     case "whatis":
       let whatThing = things[Math.floor(Math.random() * things.length)];
