@@ -394,7 +394,13 @@ module.exports = {
     "an old lady at church",
     "the old HAG",
     "Youthful Joe",
-    "Michael Bolton"
+    "Michael Bolton",
+    "the demon",
+    "souls of the damned",
+    "Jack Ingoff (Russian?)",
+    "The Master of 1 Hand and Fool of the Other",
+    "sickos",
+    "Mike Cunt"
   ],
   "peopleirl": [
     "reeg",
@@ -1007,7 +1013,10 @@ module.exports = {
     "caca in my toilet",
     "worthless hole",
     "the green fool's most shameful appendage",
-    "hole"
+    "hole",
+    "penis music",
+    "breasts image",
+    "a delicious pie in the windowsill"
   ],
   "times": [
     "right now",
@@ -1207,7 +1216,9 @@ module.exports = {
     "crunt o'clock",
     "when angels deserve to die (SOAD 😃)",
     "when you JUST got super comfy on the couch",
-    "9/11"
+    "9/11",
+    "when you turn that frown upside down 🙂",
+    "gnungus o’clock"
   ],
   "locations": [
     "the Grand Canyon",
@@ -1392,7 +1403,13 @@ module.exports = {
     "San Recto (a real place)",
     "Lincoln Memorial Reflecting Pool",
     "Pig Island",
-    "the Yucatan Peninsula"
+    "the Yucatan Peninsula",
+    "the weenie roast",
+    "Upland, CA",
+    "Whittier where the girls are prettier <:perish:507772507139604511>",
+    "Pee Pee Palace",
+    "Greenville, SC",
+    "there"
   ],
   "reasons": [
     "said the earth is flat",
@@ -1686,7 +1703,14 @@ module.exports = {
     "took the ipad away from horny mexican yoda",
     "gnunged",
     "returned the slab and avoided the curse",
-    "failed to return the slab, and therefore is currently suffering from King Ramses' Curse"
+    "failed to return the slab, and therefore is currently suffering from King Ramses' Curse",
+    "jarred dehydrated Mexican Yoda in a mason jar of vinegar",
+    "invited darkness into their heart",
+    "died in some fiery explosion",
+    "sucked the wrong dick 😔",
+    "has a beautiful soul",
+    "went Evil Mode",
+    "went gleeful and yippee maxed"
   ],
   "sizes": [
     "large",
@@ -3000,6 +3024,36 @@ module.exports = {
     "gnun",
     "gnup",
     "gnump",
-    "grum"
+    "grum",
+    "gonk",
+    "blart",
+    "shart",
+    "zoop",
+    "zorp",
+    "boof",
+    "gank",
+    "spung",
+    "bung",
+    "grib",
+    "plunk",
+    "guff",
+    "chuff",
+    "wank",
+    "muck",
+    "gleb",
+    "gulg",
+    "splat",
+    "tonk",
+    "filk",
+    "slud",
+    "dolk",
+    "bunk",
+    "shon",
+    "gron",
+    "blon",
+    "gnon",
+    "tron",
+    "mung",
+    "thorp"
   ]
 };

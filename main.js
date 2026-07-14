@@ -212,7 +212,7 @@ client.on("messageCreate", async (message) => {
     let uuuStr = "";
     // Pull the list from data.js
     const syllableList = data.syllables;
-    const totalSyllables = command.length * 2;
+    const totalSyllables = command.length + 1;
 
     for (let i = 0; i < totalSyllables; i++) {
       uuuStr += syllableList[Math.floor(Math.random() * syllableList.length)];
