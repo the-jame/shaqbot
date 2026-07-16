@@ -1300,6 +1300,10 @@ client.on("messageCreate", async (message) => {
     case "suckfish":
       message.channel.send({ files: ["img/fishe.mp4"] });
       break;
+    case "leatherbelt":
+    case "4str4stam":
+      message.channel.send({ files: ["img/leatherbelt.mp3"] });
+      break;
     case "japaneseytp":
     case "contac":
       message.channel.send({ files: ["img/japaneseytp_10mb.mp4"] });
