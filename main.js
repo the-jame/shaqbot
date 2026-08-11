@@ -180,7 +180,7 @@ client.on("messageCreate", async (message) => {
   const match = message.content.match(linkRegex);
   if (match) {
     const cleanLink = match[0].split('?')[0]; // Trims tracking parameters
-    const fixed = cleanLink.replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "stupidpenisx.com");
+    const fixed = cleanLink.replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "vxtwitter.com");
     const extra = message.content.replace(match[0], "").trim();
     const quote = extra ? `\n> ${extra.replace(/\n/g, "\n> ")}` : "";
     const name = message.member?.displayName || message.author.displayName || message.author.username;
@@ -829,6 +829,8 @@ client.on("messageCreate", async (message) => {
       message.channel.send({ files: ["img/5chicken.png"] });
       break;
     case "helper":
+    case "hamburger":
+    case "hamburgerhelper":
       message.channel.send({ files: ["img/helper.jpg"] });
       break;
     case "lahabra":
