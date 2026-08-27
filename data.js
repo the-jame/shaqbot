@@ -590,7 +590,19 @@ module.exports = {
     "Will Gluck",
     "William Gluck",
     "miscellaneous unc",
-    "John le Fucker"
+    "John le Fucker",
+    "a very scary man standing in the shadows",
+    "a demon",
+    "John Sex",
+    "Christopher Coitus",
+    "the tomato from veggie tales",
+    "Louis Piton",
+    "gay Mew Two",
+    "cunty Mr. Mime",
+    "butch Poliwrath",
+    "straight Bulbasaur",
+    "Auntie Anne",
+    "Wetzel"
   ],
   "peopleirl": [
     "reeg",
@@ -1682,7 +1694,11 @@ module.exports = {
     "9mm testicles",
     "self immolation",
     "none pizza, left beef",
-    "a leash for a freak"
+    "a leash for a freak",
+    "STRONG NUDITY (cock and balls also)",
+    "getting outmeated by GTA VI NPCs 🥀",
+    "woke 3.0",
+    "a steak knife"
   ],
   "times": [
     "right now",
@@ -2727,7 +2743,6 @@ module.exports = {
     "is shit thumping and pisspilling",
     "losing subscriber!",
     "sun downing in the club",
-    "you're a geek",
     "went rotten an hour ago",
     "are putting a hole in their house",
     "i FUCK the fish",
@@ -2885,7 +2900,9 @@ module.exports = {
     "they wanted to be drugged",
     "saw a funny dog eat a pepsi",
     "thinks this is so funny picture",
-    "lives in Irvine but doesn’t own a white Tesla"
+    "lives in Irvine but doesn’t own a white Tesla",
+    "is a geek",
+    "has maggots in their brain"
   ],
   "sizes": [
     "large",
