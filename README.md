@@ -3,11 +3,13 @@
 Simple, spaghetti code bot made for my Discord server. Powered by DeepSeek & OpenAI (GPT-5 Nano).
 
 ## Features
-- **LLM Integration**: Logic for OpenAI (GPT-5 Nano) and DeepSeek (deepseek-chat).
-- **Dynamic Memory**: Users can add or remove items from the bot's internal lists (Subjects, Reasons, Locations, etc.) directly via Discord.
-- **Image Database**: Upload images and save them as new commands on the fly.
+- **Daily Posts**: Automatically posts a "Meme of the Day" (or Friday video) on startup/daily restart, followed 10 seconds later by a daily Onion radio news clip from `radionews/`. Also announces birthdays configured in `main.js`.
+- **LLM Integration**: AI chat completions powered by OpenAI (`gpt-5.4-nano`) and DeepSeek (`deepseek-v4-flash`).
+- **Dynamic Memory**: Users can add, remove, or view items in the bot's internal dictionary lists (People, Reasons, Locations, Times, Sizes, etc.) directly via Discord.
+- **Image Database**: Upload images and save them as new summonable commands on the fly.
 - **Reaction AI**: Trigger AI translation, story completion, or "evil" responses by reacting to messages with specific emojis.
-- **Media Engine**: A massive library of triggered images, videos, and randomized meme selection.
+- **Auto Link Fixer**: Automatically converts Twitter/X links to `vxtwitter.com` and Bluesky links to `fxbsky.app` for Discord embeds.
+- **Media Engine**: A massive library of triggered images, videos, audio clips, and randomized meme/news selection.
 
 ---
 
@@ -25,67 +27,82 @@ npm install
 ```
 
 ### 3. Configuration
-The bot requires a `settings.json` file (and a `.env` file for API keys if configured that way in your setup). Ensure you define your API keys and owner ID.
-```bash
-cp sample-settings.json settings.json
-nano settings.json
-```
+The bot requires a `settings.json` file and a `.env` file for credentials.
+
+1. **`settings.json`**: Copy `sample-settings.json` and fill in your Discord bot token, prefix (`=`), user IDs, and custom reaction emojis:
+   ```bash
+   cp sample-settings.json settings.json
+   nano settings.json
+   ```
+2. **`.env`**: Provide necessary API keys (e.g. OpenAI and DeepSeek):
+   ```env
+   OPENAI_API_KEY=your_openai_key
+   ORGANIZATION=your_openai_org
+   DS_API_KEY=your_deepseek_key
+   ```
 
 ---
 
 ## Commands & Usage
-The trigger is `=`.
+The default command prefix is `=`.
 
-### 🧠 Database & Memory (New)
-Modify the bot's internal vocabulary and image lists without restarting code.
+### 🧠 Database & Memory
+Modify the bot's internal vocabulary lists and custom image pool without restarting code.
 
 | Command | Description |
 | --- | --- |
-| `=add <list> <text>` | Adds an item to a specific list. <br> **Lists:** `who`, `irl`, `thing`, `where`, `when`, `why`, `size`. <br> *Ex: `=add who Alexander Hamilton`* |
+| `=add <list> <text>` | Adds an item to a list. <br> **Lists:** `who` (`people`), `irl` (`peopleirl`), `what` / `thing` (`things`), `where` / `location` (`locations`), `when` / `time` (`times`), `why` / `reason` (`reasons`), `size` (`sizes`), `syllable` / `u` (`syllables`). <br> *Ex: `=add who Alexander Hamilton`* |
+| `=add img <name>` | **(Attach an image or provide a link)** Saves the image into `img/` under the given name. You can then summon it by typing `=<name>`. |
 | `=remove <list> <text>` | Removes an item from a list. Aliases: `=del`, `=delete`. |
-| `=count <list>` | Shows how many items are in a list (or a summary of all lists if left blank). |
-| `=img <name>` | **(Attach an image)** Saves the attached image (or linked URL) to the bot. <br> You can then summon it by typing `=<name>`. |
+| `=count [list]` | Shows item count for a specific list, or a summary of all lists if omitted. Alias: `=things`. |
 
 ### 🤖 AI & Reactions
 | Command | Description |
 | --- | --- |
-| `=ai <string>` | Answer using **GPT-5 Nano**. Has a dynamic chance (based on day of the week) to be "cruel". |
-| `=ds <string>` | Answer using **DeepSeek-Chat**. Unrestricted and absurdity-focused. |
-| `=mao <string>` | Answer as **Mao Zedong** (DeepSeek). Answer in riddles, first in Chinese, then English. |
-| `=invent <string>` | Generates a sales pitch for a product (90% chance to be stupid/impractical). |
+| `=ai <prompt>` | Query **OpenAI** (`gpt-5.4-nano`). Responses have a day-of-week weighted chance to be cruel/sarcastic. |
+| `=ds <prompt>` | Query **DeepSeek** (`deepseek-v4-flash`). Unrestricted and absurdity-focused. |
+| `=mao <prompt>` | Roleplay as **Mao Zedong** (DeepSeek), answering in riddles first in Chinese, then English. |
+| `=yoda <prompt>` | Roleplay as dehydrated, horny Master Yoda (DeepSeek). |
+| `=invent <product>` | Generates a product pitch with a bolded slogan (90% chance to be goofy/impractical). |
 
-**Reaction Triggers:**
-*   **Advance Emoji**: Completes the story/text of the message.
-*   **Translate Emoji**: Detects language. If English -> translates to random language then back. If Foreign -> translates to English.
-*   **Evil Emoji**: Re-processes the message with instructions to be "hurtful, sarcastic, and offensive."
+**Reaction Triggers (configured in `settings.json`):**
+* **Advance Emoji (`advanceEmoji`)**: Asks DeepSeek to complete the story started in the reacted message.
+* **Translate Emoji (`translateEmoji`)**: Translates message text to Uzbek and back to English using a "broken bot" prompt to produce nonsensical translations.
+* **Evil Emoji (`evilEmoji`)**: On messages starting with `=`, re-runs the prompt with instructions to be extremely hurtful, sarcastic, and offensive.
 
 ### 🎲 Randomizers & Tools
 | Command | Description |
 | --- | --- |
-| `=er` | Generates a conjoined **Elden Ring** style floor message. |
-| `=8`, `=is`, `=can`, `=should` | Classic 8-Ball response. |
-| `=who`, `=whom` | Tells you who did it. (Use `=whom` or `=whoirl` for real-life friend pool). |
-| `=why`, `=y` | Explains why something happened using random nouns and reasons. |
-| `=what`, `=whatis` | Defines a subject using a random object pool. |
-| `=when`, `=where` | Generates random times or locations. |
+| `=er`, `=eldenring` | Generates an **Elden Ring** style ground message/soapstone combination. |
+| `=8`, `=8ball`, `=is`, `=can`, `=should`, etc. | Classic Magic 8-Ball response to questions. |
+| `=who`, `=whom` | Picks a random subject. (`=whom` uses real-life friend list; swaps 1st/2nd person pronouns if arguments provided). |
+| `=why`, `=y`, `=whym` | Generates random "Because [subject] [reason]" responses (with pronoun swapping). |
+| `=what`, `=whatis` | Defines a query using items from the `things` list. |
+| `=when` | Generates a random time phrase. |
+| `=where` | Generates a random location phrase. |
+| `=how` | Responds with "with [random thing]". |
+| `=yn` | Replies "Yes.", "No.", or sends a maybe GIF. |
+| `=roll [max] [label]`, `=rand`, `=random` | Rolls a random number between 1 and `max` (default 100). |
 
-### 🤡 Fun & Animated
+### 🤡 Fun & Utilities
 | Command | Description |
 | --- | --- |
-| `=say <string>` | Bot repeats your text; deletes your original message. |
-| `=mock <string>` | tExT lIkE tHiS with a mocking SpongeBob image. |
-| `=bs`, `=size` | Reports the size/ballsize of a user. Logic handles "my" vs "your" pronoun swapping. |
-| `=uuu` | Generates randomized syllables based on command length (e.g., `euxeuxbu`). |
-| `=asscrack` | Animated sequence featuring Philip and the Coffin. |
-| `=look`, `=neck` | Creates an elongating "looking" emoji sequence. |
+| `=say <text>` | Echoes back the message and deletes the author's invocation. |
+| `=mock <text>` | Mocks input text in alternating caps accompanied by Mocking SpongeBob (also has a 0.02% passive chance on any message). |
+| `=bs [target]`, `=size`, `=ballsize` | Generates a random size for the user or specified target (handles pronoun swapping). |
+| `=u...` (e.g., `=uuu`) | Generates randomized syllables based on repeated 'u's. |
+| `=asscrack` | Animated reaction sequence using custom server emojis. |
+| `=joseton` | Animated interaction sequence between custom server emojis. |
+| `=look <text>`, `=neck <text>` | Animated expanding neck emoji sequence. |
 | `=howdy` | Random cowboy greeting. |
-| `=joseton` | Animated interaction between Jose and Ton. |
+| `=setrole <name>` | Renames the caller's highest role. |
+| *Link Fixer* | Automatically replaces Twitter/X links with `vxtwitter.com` and Bluesky links with `fxbsky.app`. |
 
 ### 🖼️ Media & Memes
 | Command | Description |
 | --- | --- |
-| `=sickos` | Random image from the `/sickos` folder. |
-| `=random`, `=meme`| Random image from the `/img` folder. |
-| `=friday` | Only works on Fridays (in California). |
-| `=plex` | Resets the "Days since last Plex reference" counter. |
-| **Media Keywords** | Over 100+ triggers including: `=whitebaby`, `=petercoin`, `=sickfuck`, `=beans`, `=zamn`, `=eepy`, `=bogos`, `=fajitas`, `=society`, etc. |
+| `=random`, `=meme`, `=react` | Selects and sends a random file from `/img`. |
+| `=sickos` | Selects and sends a random image from `/sickos`. |
+| `=friday` | Plays `friday.mp4` on Fridays (California time). |
+| `=plex` | Resets the "0 days since last Plex reference" counter. |
+| **Media Keywords** | Hundreds of keyword triggers sending local media or links, including: `=whitebaby`, `=petercoin`, `=sickfuck`, `=beans`, `=zamn`, `=eepy`, `=bogos`, `=fajitas`, `=society`, `=leatherbelt`, `=goblin`, `=cummies`, and more. |
