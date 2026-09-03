@@ -95,7 +95,7 @@ client.on("ready", () => {
       randFile(newsDir, (err, file) => {
         if (!err) targetChannel.send({ content: "The news of the day is...", files: [`radionews/${file}`] });
       });
-    }, 5000);
+    }, 3000);
 
     // Birthday Announcement
     const bday = birthdays.find(b => b[0] === today);
