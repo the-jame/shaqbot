@@ -1698,7 +1698,8 @@ module.exports = {
     "STRONG NUDITY (cock and balls also)",
     "getting outmeated by GTA VI NPCs 🥀",
     "woke 3.0",
-    "a steak knife"
+    "a steak knife",
+    "peepee"
   ],
   "times": [
     "right now",
@@ -2733,7 +2734,6 @@ module.exports = {
     "needs to spread their spore",
     "got caught looksmaxxing",
     "they fucking love peanut butter",
-    "they fucking love science! 🤪",
     "of WOKE",
     "allah willed it to be so",
     "i'm spooky",
@@ -2902,7 +2902,12 @@ module.exports = {
     "thinks this is so funny picture",
     "lives in Irvine but doesn’t own a white Tesla",
     "is a geek",
-    "has maggots in their brain"
+    "has maggots in their brain",
+    "went slug mode",
+    "definitely never fucked a pumpkin 😉",
+    "thinks it would be so freaking epic",
+    "fucking loves science! 🤪",
+    "is tucked and cucked"
   ],
   "sizes": [
     "large",
