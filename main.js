@@ -89,6 +89,14 @@ client.on("ready", () => {
       });
     }
 
+    // NEWS OF THE DAY LOGIC (delayed by 10s so meme posts first)
+    setTimeout(() => {
+      const newsDir = "/home/james/bots/shaqbot/radionews/";
+      randFile(newsDir, (err, file) => {
+        if (!err) targetChannel.send({ content: "The news of the day is...", files: [`radionews/${file}`] });
+      });
+    }, 5000);
+
     // Birthday Announcement
     const bday = birthdays.find(b => b[0] === today);
     if (bday) targetChannel.send(`:confetti_ball: It is <@${bday[1]}>\'s birthday today! :confetti_ball:`);
