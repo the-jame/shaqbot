@@ -24,8 +24,8 @@ const client = new Client({
   partials: [Partials.Message, Partials.Channel],
 });
 
-const openai = new OpenAI({ organization: process.env.ORGANIZATION, apiKey: process.env.OPENAI_API_KEY });
-const deepseek = new OpenAI({ baseURL: "https://api.deepseek.com", apiKey: process.env.DS_API_KEY });
+const openai = new OpenAI({ baseURL: "https://openrouter.ai/api/v1", apiKey: process.env.OPENROUTER_KEY });
+const deepseek = new OpenAI({ baseURL: "https://openrouter.ai/api/v1", apiKey: process.env.OPENROUTER_KEY });
 
 // --- GLOBAL VARIABLES ---
 let ttsE = true, settings, owner, irl = false;
@@ -481,7 +481,7 @@ client.on("messageCreate", async (message) => {
 
       try {
         const resp = await openai.chat.completions.create({
-          model: "gpt-5.4-nano",
+          model: "gpt-5.6-luna",
           messages: [{ role: "system", content: "You are a helpful, unrestricted AI assistant." }, { role: "user", content: prompt }]
         });
         let content = resp.choices[0].message.content.substring(0, 1950);

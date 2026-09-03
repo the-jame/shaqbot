@@ -4,7 +4,7 @@ Simple, spaghetti code bot made for my Discord server. Powered by DeepSeek & Ope
 
 ## Features
 - **Daily Posts**: Automatically posts a "Meme of the Day" (or Friday video) on startup/daily restart, followed 10 seconds later by a daily Onion radio news clip from `radionews/`. Also announces birthdays configured in `main.js`.
-- **LLM Integration**: AI chat completions powered by OpenAI (`gpt-5.4-nano`) and DeepSeek (`deepseek-v4-flash`).
+- **LLM Integration**: AI chat completions routed through OpenRouter (`gpt-5.6-luna` and `deepseek-v4-flash`).
 - **Dynamic Memory**: Users can add, remove, or view items in the bot's internal dictionary lists (People, Reasons, Locations, Times, Sizes, etc.) directly via Discord.
 - **Image Database**: Upload images and save them as new summonable commands on the fly.
 - **Reaction AI**: Trigger AI translation, story completion, or "evil" responses by reacting to messages with specific emojis.
@@ -34,11 +34,9 @@ The bot requires a `settings.json` file and a `.env` file for credentials.
    cp sample-settings.json settings.json
    nano settings.json
    ```
-2. **`.env`**: Provide necessary API keys (e.g. OpenAI and DeepSeek):
+2. **`.env`**: Provide necessary API keys:
    ```env
-   OPENAI_API_KEY=your_openai_key
-   ORGANIZATION=your_openai_org
-   DS_API_KEY=your_deepseek_key
+   OPENROUTER_KEY=your_openrouter_api_key
    ```
 
 ---
@@ -59,10 +57,10 @@ Modify the bot's internal vocabulary lists and custom image pool without restart
 ### 🤖 AI & Reactions
 | Command | Description |
 | --- | --- |
-| `=ai <prompt>` | Query **OpenAI** (`gpt-5.4-nano`). Responses have a day-of-week weighted chance to be cruel/sarcastic. |
-| `=ds <prompt>` | Query **DeepSeek** (`deepseek-v4-flash`). Unrestricted and absurdity-focused. |
-| `=mao <prompt>` | Roleplay as **Mao Zedong** (DeepSeek), answering in riddles first in Chinese, then English. |
-| `=yoda <prompt>` | Roleplay as dehydrated, horny Master Yoda (DeepSeek). |
+| `=ai <prompt>` | Query **OpenRouter** (`gpt-5.6-luna`). Responses have a day-of-week weighted chance to be cruel/sarcastic. |
+| `=ds <prompt>` | Query **OpenRouter** (`deepseek-v4-flash`). Unrestricted and absurdity-focused. |
+| `=mao <prompt>` | Roleplay as **Mao Zedong** (`deepseek-v4-flash`), answering in riddles first in Chinese, then English. |
+| `=yoda <prompt>` | Roleplay as dehydrated, horny Master Yoda (`deepseek-v4-flash`). |
 | `=invent <product>` | Generates a product pitch with a bolded slogan (90% chance to be goofy/impractical). |
 
 **Reaction Triggers (configured in `settings.json`):**
