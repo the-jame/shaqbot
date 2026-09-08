@@ -3,7 +3,7 @@
 Simple, spaghetti code bot made for my Discord server. Powered by DeepSeek & OpenAI (GPT-5 Nano).
 
 ## Features
-- **Daily Posts**: Automatically posts a "Meme of the Day" (or Friday video) on startup/daily restart, followed 10 seconds later by a daily Onion radio news clip from `radionews/`. Also announces birthdays configured in `main.js`.
+- **Daily Posts**: Automatically posts a "Meme of the Day" (or Friday video) on startup/daily restart. Also announces birthdays configured in `main.js`.
 - **LLM Integration**: AI chat completions routed through OpenRouter (`gpt-5.6-luna` and `deepseek-v4-flash`).
 - **Dynamic Memory**: Users can add, remove, or view items in the bot's internal dictionary lists (People, Reasons, Locations, Times, Sizes, etc.) directly via Discord.
 - **Image Database**: Upload images and save them as new summonable commands on the fly.
@@ -100,6 +100,7 @@ Modify the bot's internal vocabulary lists and custom image pool without restart
 | Command | Description |
 | --- | --- |
 | `=random`, `=meme`, `=react` | Selects and sends a random file from `/img`. |
+| `=radio`, `=onion`, `=radionews`, `=onionradionews` | Selects and sends a random Onion Radio News MP3 clip from `/radionews`. |
 | `=sickos` | Selects and sends a random image from `/sickos`. |
 | `=friday` | Plays `friday.mp4` on Fridays (California time). |
 | `=plex` | Resets the "0 days since last Plex reference" counter. |

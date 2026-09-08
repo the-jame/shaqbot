@@ -89,14 +89,6 @@ client.on("ready", () => {
       });
     }
 
-    // NEWS OF THE DAY LOGIC (delayed by 10s so meme posts first)
-    setTimeout(() => {
-      const newsDir = "/home/james/bots/shaqbot/radionews/";
-      randFile(newsDir, (err, file) => {
-        if (!err) targetChannel.send({ content: "The news of the day is...", files: [`radionews/${file}`] });
-      });
-    }, 3000);
-
     // Birthday Announcement
     const bday = birthdays.find(b => b[0] === today);
     if (bday) targetChannel.send(`:confetti_ball: It is <@${bday[1]}>\'s birthday today! :confetti_ball:`);
@@ -785,6 +777,19 @@ client.on("messageCreate", async (message) => {
       });
       break;
 
+    case "radio":
+    case "onion":
+    case "radionews":
+    case "onionradionews":
+      const radioNewsDir = "/home/james/bots/shaqbot/radionews/";
+      randFile(radioNewsDir, (err, file) => {
+        if (err) return console.log(err);
+        message.channel.send({
+          files: [`radionews/${file}`]
+        }).catch(err => console.log("Failed to send radio news:", err));
+      });
+      break;
+
     case "breasts":
       message.channel.send({ files: ["img/kingofbreasts.jpg"] });
       break;
@@ -847,7 +852,6 @@ client.on("messageCreate", async (message) => {
     case "300bowl":
       message.channel.send({ files: ["img/lahabra.png"] });
       break;
-    case "onion":
     case "onions":
       message.channel.send({ files: ["img/onions.jpg"] });
       break;
