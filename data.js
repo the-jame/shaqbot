@@ -602,7 +602,9 @@ module.exports = {
     "butch Poliwrath",
     "straight Bulbasaur",
     "Auntie Anne",
-    "Wetzel"
+    "Wetzel",
+    "mort crim",
+    "\"Sorry Dick\" Joe"
   ],
   "peopleirl": [
     "reeg",
@@ -2907,7 +2909,8 @@ module.exports = {
     "definitely never fucked a pumpkin 😉",
     "thinks it would be so freaking epic",
     "fucking loves science! 🤪",
-    "is tucked and cucked"
+    "is tucked and cucked",
+    "is enjoying smut, sandwhiches, and sending zero e-mails over a long weekend"
   ],
   "sizes": [
     "large",
