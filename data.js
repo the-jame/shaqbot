@@ -604,7 +604,12 @@ module.exports = {
     "Auntie Anne",
     "Wetzel",
     "mort crim",
-    "\"Sorry Dick\" Joe"
+    "\"Sorry Dick\" Joe",
+    "a crying baby",
+    "Jacques Tits",
+    "Ed \"Sick Fuck\" Sheeran",
+    "Ned Shearhim",
+    "gay yoda"
   ],
   "peopleirl": [
     "reeg",
@@ -1701,7 +1706,10 @@ module.exports = {
     "getting outmeated by GTA VI NPCs 🥀",
     "woke 3.0",
     "a steak knife",
-    "peepee"
+    "peepee",
+    "aerosolized piss",
+    "$1300 ASMR earphones",
+    "a bag of dirt with the word PUTO on it"
   ],
   "times": [
     "right now",
@@ -2526,7 +2534,10 @@ module.exports = {
     "the nearest open bathroom",
     "a location pending confirmation",
     "club penguin",
-    "Daddyhole Road"
+    "Daddyhole Road",
+    "mongrel school",
+    "beside the Huangsha Town Neighborhood Committee in Xiushui County",
+    "next to the Huangsha Town Neighborhood Committee, Xiushui County, Jiujiang City, Jiangxi Province (Haihuping)"
   ],
   "reasons": [
     "said the earth is flat",
@@ -2910,7 +2921,9 @@ module.exports = {
     "thinks it would be so freaking epic",
     "fucking loves science! 🤪",
     "is tucked and cucked",
-    "is enjoying smut, sandwhiches, and sending zero e-mails over a long weekend"
+    "is enjoying smut, sandwhiches, and sending zero e-mails over a long weekend",
+    "sucked on mind-altering nuts 25,000 years ago",
+    "'s butts 2 big 2 fit in da seats on ride"
   ],
   "sizes": [
     "large",

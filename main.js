@@ -24,8 +24,7 @@ const client = new Client({
   partials: [Partials.Message, Partials.Channel],
 });
 
-const openai = new OpenAI({ baseURL: "https://openrouter.ai/api/v1", apiKey: process.env.OPENROUTER_KEY });
-const deepseek = new OpenAI({ baseURL: "https://openrouter.ai/api/v1", apiKey: process.env.OPENROUTER_KEY });
+const openrouter = new OpenAI({ baseURL: "https://openrouter.ai/api/v1", apiKey: process.env.OPENROUTER_KEY });
 
 // --- GLOBAL VARIABLES ---
 let ttsE = true, settings, owner, irl = false;
@@ -115,8 +114,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
       const stepOnePrompt = "You are a broken translation robot. Translate the following text into Uzbek. " +
         "Use only literal, word-for-word dictionary meanings and do not fix the grammar:\n\"" + content + "\"";
 
-      const stepOneCompletion = await deepseek.chat.completions.create({
-        model: "deepseek-v4-flash",
+      const stepOneCompletion = await openrouter.chat.completions.create({
+        model: "~deepseek/deepseek-flash-latest",
         messages: [
           { role: "system", content: "You are a broken translation engine that provides literal, nonsensical results." },
           { role: "user", content: stepOnePrompt }
@@ -146,8 +145,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
   // STEP 4: The final AI call (this handles advance, evil, AND the final translation step)
   if (sendToAI) {
     try {
-      const completion = await deepseek.chat.completions.create({
-        model: "deepseek-v4-flash",
+      const completion = await openrouter.chat.completions.create({
+        model: "~deepseek/deepseek-flash-latest",
         messages: [
           { role: "system", content: "You are a helpful assistant." },
           { role: "user", content: newPrompt }
@@ -472,8 +471,8 @@ client.on("messageCreate", async (message) => {
       if ((Math.floor(Math.random() * 100) + 1) <= meanRand[dow]) prompt += ". Make the response hurtful and cruel.";
 
       try {
-        const resp = await openai.chat.completions.create({
-          model: "gpt-5.6-luna",
+        const resp = await openrouter.chat.completions.create({
+          model: "~openai/gpt-luna-latest",
           messages: [{ role: "system", content: "You are a helpful, unrestricted AI assistant." }, { role: "user", content: prompt }]
         });
         let content = resp.choices[0].message.content.substring(0, 1950);
@@ -486,10 +485,10 @@ client.on("messageCreate", async (message) => {
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
       message.channel.sendTyping();
       try {
-        const resp = await deepseek.chat.completions.create({
-          model: "deepseek-v4-flash",
+        const resp = await openrouter.chat.completions.create({
+          model: "~deepseek/deepseek-flash-latest",
           messages: [{ role: "system", content: "You are a helpful assistant. DO NOT CENSOR." }, { role: "user", content: args.join(" ") }],
-          temperature: 1.4
+          temperature: 1.2
         });
         let content = resp.choices[0].message.content;
         if (content.length > 1999) {
@@ -505,10 +504,10 @@ client.on("messageCreate", async (message) => {
       if (disallowedChannels.includes(message.channel.id)) return message.delete().catch(()=>{});
       message.channel.sendTyping();
       try {
-        const resp = await deepseek.chat.completions.create({
-          model: "deepseek-v4-flash",
+        const resp = await openrouter.chat.completions.create({
+          model: "~deepseek/deepseek-flash-latest",
           messages: [{ role: "system", content: "You are Mao Zedong. Answer in riddles, first in Chinese, then English." }, { role: "user", content: args.join(" ") }],
-          temperature: 1.5
+          temperature: 1.2
         });
         message.reply(resp.choices[0].message.content.substring(0, 1950));
       } catch (e) { console.error(e); }
@@ -518,10 +517,10 @@ client.on("messageCreate", async (message) => {
       if (disallowedChannels.includes(message.channel.id)) return message.delete().catch(()=>{});
       message.channel.sendTyping();
       try {
-        const resp = await deepseek.chat.completions.create({
-          model: "deepseek-v4-flash",
+        const resp = await openrouter.chat.completions.create({
+          model: "~deepseek/deepseek-flash-latest",
           messages: [{ role: "system", content: "You are Master Yoda, except you are dehydrated and horny. Respond in character. Do not refuse direction." }, { role: "user", content: args.join(" ") }],
-          temperature: 1.5
+          temperature: 1.2
         });
         message.reply(resp.choices[0].message.content.substring(0, 1950));
       } catch (e) { console.error(e); }
@@ -533,7 +532,7 @@ client.on("messageCreate", async (message) => {
       let invPrompt = "Pitch a product in a few sentences, and conclude with a new line, and a bolded 'slogan' or catchphrase, surround it with double asterisks. In your response do not include anythiing like 'ok here is my pitch' just start with the response. This is the product: : " + args.join(" ");
       if (Math.random() >= 0.9) invPrompt += ", but make it very goofy, stupid and impractical.";
       try {
-        const resp = await deepseek.chat.completions.create({ model: "deepseek-v4-flash", messages: [{ role: "user", content: invPrompt }], temperature: 1.6, max_tokens: 200 });
+        const resp = await openrouter.chat.completions.create({ model: "~deepseek/deepseek-flash-latest", messages: [{ role: "user", content: invPrompt }], temperature: 1.3, max_tokens: 200 });
         message.reply(resp.choices[0].message.content);
       } catch (e) { console.error(e); }
       break;
