@@ -105,3 +105,10 @@ Modify the bot's internal vocabulary lists and custom image pool without restart
 | `=friday` | Plays `friday.mp4` on Fridays (California time). |
 | `=plex` | Resets the "0 days since last Plex reference" counter. |
 | **Media Keywords** | Hundreds of keyword triggers sending local media or links, including: `=whitebaby`, `=petercoin`, `=sickfuck`, `=beans`, `=zamn`, `=eepy`, `=bogos`, `=fajitas`, `=society`, `=leatherbelt`, `=goblin`, `=cummies`, and more. |
+
+<p align="center">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+</p>
+<p align="center">
+  <sub>Copyright © 2026 <a href="https://github.com/the-jame">the-jame</a> · Released under the <a href="LICENSE">MIT License</a></sub>
+</p>
