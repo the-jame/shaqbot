@@ -1,6 +1,6 @@
 
 # Shaqbot
-Simple, spaghetti code bot made for my Discord server. Powered by DeepSeek & OpenAI (GPT-5 Nano).
+Simple, spaghetti code bot made for my Discord server. Powered by DeepSeek & OpenAI (GPT-5.6 Luna).
 
 ## Features
 - **Daily Posts**: Automatically posts a "Meme of the Day" (or Friday video) on startup/daily restart. Also announces birthdays configured in `main.js`.
