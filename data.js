@@ -620,7 +620,8 @@ module.exports = {
     "Dough Balls",
     "100 Gregs",
     "gay bomberman",
-    "Joe Chinese"
+    "Joe Chinese",
+    "Mr. Sicily"
   ],
   "peopleirl": [
     "reeg",
