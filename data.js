@@ -609,7 +609,18 @@ module.exports = {
     "Jacques Tits",
     "Ed \"Sick Fuck\" Sheeran",
     "Ned Shearhim",
-    "gay yoda"
+    "gay yoda",
+    "Darth Thirstus, the Moistless One",
+    "Jedi Master Bear Grylls",
+    "Gruntilda",
+    "ton's students",
+    "the guy with the GoodHead™ Apple Pie Blowjob Set in his cart right now",
+    "Remus Romulus",
+    "Man of Yogurt",
+    "Dough Balls",
+    "100 Gregs",
+    "gay bomberman",
+    "Joe Chinese"
   ],
   "peopleirl": [
     "reeg",
@@ -1709,7 +1720,16 @@ module.exports = {
     "peepee",
     "aerosolized piss",
     "$1300 ASMR earphones",
-    "a bag of dirt with the word PUTO on it"
+    "a bag of dirt with the word PUTO on it",
+    "a Clean Joe",
+    "the Apple Pie Blowjob Set",
+    "the Chocolate Donut Stroker Set",
+    "experience in woodworking",
+    "Urine Therapy",
+    "male breastmilk",
+    "LAUCHING",
+    "100 sex",
+    "dehydrated yoda, lightly roasted and ground in a spice grinder"
   ],
   "times": [
     "right now",
@@ -2537,7 +2557,13 @@ module.exports = {
     "Daddyhole Road",
     "mongrel school",
     "beside the Huangsha Town Neighborhood Committee in Xiushui County",
-    "next to the Huangsha Town Neighborhood Committee, Xiushui County, Jiujiang City, Jiangxi Province (Haihuping)"
+    "next to the Huangsha Town Neighborhood Committee, Xiushui County, Jiujiang City, Jiangxi Province (Haihuping)",
+    "Düsseldorf",
+    "Beaver, Utah",
+    "Margaritaville, USA",
+    "Poop, Mexico",
+    "Pee Pee Island",
+    "Pendejo School"
   ],
   "reasons": [
     "said the earth is flat",
@@ -2749,7 +2775,6 @@ module.exports = {
     "they fucking love peanut butter",
     "of WOKE",
     "allah willed it to be so",
-    "i'm spooky",
     "HEEEELP!! HELP MEE!!!! THIS IS NOT A JOKE HELP!!!!!",
     "I’m freaky!",
     "I’m freaky! I'm horny!",
@@ -2812,7 +2837,6 @@ module.exports = {
     "don't worry about it, kitten",
     "you're a loser!",
     "I love you 😊",
-    "9/11",
     "is too horny to die",
     "is in no hurry",
     "didn't consider the syntax",
@@ -2923,7 +2947,17 @@ module.exports = {
     "is tucked and cucked",
     "is enjoying smut, sandwhiches, and sending zero e-mails over a long weekend",
     "sucked on mind-altering nuts 25,000 years ago",
-    "'s butts 2 big 2 fit in da seats on ride"
+    "'s butts 2 big 2 fit in da seats on ride",
+    "didn't sauce they scrod",
+    "is spooky",
+    "pissed out their essence",
+    "is very wise",
+    "am become lesbian",
+    "is hydrating their cat",
+    "has never worked with corn starch",
+    "did 9/11",
+    "stepped in gunk",
+    "has a full pack of cigs, a lighter, and nothing but time"
   ],
   "sizes": [
     "large",
