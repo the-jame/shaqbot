@@ -621,7 +621,11 @@ module.exports = {
     "100 Gregs",
     "gay bomberman",
     "Joe Chinese",
-    "Mr. Sicily"
+    "Mr. Sicily",
+    "Dudus",
+    "Frankie Nunez",
+    "Deuce Bigalow",
+    "Bob Sindler"
   ],
   "peopleirl": [
     "reeg",

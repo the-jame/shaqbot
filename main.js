@@ -179,7 +179,7 @@ client.on("messageCreate", async (message) => {
   const match = message.content.match(linkRegex);
   if (match) {
     const cleanLink = match[0].split('?')[0]; // Trims tracking parameters
-    const fixed = cleanLink.replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "vxtwitter.com");
+    const fixed = cleanLink.replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "fixupx.com");
     const extra = message.content.replace(match[0], "").trim();
     const quote = extra ? `\n> ${extra.replace(/\n/g, "\n> ")}` : "";
     const name = message.member?.displayName || message.author.displayName || message.author.username;
