@@ -5,3 +5,12 @@
 /bin/sh: 1: bp: not found
 /bin/sh: 1: bp: not found
 /bin/sh: 1: bp: not found
+[master c13decbe] catchup
+ 3 files changed, 6 insertions(+), 2 deletions(-)
+ create mode 100644 img/pingus.png
+remote: 
+remote: GitHub found 19 vulnerabilities on the-jame/shaqbot's default branch (8 high, 9 moderate, 2 low). To find out more, visit:        
+remote:      https://github.com/the-jame/shaqbot/security/dependabot        
+remote: 
+To https://github.com/the-jame/shaqbot.git
+   d9b2809b..c13decbe  master -> master

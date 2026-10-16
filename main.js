@@ -36,6 +36,17 @@ function sleep(ms) { return new Promise((resolve) => setTimeout(resolve, ms)); }
 function capitalize(s) { return s && s[0].toUpperCase() + s.slice(1); }
 function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
+// Persist daily-post state so a restart/reboot can't repost the meme or a birthday.
+const STATE_FILE = path.join(__dirname, "bot-state.json");
+function readState() {
+  try { return JSON.parse(fs.readFileSync(STATE_FILE, "utf8")) || {}; }
+  catch (e) { return {}; }
+}
+function saveState(patch) {
+  try { fs.writeFileSync(STATE_FILE, JSON.stringify({ ...readState(), ...patch })); }
+  catch (e) { console.error("Failed to save bot state:", e); }
+}
+
 // Load Settings
 try {
   settings = require("./settings.json");
@@ -76,21 +87,39 @@ client.on("ready", () => {
   const dow = dateObj.getDay();
   const today = (dateObj.getUTCMonth() + 1) + "/" + dateObj.getUTCDate();
 
-  // MEME OF THE DAY LOGIC
+  // MEME OF THE DAY LOGIC (posted at most once per calendar day)
   const targetChannel = client.channels.cache.get("95702402253983744");
   if (targetChannel) {
-    if (dow == 5) { // Friday
-      targetChannel.send({ files: ["img/friday.mp4"] });
+    const todayKey = `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, "0")}-${String(dateObj.getDate()).padStart(2, "0")}`;
+    const state = readState();
+
+    if (state.lastMeme === todayKey) {
+      console.log(`Meme of the day already posted for ${todayKey}; skipping.`);
+    } else if (dow == 5) { // Friday
+      targetChannel.send({ files: ["img/friday.mp4"] })
+        .then(() => saveState({ lastMeme: todayKey }))
+        .catch(err => console.error("Failed to send meme of the day:", err));
     } else {
       const dir = "/home/james/bots/shaqbot/img/";
       randFile(dir, (err, file) => {
-        if (!err) targetChannel.send({ content: "The meme of the day is...", files: [`img/${file}`] });
+        if (err) return console.error("Failed to pick meme of the day:", err);
+        targetChannel.send({ content: "The meme of the day is...", files: [`img/${file}`] })
+          .then(() => saveState({ lastMeme: todayKey }))
+          .catch(e => console.error("Failed to send meme of the day:", e));
       });
     }
 
-    // Birthday Announcement
+    // Birthday Announcement (posted at most once per calendar day)
     const bday = birthdays.find(b => b[0] === today);
-    if (bday) targetChannel.send(`:confetti_ball: It is <@${bday[1]}>\'s birthday today! :confetti_ball:`);
+    if (bday) {
+      if (state.lastBirthday === todayKey) {
+        console.log(`Birthday already announced for ${todayKey}; skipping.`);
+      } else {
+        targetChannel.send(`:confetti_ball: It is <@${bday[1]}>\'s birthday today! :confetti_ball:`)
+          .then(() => saveState({ lastBirthday: todayKey }))
+          .catch(err => console.error("Failed to send birthday announcement:", err));
+      }
+    }
   }
 });
 
@@ -1743,9 +1772,22 @@ client.on("messageCreate", async (message) => {
   }
 });
 
+// Surface gateway errors instead of letting an unhandled 'error' event crash the process.
+client.on("error", (err) => console.error("Discord client error:", err));
+
+let loginAttempts = 0;
 function login() {
-  if (settings.token) client.login(settings.token);
-  else console.log("Error logging in: No token in settings.json");
+  if (!settings.token) return console.log("Error logging in: No token in settings.json");
+  client.login(settings.token)
+    .then(() => { loginAttempts = 0; })
+    .catch((err) => {
+      loginAttempts++;
+      // Boot-time DNS/network hiccups (EAI_AGAIN etc.) are common; back off and retry
+      // instead of letting the process die and waiting on pm2's 30s worker.
+      const delay = Math.min(30000, 5000 * loginAttempts);
+      console.error(`Login failed (attempt ${loginAttempts}, ${err && err.code ? err.code : err}); retrying in ${delay / 1000}s`);
+      setTimeout(login, delay);
+    });
 }
 
 login();
