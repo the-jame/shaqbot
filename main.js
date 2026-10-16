@@ -204,11 +204,11 @@ client.on("messageCreate", async (message) => {
 
 
 // Link Fixer
-  const linkRegex = /https?:\/\/(?:bsky\.app\/profile\/[^\/]+\/post\/[^\/\s]+|(?:twitter|x)\.com\/\w+\/status\/\d+)\S*/;
+  const linkRegex = /https?:\/\/(?:twitter|x)\.com\/\w+\/status\/\d+\S*/;
   const match = message.content.match(linkRegex);
   if (match) {
     const cleanLink = match[0].split('?')[0]; // Trims tracking parameters
-    const fixed = cleanLink.replace("bsky.app", "fxbsky.app").replace(/(twitter|x)\.com/, "fixupx.com");
+    const fixed = cleanLink.replace(/(twitter|x)\.com/, "fixupx.com");
     const extra = message.content.replace(match[0], "").trim();
     const quote = extra ? `\n> ${extra.replace(/\n/g, "\n> ")}` : "";
     const name = message.member?.displayName || message.author.displayName || message.author.username;
