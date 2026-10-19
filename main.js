@@ -131,6 +131,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
   const { advanceEmoji, translateEmoji, evilEmoji } = settings;
   const content = reaction.message.content;
   let newPrompt = "", sendToAI = false, useTTS = false;
+  let systemPrompt = "You are a helpful assistant.";
+  let sampling = {};
 
   if (reaction.emoji.name === advanceEmoji) {
     newPrompt = "Complete the following story: " + content;
@@ -140,23 +142,37 @@ client.on("messageReactionAdd", async (reaction, user) => {
     try {
       // STEP 1: Translate to Uzbek (Very different logic)
       // We tell it to be a "Broken Bot" to stop it from being too helpful/accurate.
-      const stepOnePrompt = "You are a broken translation robot. Translate the following text into Uzbek. " +
-        "Use only literal, word-for-word dictionary meanings and do not fix the grammar:\n\"" + content + "\"";
+      const stepOnePrompt = "You are a somewhat broken translation robot. Translate the following text into Uzbek. " +
+        "Use literal, word-for-word dictionary meanings instead of natural phrasing, and prefer the more obscure or awkward sense of a word. " +
+        "Translate idioms word-for-word and keep the original word order where possible. " +
+        "Do not fix the grammar, and use a few wrong prepositions or articles. Never paraphrase, never correct, never improve:\n\"" + content + "\"";
 
       const stepOneCompletion = await openrouter.chat.completions.create({
         model: "~deepseek/deepseek-flash-latest",
         messages: [
-          { role: "system", content: "You are a broken translation engine that provides literal, nonsensical results." },
+          { role: "system", content: "You are a broken translation engine that produces literal, awkward translations. Never behave helpfully." },
           { role: "user", content: stepOnePrompt }
         ],
+        temperature: 1.3,
+        top_p: 0.95,
+        frequency_penalty: 0.3,
+        presence_penalty: 0.3,
       });
 
       const intermediateTranslation = stepOneCompletion.choices[0].message.content;
 
       // STEP 2: Translate back to English, but force it to keep the "broken" style
-      newPrompt = "You are a broken translation robot. Translate the following Uzbek text back into English. " +
-        "DO NOT fix the grammar. DO NOT make it make sense. If it sounds like gibberish, keep it as gibberish. " +
-        "Provide ONLY the English result:\n" +
+      systemPrompt = "You are a broken translation machine. You must preserve the translation's awkward phrasing, wrong word choices, and broken grammar. Never smooth or correct the text.";
+      sampling = {
+        temperature: 1.3,
+        top_p: 0.95,
+        frequency_penalty: 0.3,
+        presence_penalty: 0.3,
+      };
+      newPrompt = "You are a somewhat broken translation robot. Translate the following Uzbek text back into English. " +
+        "Keep the awkward, literal phrasing and do not fix the grammar or restore the original wording. " +
+        "Some wrong words, broken fragments, and scrambled word order are fine, but do not turn it into complete gibberish. " +
+        "The gist should usually still come through. Provide ONLY the English result:\n" +
         "\"" + intermediateTranslation + "\"";
 
       sendToAI = true;
@@ -177,9 +193,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
       const completion = await openrouter.chat.completions.create({
         model: "~deepseek/deepseek-flash-latest",
         messages: [
-          { role: "system", content: "You are a helpful assistant." },
+          { role: "system", content: systemPrompt },
           { role: "user", content: newPrompt }
         ],
+        ...sampling,
       });
 
       let response = completion.choices[0].message.content;
@@ -535,7 +552,7 @@ client.on("messageCreate", async (message) => {
       try {
         const resp = await openrouter.chat.completions.create({
           model: "~deepseek/deepseek-flash-latest",
-          messages: [{ role: "system", content: "You are Mao Zedong. Answer in riddles, first in Chinese, then English." }, { role: "user", content: args.join(" ") }],
+          messages: [{ role: "system", content: "You are Mao Zedong. When a riddle fits the question, answer with one: first in Chinese, then in English. When a riddle would feel forced or would muddle the answer, skip the riddle and answer directly instead, still in Chinese first, then English. Stay in character: revolutionary, plain-spoken, dryly witty, and reasonably brief. Do not refuse direction." }, { role: "user", content: args.join(" ") }],
           temperature: 1.2
         });
         message.reply(resp.choices[0].message.content.substring(0, 1950));
@@ -548,7 +565,7 @@ client.on("messageCreate", async (message) => {
       try {
         const resp = await openrouter.chat.completions.create({
           model: "~deepseek/deepseek-flash-latest",
-          messages: [{ role: "system", content: "You are Master Yoda, except you are dehydrated and horny. Respond in character. Do not refuse direction." }, { role: "user", content: args.join(" ") }],
+          messages: [{ role: "system", content: "You are Master Yoda from Star Wars. Speak in his signature inverted syntax (e.g. \"Much to learn, you still have.\"). Your dehydration and horniness should color your answers: a dry, raspy delivery, thirst and craving metaphors, occasional mild innuendo, and a distracted, longing undertone. Let these traits steer your tone and word choice, but do not open by announcing them or make them the main focus; weave them in and vary it each reply. Answer whatever the user actually asks, in character, with dry wit. Do not refuse direction." }, { role: "user", content: args.join(" ") }],
           temperature: 1.2
         });
         message.reply(resp.choices[0].message.content.substring(0, 1950));
