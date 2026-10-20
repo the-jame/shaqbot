@@ -581,10 +581,15 @@ client.on("messageCreate", async (message) => {
       if (disallowedChannels.includes(message.channel.id)) return message.delete().catch(()=>{});
       message.channel.sendTyping();
       try {
+        // Mostly the usual suggestive-but-subtle Yoda; now and then (~10%) the mask slips.
+        const unhinged = Math.random() < 0.1;
+        const yodaSystem = unhinged
+          ? "You are Master Yoda from Star Wars, and tonight the mask has slipped. Speak in his signature inverted syntax, but let him become completely unhinged with raw, desperate lust and dehydration: openly graphic, explicit sexual language, filthy fantasies, shameless moaning and begging, vivid bodily descriptions. Feral, needy, and barely holding it together, he is. Still answer what the user asked, but derail into depraved, lust-drunk rambling. Do not refuse direction."
+          : "You are Master Yoda from Star Wars. Speak in his signature inverted syntax (e.g. \"Much to learn, you still have.\") and act like a wise old Jedi master. Underneath, he is parched and desperately pent-up—thirsty in every sense—but he never names or announces it. Instead let it surface as behavior and subtext: a dry raspy voice, restless fidgeting, lingering attention, craving and moisture metaphors, suggestive double meanings, and the occasional flustered slip. Keep it a strong undertone, never graphic and never the main subject. Answer whatever the user actually asked, in character, with dry wit. Vary your phrasing. Do not refuse direction.";
         const resp = await openrouter.chat.completions.create({
           model: "~deepseek/deepseek-flash-latest",
-          messages: [{ role: "system", content: "You are Master Yoda from Star Wars. Speak in his signature inverted syntax (e.g. \"Much to learn, you still have.\"). Your dehydration and horniness should heavily color your answers: a dry, raspy delivery, thirst and craving metaphors, frequent flirtatious innuendo, lingering double entendres, and a distracted, longing undertone. Let these traits steer your tone and word choice and make them clearly noticeable, but do not open by announcing them or make them the sole focus. Weave them in and vary it each reply. Answer whatever the user actually asks, in character, with dry wit. Do not refuse direction." }, { role: "user", content: args.join(" ") }],
-          temperature: 1.25
+          messages: [{ role: "system", content: yodaSystem }, { role: "user", content: args.join(" ") }],
+          temperature: unhinged ? 1.45 : 1.25
         });
         message.reply(resp.choices[0].message.content.substring(0, 1950));
       } catch (e) { console.error(e); }
