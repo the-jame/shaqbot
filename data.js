@@ -2963,7 +2963,8 @@ module.exports = {
     "has never worked with corn starch",
     "did 9/11",
     "stepped in gunk",
-    "has a full pack of cigs, a lighter, and nothing but time"
+    "has a full pack of cigs, a lighter, and nothing but time",
+    "is fucked up in the crib drinking HEEE HAW"
   ],
   "sizes": [
     "large",

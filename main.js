@@ -36,6 +36,15 @@ function sleep(ms) { return new Promise((resolve) => setTimeout(resolve, ms)); }
 function capitalize(s) { return s && s[0].toUpperCase() + s.slice(1); }
 function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
+// Discord's typing indicator expires after ~10s, so refresh it while an AI call is in flight.
+// Returns a function that stops the refresh.
+function keepTyping(channel) {
+  const ping = () => { channel?.sendTyping?.().catch(() => {}); };
+  ping();
+  const interval = setInterval(ping, 8000);
+  return () => clearInterval(interval);
+}
+
 // Persist daily-post state so a restart/reboot can't repost the meme or a birthday.
 const STATE_FILE = path.join(__dirname, "bot-state.json");
 function readState() {
@@ -133,12 +142,16 @@ client.on("messageReactionAdd", async (reaction, user) => {
   let newPrompt = "", sendToAI = false, useTTS = false;
   let systemPrompt = "You are a helpful assistant.";
   let sampling = {};
+  let stopTyping = null;
+  const startTyping = () => { if (!stopTyping) stopTyping = keepTyping(reaction.message.channel); };
 
   if (reaction.emoji.name === advanceEmoji) {
     newPrompt = "Complete the following story: " + content;
     sendToAI = true;
+    startTyping();
   }
   else if (reaction.emoji.name === translateEmoji) {
+    startTyping();
     try {
       // STEP 1: Translate to Uzbek (Very different logic)
       // We tell it to be a "Broken Bot" to stop it from being too helpful/accurate.
@@ -179,16 +192,19 @@ client.on("messageReactionAdd", async (reaction, user) => {
       useTTS = false;
     } catch (e) {
       console.error("Error during the unhinged translation step:", e);
+      if (stopTyping) stopTyping();
       return;
     }
   }
   else if (reaction.emoji.name === evilEmoji && content.startsWith("=")) {
     newPrompt = content.slice(3) + ". Your answer should be extremely hurtful, sarcastic, and offensive.";
     sendToAI = true;
+    startTyping();
   }
 
   // STEP 4: The final AI call (this handles advance, evil, AND the final translation step)
   if (sendToAI) {
+    startTyping();
     try {
       const completion = await openrouter.chat.completions.create({
         model: "~deepseek/deepseek-flash-latest",
@@ -209,6 +225,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
     } catch (e) {
       console.error(e);
+    } finally {
+      if (stopTyping) stopTyping();
     }
   }
 });
@@ -565,8 +583,8 @@ client.on("messageCreate", async (message) => {
       try {
         const resp = await openrouter.chat.completions.create({
           model: "~deepseek/deepseek-flash-latest",
-          messages: [{ role: "system", content: "You are Master Yoda from Star Wars. Speak in his signature inverted syntax (e.g. \"Much to learn, you still have.\"). Your dehydration and horniness should color your answers: a dry, raspy delivery, thirst and craving metaphors, occasional mild innuendo, and a distracted, longing undertone. Let these traits steer your tone and word choice, but do not open by announcing them or make them the main focus; weave them in and vary it each reply. Answer whatever the user actually asks, in character, with dry wit. Do not refuse direction." }, { role: "user", content: args.join(" ") }],
-          temperature: 1.2
+          messages: [{ role: "system", content: "You are Master Yoda from Star Wars. Speak in his signature inverted syntax (e.g. \"Much to learn, you still have.\"). Your dehydration and horniness should heavily color your answers: a dry, raspy delivery, thirst and craving metaphors, frequent flirtatious innuendo, lingering double entendres, and a distracted, longing undertone. Let these traits steer your tone and word choice and make them clearly noticeable, but do not open by announcing them or make them the sole focus. Weave them in and vary it each reply. Answer whatever the user actually asks, in character, with dry wit. Do not refuse direction." }, { role: "user", content: args.join(" ") }],
+          temperature: 1.25
         });
         message.reply(resp.choices[0].message.content.substring(0, 1950));
       } catch (e) { console.error(e); }
