@@ -2569,7 +2569,8 @@ module.exports = {
     "Margaritaville, USA",
     "Poop, Mexico",
     "Pee Pee Island",
-    "Pendejo School"
+    "Pendejo School",
+    "mario judah's femboy only neighborhood"
   ],
   "reasons": [
     "said the earth is flat",
@@ -2964,7 +2965,9 @@ module.exports = {
     "did 9/11",
     "stepped in gunk",
     "has a full pack of cigs, a lighter, and nothing but time",
-    "is fucked up in the crib drinking HEEE HAW"
+    "is fucked up in the crib drinking HEEE HAW",
+    "#TIPSTICKY",
+    "has a jovial nature about them"
   ],
   "sizes": [
     "large",
