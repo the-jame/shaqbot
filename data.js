@@ -625,7 +625,10 @@ module.exports = {
     "Dudus",
     "Frankie Nunez",
     "Deuce Bigalow",
-    "Bob Sindler"
+    "Bob Sindler",
+    "Biddy Blas",
+    "Dr. Rick Tip",
+    "the local chunti"
   ],
   "peopleirl": [
     "reeg",
@@ -1735,7 +1738,8 @@ module.exports = {
     "LAUCHING",
     "100 sex",
     "dehydrated yoda, lightly roasted and ground in a spice grinder",
-    "my bare rancid hole"
+    "my bare rancid hole",
+    "beggar's chicken"
   ],
   "times": [
     "right now",

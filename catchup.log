@@ -14,3 +14,11 @@ remote:      https://github.com/the-jame/shaqbot/security/dependabot
 remote: 
 To https://github.com/the-jame/shaqbot.git
    d9b2809b..c13decbe  master -> master
+[master f74afe5e] catchup
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+remote: 
+remote: GitHub found 19 vulnerabilities on the-jame/shaqbot's default branch (8 high, 9 moderate, 2 low). To find out more, visit:        
+remote:      https://github.com/the-jame/shaqbot/security/dependabot        
+remote: 
+To https://github.com/the-jame/shaqbot.git
+   1ad628d8..f74afe5e  master -> master
