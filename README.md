@@ -6,6 +6,7 @@ Simple, spaghetti code bot made for my Discord server. Powered by DeepSeek & Ope
 - **Daily Posts**: Automatically posts a "Meme of the Day" (or Friday video) on startup/daily restart. Also announces birthdays configured in `main.js`.
 - **LLM Integration**: AI chat completions routed through OpenRouter (`gpt-5.6-luna` and `deepseek-v4-flash`).
 - **Dynamic Memory**: Users can add, remove, or view items in the bot's internal dictionary lists (People, Reasons, Locations, Times, Sizes, etc.) directly via Discord.
+- **Gamertag Generator**: `=xbox` builds Xbox Live-style names from single-word dictionary entries, with a rare AOL-era `X`-wrapping flourish.
 - **Image Database**: Upload images and save them as new summonable commands on the fly.
 - **Reaction AI**: Trigger AI translation, story completion, or "evil" responses by reacting to messages with specific emojis.
 - **Auto Link Fixer**: Automatically converts Twitter/X links to `vxtwitter.com` and Bluesky links to `fxbsky.app` for Discord embeds.
@@ -79,6 +80,7 @@ Modify the bot's internal vocabulary lists and custom image pool without restart
 | `=when` | Generates a random time phrase. |
 | `=where` | Generates a random location phrase. |
 | `=how` | Responds with "with [random thing]". |
+| `=xbox` | Generates an Xbox Live-style gamertag from two random single-word entries in the `people`, `things`, and `locations` lists, plus a 1–3 digit number (e.g. `WaterFrank23`). Rarely adds edgy AOL-style `X` wrapping or a stray `X`, with matching ends (e.g. `xXWaterFrank23xX`). |
 | `=yn` | Replies "Yes.", "No.", or sends a maybe GIF. |
 | `=roll [max] [label]`, `=rand`, `=random` | Rolls a random number between 1 and `max` (default 100). |
 

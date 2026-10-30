@@ -712,6 +712,39 @@ client.on("messageCreate", async (message) => {
       break;
 
 
+    case "xbox":
+      // Two random single-word items from the people/things/locations pools, plus 1-3 digits.
+      const xboxPool = [...people, ...things, ...locations]
+        .filter(w => /^[A-Za-z]+$/.test(w));
+      const xboxPicked = [];
+      while (xboxPicked.length < 2 && xboxPool.length > 0) {
+        const xboxWord = pick(xboxPool);
+        if (!xboxPicked.some(w => w.toLowerCase() === xboxWord.toLowerCase())) {
+          xboxPicked.push(xboxWord);
+        }
+      }
+      let xboxName = xboxPicked.map(w => capitalize(w.toLowerCase())).join("")
+        + (Math.floor(Math.random() * 999) + 1);
+
+      // Rare edgy AOL-era X decoration.
+      if (Math.random() < 0.05) {
+        const xboxX = () => Math.random() < 0.5 ? "x" : "X";
+        const xboxStyle = Math.floor(Math.random() * 3);
+        if (xboxStyle === 0) {
+          const xboxEnd = `${xboxX()}X`;
+          xboxName = `${xboxEnd}${xboxName}${xboxEnd}`;
+        } else if (xboxStyle === 1) {
+          const xboxPos = Math.floor(Math.random() * (xboxName.length + 1));
+          xboxName = xboxName.slice(0, xboxPos) + "X" + xboxName.slice(xboxPos);
+        } else {
+          const xboxEnd = `${xboxX()}${xboxX()}`;
+          xboxName = `${xboxEnd}${xboxName}${xboxEnd}`;
+        }
+      }
+
+      message.reply(xboxName);
+      break;
+
     case "say":
       message.delete().catch(()=>{});
       message.channel.send(args.join(" "));

@@ -628,7 +628,16 @@ module.exports = {
     "Bob Sindler",
     "Biddy Blas",
     "Dr. Rick Tip",
-    "the local chunti"
+    "the local chunti",
+    "Lil Wayne",
+    "Averagely sized Wayne",
+    "Large Wayne",
+    "Ernest Hemingway",
+    "Ernest Hawwingway",
+    "meemaw and peepaw",
+    "the souls of the damned",
+    "Gaylord Slowcum",
+    "galley slave"
   ],
   "peopleirl": [
     "reeg",
@@ -1739,7 +1748,12 @@ module.exports = {
     "100 sex",
     "dehydrated yoda, lightly roasted and ground in a spice grinder",
     "my bare rancid hole",
-    "beggar's chicken"
+    "beggar's chicken",
+    "the contented sighs of the damned",
+    "the fleshlight of the damned",
+    "the communal burning man fleshlight",
+    "the fleshlight house",
+    "a double ended fleshlight"
   ],
   "times": [
     "right now",
@@ -2574,7 +2588,9 @@ module.exports = {
     "Poop, Mexico",
     "Pee Pee Island",
     "Pendejo School",
-    "mario judah's femboy only neighborhood"
+    "mario judah's femboy only neighborhood",
+    "in the lake",
+    "the fleshlight house"
   ],
   "reasons": [
     "said the earth is flat",
@@ -2971,7 +2987,20 @@ module.exports = {
     "has a full pack of cigs, a lighter, and nothing but time",
     "is fucked up in the crib drinking HEEE HAW",
     "#TIPSTICKY",
-    "has a jovial nature about them"
+    "has a jovial nature about them",
+    "is hemming and hawing",
+    "gleeped when they should’ve gluped",
+    "is going to kick your ass",
+    "the damned say so",
+    "has been born again, rejuvenated",
+    "has been killed again, remurdernated",
+    "has a heart of gold",
+    "has a heart of piss",
+    "sees the glass half full",
+    "would do no wrong, certainly nothing to hurt a fly",
+    "got fucked up and looked into the Mirror of Galadriel and saw visions of things that were, things that are, and some things that have not yet come to pass",
+    "is growing chunti",
+    "is going to be ok"
   ],
   "sizes": [
     "large",
