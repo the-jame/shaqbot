@@ -637,7 +637,8 @@ module.exports = {
     "meemaw and peepaw",
     "the souls of the damned",
     "Gaylord Slowcum",
-    "galley slave"
+    "galley slave",
+    "Papi’s chulo"
   ],
   "peopleirl": [
     "reeg",
@@ -1753,7 +1754,10 @@ module.exports = {
     "the fleshlight of the damned",
     "the communal burning man fleshlight",
     "the fleshlight house",
-    "a double ended fleshlight"
+    "a double ended fleshlight",
+    "shovel",
+    "a pike",
+    "incarceration"
   ],
   "times": [
     "right now",

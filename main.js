@@ -726,8 +726,8 @@ client.on("messageCreate", async (message) => {
       let xboxName = xboxPicked.map(w => capitalize(w.toLowerCase())).join("")
         + (Math.floor(Math.random() * 999) + 1);
 
-      // Rare edgy AOL-era X decoration.
-      if (Math.random() < 0.05) {
+      // Occasional edgy AOL-era X decoration.
+      if (Math.random() < 0.125) {
         const xboxX = () => Math.random() < 0.5 ? "x" : "X";
         const xboxStyle = Math.floor(Math.random() * 3);
         if (xboxStyle === 0) {
