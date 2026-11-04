@@ -6,3 +6,6 @@ backup.js
 cats/
 package-lock.json
 bot-state.json
+
+catchup.log
+node_modules/
