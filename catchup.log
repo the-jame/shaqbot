@@ -40,3 +40,11 @@ remote:      https://github.com/the-jame/shaqbot/security/dependabot
 remote: 
 To https://github.com/the-jame/shaqbot.git
    29937d89..7c5752ee  master -> master
+[master 793ca767] catchup
+ 1 file changed, 8 insertions(+)
+remote: 
+remote: GitHub found 20 vulnerabilities on the-jame/shaqbot's default branch (8 high, 10 moderate, 2 low). To find out more, visit:        
+remote:      https://github.com/the-jame/shaqbot/security/dependabot        
+remote: 
+To https://github.com/the-jame/shaqbot.git
+   7c5752ee..793ca767  master -> master

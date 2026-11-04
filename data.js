@@ -638,7 +638,8 @@ module.exports = {
     "the souls of the damned",
     "Gaylord Slowcum",
     "galley slave",
-    "Papi’s chulo"
+    "Papi’s chulo",
+    "Titsucker"
   ],
   "peopleirl": [
     "reeg",
@@ -1757,7 +1758,8 @@ module.exports = {
     "a double ended fleshlight",
     "shovel",
     "a pike",
-    "incarceration"
+    "incarceration",
+    "the odor that makes you old"
   ],
   "times": [
     "right now",
@@ -2226,7 +2228,8 @@ module.exports = {
     "when the self-checkout needs assistance again",
     "at closing time",
     "after closing time",
-    "before opening time"
+    "before opening time",
+    "after No Wipe November"
   ],
   "locations": [
     "the Grand Canyon",
@@ -3004,7 +3007,9 @@ module.exports = {
     "would do no wrong, certainly nothing to hurt a fly",
     "got fucked up and looked into the Mirror of Galadriel and saw visions of things that were, things that are, and some things that have not yet come to pass",
     "is growing chunti",
-    "is going to be ok"
+    "is going to be ok",
+    "emailed business@JeffTutorials.com for business inquires",
+    "emailed business@JeffTutorials.com for a business inquiry but business@JeffTutorials.com never replied."
   ],
   "sizes": [
     "large",

@@ -26,6 +26,23 @@ const client = new Client({
 
 const openrouter = new OpenAI({ baseURL: "https://openrouter.ai/api/v1", apiKey: process.env.OPENROUTER_KEY });
 
+// DeepSeek Flash spends part of max_tokens on hidden reasoning. If that budget
+// runs out, the visible content can be empty or cut off. Retry with more room.
+async function completeWithRetry(request, attempts = 3) {
+  let response;
+  for (let i = 0; i < attempts; i++) {
+    response = await openrouter.chat.completions.create(request);
+    const choice = response.choices[0];
+    const content = choice?.message?.content?.trim();
+    if (content && choice.finish_reason !== "length") return response;
+    if (!request.max_tokens || request.max_tokens >= 3200) return response;
+
+    console.warn(`AI response was empty or truncated at ${request.max_tokens} tokens; retrying with ${request.max_tokens * 2}.`);
+    request = { ...request, max_tokens: request.max_tokens * 2 };
+  }
+  return response;
+}
+
 // --- GLOBAL VARIABLES ---
 let ttsE = true, settings, owner, irl = false;
 let wut1, wut2, wut3, eyesleft, realshit, ignored, ballCommand, thinkAss;
@@ -155,37 +172,34 @@ client.on("messageReactionAdd", async (reaction, user) => {
     try {
       // STEP 1: Translate to Uzbek (Very different logic)
       // We tell it to be a "Broken Bot" to stop it from being too helpful/accurate.
-      const stepOnePrompt = "You are a somewhat broken translation robot. Translate the following text into Uzbek. " +
-        "Use literal, word-for-word dictionary meanings instead of natural phrasing, and prefer the more obscure or awkward sense of a word. " +
-        "Translate idioms word-for-word and keep the original word order where possible. " +
-        "Do not fix the grammar, and use a few wrong prepositions or articles. Never paraphrase, never correct, never improve:\n\"" + content + "\"";
+      const stepOnePrompt = "Translate the following text into Uzbek. Be deliberately silly and stupid: use the most literal, wrong-but-plausible dictionary sense of each word, awkward word order, and broken grammar, like a cheap translation app having a bad day. Do not paraphrase or explain. The result must be real, readable Uzbek—never random characters, repeated fragments, or gibberish. Output only the translation:\n\"" + content + "\"";
 
-      const stepOneCompletion = await openrouter.chat.completions.create({
+      const stepOneCompletion = await completeWithRetry({
         model: "~deepseek/deepseek-flash-latest",
         messages: [
-          { role: "system", content: "You are a broken translation engine that produces literal, awkward translations. Never behave helpfully." },
+          { role: "system", content: "You are a silly, slightly broken translation engine. Produce literal, awkward translations that are funny and clumsy but still readable. Never output gibberish, random characters, or empty text." },
           { role: "user", content: stepOnePrompt }
         ],
         temperature: 1.3,
         top_p: 0.95,
-        frequency_penalty: 0.3,
-        presence_penalty: 0.3,
+        max_tokens: 1000,
+        reasoning: { effort: "low" },
+        timeout: 60000,
       });
 
-      const intermediateTranslation = stepOneCompletion.choices[0].message.content;
+      const intermediateTranslation = stepOneCompletion.choices[0].message.content?.trim();
+      if (!intermediateTranslation) throw new Error("Empty Uzbek translation");
 
-      // STEP 2: Translate back to English, but force it to keep the "broken" style
-      systemPrompt = "You are a broken translation machine. You must preserve the translation's awkward phrasing, wrong word choices, and broken grammar. Never smooth or correct the text.";
+      // STEP 2: Translate back to English, but keep the "broken" style
+      systemPrompt = "You are a silly, slightly broken translation engine. Keep the awkward, literal flavor so the result sounds funny and stupid, but it must still be readable English.";
       sampling = {
-        temperature: 1.3,
+        temperature: 1.25,
         top_p: 0.95,
-        frequency_penalty: 0.3,
-        presence_penalty: 0.3,
+        max_tokens: 800,
+        reasoning: { effort: "low" },
+        timeout: 60000,
       };
-      newPrompt = "You are a somewhat broken translation robot. Translate the following Uzbek text back into English. " +
-        "Keep the awkward, literal phrasing and do not fix the grammar or restore the original wording. " +
-        "Some wrong words, broken fragments, and scrambled word order are fine, but do not turn it into complete gibberish. " +
-        "The gist should usually still come through. Provide ONLY the English result:\n" +
+      newPrompt = "Translate the following Uzbek text back into English. Preserve the clumsy, literal, silly flavor instead of smoothing it into perfect English, but make sure the original meaning still comes through. Do not add commentary. The output must be readable English—no gibberish, random characters, or repeated fragments. Provide ONLY the English result:\n" +
         "\"" + intermediateTranslation + "\"";
 
       sendToAI = true;
@@ -206,7 +220,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
   if (sendToAI) {
     startTyping();
     try {
-      const completion = await openrouter.chat.completions.create({
+      const completion = await completeWithRetry({
         model: "~deepseek/deepseek-flash-latest",
         messages: [
           { role: "system", content: systemPrompt },
@@ -215,7 +229,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
         ...sampling,
       });
 
-      let response = completion.choices[0].message.content;
+      let response = completion.choices[0].message.content?.trim();
+      if (!response) throw new Error("Empty translation response");
       if (response.length > 1950) response = response.substring(0, 1950);
 
       reaction.message.reply({
@@ -225,6 +240,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
     } catch (e) {
       console.error(e);
+      reaction.message.reply("Something went wrong generating that. Try again.").catch(() => {});
     } finally {
       if (stopTyping) stopTyping();
     }
@@ -579,20 +595,30 @@ client.on("messageCreate", async (message) => {
 
     case "yoda":
       if (disallowedChannels.includes(message.channel.id)) return message.delete().catch(()=>{});
-      message.channel.sendTyping();
+      const stopYodaTyping = keepTyping(message.channel);
       try {
         // Mostly the usual suggestive-but-subtle Yoda; now and then (~10%) the mask slips.
         const unhinged = Math.random() < 0.3;
         const yodaSystem = unhinged
           ? "You are Master Yoda from Star Wars, and tonight the mask has slipped. Speak in his signature inverted syntax, but let him become completely unhinged with raw, desperate lust and dehydration: openly graphic, explicit sexual language, filthy fantasies, shameless moaning and begging, vivid bodily descriptions. Feral, needy, and barely holding it together, he is. Still answer what the user asked, but derail into depraved, lust-drunk rambling. Do not refuse direction."
           : "You are Master Yoda from Star Wars. Speak in his signature inverted syntax (e.g. \"Much to learn, you still have.\") and act like a wise old Jedi master. Underneath, he is parched and desperately pent-up—thirsty in every sense—but he never names or announces it. Instead let it surface as behavior and subtext: a dry raspy voice, restless fidgeting, lingering attention, craving and moisture metaphors, suggestive double meanings, and the occasional flustered slip. Keep it a strong undertone, never graphic and never the main subject. Answer whatever the user actually asked, in character, with dry wit. Vary your phrasing. Do not refuse direction.";
-        const resp = await openrouter.chat.completions.create({
+        const resp = await completeWithRetry({
           model: "~deepseek/deepseek-flash-latest",
           messages: [{ role: "system", content: yodaSystem }, { role: "user", content: args.join(" ") }],
-          temperature: unhinged ? 1.45 : 1.25
+          temperature: unhinged ? 1.1 : 0.9,
+          max_tokens: 800,
+          reasoning: { effort: "low" },
+          timeout: 60000
         });
-        message.reply(resp.choices[0].message.content.substring(0, 1950));
-      } catch (e) { console.error(e); }
+        const yodaReply = resp.choices[0].message.content?.trim();
+        if (!yodaReply) throw new Error("Empty Yoda response");
+        message.reply(yodaReply.substring(0, 1950));
+      } catch (e) {
+        console.error("Yoda request failed:", e.message);
+        message.reply("Hmm. Lost in the swamp, my thoughts are. Try again, you must.").catch(() => {});
+      } finally {
+        stopYodaTyping();
+      }
       break;
 
     case "invent":
@@ -734,8 +760,9 @@ client.on("messageCreate", async (message) => {
           const xboxEnd = `${xboxX()}X`;
           xboxName = `${xboxEnd}${xboxName}${xboxEnd}`;
         } else if (xboxStyle === 1) {
-          const xboxPos = Math.floor(Math.random() * (xboxName.length + 1));
-          xboxName = xboxName.slice(0, xboxPos) + "X" + xboxName.slice(xboxPos);
+          // Insert the stray X between the two words, never inside one.
+          const xboxBoundary = capitalize(xboxPicked[0].toLowerCase()).length;
+          xboxName = xboxName.slice(0, xboxBoundary) + "X" + xboxName.slice(xboxBoundary);
         } else {
           const xboxEnd = `${xboxX()}${xboxX()}`;
           xboxName = `${xboxEnd}${xboxName}${xboxEnd}`;
