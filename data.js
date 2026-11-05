@@ -1759,7 +1759,9 @@ module.exports = {
     "shovel",
     "a pike",
     "incarceration",
-    "the odor that makes you old"
+    "the odor that makes you old",
+    "Woke 5.5 Opus",
+    "a rat"
   ],
   "times": [
     "right now",

@@ -83,6 +83,7 @@ Modify the bot's internal vocabulary lists and custom image pool without restart
 | `=xbox` | Generates an Xbox Live-style gamertag from two random single-word entries in the `people`, `things`, and `locations` lists, plus a 1–3 digit number (e.g. `WaterFrank23`). Rarely adds edgy AOL-style `X` wrapping or a stray `X`, with matching ends (e.g. `xXWaterFrank23xX`). |
 | `=yn` | Replies "Yes.", "No.", or sends a maybe GIF. |
 | `=roll [max] [label]`, `=rand`, `=random` | Rolls a random number between 1 and `max` (default 100). |
+| `=chance <thing>` | Rolls 1–100 and replies as a percentage chance, e.g. `=chance eat a shoe` → `42% chance to eat a shoe.` |
 
 ### 🤡 Fun & Utilities
 | Command | Description |

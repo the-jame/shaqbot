@@ -541,6 +541,16 @@ client.on("messageCreate", async (message) => {
       );
       break;
 
+    case "chance":
+      let chanceInput = args.join(" ").trim().replace(/^to\b\s*/i, "");
+      if (!chanceInput) {
+        return message.reply("Usage: `=chance <thing>` (e.g. `=chance eat a shoe`)");
+      }
+      const chanceRoll = Math.floor(Math.random() * 100) + 1;
+      const chanceEnd = /[.!?]$/.test(chanceInput) ? "" : ".";
+      message.reply(`${chanceRoll}% chance to ${chanceInput}${chanceEnd}`);
+      break;
+
     case "ai":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
       message.channel.sendTyping();
@@ -623,13 +633,31 @@ client.on("messageCreate", async (message) => {
 
     case "invent":
       if (disallowedChannels.includes(message.channel.id)) return message.delete().catch(()=>{});
-      message.channel.sendTyping();
+      const stopInventTyping = keepTyping(message.channel);
       let invPrompt = "Pitch a product in a few sentences, and conclude with a new line, and a bolded 'slogan' or catchphrase, surround it with double asterisks. In your response do not include anythiing like 'ok here is my pitch' just start with the response. This is the product: : " + args.join(" ");
       if (Math.random() >= 0.9) invPrompt += ", but make it very goofy, stupid and impractical.";
       try {
-        const resp = await openrouter.chat.completions.create({ model: "~deepseek/deepseek-flash-latest", messages: [{ role: "user", content: invPrompt }], temperature: 1.3, max_tokens: 200 });
-        message.reply(resp.choices[0].message.content);
-      } catch (e) { console.error(e); }
+        // Reasoning tokens count against max_tokens, so 200 can leave no visible text at all.
+        const resp = await completeWithRetry({
+          model: "~deepseek/deepseek-flash-latest",
+          messages: [
+            { role: "system", content: "You are an inventor pitching products. Reply only with the pitch." },
+            { role: "user", content: invPrompt }
+          ],
+          temperature: 1.3,
+          max_tokens: 600,
+          reasoning: { effort: "low" },
+          timeout: 60000
+        });
+        const pitch = resp.choices[0].message.content?.trim();
+        if (!pitch) throw new Error("Empty invent response");
+        message.reply(pitch);
+      } catch (e) {
+        console.error("Invent request failed:", e.message);
+        message.reply("The prototype exploded. Try again.").catch(() => {});
+      } finally {
+        stopInventTyping();
+      }
       break;
 
     case "er":
