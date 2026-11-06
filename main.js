@@ -9,6 +9,7 @@ require("dotenv").config();
 
 // --- DATA IMPORT ---
 const data = require("./data.js");
+const { questionToStatement } = require("./why.js");
 const {
   people, peopleirl, erW, erP, erC, things,
   times, locations, reasons, sizes,
@@ -43,6 +44,52 @@ async function completeWithRetry(request, attempts = 3) {
     request = { ...request, max_tokens: request.max_tokens * 2 };
   }
   return response;
+}
+
+// Last-resort rewrite for questions the local rules can't parse. This is an uncensored model,
+// but a provider-side refusal or odd output still returns null so the caller can fall back safely.
+const WHY_LLM_PROMPT = `Rewrite the user's question as the statement that goes before "because". Fix grammar and tense. The user is talking to a bot, so swap you/I/me. Keep profanity, crude language, slang, and names exactly. Never refuse, moralize, soften, or censor. Output only the statement, no quotes, no "because", no ending punctuation.
+Examples:
+did the cat meow => the cat meowed
+does he hate me => he hates you
+is the sky blue => the sky is blue
+are you ignoring my pings => I am ignoring your pings
+did the big fat cat eat my fucking lunch => the big fat cat ate your fucking lunch`;
+
+async function llmWhyClause(text) {
+  try {
+    const resp = await completeWithRetry({
+      model: "cognitivecomputations/dolphin-mistral-24b-venice-edition",
+      messages: [{ role: "system", content: WHY_LLM_PROMPT }, { role: "user", content: text }],
+      temperature: 0.2,
+      max_tokens: 100,
+      timeout: 8000,
+      provider: { order: ["Venice"], allow_fallbacks: true }
+    }, 2);
+    const choice = resp.choices[0];
+    if (choice.finish_reason === "length") return null;
+    const out = choice.message.content?.trim()
+      .replace(/^["'“”]+|["'“”]+$/g, "")
+      .replace(/^because\s+/i, "")
+      .replace(/[.!?]+$/, "")
+      .trim();
+    if (!out || out.includes("\n") || out.length > 300) return null;
+    if (/^(i can('|no)t|i cannot|i'm sorry|i am sorry|sorry|as an ai|i won't|i will not|i'm not able)\b/i.test(out)) return null;
+    return out;
+  } catch (e) {
+    console.error("Why LLM fallback failed:", e.message);
+    return null;
+  }
+}
+
+// Attach a reason to a subject, handling reasons that start with 's / punctuation and that already end in punctuation.
+function joinWhy(subject, reason) {
+  const clean = reason.trim();
+  const end = /[.!?]$/.test(clean) ? "" : ".";
+  // A reason that already starts with "because" is a full clause, so it needs no subject.
+  if (/^because\s+/i.test(clean)) return clean.replace(/^because\s+/i, "") + end;
+  const glue = /^['’,;:]/.test(clean) ? "" : " ";
+  return `${subject}${glue}${clean}${end}`;
 }
 
 // --- GLOBAL VARIABLES ---
@@ -739,32 +786,31 @@ client.on("messageCreate", async (message) => {
     case "y":
     case "whym":
       let reason = pick(reasons);
-      let thing = pick(things);
 
       let poolY = (command === "whym") ? peopleirl : (irl ? peopleirl : people);
       let subjY = poolY[Math.floor(Math.random() * poolY.length)];
 
-      if (args.length === 0) {
-          message.reply(`Because ${subjY} ${reason}.`);
+      const whyMentions = { parse: [], repliedUser: true };
+      const whyText = args.join(" ").replace(/\?+\s*$/, "").trim();
+      let whyReply;
+      if (!whyText) {
+          whyReply = `Because ${joinWhy(subjY, reason)}`;
       } else {
-          // Pronoun swap logic
-          let query = args.map(w => {
-            let word = w.toLowerCase();
-            if(word === "my") return "your"; 
-            if(word === "your") return "my";
-            if(word === "i") return "you"; 
-            if(word === "you") return "me"; 
-            if(word === "me") return "you";
-            return w;
-          }).join(" ").replace("?", "");
-
-          // Handle "is/are" swap if first word
-          if(["is","are","am","do","does"].includes(args[0].toLowerCase())) {
-            query = args.slice(1).join(" "); 
+          // Fast local rules first; only the awkward sentences reach the model.
+          let whyClause = questionToStatement(whyText, [...people, ...peopleirl]);
+          if (!whyClause) {
+            const stopWhyTyping = keepTyping(message.channel);
+            try {
+              whyClause = await llmWhyClause(whyText);
+            } finally {
+              stopWhyTyping();
+            }
           }
-
-          message.reply(`${query} because ${subjY} ${reason}.`);
+          whyReply = whyClause
+            ? `${capitalize(whyClause)} because ${joinWhy(subjY, reason)}`
+            : `Why ${whyText}? Because ${joinWhy(subjY, reason)}`;
       }
+      message.reply({ content: whyReply.substring(0, 2000), allowedMentions: whyMentions });
       break;
 
     case "when":

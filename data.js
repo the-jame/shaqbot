@@ -3011,7 +3011,8 @@ module.exports = {
     "is growing chunti",
     "is going to be ok",
     "emailed business@JeffTutorials.com for business inquires",
-    "emailed business@JeffTutorials.com for a business inquiry but business@JeffTutorials.com never replied."
+    "emailed business@JeffTutorials.com for a business inquiry but business@JeffTutorials.com never replied.",
+    "women don't like the vehicle"
   ],
   "sizes": [
     "large",
