@@ -26,6 +26,9 @@ const CLAUSE = new Set("who which whose and or but when where while if because t
 const ADJECTIVES = new Set("big small little large huge tiny old new young fat skinny tall short long red blue green black white yellow orange purple pink brown grey gray golden stupid dumb smart good bad evil angry mad sad happy ugly pretty beautiful cute weird random whole entire first last next other same dead fake real sexy hot cold dirty clean rich poor famous local great gay straight fucking damn goddamn shitty giant fresh stale wet dry loud quiet fast slow lazy crazy sick drunk naked sleepy hungry annoying tired sweaty greasy moldy".split(" "));
 const NOT_VERB = new Set("in on at to for from with by about into onto under near behind between through during without inside outside across toward towards the a an and or but who which that when where while if because".split(" "));
 
+// Common present-tense verbs that happen to end in "ed", so "did ... need" doesn't become "need".
+const PRESENT_ED = new Set("need feed seed weed speed bleed breed shed embed wed proceed exceed succeed".split(" "));
+
 const IRREGULAR = {
   have: "had", do: "did", go: "went", say: "said", get: "got", make: "made", know: "knew", think: "thought",
   take: "took", see: "saw", come: "came", give: "gave", find: "found", tell: "told", become: "became",
@@ -45,6 +48,7 @@ const IRREGULAR = {
   spin: "spun", split: "split", spit: "spat", sting: "stung", swing: "swung", undo: "undid", withdraw: "withdrew",
   shit: "shit", cum: "came", mistake: "mistook", forbid: "forbade", arise: "arose", sweep: "swept", sneak: "snuck",
 };
+const PAST_FORMS = new Set(Object.values(IRREGULAR));
 
 function toPast(verb) {
   const v = verb.toLowerCase();
@@ -65,6 +69,12 @@ function toThird(verb) {
   if (/(s|x|z|ch|sh|o)$/.test(v)) return v + "es";
   if (/[^aeiou]y$/.test(v)) return v.slice(0, -1) + "ies";
   return v + "s";
+}
+
+function isPastVerb(verb) {
+  const v = verb.toLowerCase();
+  if (PAST_FORMS.has(v)) return true;
+  return v.endsWith("ed") && !PRESENT_ED.has(v);
 }
 
 function negative(aux) {
@@ -114,6 +124,13 @@ function subjectLength(rest, names) {
   const n = w.length;
   if (!n) return 0;
   if (PRONOUNS.has(w[0])) return 1;
+
+  // "did Poop Sucko die": a run of capitalized words is a proper name, not a verb.
+  if (!DETS.has(w[0]) && !/'s$/.test(w[0]) && /^[A-Z]/.test(split(rest[0]).core)) {
+    let j = 0;
+    while (j < n && /^[A-Z]/.test(split(rest[j]).core)) j++;
+    if (j > 0 && j < n) return j;
+  }
 
   if (!DETS.has(w[0]) && !/'s$/.test(w[0])) {
     let best = 0;
@@ -192,8 +209,19 @@ function questionToStatement(text, names = []) {
   const verbCore = norm(split(swappedTail[0]).core);
   if (ADVERBS.has(verbCore)) return [subject, base, ...swappedTail].join(" ");
 
+  // "did poop sucko died": the real verb is probably the already-past word at the end,
+  // so the earlier words are part of a name we can't parse. Let the fallback handle it.
+  if (base === "did" && swappedTail.length >= 2 &&
+      isPastVerb(norm(split(swappedTail[swappedTail.length - 1]).core)) && !isPastVerb(verbCore)) {
+    return null;
+  }
+
   const { pre, post } = split(swappedTail[0]);
-  const verb = base === "did" ? toPast(verbCore) : base === "does" ? toThird(verbCore) : verbCore;
+  const verb = (base === "did" || base === "do" || base === "does") && isPastVerb(verbCore)
+    ? verbCore
+    : base === "did" ? toPast(verbCore)
+    : base === "does" ? toThird(verbCore)
+    : verbCore;
   return [subject, pre + verb + post, ...swappedTail.slice(1)].join(" ");
 }
 
