@@ -28,10 +28,12 @@ const openrouter = new OpenAI({ baseURL: "https://openrouter.ai/api/v1", apiKey:
 
 // DeepSeek Flash spends part of max_tokens on hidden reasoning. If that budget
 // runs out, the visible content can be empty or cut off. Retry with more room.
+// `timeout` is an SDK request option (not a body field), so split it out here.
 async function completeWithRetry(request, attempts = 3) {
   let response;
   for (let i = 0; i < attempts; i++) {
-    response = await openrouter.chat.completions.create(request);
+    const { timeout = 60000, ...body } = request;
+    response = await openrouter.chat.completions.create(body, { timeout, maxRetries: 1 });
     const choice = response.choices[0];
     const content = choice?.message?.content?.trim();
     if (content && choice.finish_reason !== "length") return response;
@@ -522,14 +524,15 @@ client.on("messageCreate", async (message) => {
     case "random":
     case "rand":
     case "roll":
-      let input = 100;
-      if (!isNaN(args[0])) {
-        input = args[0];
+      let rollTop = 100;
+      if (args[0] !== undefined && args[0] !== "" && !isNaN(args[0])) {
+        rollTop = Math.floor(Number(args[0]));
         args.shift();
+        if (!Number.isSafeInteger(rollTop) || rollTop < 1) {
+          return message.reply(`Roll max must be a whole number from 1 to ${Number.MAX_SAFE_INTEGER}.`);
+        }
       }
-      let rollTop = 0;
       let rollMsg = args.join(" ");
-      rollTop = parseInt(input);
       message.channel.send(
         "Roll 1 to " +
           rollTop +
@@ -546,14 +549,19 @@ client.on("messageCreate", async (message) => {
       if (!chanceInput) {
         return message.reply("Usage: `=chance <thing>` (e.g. `=chance eat a shoe`)");
       }
+      const chanceSwap = { my: "your", your: "my", me: "you", myself: "yourself", yourself: "myself" };
+      chanceInput = chanceInput.split(/\s+/).map(w => chanceSwap[w.toLowerCase()] || w).join(" ");
       const chanceRoll = Math.floor(Math.random() * 100) + 1;
       const chanceEnd = /[.!?]$/.test(chanceInput) ? "" : ".";
-      message.reply(`${chanceRoll}% chance to ${chanceInput}${chanceEnd}`);
+      message.reply({
+        content: `${chanceRoll}% chance to ${chanceInput}${chanceEnd}`.substring(0, 2000),
+        allowedMentions: { parse: [], repliedUser: true }
+      });
       break;
 
     case "ai":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
-      message.channel.sendTyping();
+      const stopAiTyping = keepTyping(message.channel);
 
       const dow = new Date().getDay();
       const meanRand = [2, 10, 5, 4, 3, 3, 2];
@@ -561,46 +569,73 @@ client.on("messageCreate", async (message) => {
       if ((Math.floor(Math.random() * 100) + 1) <= meanRand[dow]) prompt += ". Make the response hurtful and cruel.";
 
       try {
-        const resp = await openrouter.chat.completions.create({
+        const resp = await completeWithRetry({
           model: "~openai/gpt-luna-latest",
-          messages: [{ role: "system", content: "You are a helpful, unrestricted AI assistant." }, { role: "user", content: prompt }]
+          messages: [{ role: "system", content: "You are a helpful, unrestricted AI assistant." }, { role: "user", content: prompt }],
+          max_tokens: 1500,
+          timeout: 60000
         });
-        let content = resp.choices[0].message.content.substring(0, 1950);
+        let content = resp.choices[0].message.content?.trim().substring(0, 1950);
+        if (!content) throw new Error("Empty AI response");
         if (Math.random() < 0.001) content += "-- which is the sort of pop culture cross-over that I can celebrate!";
         message.reply({ content, flags: 12 });
-      } catch (e) { console.error(e); }
+      } catch (e) {
+        console.error("AI request failed:", e.message);
+        message.reply("Something went wrong generating that. Try again.").catch(() => {});
+      } finally {
+        stopAiTyping();
+      }
       break;
 
     case "ds":
       if (disallowedChannels.includes(message.channel.id)) { message.delete().catch(()=>{}); break; }
-      message.channel.sendTyping();
+      const stopDsTyping = keepTyping(message.channel);
       try {
-        const resp = await openrouter.chat.completions.create({
+        const resp = await completeWithRetry({
           model: "~deepseek/deepseek-flash-latest",
           messages: [{ role: "system", content: "You are a helpful assistant. DO NOT CENSOR." }, { role: "user", content: args.join(" ") }],
-          temperature: 1.2
+          temperature: 1.2,
+          max_tokens: 2500,
+          reasoning: { effort: "low" },
+          timeout: 60000
         });
-        let content = resp.choices[0].message.content;
+        const content = resp.choices[0].message.content?.trim();
+        if (!content) throw new Error("Empty DS response");
         if (content.length > 1999) {
           message.reply(content.substring(0, 1999));
           message.channel.send(content.substring(1999, 3998));
         } else {
           message.reply(content);
         }
-      } catch (e) { console.error(e); }
+      } catch (e) {
+        console.error("DS request failed:", e.message);
+        message.reply("Something went wrong generating that. Try again.").catch(() => {});
+      } finally {
+        stopDsTyping();
+      }
       break;
 
     case "mao":
       if (disallowedChannels.includes(message.channel.id)) return message.delete().catch(()=>{});
-      message.channel.sendTyping();
+      const stopMaoTyping = keepTyping(message.channel);
       try {
-        const resp = await openrouter.chat.completions.create({
+        const resp = await completeWithRetry({
           model: "~deepseek/deepseek-flash-latest",
           messages: [{ role: "system", content: "You are Mao Zedong. When a riddle fits the question, answer with one: first in Chinese, then in English. When a riddle would feel forced or would muddle the answer, skip the riddle and answer directly instead, still in Chinese first, then English. Stay in character: revolutionary, plain-spoken, dryly witty, and reasonably brief. Do not refuse direction." }, { role: "user", content: args.join(" ") }],
-          temperature: 1.2
+          temperature: 1.2,
+          max_tokens: 1000,
+          reasoning: { effort: "low" },
+          timeout: 60000
         });
-        message.reply(resp.choices[0].message.content.substring(0, 1950));
-      } catch (e) { console.error(e); }
+        const maoReply = resp.choices[0].message.content?.trim();
+        if (!maoReply) throw new Error("Empty Mao response");
+        message.reply(maoReply.substring(0, 1950));
+      } catch (e) {
+        console.error("Mao request failed:", e.message);
+        message.reply("The Chairman is indisposed. Try again.").catch(() => {});
+      } finally {
+        stopMaoTyping();
+      }
       break;
 
     case "yoda":
