@@ -592,16 +592,37 @@ client.on("messageCreate", async (message) => {
       break;
 
     case "chance":
-      let chanceInput = args.join(" ").trim().replace(/^to\b\s*/i, "");
+      let chanceInput = args.join(" ").trim();
+      let chancePrep = "to";
+      let chanceExplicit = false;
+      let chanceLead;
+      while ((chanceLead = chanceInput.match(/^(to|of|for)\b\s*/i))) {
+        chancePrep = chanceLead[1].toLowerCase();
+        chanceExplicit = true;
+        chanceInput = chanceInput.slice(chanceLead[0].length).trim();
+      }
       if (!chanceInput) {
         return message.reply("Usage: `=chance <thing>` (e.g. `=chance eat a shoe`)");
       }
-      const chanceSwap = { my: "your", your: "my", me: "you", myself: "yourself", yourself: "myself" };
+      const chanceSwap = {
+        i: "you", me: "you", my: "your", mine: "yours", myself: "yourself",
+        "i'm": "you're", im: "you're", "i've": "you've", "i'll": "you'll", "i'd": "you'd",
+        your: "my", yours: "mine", yourself: "myself"
+      };
       chanceInput = chanceInput.split(/\s+/).map(w => chanceSwap[w.toLowerCase()] || w).join(" ");
+
+      // "chance to win" is a verb phrase; "chance that I have covid" is a clause.
+      const chanceClause = /^(i|you|he|she|it|we|they|the|a|an|my|your|his|her|its|our|their|this|that|these|those|there|everyone|everybody|nobody|someone|somebody|anyone|anybody)\b/i;
+      if (!chanceExplicit && (chanceClause.test(chanceInput) || /^[A-Z]/.test(chanceInput))) {
+        chancePrep = "that";
+      } else if (chancePrep === "to" && /^(i|you|he|she|it|we|they)\b/i.test(chanceInput)) {
+        chancePrep = "that";
+      }
+
       const chanceRoll = Math.floor(Math.random() * 100) + 1;
       const chanceEnd = /[.!?]$/.test(chanceInput) ? "" : ".";
       message.reply({
-        content: `${chanceRoll}% chance to ${chanceInput}${chanceEnd}`.substring(0, 2000),
+        content: `${chanceRoll}% chance ${chancePrep} ${chanceInput}${chanceEnd}`.substring(0, 2000),
         allowedMentions: { parse: [], repliedUser: true }
       });
       break;

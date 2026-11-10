@@ -1761,7 +1761,8 @@ module.exports = {
     "incarceration",
     "the odor that makes you old",
     "Woke 5.5 Opus",
-    "a rat"
+    "a rat",
+    "unslinged hog"
   ],
   "times": [
     "right now",
@@ -3012,7 +3013,8 @@ module.exports = {
     "is going to be ok",
     "emailed business@JeffTutorials.com for business inquires",
     "emailed business@JeffTutorials.com for a business inquiry but business@JeffTutorials.com never replied.",
-    "women don't like the vehicle"
+    "women don't like the vehicle",
+    "is Irish"
   ],
   "sizes": [
     "large",
