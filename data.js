@@ -1762,7 +1762,9 @@ module.exports = {
     "the odor that makes you old",
     "Woke 5.5 Opus",
     "a rat",
-    "unslinged hog"
+    "unslinged hog",
+    "poop bone",
+    "Demon's bicycle"
   ],
   "times": [
     "right now",
@@ -2600,7 +2602,8 @@ module.exports = {
     "Pendejo School",
     "mario judah's femboy only neighborhood",
     "in the lake",
-    "the fleshlight house"
+    "the fleshlight house",
+    "Topperz Pizza"
   ],
   "reasons": [
     "said the earth is flat",
