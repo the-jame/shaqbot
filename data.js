@@ -2603,7 +2603,9 @@ module.exports = {
     "mario judah's femboy only neighborhood",
     "in the lake",
     "the fleshlight house",
-    "Topperz Pizza"
+    "Topperz Pizza",
+    "the big fuck off warehouse",
+    "the country of New York"
   ],
   "reasons": [
     "said the earth is flat",
@@ -2904,7 +2906,6 @@ module.exports = {
     "ate too much fiber",
     "overdosed on Flintstones vitamins and is now invincible",
     "son 😭",
-    "they're six feet from the edge and they're thinking \"maybe six feet aint so far down\"",
     "is ghoulmaxxing",
     "don't give a fuck homie",
     "forgot how doors work",
@@ -3017,7 +3018,10 @@ module.exports = {
     "emailed business@JeffTutorials.com for business inquires",
     "emailed business@JeffTutorials.com for a business inquiry but business@JeffTutorials.com never replied.",
     "women don't like the vehicle",
-    "is Irish"
+    "is Irish",
+    "died from shit brain disease",
+    "is six feet from the edge and they're thinking \"maybe six feet aint so far down\"",
+    "fell on the tracks"
   ],
   "sizes": [
     "large",
