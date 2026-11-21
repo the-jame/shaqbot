@@ -639,7 +639,11 @@ module.exports = {
     "Gaylord Slowcum",
     "galley slave",
     "Papi’s chulo",
-    "Titsucker"
+    "Titsucker",
+    "Juan Glépez",
+    "Richard_R_Genius",
+    "Richard_E_Genius",
+    "old dry Kieth"
   ],
   "peopleirl": [
     "reeg",
@@ -1764,7 +1768,8 @@ module.exports = {
     "a rat",
     "unslinged hog",
     "poop bone",
-    "Demon's bicycle"
+    "Demon's bicycle",
+    "Yeonmi’s Parks"
   ],
   "times": [
     "right now",
@@ -3021,7 +3026,11 @@ module.exports = {
     "is Irish",
     "died from shit brain disease",
     "is six feet from the edge and they're thinking \"maybe six feet aint so far down\"",
-    "fell on the tracks"
+    "fell on the tracks",
+    "has a secret Chinese wife",
+    "is working on developing an even better, more enhanced, secret Chinese gf in the lab",
+    "‘s secret Chinese girlfriend left them",
+    "saw chunks fall from their genitals"
   ],
   "sizes": [
     "large",
