@@ -643,7 +643,8 @@ module.exports = {
     "Juan Glépez",
     "Richard_R_Genius",
     "Richard_E_Genius",
-    "old dry Kieth"
+    "old dry Kieth",
+    "pilgrims"
   ],
   "peopleirl": [
     "reeg",
@@ -1769,7 +1770,13 @@ module.exports = {
     "unslinged hog",
     "poop bone",
     "Demon's bicycle",
-    "Yeonmi’s Parks"
+    "Yeonmi’s Parks",
+    "a feast fit for a kxng",
+    "a scone",
+    "a bleak meal",
+    "Thanksgiving turkey",
+    "twelve bricks",
+    "twelve"
   ],
   "times": [
     "right now",
@@ -2239,7 +2246,9 @@ module.exports = {
     "at closing time",
     "after closing time",
     "before opening time",
-    "after No Wipe November"
+    "after No Wipe November",
+    "$2.99 Big Pussy Mondays",
+    "Modelo Time"
   ],
   "locations": [
     "the Grand Canyon",
@@ -2342,7 +2351,6 @@ module.exports = {
     "rivendell",
     "area 51",
     "the hollywood sign",
-    "themyscira",
     "pandora",
     "the sahara desert",
     "twin peaks",
@@ -2610,7 +2618,9 @@ module.exports = {
     "the fleshlight house",
     "Topperz Pizza",
     "the big fuck off warehouse",
-    "the country of New York"
+    "the country of New York",
+    "the Fuck You Restaurant",
+    "The Ass Football Center"
   ],
   "reasons": [
     "said the earth is flat",
@@ -3030,7 +3040,8 @@ module.exports = {
     "has a secret Chinese wife",
     "is working on developing an even better, more enhanced, secret Chinese gf in the lab",
     "‘s secret Chinese girlfriend left them",
-    "saw chunks fall from their genitals"
+    "saw chunks fall from their genitals",
+    "EA made the Pussy franchise a AAA game"
   ],
   "sizes": [
     "large",
